@@ -1,0 +1,77 @@
+# name: Your game name here!
+sha1: 4f240dfbeaeff64ae466467af014ecde2bef2bfc
+options:
+  disassemble_all: True
+  auto_decompile_empty_functions: False
+  basename: game.elf
+  target_path: game.elf.rom
+  elf_path: build/game.elf.elf
+  base_path: .
+  platform: ps2
+  compiler: EEGCC
+
+  # asm_path: asm
+  # src_path: src
+  # build_path: build
+
+  ld_script_path: game.elf.ld
+  ld_dependencies: True
+  ld_wildcard_sections: True
+  ld_bss_contains_common: True
+
+  create_asm_dependencies: True
+
+  find_file_boundaries: False
+
+  o_as_suffix: True
+
+  symbol_addrs_path:
+    - symbol_addrs.txt
+  reloc_addrs_path:
+    - reloc_addrs.txt
+
+  # undefined_funcs_auto_path: undefined_funcs_auto.txt
+  # undefined_syms_auto_path: undefined_syms_auto.txt
+
+  extensions_path: tools/splat_ext
+
+  string_encoding: ASCII
+  data_string_encoding: ASCII
+  rodata_string_guesser_level: 2
+  data_string_guesser_level: 2
+
+  named_regs_for_c_funcs: False
+
+  section_order:
+    - .text
+    - .data
+    # - .vudata
+    - .rodata
+    - .gcc_except_table
+    - .sbss
+    - .bss
+
+  auto_link_sections:
+    - .data
+    # - .vudata
+    - .rodata
+    - .gcc_except_table
+    - .sbss
+    - .bss
+
+segments:
+  - name: cod
+    type: code
+    start: 0x000000
+    vram: 0x00100000
+    bss_size: 0x4C444
+    subalign: null
+    subsegments:
+      - [0x000000, c, cod]
+      - [0x30DA80, data, cod/30DA80] # .data
+      - [0x342170, databin, cod/342170] # .vudata
+      - [0x344800, rodata, cod/344800] # .rodata
+      - [0x38D100, gcc_except_table, cod/38D100] # .gcc_except_table
+      - { type: sbss, vram: 0x0048D500, name: cod/0048D500 } # .sbss
+      - { type: bss, vram: 0x0048D580, name: cod/0048D580 } # .bss
+  - [0x38D490]
