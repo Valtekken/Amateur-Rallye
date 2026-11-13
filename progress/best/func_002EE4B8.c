@@ -1,0 +1,3 @@
+extern void func_003A9E18(s32);s32 func_0039EE08(register s32 a,register s32 b){func_003A9E18(a);return a;}s32 func_00374D98(register s8*a,register s8*b,register s8*c,register s8*d){register s32 x,y;while(a!=b&&c!=d){x=*a;y=*c;if(x<y)return -1;if(y<x)return 1;a++;c++;}if(c==d)return a!=b;return -1;}
+s32 func_0034DE20(register s8*a,register s8*b,register s8*c,register s8*d){register s32 x,y;while(a!=b&&c!=d){x=*a;y=*c;if(x<y)return -1;if(y<x)return 1;a++;c++;}if(c==d)return a!=b;return -1;}
+s32 func_002EE4B8(register s8*a,register s8*b,register s8*c,register s8*d){register s32 x,y;while(a!=b&&c!=d){x=*a;y=*c;if(x<y)return -1;if(y<x)return 1;a++;c++;}if(c==d)return a!=b;return -1;}

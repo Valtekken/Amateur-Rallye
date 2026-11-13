@@ -1,0 +1,4 @@
+/* identical to func_00156E00 (matched), with its names changed by decompdecomp */
+typedef struct{u8 *begin,*end,*cap;} Vec;
+extern void *func_00152D28(s32);extern void *func_002B1FC0(s32);extern void *func_003D2910(s32);extern void func_003F93CC(void*,void*,s32);extern u32 D_0040E618[];
+void *func_002181C0(Vec*a,Vec*b,Vec*c){volatile u8 scratch[16];if(a!=b){do{if(c){s32 count,bytes;u8*mem;count=((s32)a->end-(s32)a->begin)>>2;c->begin=0;c->end=0;c->cap=0;if(count){bytes=count<<2;if(bytes){u8*block=func_002B1FC0(bytes);if(block)mem=block;else mem=func_003D2910(bytes);}else{u8 *freeblock=(u8*)D_0040E618[-1];if(!freeblock)mem=func_00152D28(0);else{u32 next=*(u32*)freeblock;mem=freeblock;D_0040E618[-1]=next;}}}else{mem=0;bytes=0;}c->begin=mem;c->cap=mem+bytes;c->end=mem;{u8*first=a->begin;u8*last=a->end;s32 size=((last-first)>>2)<<2;func_003F93CC(mem,first,size);c->end=mem+(last-first);}}a++;c++;}while(a!=b);}return c;}

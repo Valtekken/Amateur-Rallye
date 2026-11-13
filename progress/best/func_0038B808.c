@@ -1,0 +1,1 @@
+extern s32 func_003F9288(s8*,s8*,s32);u32 func_0038B808(void **arg0,s8 *arg1,s32 arg2,s32 arg3){void **obj=arg0;s32 i=arg2,limit=arg2+arg3;arg0=(void**)*obj;while((u32)((s32*)arg0)[-4]>=(u32)limit){s8*p=(s8*)*obj+i;if(*p==*arg1 && func_003F9288(p,arg1,arg3)==0)return i;i++;limit=i+arg3;arg0=(void**)*obj;}return 0xffffffffu;}

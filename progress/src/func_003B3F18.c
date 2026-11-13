@@ -1,0 +1,1 @@
+typedef struct {u32 w[12];} E48; void func_003A5228(E48*,E48*); E48 *func_003B3F18(register E48*a,register E48*b,register E48*d,register s32 x,register s32 y){volatile s32 n=b-a;while(n>0){func_003A5228(d,a);a++;d++;n--;}return d;}

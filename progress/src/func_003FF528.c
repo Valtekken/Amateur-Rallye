@@ -1,0 +1,1 @@
+extern s32 func_003FA760(s32,const void*);extern s32 D_0048C568,D_0048C578; void*func_003FF528(s32*p,s32 a,s32 b){if(b){if(func_003FA760(b,&D_0048C578)&&func_003FA760(b,&D_0048C568))return 0;p[12]=a;p[13]=b;}return &D_0048C578;}

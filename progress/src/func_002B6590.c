@@ -1,0 +1,2 @@
+extern void *D_002AD408(s32);extern void func_002B6290(void *,s32,void *);extern void *func_002B62E0(void);extern void *func_002B6438(void *,void *);extern char D_0047EF58[];extern char D_0047F208[];
+void *func_002B6590(void *arg0){*(s32*)((u8*)arg0+4)=3;*(s32*)((u8*)arg0+12)=0;*(void**)((u8*)arg0+8)=D_0047F208;*(void**)arg0=D_0047EF58;*(void**)((u8*)arg0+16)=func_002B6438(D_002AD408(0x18),arg0);func_002B6290(func_002B62E0(),*(s32*)((u8*)arg0+4),arg0);return arg0;}

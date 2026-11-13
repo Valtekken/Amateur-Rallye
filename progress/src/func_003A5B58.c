@@ -1,0 +1,1 @@
+extern void func_003AFCE0(void*);extern void func_003AFD70(void*,void*);extern void func_003AFDD0(void*,s32);void *func_003A5B58(register void *a){char buf[16];func_003AFCE0(buf);func_003AFD70(a,buf);func_003AFDD0(buf,2);return a;}

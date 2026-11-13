@@ -1,0 +1,106 @@
+#ifndef M2C_DEFINES
+#define M2C_DEFINES
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+#define M2C_ERROR(desc) (0)
+#define M2C_CARRY 0
+#define M2C_OVERFLOW(a) (0)
+#endif
+typedef s32 M2C_UNK;
+typedef s8 M2C_UNK8;
+typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32;
+extern f32 D_00479B60;
+inline s8 *inline_fn(void *arg0)
+{
+  return ((s8 *) arg0) + 8;
+}
+
+f32 func_00242210(void *arg1, void *arg2)
+{
+  f32 temp_f0;
+  f32 temp_f0_2;
+  f32 temp_f0_3;
+  f32 temp_f0_4;
+  f32 temp_f0_5;
+  f32 temp_f0_6;
+  f32 temp_f10;
+  f32 temp_f11;
+  f32 temp_f12;
+  f32 temp_f1;
+  f32 temp_f1_2;
+  f32 temp_f1_3;
+  f32 temp_f1_4;
+  f32 temp_f1_5;
+  f32 temp_f1_6;
+  f32 temp_f2;
+  f32 temp_f2_2;
+  f32 temp_f2_3;
+  f32 temp_f2_4;
+  f32 temp_f4;
+  f32 *new_var;
+  f32 temp_f4_2;
+  f32 temp_f5;
+  f32 temp_f5_2;
+  f32 temp_f6;
+  f32 temp_f6_2;
+  f32 temp_f7;
+  f32 temp_f8;
+  f32 temp_f9;
+  f32 var_f3;
+  void *temp_2;
+  void *temp_2_2;
+  void *temp_2_3;
+  arg2 = *((void **) (((s8 *) arg1) + 0));
+  temp_2 = *((void **) (((s8 *) arg2) + 0));
+  temp_f5 = *((f32 *) (((s8 *) arg2) + 0));
+  temp_f11 = *((f32 *) (((s8 *) temp_2) + 0));
+  temp_f4 = *((f32 *) (((s8 *) arg2) + 4));
+  temp_f10 = *((f32 *) (((s8 *) temp_2) + 4));
+  temp_f1 = temp_f5 - temp_f11;
+  temp_f6 = *((f32 *) inline_fn(arg2));
+  temp_f0 = temp_f4 - temp_f10;
+  temp_f12 = *((f32 *) (((s8 *) temp_2) + 8));
+  var_f3 = D_00479B60;
+  temp_f2 = temp_f6 - temp_f12;
+  temp_f1_2 = ((temp_f1 * temp_f1) + (temp_f0 * temp_f0)) + (temp_f2 * temp_f2);
+  if (temp_f1_2 < var_f3)
+  {
+    var_f3 = temp_f1_2;
+  }
+  temp_2_2 = *((void **) (((s8 *) arg2) + 4));
+  temp_f7 = *((f32 *) (((s8 *) temp_2_2) + 0));
+  temp_f8 = *((f32 *) (((s8 *) temp_2_2) + 4));
+  temp_f1_3 = temp_f5 - temp_f7;
+  temp_f9 = *((f32 *) inline_fn(temp_2_2));
+  new_var = &temp_f4;
+  temp_f0_2 = (*new_var) - temp_f8;
+  temp_f2_2 = temp_f6 - temp_f9;
+  temp_f0_3 = ((temp_f1_3 * temp_f1_3) + (temp_f0_2 * temp_f0_2)) + (temp_f2_2 * temp_f2_2);
+  if (temp_f0_3 < var_f3)
+  {
+    var_f3 = temp_f0_3;
+  }
+  temp_2_3 = *((void **) (((s8 *) arg1) + 4));
+  temp_f4_2 = *((f32 *) (((s8 *) temp_2_3) + 0));
+  temp_f5_2 = *((f32 *) (((s8 *) temp_2_3) + 4));
+  temp_f1_4 = temp_f4_2 - temp_f11;
+  temp_f6_2 = *((f32 *) inline_fn(temp_2_3));
+  temp_f0_4 = temp_f5_2 - temp_f10;
+  temp_f2_3 = temp_f6_2 - temp_f12;
+  temp_f1_5 = ((temp_f1_4 * temp_f1_4) + (temp_f0_4 * temp_f0_4)) + (temp_f2_3 * temp_f2_3);
+  if (temp_f1_5 < var_f3)
+  {
+    var_f3 = temp_f1_5;
+  }
+  temp_f0_5 = temp_f4_2 - temp_f7;
+  temp_f1_6 = temp_f5_2 - temp_f8;
+  temp_f2_4 = temp_f6_2 - temp_f9;
+  temp_f0_6 = ((temp_f0_5 * temp_f0_5) + (temp_f1_6 * temp_f1_6)) + (temp_f2_4 * temp_f2_4);
+  if (temp_f0_6 < var_f3)
+  {
+    var_f3 = temp_f0_6;
+  }
+  return var_f3;
+}
+

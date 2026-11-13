@@ -1,0 +1,1 @@
+extern void func_003CDDB0(void**,s32,s32,s32,s32);extern void func_003CE0D0(void**,s32,s32);char *func_003D0450(void**p,char*pos,s8 ch){s32 n=pos-(char*)*p;char*r;func_003CDDB0(p,n,0,1,(s32)ch);r=*p;if(*(u32*)(r-8)>=2){func_003CE0D0(p,*(s32*)(r-16),1);r=*p;}*(s32*)(r-4)=1;return r+n;}

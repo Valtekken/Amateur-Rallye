@@ -1,0 +1,34 @@
+/* machine draft (m2c) for ee-gcc-2.9-991111 -O2 -G0, tried by autopilot */
+#ifndef M2C_DEFINES
+#define M2C_DEFINES
+typedef s32 M2C_UNK;
+typedef s8 M2C_UNK8;
+typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+#define M2C_ERROR(desc) (0)
+#define M2C_CARRY 0
+#define M2C_OVERFLOW(a) (0)
+#endif
+
+extern s64 *D_0043A908;
+
+void func_003D8A78(void) {
+    s64 *var_16;
+    s64 var_2;
+
+    var_16 = D_0043A908;
+    if (var_16 != NULL) {
+        var_2 = *var_16;
+loop_2:
+        if ((var_2 & 0x208) == 0x200) {
+            M2C_FIELD(M2C_FIELD(var_16, void **, 0x50), M2C_UNK (**)(s64 *, M2C_UNK), 0x14)(var_16, -1);
+        }
+        var_16 = M2C_FIELD(var_16, s64 **, 0x34);
+        if (var_16 != NULL) {
+            var_2 = *var_16;
+            goto loop_2;
+        }
+    }
+}
