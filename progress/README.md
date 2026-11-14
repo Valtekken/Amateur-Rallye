@@ -12,8 +12,8 @@ judge accepted them as matches.
 - **Compiler:** ee-gcc-2.95.2
 <!-- decompdecomp:details:end -->
 <!-- decompdecomp:progress:start -->
-- **Progress:** 6340 matching function(s), 3695 best attempt(s)
-- **Completion:** 6,340 / 12,331 functions (51.4%). 270 set aside, excluded from completion.
+- **Progress:** 6390 matching function(s), 3655 best attempt(s)
+- **Completion:** 6,390 / 12,331 functions (51.8%). 270 set aside, excluded from completion.
 <!-- decompdecomp:progress:end -->
 
 ## What's in this folder

@@ -1,21 +1,23 @@
-/* machine draft (m2c), tried by autopilot */
-#ifndef M2C_DEFINES
-#define M2C_DEFINES
-typedef s32 M2C_UNK;
-typedef s8 M2C_UNK8;
-typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-#define M2C_ERROR(desc) (0)
-#define M2C_CARRY 0
-#define M2C_OVERFLOW(a) (0)
-#endif
+s32 func_003A6798(void*); void func_003AD620(s32,s32,s32);
+void func_003A67C8(s32 a,s32 b){(void)*(volatile s32*)&a;func_003AD620(a,b,func_003A6798(&a));}
 
-s16 *func_003A5340(s16 *arg0) {
-    *arg0 = 0;
-    *arg0 = (s64) ((s64) *arg0 & ((0x80000000 * 0x10) | 0xFFFF));
-    *arg0 = (s64) ((s64) *arg0 & ((0xBFFFFFFF << 5) | 0x1F));
-    *arg0 = (s64) ((s64) *arg0 & ((((((0xFFF0 << 0x1C) | 0xFFFF) << 0x10) | 0xFFFF) * 0x10) | 0xF));
+void *func_003A53D0(void *arg0, s16 arg1) {
+    *(s16 *)arg0 = arg1;
+    return arg0;
+}
+
+u64 *func_003A5340(u64 *arg0) {
+    *(s16 *)arg0 = 0;
+    *arg0 = *arg0 & 0x000000800000FFFFULL;
+    *arg0 = *arg0 & 0x00000017FFFFFFFFULL;
+    *arg0 = *arg0 & 0xFFF0000FFFFFFFFFULL;
+    return arg0;
+}
+
+s32 func_003A0BD8(s32, s32);
+s32 func_00219DA8(s32, s32);
+s32 func_003A5DC8(register s32 arg0, register s32 arg1) {
+    func_003A0BD8(arg0, arg1);
+    func_00219DA8(arg0 + 0xC, arg1 + 0xC);
     return arg0;
 }

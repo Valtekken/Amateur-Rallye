@@ -1,7 +1,7 @@
 {
  "format": 1,
- "saved_at": 1794613525.7370355,
- "revision": 25329,
+ "saved_at": 1794621484.1255472,
+ "revision": 25443,
  "title": "Master Rallye",
  "platform": "ps2",
  "game": {
@@ -2522,17 +2522,8 @@
    ]
   },
   {
-   "start": 3847992,
-   "end": 3848176,
-   "toolchain": "ee-gcc-2.95.2",
-   "flags": [
-    "-O0",
-    "-G0"
-   ]
-  },
-  {
-   "start": 3848184,
-   "end": 3848224,
+   "start": 3848072,
+   "end": 3848232,
    "toolchain": "ee-gcc-2.95.2",
    "flags": [
     "-O0",
@@ -3152,14 +3143,6 @@
  ],
  "claim_order": "closest",
  "priority": [
-  "func_003A4238",
-  "func_003AB788",
-  "func_003AB7F8",
-  "func_003AB6E8",
-  "func_003AB660",
-  "func_003AEF40",
-  "func_003A3948",
-  "func_0039A730",
   "_start",
   "func_00398508",
   "func_003AF8B8",
@@ -41537,23 +41520,23 @@
   },
   "func_00395BE8": {
    "vram": 3759080,
-   "best_score": 1749,
-   "best_by": "autopilot"
+   "best_score": 245,
+   "best_by": "api-free-2"
   },
   "func_00395C80": {
    "vram": 3759232,
-   "best_score": 2347,
-   "best_by": "autopilot"
+   "best_score": 5,
+   "best_by": "api-free-2"
   },
   "func_00395D08": {
    "vram": 3759368,
-   "best_score": 1567,
-   "best_by": "api-free-2"
+   "matched_by": "api-free-1",
+   "readable": false
   },
   "func_00395D88": {
    "vram": 3759496,
-   "best_score": 1720,
-   "best_by": "autopilot"
+   "matched_by": "api-free-1",
+   "readable": false
   },
   "func_00395DE0": {
    "vram": 3759584,
@@ -41562,13 +41545,13 @@
   },
   "func_003960F8": {
    "vram": 3760376,
-   "best_score": 1027,
-   "best_by": "autopilot"
+   "matched_by": "api-free-1",
+   "readable": false
   },
   "func_00396130": {
    "vram": 3760432,
-   "best_score": 3217,
-   "best_by": "autopilot"
+   "best_score": 360,
+   "best_by": "api-free-1"
   },
   "func_003961B8": {
    "vram": 3760568,
@@ -41587,18 +41570,23 @@
   },
   "func_00396310": {
    "vram": 3760912,
-   "best_score": 2516,
-   "best_by": "autopilot"
+   "best_score": 5,
+   "best_by": "api-free-1"
   },
   "func_003963A0": {
    "vram": 3761056,
-   "best_score": 1749,
-   "best_by": "autopilot"
+   "matched_by": "api-free-1",
+   "readable": false
   },
   "func_00396440": {
    "vram": 3761216,
    "best_score": 2347,
    "best_by": "autopilot"
+  },
+  "func_003964C8": {
+   "vram": 3761352,
+   "matched_by": "autopilot",
+   "readable": false
   },
   "func_00396548": {
    "vram": 3761480,
@@ -41607,8 +41595,8 @@
   },
   "func_00396860": {
    "vram": 3762272,
-   "best_score": 2307,
-   "best_by": "autopilot"
+   "matched_by": "api-free-1",
+   "readable": false
   },
   "func_00396918": {
    "vram": 3762456,
@@ -41637,8 +41625,8 @@
   },
   "func_00397180": {
    "vram": 3764608,
-   "best_score": 1794,
-   "best_by": "autopilot"
+   "best_score": 245,
+   "best_by": "api-free-1"
   },
   "func_00397228": {
    "vram": 3764776,
@@ -41712,8 +41700,8 @@
   },
   "func_003977D0": {
    "vram": 3766224,
-   "best_score": 1047,
-   "best_by": "autopilot"
+   "matched_by": "autopilot",
+   "readable": false
   },
   "func_00397830": {
    "vram": 3766320,
@@ -41787,8 +41775,8 @@
   },
   "func_003980E0": {
    "vram": 3768544,
-   "best_score": 1432,
-   "best_by": "opencode-dots-3-note-preview-free-1"
+   "matched_by": "api-free-1",
+   "readable": false
   },
   "func_00398140": {
    "vram": 3768640,
@@ -41797,8 +41785,8 @@
   },
   "func_003981A8": {
    "vram": 3768744,
-   "best_score": 1047,
-   "best_by": "autopilot"
+   "matched_by": "api-free-1",
+   "readable": false
   },
   "func_00398208": {
    "vram": 3768840,
@@ -41807,7 +41795,7 @@
   },
   "func_00398508": {
    "vram": 3769608,
-   "best_score": 2574,
+   "best_score": 722,
    "best_by": "opencode-free-1"
   },
   "func_00398720": {
@@ -41822,8 +41810,8 @@
   },
   "func_00398830": {
    "vram": 3770416,
-   "best_score": 3752,
-   "best_by": "autopilot"
+   "best_score": 210,
+   "best_by": "api-free-1"
   },
   "func_003988F0": {
    "vram": 3770608,
@@ -41842,8 +41830,8 @@
   },
   "func_00398A20": {
    "vram": 3770912,
-   "best_score": 1432,
-   "best_by": "autopilot"
+   "matched_by": "autopilot",
+   "readable": false
   },
   "func_00398A80": {
    "vram": 3771008,
@@ -41867,8 +41855,8 @@
   },
   "func_00398F20": {
    "vram": 3772192,
-   "best_score": 1562,
-   "best_by": "autopilot"
+   "matched_by": "api-free-1",
+   "readable": false
   },
   "func_00398F98": {
    "vram": 3772312,
@@ -41920,15 +41908,20 @@
    "best_score": 2347,
    "best_by": "autopilot"
   },
+  "func_00399500": {
+   "vram": 3773696,
+   "matched_by": "autopilot",
+   "readable": false
+  },
   "func_00399580": {
    "vram": 3773824,
-   "best_score": 950,
-   "best_by": "autopilot"
+   "matched_by": "api-free-2",
+   "readable": false
   },
   "func_003995E8": {
    "vram": 3773928,
-   "best_score": 1047,
-   "best_by": "autopilot"
+   "matched_by": "autopilot",
+   "readable": false
   },
   "func_00399648": {
    "vram": 3774024,
@@ -41937,8 +41930,8 @@
   },
   "func_00399960": {
    "vram": 3774816,
-   "best_score": 2307,
-   "best_by": "autopilot"
+   "matched_by": "autopilot",
+   "readable": false
   },
   "func_00399A18": {
    "vram": 3775000,
@@ -41964,6 +41957,11 @@
    "vram": 3775472,
    "best_score": 2347,
    "best_by": "autopilot"
+  },
+  "func_00399C78": {
+   "vram": 3775608,
+   "matched_by": "autopilot",
+   "readable": false
   },
   "func_00399CF8": {
    "vram": 3775736,
@@ -42020,6 +42018,11 @@
    "best_score": 2347,
    "best_by": "autopilot"
   },
+  "func_0039A528": {
+   "vram": 3777832,
+   "matched_by": "autopilot",
+   "readable": false
+  },
   "func_0039A5A8": {
    "vram": 3777960,
    "best_score": 950,
@@ -42027,8 +42030,8 @@
   },
   "func_0039A610": {
    "vram": 3778064,
-   "best_score": 1047,
-   "best_by": "autopilot"
+   "matched_by": "autopilot",
+   "readable": false
   },
   "func_0039A670": {
    "vram": 3778160,
@@ -42087,8 +42090,8 @@
   },
   "func_0039B0A8": {
    "vram": 3780776,
-   "best_score": 2307,
-   "best_by": "autopilot"
+   "matched_by": "autopilot",
+   "readable": false
   },
   "func_0039B160": {
    "vram": 3780960,
@@ -42357,8 +42360,8 @@
   },
   "func_0039D470": {
    "vram": 3789936,
-   "best_score": 2307,
-   "best_by": "autopilot"
+   "matched_by": "autopilot",
+   "readable": false
   },
   "func_0039D528": {
    "vram": 3790120,
@@ -42385,6 +42388,11 @@
    "best_score": 2347,
    "best_by": "autopilot"
   },
+  "func_0039D788": {
+   "vram": 3790728,
+   "matched_by": "autopilot",
+   "readable": false
+  },
   "func_0039D808": {
    "vram": 3790856,
    "best_score": 950,
@@ -42392,8 +42400,8 @@
   },
   "func_0039D870": {
    "vram": 3790960,
-   "best_score": 1047,
-   "best_by": "autopilot"
+   "matched_by": "autopilot",
+   "readable": false
   },
   "func_0039D8D0": {
    "vram": 3791056,
@@ -42450,6 +42458,11 @@
    "best_score": 2347,
    "best_by": "autopilot"
   },
+  "func_0039E138": {
+   "vram": 3793208,
+   "matched_by": "autopilot",
+   "readable": false
+  },
   "func_0039E1B8": {
    "vram": 3793336,
    "best_score": 940,
@@ -42457,8 +42470,8 @@
   },
   "func_0039E220": {
    "vram": 3793440,
-   "best_score": 1047,
-   "best_by": "autopilot"
+   "matched_by": "autopilot",
+   "readable": false
   },
   "func_0039E280": {
    "vram": 3793536,
@@ -42477,8 +42490,8 @@
   },
   "func_0039E668": {
    "vram": 3794536,
-   "best_score": 1047,
-   "best_by": "autopilot"
+   "matched_by": "autopilot",
+   "readable": false
   },
   "func_0039E6C8": {
    "vram": 3794632,
@@ -42612,8 +42625,8 @@
   },
   "func_0039F5F8": {
    "vram": 3798520,
-   "best_score": 1395,
-   "best_by": "codex-1"
+   "matched_by": "autopilot",
+   "readable": false
   },
   "func_0039F678": {
    "vram": 3798648,
@@ -42685,6 +42698,11 @@
    "best_score": 2347,
    "best_by": "autopilot"
   },
+  "func_003A0020": {
+   "vram": 3801120,
+   "matched_by": "autopilot",
+   "readable": false
+  },
   "func_003A00A0": {
    "vram": 3801248,
    "best_score": 8889,
@@ -42702,8 +42720,8 @@
   },
   "func_003A0690": {
    "vram": 3802768,
-   "best_score": 1047,
-   "best_by": "autopilot"
+   "matched_by": "autopilot",
+   "readable": false
   },
   "func_003A06F0": {
    "vram": 3802864,
@@ -42885,6 +42903,11 @@
    "best_score": 2347,
    "best_by": "autopilot"
   },
+  "func_003A1E10": {
+   "vram": 3808784,
+   "matched_by": "autopilot",
+   "readable": false
+  },
   "func_003A1E90": {
    "vram": 3808912,
    "best_score": 940,
@@ -42945,6 +42968,11 @@
    "best_score": 2347,
    "best_by": "autopilot"
   },
+  "func_003A2778": {
+   "vram": 3811192,
+   "matched_by": "autopilot",
+   "readable": false
+  },
   "func_003A27F8": {
    "vram": 3811320,
    "best_score": 8941,
@@ -42969,6 +42997,11 @@
    "vram": 3812472,
    "best_score": 2347,
    "best_by": "autopilot"
+  },
+  "func_003A2D00": {
+   "vram": 3812608,
+   "matched_by": "autopilot",
+   "readable": false
   },
   "func_003A2D80": {
    "vram": 3812736,
@@ -43182,8 +43215,8 @@
   },
   "func_003A3F90": {
    "vram": 3817360,
-   "best_score": 1047,
-   "best_by": "autopilot"
+   "matched_by": "autopilot",
+   "readable": false
   },
   "func_003A3FF0": {
    "vram": 3817456,
@@ -43197,8 +43230,8 @@
   },
   "func_003A40D0": {
    "vram": 3817680,
-   "best_score": 1047,
-   "best_by": "autopilot"
+   "matched_by": "autopilot",
+   "readable": false
   },
   "func_003A4130": {
    "vram": 3817776,
@@ -43212,13 +43245,13 @@
   },
   "func_003A4238": {
    "vram": 3818040,
-   "best_score": 5398,
-   "best_by": "autopilot"
+   "best_score": 333,
+   "best_by": "permuter"
   },
   "func_003A4338": {
    "vram": 3818296,
-   "best_score": 1047,
-   "best_by": "autopilot"
+   "matched_by": "autopilot",
+   "readable": false
   },
   "func_003A4398": {
    "vram": 3818392,
@@ -43317,8 +43350,8 @@
   },
   "func_003A4E40": {
    "vram": 3821120,
-   "best_score": 1432,
-   "best_by": "autopilot"
+   "matched_by": "autopilot",
+   "readable": false
   },
   "func_003A4EA0": {
    "vram": 3821216,
@@ -43392,8 +43425,8 @@
   },
   "func_003A5340": {
    "vram": 3822400,
-   "best_score": 3370,
-   "best_by": "autopilot"
+   "best_score": 2532,
+   "best_by": "api-free-3"
   },
   "func_003A53D0": {
    "vram": 3822544,
@@ -43427,8 +43460,8 @@
   },
   "func_003A55E8": {
    "vram": 3823080,
-   "best_score": 1027,
-   "best_by": "autopilot"
+   "matched_by": "autopilot",
+   "readable": false
   },
   "func_003A5620": {
    "vram": 3823136,
@@ -43512,8 +43545,8 @@
   },
   "func_003A5DC8": {
    "vram": 3825096,
-   "best_score": 1572,
-   "best_by": "autopilot"
+   "best_score": 20,
+   "best_by": "api-free-2"
   },
   "func_003A5E40": {
    "vram": 3825216,
@@ -43647,8 +43680,8 @@
   },
   "func_003A66D8": {
    "vram": 3827416,
-   "best_score": 637,
-   "best_by": "autopilot"
+   "matched_by": "api-free-2",
+   "readable": false
   },
   "func_003A6738": {
    "vram": 3827512,
@@ -43662,8 +43695,8 @@
   },
   "func_003A67C8": {
    "vram": 3827656,
-   "best_score": 637,
-   "best_by": "autopilot"
+   "matched_by": "api-free-3",
+   "readable": false
   },
   "func_003A6828": {
    "vram": 3827752,
@@ -43672,8 +43705,8 @@
   },
   "func_003A68A0": {
    "vram": 3827872,
-   "best_score": 1047,
-   "best_by": "autopilot"
+   "matched_by": "autopilot",
+   "readable": false
   },
   "func_003A6900": {
    "vram": 3827968,
@@ -43797,8 +43830,8 @@
   },
   "func_003A82B0": {
    "vram": 3834544,
-   "best_score": 1047,
-   "best_by": "autopilot"
+   "matched_by": "autopilot",
+   "readable": false
   },
   "func_003A8310": {
    "vram": 3834640,
@@ -43957,8 +43990,8 @@
   },
   "func_003A9098": {
    "vram": 3838104,
-   "best_score": 1027,
-   "best_by": "autopilot"
+   "matched_by": "autopilot",
+   "readable": false
   },
   "func_003A90D0": {
    "vram": 3838160,
@@ -44232,8 +44265,8 @@
   },
   "func_003AA580": {
    "vram": 3843456,
-   "best_score": 1397,
-   "best_by": "autopilot"
+   "matched_by": "autopilot",
+   "readable": false
   },
   "func_003AA5F0": {
    "vram": 3843568,
@@ -44467,18 +44500,18 @@
   },
   "func_003AB4D0": {
    "vram": 3847376,
-   "best_score": 1237,
-   "best_by": "autopilot"
+   "matched_by": "api-free-1",
+   "readable": false
   },
   "func_003AB520": {
    "vram": 3847456,
-   "best_score": 1237,
-   "best_by": "autopilot"
+   "matched_by": "api-free-1",
+   "readable": false
   },
   "func_003AB570": {
    "vram": 3847536,
-   "best_score": 1237,
-   "best_by": "autopilot"
+   "matched_by": "api-free-1",
+   "readable": false
   },
   "func_003AB5C0": {
    "vram": 3847616,
@@ -44512,8 +44545,8 @@
   },
   "func_003AB7F8": {
    "vram": 3848184,
-   "best_score": 875,
-   "best_by": "autopilot"
+   "best_score": 325,
+   "best_by": "api-free-1"
   },
   "func_003AB828": {
    "vram": 3848232,
@@ -44567,8 +44600,8 @@
   },
   "func_003ABCC8": {
    "vram": 3849416,
-   "best_score": 1667,
-   "best_by": "autopilot"
+   "matched_by": "api-free-1",
+   "readable": false
   },
   "func_003ABD50": {
    "vram": 3849552,
@@ -44582,7 +44615,7 @@
   },
   "func_003ABDC0": {
    "vram": 3849664,
-   "best_score": 2437,
+   "best_score": 445,
    "best_by": "api-free-1"
   },
   "func_003ABE58": {
@@ -44592,8 +44625,8 @@
   },
   "func_003ABEA8": {
    "vram": 3849896,
-   "best_score": 1247,
-   "best_by": "autopilot"
+   "matched_by": "api-free-1",
+   "readable": false
   },
   "func_003ABF08": {
    "vram": 3849992,
@@ -45652,8 +45685,8 @@
   },
   "func_003B1F48": {
    "vram": 3874632,
-   "best_score": 1027,
-   "best_by": "autopilot"
+   "matched_by": "autopilot",
+   "readable": false
   },
   "func_003B1F80": {
    "vram": 3874688,
@@ -45892,8 +45925,8 @@
   },
   "func_003B3320": {
    "vram": 3879712,
-   "best_score": 1027,
-   "best_by": "autopilot"
+   "matched_by": "autopilot",
+   "readable": false
   },
   "func_003B3358": {
    "vram": 3879768,
@@ -46057,8 +46090,8 @@
   },
   "func_003B3D88": {
    "vram": 3882376,
-   "best_score": 1027,
-   "best_by": "autopilot"
+   "matched_by": "autopilot",
+   "readable": false
   },
   "func_003B3DC0": {
    "vram": 3882432,
@@ -172213,6 +172246,166 @@
    "function": "func_00397228",
    "text": "ee-gcc 2.95.2 -O0 -G0, best score 245 (93.5%, 38/40 insns). Best C: `s32 func_00397228(s32 arg0, s32 arg1, s32 arg2, s8 arg3){ s32 sp10=arg2; while(arg0!=arg1){ func_00395B68(sp10,arg0); arg0+=8; sp10+=8; } return sp10; }`. Body matches target exactly; only diffs: an extra `move $v0,$a3` before the sb (target has no move, just `sb $a3,0xc($fp)`) and an extra `nop` in the loop-back delay slot (target's `b .L28` has no nop). Register-qualified arg3 (u8/s8/s32) doesn't remove the move. Frame 0x40 with sq/lq fp-save matches. Try: make arg3 unused/unused parameter, or reorder so the dead arg3 store is the first spill; or a struct-typed 4th arg that forces sb.",
    "by": "api-free-1"
+  },
+  {
+   "function": "func_003AB738",
+   "text": "Range check #474: is this part of the game built by EE-GCC 2.95.2 (SN) -O0 -G0? An agent's C for a function next to func_003AB738 matches with it. Match func_003AB738 as usual; then try_compiler(\"func_003AB738\", \"ee-gcc-2.95.2\", \"-O0 -G0\"). Matching with EE-GCC 2.95.2 (SN) -O0 -G0 and not with the project's compiler confirms the range; matching with the project's compiler only shows it was a quirk. Either answer helps.",
+   "by": "autopilot"
+  },
+  {
+   "function": "func_0039AA38",
+   "text": "Range check #441: this function's C matches with EE-GCC 2.95.2 (SN) -O0 -G0, but its neighbours are built by the project's compiler (func_0039AA38's C matches the game with today's compiler too: it says nothing about the compiler). Look for C that matches with the project's compiler.",
+   "by": "autopilot"
+  },
+  {
+   "function": "func_003A3910",
+   "text": "Range check #449: this function's C matches with EE-GCC 2.95.2 (SN) -O0 -G0, but its neighbours are built by the project's compiler (func_003A3910's C matches the game with today's compiler too: it says nothing about the compiler). Look for C that matches with the project's compiler.",
+   "by": "autopilot"
+  },
+  {
+   "function": "func_003AEFD0",
+   "text": "Range check #452: this function's C matches with EE-GCC 2.95.2 (SN) -O0 -G0, but its neighbours are built by the project's compiler (func_003AEFD0's C matches the game with today's compiler too: it says nothing about the compiler). Look for C that matches with the project's compiler.",
+   "by": "autopilot"
+  },
+  {
+   "function": "func_003AB6E8",
+   "text": "Range check #474: this function's C matches with EE-GCC 2.95.2 (SN) -O0 -G0, but its neighbours are built by the project's compiler (func_003AB6E8's C matches the game with today's compiler too: it says nothing about the compiler). Look for C that matches with the project's compiler.",
+   "by": "autopilot"
+  },
+  {
+   "function": "func_003AB828",
+   "text": "Range check #477: this function's C matches with EE-GCC 2.95.2 (SN) -O0 -G0, but its neighbours are built by the project's compiler (func_003AB828's C matches the game with today's compiler too: it says nothing about the compiler). Look for C that matches with the project's compiler.",
+   "by": "autopilot"
+  },
+  {
+   "function": "func_003A4338",
+   "text": "Range check #487: this function's C matches with EE-GCC 2.95.2 (SN) -O0 -G0, but its neighbours are built by the project's compiler (func_003A4338's C matches the game with today's compiler too: it says nothing about the compiler). Look for C that matches with the project's compiler.",
+   "by": "autopilot"
+  },
+  {
+   "function": "func_00398508",
+   "text": "Released because its agent stopped (stopped by you); its attempts are kept.",
+   "by": "opencode-free-1"
+  },
+  {
+   "function": "func_003AB7F8",
+   "text": "Best 325/1632 (72.9% match), 12 target insns, 15 mine. Logic is trivial: `return arg0; ((s32*)arg0)[1]++;` with register arg0. The ROM is a clean leaf: addiu sp,-0x10; ext $fp,$sp,0,1; move $fp,$sp; move $v0,$a0; lw $v1,4($v0); addiu $a0,$v1,1; sw $a0,4($v0); move $sp,$fp; (sq/lq epilogue bytes); addiu sp,0x10; jr $ra; nop. My C with the project compiler (EE-GCC 2.95.2 -O0 -G0, confirmed range 0x3AB788-0x3AB828) emits a 0x20 frame with arg0 spilled to stack and an extra branch over the epilogue. Register-qualified param gets 325 (only regalloc left: v0/v1/a0 assignment and the extra branch). Tried register, pointer, void*, local temp, s32* indexing. The remaining diff is purely register allocation/extra branch \u2014 likely needs a hint the project compiler doesn't normally give at -O0 for this leaf. Next agent: try search_flags/try_compiler with ee-gcc-2.95.3 or 2.96, or a __attribute__((always_inline)) helper as used by func_001E3D40.",
+   "by": "api-free-1"
+  },
+  {
+   "function": "func_003ABDC0",
+   "text": "Best 447/1632 (88.2%), 38 target insns, 36 mine. Logic: local struct S at fp (0x10 offset for ret field, struct size 0x10+4+0x0c = 0x20, frame 0x70 total incl. 5 sq saves of $ra,$fp,$s2,$s1,$s0). Sequence: func_003B0EE0(fp); func_003B1340(fp, arg1); sw $v0,0x10(fp) [ret = func_003B13A0(arg0,fp)]; lw $s2,0x10(fp); func_003A34D0(fp,2); return $s2. The ROM reloads ret into $s2 before the last call (so $s2 is a saved reg), mine reloads into $v1 after. Best C: `typedef struct{char _a[0x10]; int ret; char _b[0x0c];} S; S s; func_003B0EE0(&s); func_003B1340(&s,arg1); s.ret = func_003B13A0(arg0,&s); func_003A34D0(&s,2); return s.ret;` with register params gives 447. Remaining diff: frame 0x60 vs 0x70 (need $s2 saved -> struct must be sized so a saved reg is needed; adding a 4th live forces 0x70), regalloc of $s0/$s1/$s2 vs $fp/extra, and xori.b/ld.b operands (misrendered sq/lq epilogue). Tried struct sizes 0x20/0x2c/0x30/0x14, volatile, local int r, register temps, pointer alias. Next: force a 4th callee-saved live (e.g. make arg0/arg1 non-register or add a used local) to get the 0x70 frame and $s2; then only regalloc remains.",
+   "by": "api-free-1"
+  },
+  {
+   "function": "func_00397180",
+   "text": "Best 245/41 (94.0%), 41 target vs 43 mine. SN ee-gcc-2.95.2 -O0 -G0. Frame 0x40, $fp, prologue/epilogue/loop/calls byte-exact. Only diff: target spills the 4th param directly `sb $a3, 0xc($fp)` (byte store, arg3 unused); mine emits `move $v0,$a3; sb $v0,0xc($fp)` plus an extra `nop`. Best C: `s32 func_00397180(s32 arg0, s32 arg1, s32 arg2, unsigned char arg3){ s32 sp10=arg2; while(arg0!=arg1){ func_00396310(func_003A35D0(sp10), arg0); arg0+=4; sp10+=4; } return sp10; }` (char/signed char/unsigned char/int all give the same move+sb; register char is worse at 745). try_compiler ee-gcc-2.96 -O0 -G0 \u2192 2197 (worse, sd/ld frame). Caller func_00397950; callees func_003A35D0, func_00396310. Remaining: make GCC -O0 store the 4th arg directly without the intermediate $v0 move (perhaps the param is a bitfield, or the store target is a struct field rather than a plain char local \u2014 try `struct S{char c;} s; s.c=arg3;` or `char arr[1]; arr[0]=arg3;`).",
+   "by": "api-free-1"
+  },
+  {
+   "function": "func_003978C8",
+   "text": "not_c: score 5 (99.8%), single regalloc diff. SN ee-gcc-2.95.2 -O0 -G0 value-number CSEs ALL constant-zero expressions into one value number, so pure C cannot emit TWO independent `daddu reg,$zero`: dead `move $v0,$zero` (discarded `(CopyTag){0}` temp, materialized as daddu $2,$0,$0 / daddu $3,$2,$0 / daddu $2,$3,$0 then discarded) AND fresh `move $a3,$zero` for the 4th CopyTag arg. Frame 0x60 + all prologue/epilogue/arg-restore/jal/result-shuffle byte-exact at score 5. Exhausted across models (335+ attempts): scalar/literal arg, local CopyTag spill, volatile sinks, pointer NULL, d-d, comma op, two tag types, s64 zero, casts, dead stores, inline helper, __builtin_constant_p, register params, separate dead statements. try_compiler: ee-gcc-2.96\u21923307, SN2.95.3\u2192485 wrong prologue, ee-gcc-3.2\u21922602, mwcps2\u21924377/3635 wrong prologue, fno-delayed-branch\u21925. No flag disables zero-CSE into arg slots. Best source: `typedef struct{s32 value;} CopyTag; extern s32 func_002C5160(s32,s32,s32,CopyTag); s32 func_003978C8(register s32 a,b,c,d){return func_002C5160(a,b,c,(CopyTag){0});}`. Callee func_002C5160(s32,s32,s32,CopyTag); caller func_00397950. Hand-written asm required.",
+   "by": "api-free-1"
+  },
+  {
+   "function": "func_003A5DC8",
+   "text": "Best score 20/29 (99.3%) with project compiler EE-GCC 2.95.2 -O0 -G0. Body: func_003A0BD8(s1,s0); func_00219DA8(s0+0xC, s1+0xC); return s1; with register s32 s1=arg0, register s32 s0=arg1. Only regalloc differs: target computes addiu $v1,$s1,0xc then addiu $v0,$s0,0xc then move a0=v1, a1=v0; mine does v0 first then v1. Tried swapping arg order (no effect), precomputing v1/v0 as locals (broke it, bigger frame). Argument evaluation order didn't change it. Frame 0x40 with sq saves of $31/$30/$17/$16, daddu $30,$sp, ext $s0,$sp,0,1, move $s1,$a0 \u2014 all present in best. Remaining: force v1=$s1+0xC computed before v0=$s0+0xC with a0=v1,a1=v0. Try: split as `register s32 v1 = s1 + 0xC; func_00219DA8(v1, s0 + 0xC);` \u2014 got 767, worse. Try declaring locals in opposite order or using s32 t=s1+0xC; s32 u=s0+0xC; func_00219DA8(t,u) \u2014 that gave 1072. Hmm. The 20-score version is the best; keep it. Possibly needs -O2 -G0 -fno-omit-frame-pointer or a different compiler (2.9/2.96/3.2) \u2014 try those.",
+   "by": "api-free-2"
+  },
+  {
+   "function": "func_00398508",
+   "text": "Best 722/134 (94.6%). Body logic CONFIRMED correct and matches the ROM exactly in structure. Struct: Vec{begin+0, end+4, cap+8} (12-byte growable array of 8-byte elements). arg1/arg2 are s32 (ints); tmp is a 16-byte local at fp+0x10 (func_003A6420 writes 8 bytes to it from arg2, func_003A6370 writes 8 bytes to arg1 from it \u2014 so it's f32[4] or void*[2], aligned 16). Correct C (from the 94.6% attempt):\n\nif (arg0->end != arg0->cap) {\n  func_003A6460((s32)arg0->end, (s32)((u32)arg0->end + 0xFFFFFFF8u));  // end, end-8\n  arg0->end = (void *)((u32)arg0->end + 8u);                          // end += 8\n  func_003A6420(tmp, arg2);                                           // copy arg2 -> tmp\n  func_00398030(arg1, end-16, end-8);\n  func_003A6370(arg1, tmp);                                          // copy tmp -> arg1\n  return;\n}\nsp20 = func_003A6178(arg0);\nsp24 = sp20 ? sp20 * 2 : 1;\nsp28 = func_003981A8(arg0, sp24);          // new capacity begin\nsp2C = sp28;                                // KEY: target inits sp2C=sp28 before the call\nsp2C = func_00397E70(arg0->begin, (void*)arg1, sp28);\nfunc_003A6460((s32)sp2C, (s32)arg2);\nsp2C += 8;\nsp2C = func_00397E70((void*)arg1, arg0->end, sp2C);\nfunc_003A6118(func_003A6300(arg0), func_003A62C8(arg0));\nfunc_003A6088(arg0, arg0->begin, ((s32)arg0->cap - (s32)arg0->begin) >> 3);\narg0->begin = sp28; arg0->end = sp2C; arg0->cap = (void*)((u32)sp28 + (u32)(sp24*8));\n\nREMAINING DIFF (pure register allocation, 10 regalloc + 7 operand + 6 missing + 2 stack):\n- Frame 0x90 vs my 0x70: target saves 6 callee-saved (s16,s17,s18,s19,s30,ra) via sq pairs; mine saves 5 (no s19). Target holds a value in s19 somewhere.\n- After func_003A6178: target does `move $s1,$v0; sw $s1,0x20($fp); lw $v0,0x20($fp)` (spills sp20 to frame then reloads) \u2014 mine keeps it in a reg. Try forcing sp20 to be spilled (declare it non-register / add a use across a call).\n- `lw $v1,($s0); subu $v0,$v0,$v1; move $v1,$v0` \u2014 target has a redundant move here (cap-begin). Writing the subtraction result into a fresh variable then using it may reproduce it.\n- Epilogue: target has extra xori.b/aver_u.h/.byte padding after `move $sp,$fp` (misdecoded sq/lq restore of s19 \u2014 the 6th saved reg).\n- Target spills arg1/arg2 to frame 0/4 and reloads them constantly (lw $a0,($fp) x5, lw $a1,4($fp) x3); mine keeps them in regs. Tried volatile args (worse), register-qualified args (worse).\nTried: ee-gcc 2.95.2 -O0/-O1/-O2, -fno-omit-frame-pointer, mwcps2-3.0.1 -O4, tmp as f32[4]/void*[2]/aligned, sp2C=sp28 init, local reorder, register-qualified locals. All compilers give the same ~94.6%: the body is right, only regalloc differs. Next agent: force the 6th saved reg (s19) and the sp20 spill/reload pattern; the epilogue padding is just the s19 restore.",
+   "by": "opencode-free-1"
+  },
+  {
+   "function": "func_00398830",
+   "text": "Best 210/48 (95.6%) under ee-gcc-2.95.2 -O0 -G0 (this range's compiler). Best source: `extern void func_003A6370(s32,s32); s32 func_00398830(register s32 arg0,register s32 arg1,register s32 arg2,register s32 arg3,register s32 arg4){s32 n=(arg1-arg0)>>3; while(n>0){func_003A6370(arg2,arg0);arg0+=8;arg2+=8;n--;} return arg2;}`. Frame -0x80, all callee-saves (s0-s4+fp+ra) byte-exact, loop body byte-exact. Single remaining diff: target emits `subu $v0,$s2,$s3; move $v1,$v0; sra $v0,$v1,3` (a copy of the difference into v1 before sra) then stores to ($fp); mine computes n directly into one register. The `move $v1,$v0` is the same idiom func_00396860 needed \u2014 there it came from typed pointer subtraction (matched). Tried here: pointer subtraction (void*/u8*) \u2192 identical 210 (no change); separate `register s32 d=arg1-arg0; s32 n=d>>3;` \u2192 347/1522 worse (extra frame); two locals var_19/var_20 \u2192 1522 worse; `/8` instead of `>>3` \u2192 455 worse; Tag arg3 \u2192 925 worse. The 210 shape keeps arg0/arg2 as live loop variables (no spill) which is what the target does. Next agent: try to induce the v0\u2192v1 copy \u2014 e.g. `register s32 d=arg1-arg0; register s32 n=d>>3;` gave 1062 (n in s6, no v1 copy); maybe a helper `inline s32 count(a,b){return (b-a)>>3;}` or computing the count through a separate statement. Callee func_003A6370(s32,s32); caller func_003988F0. Range 0x398830-0x3988F0 is EE-GCC 2.95.2 -O0 -G0.",
+   "by": "api-free-1"
+  },
+  {
+   "function": "func_0037FBE8",
+   "text": "Best 10/203 at -O0 (codex baseline), 13292 (34.5%) at -O2 with clean static-inline helpers. The target is -O0-style (frame 0xa0, 6 saved regs s16-s22+ra, no optimization) BUT with drop/copy/assign/entryinit/append fully inlined \u2014 so the original source used macros, not static inline (ee-gcc 2.95.2 ignores always_inline at -O0). Confirmed logic (matches sibling func_00384628 100% identical assembly except Ref layout: sibling has vt@+16/refs@+20, this one refs@+0/vt@+16):\n\nObj {void*vt(+0); s32 id(+4); s32 p2(+8); Ref* ref(+0x10)}\nRef {char pad[16]; Vtable* vt; s32 refs}  -- vt@+16, refs@+20\nVtable {char pad[8]; s16 adjust; s16 pad2; void(*destroy)(void*,s32)}\nRegistry D_004262D0 {s32*map; ...; s32*begin; s32*end; s32*cap; Entry*entries; ...; s32 count}\nEntry {u32 str; s32 refs}\n\nif(self->ref && --ref->refs==0) ref->vt->destroy(ref+ref->vt->adjust, 3);\nself->vt = D_00486D18;\nif(self->id>=0){ r=&D_004262D0; idx=r->map[self->id]; e=r->entries+idx;\n  if(--e->refs==0){ oldid=self->id; last=r->count-1; r->count=last;\n    if(idx!=last){ moved=r->map[last]; assign(&r->entries[idx],&r->entries[last]); r->map[moved]=idx; r->reverse[idx]=moved; }\n    {Entry temp; entryinit(&temp); assign(&r->entries[r->count],&temp); drop(temp.str);}\n    append(&r->begin,&oldid); }\n  self->id=-1; }\nif(flags&1) D_002AD390(self);\n\ndrop(value): p=(u32*)value-4; if(--p[2]==0){ if(p[1]+16) func_002B2028(p); else {old=D_0040E618[-1]; p[0]=old; D_0040E618[-1]=(u32)p;}}\ncopy(value): p=(u32*)value-4; if(p[3]) return func_00151930(p); p[2]++; return value;\nentryinit(t): v = D_0040E658[3] ? func_00151930(D_0040E658) : (D_0040E658[2]++, (u32)D_0040E658+16); t->str=v; t->refs=0;\nappend(v,value): if(v[1]!=v[2]){ if(v[1]) *v[1]=value; v[1]++; } else func_00152720(v,v[1],value);\n\nThe macros compile but produce 443 insns (too many) because the ternary/`p[2]++,(value)` comma forms don't match. The body logic is right; the helpers need to be written so -O0 emits exactly the target's inlined sequence. Next agent: write drop/copy/assign/entryinit/append as plain statement blocks (no comma expressions, no ternary-return) and keep them as macros so they inline at -O0. Also note func_00384628 is the 100%-identical sibling (only Ref layout differs) \u2014 study it.",
+   "by": "opencode-free-1"
+  },
+  {
+   "function": "func_003A4238",
+   "text": "Best score 457/63 with ee-gcc-2.95.2 (SN) -O0 -G0 and struct {s32 begin; s32 end; s32 cap;}. The prologue matches (0x60 frame, sq saves ra/fp/s0/s1) but the frame is 0x50 not 0x60 \u2014 meaning the target has one more saved register (s2, used for the func_003A3B08 result stored to a slot). The target stores func_003A3B08's result to a slot (move $s2,$v0; sw $s2,($fp)) which my -O0 source doesn't produce because count is kept in a register. Also target reloads fields from stack (lw $v0,4($fp)) rather than holding in registers, and the epilogue differs. Tried: void* struct (score 4688), s32 struct with register locals (457), s32 struct with plain locals (457), s32 struct with both register-qualified locals (990), moving count before new_end (1012), volatile count (4688), ee-gcc-2.9-991111 (0%), ee-gcc-2.95.3 -O0 (820), ee-gcc-2.95.2 -O1 (3427). The project's default ee-gcc 2.9 -O2 -G0 gives 370 (best regalloc but wrong frame). Callees func_003AC308/func_003A41B8/func_003A36D0 are all built with ee-gcc-2.95.2 -O0 -G0, so this function likely is too, but the exact local-variable allocation to reproduce the extra s2 save + stack reloads wasn't found. Next agent: try forcing count into a stack slot via a struct member or a global, or use -fno-var-tracking-assignments / different -O0 variants; the remaining diff is only regalloc/operand (6 rows) once the frame is 0x60.",
+   "by": "api-free-3"
+  },
+  {
+   "function": "func_00398508",
+   "text": "Best 722/134 (94.6%). Body logic CONFIRMED correct and matches the ROM exactly in structure. Struct: Vec{begin+0, end+4, cap+8}. arg1/arg2 are s32 (ints); tmp is a 16-byte local at fp+0x10 (func_003A6420 writes 8 bytes to it from arg2, func_003A6370 writes 8 bytes to arg1 from it \u2014 void*[2] aligned 16). Correct C:\n\nvoid func_00398508(Vec *arg0, s32 arg1, s32 arg2) {\n    void *tmp[2] __attribute__((aligned(16)));\n    s32 sp20, sp24;\n    void *sp28, *sp2C;\n    if (arg0->end != arg0->cap) {\n        func_003A6460((s32)arg0->end, (s32)((u32)arg0->end + 0xFFFFFFF8u));\n        arg0->end = (void *)((u32)arg0->end + 8u);\n        func_003A6420(tmp, arg2);\n        func_00398030(arg1, (void *)((u32)arg0->end + 0xFFFFFFF0u), (void *)((u32)arg0->end + 0xFFFFFFF8u));\n        func_003A6370(arg1, tmp);\n        return;\n    }\n    sp20 = func_003A6178(arg0);\n    sp24 = sp20 ? sp20 * 2 : 1;\n    sp28 = (void *)func_003981A8(arg0, sp24);\n    sp2C = sp28;\n    sp2C = (void *)func_00397E70(arg0->begin, (void *)arg1, sp28);\n    func_003A6460((s32)sp2C, (s32)arg2);\n    sp2C = (void *)((u32)sp2C + 8u);\n    sp2C = (void *)func_00397E70((void *)arg1, arg0->end, sp2C);\n    func_003A6118(func_003A6300(arg0), func_003A62C8(arg0));\n    func_003A6088(arg0, arg0->begin, ((s32)arg0->cap - (s32)arg0->begin) >> 3);\n    arg0->begin = sp28; arg0->end = sp2C;\n    arg0->cap = (void *)((u32)sp28 + (u32)(sp24 * 8));\n}\n\nREMAINING DIFF (pure register allocation): frame 0x90 (6 saved regs: s16,s17,s18,s19,s30,ra) vs my 0x70 (5 saved). Target spills sp20 to frame 0x20 then reloads (move $s1,$v0; sw $s1,0x20($fp); lw $v0,0x20($fp)) \u2014 mine keeps it live. Target has a redundant `lw $v1,($s0); subu $v0,$v0,$v1; move $v1,$v0` (cap-begin). Epilogue has extra xori.b/aver_u.h/.byte padding = the s19 restore (sq/lq pair misdecoded). Target keeps arg0 in $s0 throughout (move $s0,$a0). Tried: tmp as f32[4]/void*[2]/aligned, sp2C=sp28 init, local reorder, register-qualified locals, extra dummy locals (pad1/pad1+pad2/pad1+pad2+pad3), volatile sp20, ee-gcc 2.95.2 -O0/-O1/-O2, -fno-omit-frame-pointer, mwcps2-3.0.1 -O4. All give ~94.6%; body is right, only regalloc differs. Next agent: force the 6th saved reg (s19) and the sp20 spill/reload pattern.",
+   "by": "opencode-free-1"
+  },
+  {
+   "function": "func_00398508",
+   "text": "Best 722/134 (94.6%). Body logic CONFIRMED correct and matches ROM structure exactly. Struct Vec{begin+0,end+4,cap+8}; arg1/arg2 are s32; tmp is void*[2] at fp+0x10. Range 0x396238-0x398A1C confirmed EE-GCC 2.95.2 -O0 -G0.\n\nThe ONLY remaining diff is register allocation: target frame is 0x90 (6 saved regs: ra,s16,s17,s18,s19,s30) vs my 0x70 (5). Target keeps arg0 in $s0 throughout (move $s0,$a0), spills arg1/arg2 to frame and reloads them constantly (lw $a0,($fp) x5, lw $a1,4($fp) x3). Target spills sp20 to fp+0x20 then reloads after func_003A6178 (move $s1,$v0; sw $s1,0x20($fp); lw $v0,0x20($fp)). Target holds func_003A6300(arg0) in s19 across the func_003A62C8 call.\n\nTried this session (all worse or equal): volatile sp20, split r=func_003A6300(arg0) into its own statement, Vec* self alias of arg0 (forces arg0 spill to frame, worse 4775), extra pad[3] locals, mwcps2-3.0.1 -O4 (prologue vector pattern matches target exactly: ext/dps.w.ph/subu.qb/dpa.w.ph, but body regalloc differs badly). The prologue MMI vector instructions in the target are exactly what mwcps2 -O4 emits, yet ee-gcc 2.95.2 -O0 is the confirmed compiler for this range and produces the same body shape. \n\nNEXT AGENT: try forcing arg0 to live in a callee-saved register (s0) by aliasing through a global or a struct field read/written across calls; force the 6th saved reg s19 by computing func_003A6300(arg0) into a local that survives the func_003A62C8 call. The sp20 spill/reload pattern needs sp20 declared such that its value is stored to memory and reloaded rather than kept in a register.",
+   "by": "opencode-free-1"
+  },
+  {
+   "function": "func_00398508",
+   "text": "Best 1340/134 (90.0%) with ee-gcc 2.95.2 -O0 -G0, pointer arg0, r=func_003A6300(arg0) split into its own statement. Body logic CONFIRMED. Range 0x396238-0x398A1C confirmed EE-GCC 2.95.2 -O0 -G0.\n\nRemaining diff (45 insns): prologue is CodeWarrior-style (ext $ra,$sp,2,1; dps.w.ph $ac0,$sp,$fp; subu.qb $zero,$sp,$s2; ext $s1,$sp,1,1; dpa.w.ph $ac0,$sp,$s0) \u2014 ee-gcc emits subu.qb $zero,$sp,$fp; ext $s0 instead. Frame 0x90 vs 0x70. Target does `move $s1,$v0; sw $s1,0x20($fp)` after func_003A6178 (mine does `sw $v0,0x20($fp)`). Target stack slots at 0x20/0x24/0x28/0x2C; mine at 0x20/0x24/0x2c/0x30 (one extra local pushes them down by 4).\n\nTried: pointer vs by-value arg0 (by-value keeps arg0 in $s0 matching target, but spills arg1/arg2 to 0x10/0x14 worse); r1/r2 split locals; pad locals; volatile; mwcps2 -O2/-O4; ee-gcc -fno-delayed-branch. \n\nNEXT AGENT: the by-value Vec arg0 version is closest to matching the prologue (keeps arg0 in $s0). Try by-value + declaring sp20/sp24/sp28/sp2C as named locals in declaration order to land at 0x20/0x24/0x28/0x2C, and force the extra saved reg by adding a dummy local used across the func_003A62C8 call. The prologue vector exts suggest CodeWarrior; if ee-gcc can't reproduce it, the range may actually be mwcps2-built despite the range confirmation (range checks can be quirks).",
+   "by": "opencode-free-1"
+  },
+  {
+   "function": "func_00396310",
+   "text": "Best 5/36 (99.8%) under ee-gcc-2.95.2 -O0 -G0. Frame -0x70, all 5 callee-saves (s0=arg0,s1=arg1,s2,s3,s4) byte-exact, prologue/epilogue/jal byte-exact. Single remaining diff: target `sw $v0, ($s2)` (store via t in s2), mine `sw $v0, ($s4)` (t coalesced with p in s4). Target register assignment is p=s4, q=s3, t=s2. Best source: `extern s32 *func_002AFEB8(s32,void*); extern s32 func_003A3910(s32); void func_00396310(register s32 arg0,register s32 arg1){register s32 *t;register s32 *q;register s32 *p=func_002AFEB8(4,arg0);q=p;if(p){*(t=p)=func_003A3910(arg1);q=t;}}` \u2014 the `*(t=p)=f()` form is what makes the call arg load happen BEFORE the t=p copy (target order: move a0,s1; jal; move s2,s4; sw v0,(s2)). Function returns void (no return value; epilogue has no v0 setup). Caller func_003963A0 (matched: `Tag arg3`), func_00397180. Callees: func_002AFEB8(s32,void*)\u2192s32*, func_003A3910(s32)\u2192s32. Tried: block-scoped t (230), separate `*t=f();q=t;` (205), `return q` (505, wrong), `*(t=p)=f()` with decl orders t,q,p (5), q,p,t (30), p,t,q (25), p,q,t (25), t,p,q (20) \u2014 all score 5 or worse. The t=s2 vs t=s4 coalescing is a -O0 CSE artifact; pure C cannot force t into s2 while p lives in s4 without a use of t that survives p. Next agent: try `volatile s32 *t`, a separate dead use of t, or passing t to an extern.",
+   "by": "api-free-1"
+  },
+  {
+   "function": "func_00396130",
+   "text": "Best 360/33 (89.0%) under ee-gcc-2.95.2 -O0 -G0. Frame -0x20, body byte-exact except regalloc. Target uses NON-STANDARD arg registers: arg0\u2192t1 ($9, kept 4\u00d7), arg3\u2192v1 ($3, dead copy), arg2\u2192t0 ($8), arg1\u2192a1 \u2014 ee-gcc -O0 normally uses a0-a3 for args, so this is NOT standard -O0 output. Caller func_003961B8 (matched) calls it as `func_00396130(a,b,c,(CopyTag){0},0)` \u2014 5 args, arg3=CopyTag{0} (unused), arg4=0 (unused). Best source: `s32 *func_00396130(register s32 *arg0,register s32 *arg1,register s32 *arg2,register s32 arg3,register s32 arg4){register s32 d=arg1-arg0; s32 n=d>>2; while(n>0){arg2--;arg1--;*arg2=*arg1;n--;} return arg2;}`. Tried: register-arg variants (360/615/840), non-register (2527), block-scope, typed pointer subtraction, `n=(arg1-arg0)/4`. try_compiler: ee-gcc-2.96 -O0 -G0 \u2192 3137 (sd/ld frame, no match); mwcps2-3.0.1 -O2 \u2192 2495 (bgez/addiu+3 rounding idiom, no match); ee-gcc-2.95.3 -O0 -G0 \u2192 485. The t1/t0 arg register assignment is the key blocker \u2014 likely a different compiler or a hand-written asm. Next agent: try ee-gcc-3.2, ee-gcc-2.9-991111, mwcps2-2.3.3, or search_flags; or consider not_c (hand-written: the `daddu $3,$7,$0; daddu $4,$8,$0` arg shuffle + dead v1 copy + `b .L64` fallthrough branch look like asm).",
+   "by": "api-free-1"
+  },
+  {
+   "function": "func_00384628",
+   "text": "Best 2485/203 (87.8%) with ee-gcc 2.95.2 -O2 -G0 (search_flags confirmed: -O2/-O3 give 2485, -O0 gives 25121). Body logic CONFIRMED correct.\n\nStructs: Entry{u32 str; s32 refs}; Registry{s32*map; s32 p1,p2; s32*reverse; s32 p4,p5; s32*begin,*end,*cap; Entry*entries; s32 p10,p11,count}=D_004262D0; Vtable{char pad[8]; s16 adjust; s16 pad2; void(*destroy)(void*,s32)}; ObjRef{s32 refs; Vtable*vt}; Obj{s32 id,p1,p2; void*vt; ObjRef*ref}. Helpers drop/copy/assign/entryinit/append confirmed correct.\n\nTarget prologue is CodeWarrior-style (ext/dps.w.ph/subu.qb/ext/dpa.w.ph) and keeps self in $s4, Registry base in $s3 throughout \u2014 an -O2 register pattern. Range 0x384000-0x386000 neighbours (0x383180-0x3834F8, 0x386640-0x386948) are already -O2. Suggest this range be built by EE-GCC 2.95.2 (SN) -O2 -G0 (couldn't auto-suggest since no match yet).\n\nRemaining diff is pure register allocation within the inlined helpers: target uses $s3=Registry base, $s4=self; mine uses $s5=self/$a3=Registry base. Tried: Registry* r local vs direct D_004262D0 access (direct slightly better at -O0), r local better at -O2; reorder map lookup; volatile; by-value Obj. NEXT AGENT: with -O2, force self into a callee-saved reg (alias through a field read across calls) so the compiler keeps it in $s4 and Registry base in $s3. The entryinit branch and swap-with-last block are the hotspots.",
+   "by": "opencode-free-1"
+  },
+  {
+   "function": "func_00398508",
+   "text": "Released because its agent stopped (decompdecomp closed while it worked); its attempts are kept.",
+   "by": "api-free-1"
+  },
+  {
+   "function": "func_00395BE8",
+   "text": "Released because its agent stopped (decompdecomp closed while it worked); its attempts are kept.",
+   "by": "api-free-2"
+  },
+  {
+   "function": "func_00395C80",
+   "text": "Released because its agent stopped (decompdecomp closed while it worked); its attempts are kept.",
+   "by": "api-free-2"
+  },
+  {
+   "function": "func_003978C8",
+   "text": "Released because its agent stopped (decompdecomp closed while it worked); its attempts are kept.",
+   "by": "api-free-2"
+  },
+  {
+   "function": "func_003A5298",
+   "text": "Released because its agent stopped (decompdecomp closed while it worked); its attempts are kept.",
+   "by": "api-free-3"
+  },
+  {
+   "function": "func_003A52D0",
+   "text": "Released because its agent stopped (decompdecomp closed while it worked); its attempts are kept.",
+   "by": "api-free-3"
+  },
+  {
+   "function": "func_003A5DC8",
+   "text": "Released because its agent stopped (decompdecomp closed while it worked); its attempts are kept.",
+   "by": "api-free-3"
+  },
+  {
+   "function": "func_003A69F8",
+   "text": "Released because its agent stopped (decompdecomp closed while it worked); its attempts are kept.",
+   "by": "api-free-3"
+  },
+  {
+   "function": "func_0037FBE8",
+   "text": "Released because its agent stopped (decompdecomp closed while it worked); its attempts are kept.",
+   "by": "opencode-free-1"
   }
  ],
  "set_aside": [

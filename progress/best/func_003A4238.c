@@ -1,36 +1,28 @@
-/* machine draft (m2c) for ee-gcc-2.95.2 -O0 -G0, tried by autopilot */
-#ifndef M2C_DEFINES
-#define M2C_DEFINES
-typedef s32 M2C_UNK;
-typedef s8 M2C_UNK8;
-typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-#define M2C_ERROR(desc) (0)
-#define M2C_CARRY 0
-#define M2C_OVERFLOW(a) (0)
-#endif
-
-M2C_UNK func_003A36D0(void *, s32, s32);            /* extern */
-M2C_UNK func_003A37C0(s32, s32);                    /* extern */
-s32 func_003A3B08(void *);                          /* extern */
-u32 func_003A4070(void *);                          /* extern */
-s32 func_003AC308(void *, u32, s32, s32);           /* extern */
-
-void func_003A4238(void *arg0, u32 arg1) {
-    s32 sp0;
-    s32 sp4;
-    s32 temp_2;
-
-    if (func_003A4070(arg0) < arg1) {
-        sp0 = func_003A3B08(arg0);
-        temp_2 = func_003AC308(arg0, arg1, M2C_FIELD(arg0, s32 *, 0), M2C_FIELD(arg0, s32 *, 4));
-        sp4 = temp_2;
-        func_003A37C0(M2C_FIELD(arg0, s32 *, 0), M2C_FIELD(arg0, s32 *, 4));
-        func_003A36D0(arg0, M2C_FIELD(arg0, s32 *, 0), (s32) (M2C_FIELD(arg0, s32 *, 8) - M2C_FIELD(arg0, s32 *, 0)) >> 2);
-        M2C_FIELD(arg0, s32 *, 0) = temp_2;
-        M2C_FIELD(arg0, s32 *, 4) = (s32) (sp4 + (sp0 * 4));
-        M2C_FIELD(arg0, s32 *, 8) = (s32) (M2C_FIELD(arg0, s32 *, 0) + (arg1 * 4));
-    }
+struct vec
+{
+  void *begin;
+  void *end;
+  void *cap;
+};
+u32 func_003A4070(struct vec *);
+s32 func_003A3B08(struct vec *);
+void *func_003AC308(struct vec *, u32, void *, void *);
+void func_003A37C0(void *, void *);
+void func_003A36D0(struct vec *, void *, s32);
+void func_003A4238(register struct vec *arg0, register u32 arg1)
+{
+  int new_var;
+  s32 new_var2;
+  if (func_003A4070(arg0) < arg1)
+  {
+    register s32 count = func_003A3B08(arg0);
+    void *new_end = func_003AC308(arg0, arg1, arg0->begin, arg0->end);
+    func_003A37C0(arg0->begin, arg0->end);
+    func_003A36D0(arg0, arg0->begin, (new_var = arg0->cap - arg0->begin) >> 2);
+    arg0->begin = new_end;
+    new_var2 = count;
+    arg0->end = new_end + (new_var2 * 4);
+    arg0->cap = arg0->begin + (arg1 * 4);
+  }
 }
+
