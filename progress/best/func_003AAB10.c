@@ -1,23 +1,25 @@
-/* machine draft (m2c) for ee-gcc-2.95.2 -O0 -G0, tried by autopilot */
-#ifndef M2C_DEFINES
-#define M2C_DEFINES
-typedef s32 M2C_UNK;
-typedef s8 M2C_UNK8;
-typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-#define M2C_ERROR(desc) (0)
-#define M2C_CARRY 0
-#define M2C_OVERFLOW(a) (0)
-#endif
+s32 func_003A0BD8(s32, s32);
+void func_00219DA8(s32, s32);
 
-s32 func_003AAAA0(s32);                             /* extern */
-s32 func_003AAAD8(s32);                             /* extern */
+s32 func_003A5DC8(register s32 arg0, register s32 arg1) {
+    func_003A0BD8(arg0, arg1);
+    func_00219DA8(arg0 + 0xC, arg1 + 0xC);
+    return arg0;
+}
 
-s32 func_003AAB10(s32 arg0) {
-    s32 temp_17;
+s32 func_003AAAD8(s32);
+s32 func_003AAAA0(s32);
 
-    temp_17 = func_003AAAD8(arg0);
-    return (s32) ((temp_17 - func_003AAAA0(arg0)) * 0xB6DB6DB7) >> 2;
+s32 func_003AAB10(register s32 arg0) {
+    register s32 end = func_003AAAD8(arg0);
+    return (end - func_003AAAA0(arg0)) * (s32)0xB6DB6DB7 >> 2;
+}
+
+void func_003AD088(void *);
+void func_003B0D10(void *, s32, void *);
+
+void func_003AABC8(void *arg0, s32 arg1) {
+    char buf[0x20];
+    func_003AD088(buf);
+    func_003B0D10(arg0, arg1, buf);
 }

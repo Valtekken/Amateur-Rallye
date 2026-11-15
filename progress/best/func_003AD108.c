@@ -1,43 +1,47 @@
-extern int D_0043C3B0[];
+extern s32 func_003A0BD8(s32, s32);
+extern s32 func_00219DA8(s32, s32);
 
-void func_003F0B30(int arg0, int arg1, int arg2) {
-    int *p = D_0043C3B0;
-    p[1] = arg1;
-    p[2] = arg2;
-    p[3] = arg0;
+s32 func_003A5DC8(register s32 arg0, register s32 arg1) {
+    func_003A0BD8(arg0, arg1);
+    func_00219DA8(arg0 + 0xC, arg1 + 0xC);
+    return arg0;
 }
 
-void func_003AD1B8(float *a, float *b, float *c) {
-    c[0] = a[0] - b[0];
-    c[1] = a[1] - b[1];
-    c[2] = a[2] - b[2];
+extern void func_003A5BC8(void *, f32, f32, f32);
+
+void *func_003AD088(register char *arg0) {
+    func_003A5BC8(arg0, 0.0f, 0.0f, 0.0f);
+    func_003A5BC8(arg0 + 0xC, 0.0f, 0.0f, 0.0f);
+    *(s32 *)(arg0 + 0x18) = -1;
+    return arg0;
 }
 
 extern void func_003AA878(void *);
 extern void func_003B2DF0(void *, void *);
-extern void func_003AA8E8(void *, int);
+extern void func_003AA8E8(void *, s32);
 extern void func_003A3660(void *);
 extern void func_003B1120(void *, void *);
-extern void func_003A3730(void *, int);
+extern void func_003A3730(void *, s32);
 
-void *func_003AD108(void *arg0) {
-    char sp[0x60];
-    char sp10[0x50];
+void *func_003AD108(register char *arg0) {
+    char a[16];
+    char b[16];
+    register char *p;
 
-    func_003AA878(sp);
-    func_003B2DF0(arg0, sp);
-    func_003AA8E8(sp, 2);
-    func_003A3660(sp10);
-    func_003B1120((char *)arg0 + 0xC, sp10);
-    func_003A3730(sp10, 2);
+    func_003AA878(a);
+    func_003B2DF0(arg0, a);
+    func_003AA8E8(a, 2);
+
+    p = arg0 + 0xC;
+    func_003A3660(b);
+    func_003B1120(p, b);
+    func_003A3730(b, 2);
+
     return arg0;
 }
 
-extern void func_003A5BC8(void *, float, float, float);
-
-void *func_003AD088(void *arg0) {
-    func_003A5BC8(arg0, 0.0f, 0.0f, 0.0f);
-    func_003A5BC8((char *)arg0 + 0xC, 0.0f, 0.0f, 0.0f);
-    *(int *)((char *)arg0 + 0x18) = -1;
-    return arg0;
+void func_003AD1B8(register f32 *a, register f32 *b, register f32 *c) {
+    c[0] = a[0] - b[0];
+    c[1] = a[1] - b[1];
+    c[2] = a[2] - b[2];
 }

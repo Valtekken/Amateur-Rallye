@@ -60,10 +60,9 @@ void func_002D8F70(Vec *arg0, void *arg1, void **arg2) {
         if (oldend != 0)
             *(void **)oldend = *(void **)((s32)oldend - 4);
         newend = (char *)oldend + 4;
-        arg0->end = newend;
         nn = (s32)((s32)oldend - 4) - (s32)arg1;
         nn = nn & ~3;
         func_003F93CC((char *)newend - nn, arg1, nn);
-        *(void **)arg1 = *arg2;
+        *arg2 = arg0->begin;
     }
 }

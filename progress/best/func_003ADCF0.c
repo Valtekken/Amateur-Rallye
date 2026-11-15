@@ -1,24 +1,21 @@
-extern s32 D_0043C3B0[];
+typedef struct { s32 value; } CopyTag;
+extern s32 func_002C5160(s32, s32, s32, CopyTag);
 
-void func_003F0B30(s32 arg0, s32 arg1, s32 arg2) {
-    register s32 *p = D_0043C3B0;
-    p[1] = arg1;
-    p[2] = arg2;
-    p[3] = arg0;
+s32 func_003978C8(register s32 a, register s32 b, register s32 c, register s32 d) {
+    return func_002C5160(a, b, c, (CopyTag){0});
 }
 
-void **func_003ADE18(void ***arg0) {
-    *arg0 = **arg0;
-    return (void **)arg0;
+extern s32 *func_003AD930(s32 *, s32);
+s32 *func_003ADCF0(register s32 *arg0, register s32 **arg1) {
+    func_003AD930(arg0, **arg1);
+    return arg0;
 }
 
-s32 func_003ADD50(s32 *arg0, s32 *arg1) {
+s32 func_003ADD50(register s32 *arg0, register s32 *arg1) {
     return *arg0 != *arg1;
 }
 
-extern void *func_003AD930(void *arg0, void *arg1);
-
-void *func_003ADCF0(void *arg0, void **arg1) {
-    func_003AD930(arg0, *arg1);
-    return arg0;
+void **func_003ADE18(register void ***arg0) {
+    *arg0 = **arg0;
+    return (void **)arg0;
 }

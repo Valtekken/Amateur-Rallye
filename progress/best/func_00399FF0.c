@@ -1,28 +1,28 @@
-/* machine draft (m2c) for ee-gcc-2.95.2 -O0 -G0, tried by autopilot */
-#ifndef M2C_DEFINES
-#define M2C_DEFINES
-typedef s32 M2C_UNK;
-typedef s8 M2C_UNK8;
-typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-#define M2C_ERROR(desc) (0)
-#define M2C_CARRY 0
-#define M2C_OVERFLOW(a) (0)
-#endif
+extern s32 func_00395068(s32);
+extern s32 func_003950D8(s32, s32);
+extern s32 func_002C5160(s32, s32, s32, s32);
+extern s32 func_002AFEB8(s32, s32);
+extern s32 func_003A3EB0(s32);
 
-s32 func_002AFEB8(M2C_UNK, s32);                    /* extern */
+void *func_00395138(s32 arg0) {
+    s32 t1 = func_00395068(arg0 + 1);
+    s32 t2 = func_003950D8(0x10, t1);
+    return (void*)t1;
+}
+
+s32 func_003978C8(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
+    func_002C5160(arg0, arg1, arg2, arg3);
+    return 0;
+}
 
 s32 func_00399FF0(s32 arg0, s32 arg1) {
-    s32 temp_2;
+    func_002AFEB8(8, arg0);
+    return 0;
+}
 
-    temp_2 = func_002AFEB8(8, arg0);
-    if (temp_2 != 0) {
-        M2C_ERROR(/* unknown instruction: ldl $a2, 0x7($a1) */);
-        M2C_ERROR(/* unknown instruction: ldr $a2, ($a1) */);
-        M2C_ERROR(/* unknown instruction: sdl $a2, 0x7($a0) */);
-        M2C_ERROR(/* unknown instruction: sdr $a2, ($a0) */);
+s32 func_0039A5A8(s32 arg0) {
+    if (arg0 == 0) {
+        return 0;
     }
-    return temp_2;
+    return func_003A3EB0(arg0 * 8);
 }

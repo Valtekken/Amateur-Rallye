@@ -1,46 +1,32 @@
+s32 func_003A0BD8(s32, s32);
+s32 func_00219DA8(s32, s32);
+
+s32 func_003A5DC8(register s32 arg0, register s32 arg1) {
+    func_003A0BD8(arg0, arg1);
+    func_00219DA8(arg0 + 0xC, arg1 + 0xC);
+    return arg0;
+}
+
 void func_003AF670(void *);
 void func_003AF768(void *, void *, void *);
 void func_003AF7E8(void *, s32);
 
-void *func_003A9010(void *arg0) {
+void *func_003A9010(register void *arg0) {
+    char sp = 0;
     char tmp[0x10];
-    char sp;
-
-    sp = 0;
     func_003AF670(tmp);
     func_003AF768(arg0, &sp, tmp);
     func_003AF7E8(tmp, 2);
     return arg0;
 }
 
-void func_0039BC70(void *, void *, void *);
-void *func_003A5A10(void *);
-void *func_003A8D70(void *, void *);
+s32 func_003ACD28(s32, s32);
 
-void func_003A8DE0(void *arg0, void *arg1) {
-    typedef struct {
-        s32 unk0;
-        char *p4;
-        char *p8;
-    } S;
-    S *s = (S *)arg0;
-    char *p4 = s->p4;
-    if (p4 != s->p8) {
-        func_003A8D70(p4, arg1);
-        s->p4 = p4 + 8;
-    } else {
-        void *t = func_003A5A10(s);
-        func_0039BC70(s, t, arg1);
-    }
+s32 func_003A90D0(register s32 arg0, register s32 arg1, register s32 arg2) {
+    return func_003ACD28(arg1, arg2);
 }
 
-void *func_002AFEB8(s32, void *);
-
-void *func_003A8D70(void *arg0, void *arg1) {
-    void *p;
-    p = func_002AFEB8(8, arg0);
-    if (p != 0) {
-        *(s64 *)p = *(s64 *)arg1;
-    }
-    return p;
+s32 *func_003A9140(s32 *arg0, s32 arg1) {
+    *arg0 = arg1;
+    return arg0;
 }

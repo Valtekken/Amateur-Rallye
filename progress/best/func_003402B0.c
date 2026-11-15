@@ -1,24 +1,23 @@
-/* machine draft (m2c), tried by autopilot */
-#ifndef M2C_DEFINES
-#define M2C_DEFINES
-typedef s32 M2C_UNK;
-typedef s8 M2C_UNK8;
-typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-#define M2C_ERROR(desc) (0)
-#define M2C_CARRY 0
-#define M2C_OVERFLOW(a) (0)
-#endif
+typedef struct S_func_003401F0_arg0 {
+    s8 unk_00;
+    s8 unk_01;
+    s8 unk_02;
+    s8 unk_03;
+} S_func_003401F0_arg0;
 
-void func_003402B0(void *arg0, f32 fparg0) {
-    s8 var_3;
+void func_003402B0(S_func_003401F0_arg0 *arg0, f32 arg1) {
+    union {
+        f32 f;
+        u32 u;
+    } conv;
+    conv.u = 0x437F0000;
+    
+    f32 product = arg1 * conv.f;
+    s32 int_val = (s32)product;
 
-    if (0x437F0000 < 2) {
-        var_3 = 2;
+    if (int_val < 2) {
+        arg0->unk_03 = (s8)0xFE;
     } else {
-        var_3 = (0xFE < 0x437F0000) ? 0xFE : 0x437F0000;
+        arg0->unk_03 = (s8)2;
     }
-    M2C_FIELD(arg0, s8 *, 3) = var_3;
 }

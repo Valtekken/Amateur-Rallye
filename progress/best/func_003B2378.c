@@ -1,25 +1,7 @@
-/* machine draft (m2c) for ee-gcc-2.95.2 -O0 -G0, tried by autopilot */
-#ifndef M2C_DEFINES
-#define M2C_DEFINES
-typedef s32 M2C_UNK;
-typedef s8 M2C_UNK8;
-typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-#define M2C_ERROR(desc) (0)
-#define M2C_CARRY 0
-#define M2C_OVERFLOW(a) (0)
-#endif
+s32 func_003A0BD8(s32,s32);s32 func_00219DA8(s32,s32);s32 func_003A5DC8(register s32 a,register s32 b){func_003A0BD8(a,b);func_00219DA8(a+12,b+12);return a;}
 
-s32 *func_003A8F68(s32 *);                          /* extern */
-s32 *func_003A8FA0(s32 *);                          /* extern */
-s32 *func_003A8FD8(s32 *);                          /* extern */
-s32 *func_003B3788(s32);                            /* extern */
-
-void func_003B2378(s32 *arg0) {
-    *func_003B3788(*arg0) = 0;
-    *func_003A8F68(arg0) = 0;
-    *func_003A8FA0(arg0) = *arg0;
-    *func_003A8FD8(arg0) = *arg0;
-}
+void func_003B3728(u32);void func_003B2260(register u32 a,register u32 b,register s32 c){while(a<b){func_003B3728(a);a+=48;}}
+void func_003B3750(s32*,s32);s32 func_003A8EC8(s32*);
+s32*func_003B2308(register s32*a,register s32 b){func_003B3750(a,b);*a=func_003A8EC8(a);return a;}
+s32*func_003B3788(s32);s32*func_003A8F68(s32*);s32*func_003A8FA0(s32*);s32*func_003A8FD8(s32*);
+void func_003B2378(register s32*a){register s32*p=func_003B3788(*a);*p=0;register s32*q=func_003A8F68(a);*q=0;register s32*r=func_003A8FA0(a);*r=*a;register s32*s=func_003A8FD8(a);*s=*a;}

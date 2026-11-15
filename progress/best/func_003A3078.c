@@ -1,37 +1,47 @@
-/* machine draft (m2c) for ee-gcc-2.95.2 -O0 -G0, tried by autopilot */
-#ifndef M2C_DEFINES
-#define M2C_DEFINES
-typedef s32 M2C_UNK;
-typedef s8 M2C_UNK8;
-typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-#define M2C_ERROR(desc) (0)
-#define M2C_CARRY 0
-#define M2C_OVERFLOW(a) (0)
-#endif
+extern s32 func_003A0BD8(s32, s32);
+extern s32 func_00219DA8(s32, s32);
 
-M2C_UNK func_003A88A0(M2C_UNK *);                   /* extern */
-M2C_UNK func_003A88D0(M2C_UNK *, M2C_UNK *);        /* extern */
-M2C_UNK func_003A8930(M2C_UNK *, M2C_UNK);          /* extern */
-M2C_UNK func_003A8990(M2C_UNK *, M2C_UNK);          /* extern */
-extern M2C_UNK D_0042FD60;
+s32 func_003A5DC8(register s32 arg0, register s32 arg1) {
+    func_003A0BD8(arg0, arg1);
+    func_00219DA8(arg0 + 0xC, arg1 + 0xC);
+    return arg0;
+}
+
+extern void func_003A88A0(void *);
+extern void func_003A88D0(void *, void *);
+extern void func_003A8930(void *, s32);
+extern void func_003A8990(void *, s32);
+extern u8 D_0042FD60[];
 
 void func_003A3078(s32 arg0, s32 arg1) {
-    s32 sp0;
-    s32 sp4;
-    M2C_UNK sp10;
-
-    sp0 = arg0;
-    sp4 = arg1;
-    if (sp4 == 0xFFFF) {
-        if (sp0 != 0) {
-            func_003A88A0(&sp10);
-            func_003A88D0(&D_0042FD60, &sp10);
-            func_003A8930(&sp10, 2);
-            return;
+    u8 sp10[16];
+    if (arg1 == 0xFFFF) {
+        if (arg0 != 0) {
+            func_003A88A0(sp10);
+            func_003A88D0(D_0042FD60, sp10);
+            func_003A8930(sp10, 2);
+        } else {
+            func_003A8990(D_0042FD60, 2);
         }
-        func_003A8990(&D_0042FD60, 2);
     }
+}
+
+extern void func_003A0770(void *, void *);
+typedef struct {s8 value;} Tag;
+
+void *func_003A2658(void *a, s32 n, void *b, Tag tag) {
+    void *p = a;
+    while (n) {
+        func_003A0770(p, b);
+        n--;
+        p = (u8*)p + 0x1C;
+    }
+    return p;
+}
+
+f32 func_003F3E80(f32);
+
+f32 func_003A3120(f32 arg0) {
+    register f32 f20 = arg0;
+    return func_003F3E80(f20);
 }

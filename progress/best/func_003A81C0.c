@@ -1,24 +1,51 @@
-/* machine draft (m2c) for ee-gcc-2.95.2 -O2 -G0, tried by autopilot */
-#ifndef M2C_DEFINES
-#define M2C_DEFINES
-typedef s32 M2C_UNK;
-typedef s8 M2C_UNK8;
-typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-#define M2C_ERROR(desc) (0)
-#define M2C_CARRY 0
-#define M2C_OVERFLOW(a) (0)
-#endif
+extern s32 func_003A0BD8(register s32 arg0, register s32 arg1);
+extern void func_00219DA8(register s32 arg0, register s32 arg1);
+extern s32 func_003A80D0(s32);
+extern s32 func_003A8118(s32);
+extern void func_003AEF40(s32, s32, s32);
+extern s32 func_003AF070(s32);
+extern s32 func_003AEFD0(s32);
 
-s32 func_003A80D0(s32);                             /* extern */
-s32 func_003A8118(s32);                             /* extern */
-M2C_UNK func_003AEF40(s32, s32, s32);               /* extern */
+s32 func_003A8040(register s32 *arg0) {
+    register s32 r = *arg0;
+    if (0) {
+        return r;
+    }
+    if (1) {
+        return r;
+    }
+    if (0) {
+        return r;
+    }
+    return r;
+}
 
-void func_003A81C0(s32 arg0) {
-    s32 temp_17;
+s32 func_003A8088(register s32 *arg0) {
+    register s32 r = arg0[1];
+    if (0) {
+        return r;
+    }
+    if (0) {
+        return r;
+    }
+    if (0) {
+        return r;
+    }
+    return r;
+}
 
-    temp_17 = func_003A80D0(arg0);
-    func_003AEF40(arg0, temp_17, func_003A8118(arg0));
+void func_003A81C0(register s32 arg0, register s32 arg1, register s32 arg2) {
+    register s32 s1 = arg0;
+    register s32 s0 = arg1;
+    register s32 a = func_003A80D0(s1);
+    register s32 b = func_003A8118(s1);
+    func_003AEF40(s1, a, b);
+}
+
+s32 func_003A8230(register s32 arg0) {
+    register s32 s1 = arg0;
+    register s32 end = func_003AF070(s1);
+    register s32 begin = func_003AEFD0(s1);
+    register s32 diff = end - begin;
+    return (s32)((diff * 0xAAAAAAABLL) >> 4);
 }
