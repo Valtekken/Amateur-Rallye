@@ -1,40 +1,7 @@
-/* machine draft (m2c) for ee-gcc-2.9-991111 -O2 -G0, tried by autopilot */
-#ifndef M2C_DEFINES
-#define M2C_DEFINES
-typedef s32 M2C_UNK;
-typedef s8 M2C_UNK8;
-typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-#define M2C_ERROR(desc) (0)
-#define M2C_CARRY 0
-#define M2C_OVERFLOW(a) (0)
-#endif
-
-M2C_UNK func_0040B540(M2C_UNK *, s32);              /* extern */
-extern s32 D_00441114;
-extern M2C_UNK D_0049E400;
-
-void func_004045C8(s8 arg0) {
-    s32 var_5;
-    void *temp_2;
-
-    var_5 = D_00441114;
-    if (var_5 >= 0x7E) {
-        D_00441114 = 0;
-        M2C_FIELD(&D_0049E400, s8 *, 0x7F) = 0;
-        func_0040B540(&D_0049E400, var_5);
-        var_5 = D_00441114;
-    }
-    if (arg0 == 0xA) {
-        D_00441114 = 0;
-        temp_2 = var_5 + &D_0049E400;
-        M2C_FIELD(temp_2, s8 *, 0) = arg0;
-        M2C_FIELD(temp_2, s8 *, 1) = 0;
-        func_0040B540(&D_0049E400, var_5);
-        return;
-    }
-    D_00441114 = var_5 + 1;
-    *(var_5 + &D_0049E400) = arg0;
-}
+s32 func_003A0BD8(s32,s32);s32 func_00219DA8(s32,s32);
+s32 func_003A5DC8(register s32 a,register s32 b){func_003A0BD8(a,b);func_00219DA8(a+12,b+12);return a;}
+extern s32 D_00441114;extern u8 D_0049E400[];extern void func_0040B540(u8*);
+void func_004045C8(s32 a){s32 n=D_00441114;u8*p;if(n>=126){D_00441114=0;D_0049E400[127]=0;func_0040B540(D_0049E400);n=D_00441114;}if(a==10){D_00441114=0;p=D_0049E400+n;p[0]=a;p[1]=0;func_0040B540(D_0049E400);return;}D_00441114=n+1;D_0049E400[n]=a;}
+extern void func_00404590(s32);
+void func_00404678(s32 a){if(a==10){func_00404590(13);func_00404590(10);}else func_00404590(a);}
+s32 func_004046B0(s64 a){s64 x=a,e;u64 m,t;e=((u64)(x<<1)>>53)-1075;if(e<-53)return 0;if(e>=13)return 9999;m=((u64)(x<<12)>>12)|(0x8000ULL<<37);if(e<0){t=m>>(s32)(-e-2);if((t&3)!=3)m=t>>2;else m=(t>>2)+1;}else m<<=(s32)e;return (s32)m;}

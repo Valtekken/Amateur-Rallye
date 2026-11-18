@@ -1,0 +1,3 @@
+#define I(p,o) (*(int*)((char*)(p)+(o)))
+extern int func_003E0EF0(void*),func_003E5F10(void*),func_003E5FE0(void*,int,int),func_003E6070(void*,int);
+int func_003E11E8(register void*a,register int b,register int c){register int result;register int skip=0;register void*p=*(void**)((char*)a+64);if(c==-1||b<c){register int test;if(!I(p,8)){I(a,8)=0;I(p,8)=1;}{int ok=func_003E6070(p,0);test=0;if(ok)test=func_003E5F10(p)!=0;}result=test;}else{skip=1;result=func_003E6070(p,0);func_003E0EF0(a);}func_003E5FE0(p,I(p,0x118),I(p,4));if(I(p,0x174)!=3&&!skip)I(p,0x120)=!I(p,0x120);I(a,8)=I(p,0x118)-I(p,0xac);if(!I(p,0x120)){I(p,0x118)++;I(p,4)++;}return result;}

@@ -1,71 +1,58 @@
-/* machine draft (m2c) for ee-gcc-2.95.2 -O2 -G0, tried by autopilot */
-#ifndef M2C_DEFINES
-#define M2C_DEFINES
-typedef s32 M2C_UNK;
-typedef s8 M2C_UNK8;
-typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-#define M2C_ERROR(desc) (0)
-#define M2C_CARRY 0
-#define M2C_OVERFLOW(a) (0)
-#endif
+extern void *func_002B1FC0(s32);
+extern void *func_003D2910(s32);
+extern void *func_00152D28(s32);
+extern void func_003F93CC(void *, void *, s32);
+extern u32 D_0040E618[];
 
-M2C_UNK *func_00152D28(M2C_UNK);                    /* extern */
-M2C_UNK *func_002B1FC0(s32);                        /* extern */
-M2C_UNK *func_003D2910(s32);                        /* extern */
-M2C_UNK func_003F93CC(M2C_UNK *, s32, s32);         /* extern */
-extern M2C_UNK D_0040E618;
+typedef struct { s32 begin; s32 end; } S2;
+typedef struct { s32 f0; s32 f4; s32 f8; } V;
 
 void *func_00367710(void *arg0, s32 arg1, void *arg2) {
-    M2C_UNK *temp_2_2;
-    M2C_UNK *var_17;
-    s32 temp_16;
-    s32 temp_2;
-    s32 temp_2_3;
-    s32 var_16;
-    s32 var_20;
-    void *var_18;
+    s32 i;
+    V *p;
+    S2 *a2;
+    s32 n;
+    s32 size;
+    void *buf;
+    s32 b, e, cnt;
 
-    var_20 = arg1;
-    var_18 = arg0;
-    if (var_20 != 0) {
-        do {
-            if (var_18 != NULL) {
-                M2C_FIELD(var_18, M2C_UNK **, 0) = NULL;
-                M2C_FIELD(var_18, M2C_UNK **, 4) = NULL;
-                temp_2 = (s32) (M2C_FIELD(arg2, s32 *, 4) - M2C_FIELD(arg2, s32 *, 0)) >> 2;
-                M2C_FIELD(var_18, void **, 8) = NULL;
-                if (temp_2 != 0) {
-                    var_16 = temp_2 * 4;
-                    if (var_16 != 0) {
-                        temp_2_2 = func_002B1FC0(var_16);
-                        var_17 = temp_2_2;
-                        if (temp_2_2 == NULL) {
-                            var_17 = func_003D2910(var_16);
-                        }
-                    } else if (M2C_FIELD(&D_0040E618, M2C_UNK **, -4) != NULL) {
-                        var_17 = M2C_FIELD(&D_0040E618, M2C_UNK **, -4);
-                        M2C_FIELD(&D_0040E618, M2C_UNK **, -4) = (M2C_UNK *) *M2C_FIELD(&D_0040E618, M2C_UNK **, -4);
-                    } else {
-                        var_17 = func_00152D28(0);
+    p = (V *)arg0;
+    a2 = (S2 *)arg2;
+    for (i = 0; i < arg1; i++, p++) {
+        if (p != NULL) {
+            p->f0 = 0;
+            p->f4 = 0;
+            p->f8 = 0;
+            n = (a2->end - a2->begin) >> 2;
+            if (n != 0) {
+                size = n * 4;
+                if (size != 0) {
+                    buf = func_002B1FC0(size);
+                    if (buf == NULL) {
+                        buf = func_003D2910(size);
                     }
                 } else {
-                    var_17 = NULL;
-                    var_16 = 0;
+                    if (D_0040E618[-1] != 0) {
+                        buf = (void *)D_0040E618[-1];
+                        D_0040E618[-1] = *(u32 *)buf;
+                    } else {
+                        buf = func_00152D28(0);
+                    }
                 }
-                M2C_FIELD(var_18, M2C_UNK **, 0) = var_17;
-                M2C_FIELD(var_18, void **, 8) = (void *) (var_17 + var_16);
-                M2C_FIELD(var_18, M2C_UNK **, 4) = var_17;
-                temp_2_3 = M2C_FIELD(arg2, s32 *, 0);
-                temp_16 = M2C_FIELD(arg2, s32 *, 4) - temp_2_3;
-                func_003F93CC(var_17, temp_2_3, (temp_16 >> 2) * 4);
-                M2C_FIELD(var_18, M2C_UNK **, 4) = (M2C_UNK *) (var_17 + temp_16);
+            } else {
+                buf = NULL;
+                size = 0;
             }
-            var_20 -= 1;
-            var_18 += 0xC;
-        } while (var_20 != 0);
+            /* note: assembly when n==0 sets buf=0,size=0; when size==0 path... handled */
+            p->f0 = (s32)buf;
+            p->f8 = (s32)buf + (n==0?0:size);
+            p->f4 = (s32)buf;
+            b = a2->begin;
+            e = a2->end;
+            cnt = (e - b) >> 2;
+            func_003F93CC(buf, (void *)b, cnt * 4);
+            p->f4 = (s32)buf + (e - b);
+        }
     }
-    return var_18;
+    return (void *)p;
 }

@@ -1,55 +1,8 @@
 /* identical to func_00403858 (matched), with its names changed by decompdecomp */
-extern void _iEnableIntc_2(void);
-
-void func_00403B50(void) {
-    _iEnableIntc_2();
-}
-
-void func_00403BF0(void *arg0, void *arg1, u32 arg2) {
-    u32 *dst;
-    u32 *src;
-    u32 count;
-    u32 i;
-
-    count = arg2 >> 2;
-    if (count == 0) {
-        return;
-    }
-    dst = (u32 *)arg0;
-    src = (u32 *)arg1;
-    i = 0;
-    do {
-        dst[i] = src[i];
-        i++;
-    } while (i < count);
-}
-
-extern s32 func_00403870(s32, s32);
-
-void func_00403998(s32 arg0, s32 arg1) {
-    arg0 &= 0xFFFFFFC0;
-    arg1 &= 0xFFFFFFC0;
-    func_00403870(arg0, arg1);
-}
-
-extern s32 D_00441110;
-extern void *D_0049DC20;
-extern u8 D_0049DC28[];
-
-s32 iSignalSema_2(void *, void *, s32, s32);
-
-u8 func_00403F58(u8 arg0) {
-    u32 count;
-    u8 *entry;
-
-    if ((u32)arg0 >= 0x80U || D_00441110 == 0) {
-        return 0xFF;
-    }
-    count = *(u32 *)(D_0049DC28 + 4) & 0x1FF;
-    entry = D_0049DC28 + count * 2;
-    *(u32 *)(D_0049DC28 + 4) = count + 1;
-    entry[8] = 1;
-    entry[9] = arg0;
-    iSignalSema_2(D_0049DC20, entry, (s32)(count * 2), 1);
-    return arg0;
-}
+s32 func_003A0BD8(s32,s32);s32 func_00219DA8(s32,s32);
+s32 func_003A5DC8(register s32 a,register s32 b){func_003A0BD8(a,b);func_00219DA8(a+12,b+12);return a;}
+extern s32 func_004042B0(s32,s32),func_00404400(s32,s32),func_004044D0(s32);extern s32 D_00440960;
+s32 func_004034A8(s32 a,s32 b,s32 c){if((u32)(a-1)<2){if(!D_00440960){if(func_004044D0(b))D_00440960=1;else goto fail;}return func_004042B0(b,c);}fail:return -1;}
+s32 func_00403528(s32 a,s32 b,s32 c){if(a==0){if(!D_00440960){if(func_004044D0(b))D_00440960=1;else goto fail;}return func_00404400(b,c);}fail:return -1;}
+extern void func_00403870(u32,u32);
+void func_00403998(u32 a,u32 b){func_00403870(a&0xffffffc0u,b&0xffffffc0u);}

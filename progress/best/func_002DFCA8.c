@@ -18,11 +18,8 @@ void *func_002DFCA8(void *arg0, struct S_vec *arg1, struct S_key *arg2) {
     cur = head;
     while (cur != NULL) {
         if (cur->field4 == arg2->unk0) {
-            tmp.unk0 = cur->next;
-            tmp.unk4 = arg1;
-            *(struct S_out *)arg0 = tmp;
-            ((struct S_out *)arg0)->unk8 = 0;
-            return arg0;
+            tmp.unk0 = cur->next; tmp.unk4 = arg1; tmp.unk8 = 0;
+            *(struct S_out *)arg0 = tmp; return arg0;
         }
         cur = cur->next;
     }
@@ -36,9 +33,6 @@ void *func_002DFCA8(void *arg0, struct S_vec *arg1, struct S_key *arg2) {
     result->next = head;
     *slot = result;
     arg1->unk10 = arg1->unk10 + 1;
-    tmp.unk0 = result;
-    tmp.unk4 = arg1;
-    *(struct S_out *)arg0 = tmp;
-    ((struct S_out *)arg0)->unk8 = 1;
-    return arg0;
+    tmp.unk0 = result; tmp.unk4 = arg1; tmp.unk8 = 1;
+    *(struct S_out *)arg0 = tmp; return arg0;
 }

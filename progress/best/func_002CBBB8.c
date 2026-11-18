@@ -1,42 +1,29 @@
-/* machine draft (m2c) for ee-gcc-2.95.2 -O2 -G0, tried by autopilot */
-#ifndef M2C_DEFINES
-#define M2C_DEFINES
-typedef s32 M2C_UNK;
-typedef s8 M2C_UNK8;
-typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-#define M2C_ERROR(desc) (0)
-#define M2C_CARRY 0
-#define M2C_OVERFLOW(a) (0)
-#endif
-
+extern void func_002CA1D0(void*,s8,s16);extern int func_003F9698(const char*,...);extern char D_00482528[];
 void func_002CBBB8(void *arg0, f32 fparg0, f32 fparg1, f32 fparg2) {
-    f32 temp_f0;
-    f32 temp_f1;
-    f32 var_f0;
-    f32 var_f0_2;
-    s32 var_condition_bit;
+    f32 val;
+    f32 f1 = ((f32*)arg0)[0xE0/4];
+    f32 f2 = ((f32*)arg0)[0xE8/4];
 
-    temp_f1 = M2C_FIELD(arg0, f32 *, 0xE0);
-    temp_f0 = M2C_FIELD(arg0, f32 *, 0xE8);
-    if (temp_f1 < fparg0) {
-        var_f0 = temp_f1 + (fparg1 * temp_f0);
-        var_condition_bit = fparg0 < var_f0;
+    if (f1 < fparg0) {
+        val = f1 + (fparg1 * f2);
+        if (fparg0 < val) {
+            ((f32*)arg0)[0xE0/4] = val;
+        } else {
+            ((f32*)arg0)[0xE0/4] = f1;
+        }
     } else {
-        var_f0 = temp_f1 - (fparg2 * temp_f0);
-        var_condition_bit = var_f0 < fparg0;
+        val = f1 - (fparg2 * f2);
+        if (val < fparg0) {
+            ((f32*)arg0)[0xE0/4] = val;
+        } else {
+            ((f32*)arg0)[0xE0/4] = f1;
+        }
     }
-    M2C_FIELD(arg0, f32 *, 0xE0) = var_f0;
-    if (var_condition_bit) {
-        M2C_FIELD(arg0, f32 *, 0xE0) = fparg0;
-    }
-    var_f0_2 = M2C_FIELD(arg0, f32 *, 0xE0);
-    if (var_f0_2 < 0.0f) {
-        var_f0_2 = 0.0f;
-    } else if (var_f0_2 > 1.0f) {
-        var_f0_2 = 1.0f;
-    }
-    M2C_FIELD(arg0, f32 *, 0xE0) = var_f0_2;
+
+    val = ((f32*)arg0)[0xE0/4];
+    if (val < 0.0f) val = 0.0f;
+    if (val > 1.0f) val = 1.0f;
+    ((f32*)arg0)[0xE0/4] = val;
 }
+
+void func_002CA418(char*p,s8 c){s16 found=-1;int i=6;for(;i<24;i++){if(!p[132+i]){found=i;func_002CA1D0(p,c,found);break;}}if(found<0)func_003F9698(D_00482528,c,c);}

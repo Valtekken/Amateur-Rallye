@@ -1,0 +1,1 @@
+typedef struct{u32 x;u8*cur,*end;} PeekBuf;extern s32 func_003D8118();s32 func_003D74A8(PeekBuf*a){if(a->cur<a->end)goto success;if(func_003D8118()==-1)goto fail;success:return *a->cur;fail:return -1;}

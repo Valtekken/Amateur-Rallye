@@ -1,36 +1,30 @@
-#include "context.h"
-
-void func_00178260(void *);
-void func_002698B8(void *);
-
-typedef struct Node20 {
-    u8 pad[0x18];
-    void *field18;
-} Node20;
-
+extern void func_00178260(void *);
+extern void func_002698B8(void *);
 void func_00173C18(void *arg0) {
-    s32 i;
-    s32 count;
+    s32 i, n1, n2;
     void **base;
-    Node20 **base20;
-
-    count = (*(s32 *)((u8 *)arg0 + 0x24) - *(s32 *)((u8 *)arg0 + 0x20)) >> 2;
-    if (count > 0) {
+    u32 off;
+    void *e;
+    n1 = (*(s32 *)((u8 *)arg0 + 0x24) - *(s32 *)((u8 *)arg0 + 0x20)) >> 2;
+    if (n1 > 0) {
         i = 0;
-        base20 = *(Node20 ***)((u8 *)arg0 + 0x20);
         do {
-            func_002698B8(base20[i]->field18);
+            base = *(void ***)((u8 *)arg0 + 0x20);
+            off = i << 2;
+            e = *(void **)((u8 *)base + off);
+            func_002698B8(*(void **)((u8 *)e + 0x18));
             i++;
-        } while (i < count);
+        } while (i < n1);
     }
-
-    count = (*(s32 *)((u8 *)arg0 + 0x18) - *(s32 *)((u8 *)arg0 + 0x14)) >> 2;
-    if (count > 0) {
+    n2 = (*(s32 *)((u8 *)arg0 + 0x18) - *(s32 *)((u8 *)arg0 + 0x14)) >> 2;
+    if (n2 > 0) {
         i = 0;
-        base = *(void ***)((u8 *)arg0 + 0x14);
         do {
-            func_00178260(base[i]);
+            base = *(void ***)((u8 *)arg0 + 0x14);
+            off = i << 2;
+            e = *(void **)((u8 *)base + off);
+            func_00178260(e);
             i++;
-        } while (i < count);
+        } while (i < n2);
     }
 }

@@ -17,9 +17,10 @@ void func_0032B870(V *v, s32 *pos, u32 m, s32 *first)
 {
     if (m != 0) {
         s32 *end = v->end;
-        if (((unsigned)((s32 *)v->cap - end) >> 2) < m) {
-            unsigned cur = (unsigned)(end - v->begin) >> 2;
-            unsigned count = cur + (cur < m ? m : cur);
+        s32 room = ((s32 *)v->cap - end) >> 2;
+        if ((u32)room < m) {
+            s32 cur = (end - v->begin) >> 2;
+            s32 count = cur + ((u32)cur < m ? m : cur);
             s32 *mem;
             unsigned bytes = count * 4;
             if (count == 0) {
@@ -48,7 +49,7 @@ void func_0032B870(V *v, s32 *pos, u32 m, s32 *first)
             }
             {
                 s32 *data = v->begin;
-                unsigned c = (unsigned)((s32 *)v->cap - data) >> 2;
+                s32 c = ((s32 *)v->cap - data) >> 2;
                 if (c != 0) {
                     if (c * 4 != 0) {
                         func_002B2028(data);
@@ -62,16 +63,16 @@ void func_0032B870(V *v, s32 *pos, u32 m, s32 *first)
             v->end = out;
             v->begin = mem;
         } else {
-            unsigned after = (unsigned)(end - pos) >> 2;
+            s32 after = (end - pos) >> 2;
             s32 val = *first;
-            if (m < after) {
+            if (m < (u32)after) {
                 s32 *s = end - m;
                 func_001D9F10(s, end, end);
                 v->end = end + m;
                 {
                     s32 *d = end;
                     s32 *ss = s;
-                    unsigned n = (unsigned)(s - pos) >> 2;
+                    s32 n = (s - pos) >> 2;
                     if (n != 0) {
                         do {
                             d -= 1;

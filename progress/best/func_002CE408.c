@@ -1,42 +1,26 @@
-/* machine draft (m2c) for ee-gcc-2.95.2 -O2 -G0, tried by autopilot */
-#ifndef M2C_DEFINES
-#define M2C_DEFINES
-typedef s32 M2C_UNK;
-typedef s8 M2C_UNK8;
-typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-#define M2C_ERROR(desc) (0)
-#define M2C_CARRY 0
-#define M2C_OVERFLOW(a) (0)
-#endif
-
-void *func_002D04D0();                              /* extern */
-M2C_UNK func_0030C930(s32, M2C_UNK, f32);           /* extern */
-extern M2C_UNK D_00429868;
+extern void *func_002D04D0(void);
+extern void func_0030C930(s32, s32, s32);
+extern u8 D_00429868[];
 
 void func_002CE408(s32 arg0, f32 fparg0, f32 fparg1) {
-    M2C_UNK var_5;
-    f32 temp_6;
-    f32 var_6;
-    void *temp_4;
-
-    if ((u32) (arg0 - 2) < 0x2EU) {
-        temp_6 = fparg0 * 8191.0f * 0.9f * M2C_FIELD(func_002D04D0(), f32 *, 0x18);
-        if (0x3F666666 < 0) {
-            var_5 = 0;
-        } else {
-            var_5 = (0x3F666666 >= 0x2000) ? 0x1FFF : 0x3F666666;
-        }
-        if (M2C_BITWISE(s32, temp_6) < 0) {
-            var_6 = 0.0f;
-        } else {
-            var_6 = (M2C_BITWISE(s32, temp_6) >= 0x2000) ? 1.1478e-41f : temp_6;
-        }
-        func_0030C930(arg0, var_5, var_6);
-        temp_4 = &D_00429868 + (arg0 * 0x10);
-        M2C_FIELD(temp_4, f32 *, 4) = fparg0;
-        M2C_FIELD(temp_4, f32 *, 8) = fparg1;
+    if ((u32)(arg0 - 2) < 0x2E) {
+        void *p = func_002D04D0();
+        f32 f3 = *(f32 *)((char *)p + 0x18);
+        f32 t1 = fparg0 * 8191.0f;
+        f32 t0 = fparg1 * 8191.0f;
+        t1 = t1 * 0.9f;
+        t0 = t0 * 0.9f;
+        t1 = t1 * f3;
+        t0 = t0 * f3;
+        s32 v5 = (s32)t1;
+        s32 v6 = (s32)t0;
+        if (v5 < 0) v5 = 0;
+        else if (v5 >= 0x2000) v5 = 0x1FFF;
+        if (v6 < 0) v6 = 0;
+        else if (v6 >= 0x2000) v6 = 0x1FFF;
+        func_0030C930(arg0, v5, v6);
+        char *ptr = (char *)&D_00429868 + arg0 * 16;
+        *(f32 *)(ptr + 8) = fparg1;
+        *(f32 *)(ptr + 4) = fparg0;
     }
 }

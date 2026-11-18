@@ -1,77 +1,10 @@
-void func_002C00B8(s32 *arg1, s32 arg2) {
-    if (*arg1 != 0) {
-        *arg1 = *arg1 + arg2;
-    }
-}
-
-void func_002BFEF8(s32 *arg0, s32 arg1) {
-    s32 *head;
-    s32 *node;
-    s32 base;
-    s32 off;
-    s32 end;
-    s32 v0;
-    s32 v1;
-    s32 v2;
-    s32 v3;
-    head = arg0 + 5;
-    node = head;
-    base = *(s32 *)(head + 1);
-    off = ((s32) (*(u8 *)(head + 3)) << 8) | (s32) (*(u8 *)(head + 2));
-    end = base + (off * 16);
-    while ((s32)(u32)node < end) {
-        v0 = *node;
-        if (v0 != 0) *node = v0 + arg1;
-        v1 = *(node + 1);
-        if (v1 != 0) *(node + 1) = v1 + arg1;
-        v2 = *(node + 2);
-        if (v2 != 0) *(node + 2) = v2 + arg1;
-        v3 = *(node + 3);
-        if (v3 != 0) *(node + 3) = v3 + arg1;
-        node = (s32 *)((u8 *)node + 0x10);
-    }
-}
-
-s32 func_002BFEB0(s32, s32);
-s32 func_002BFF88(s32, s32);
-u32 func_003FA9B8();
-u32 func_003F9698(void *, u32, u32, s32);
-s32 func_003FA580(s32, s32);
-
-u32 func_002BFD98(s32 *arg0, u32 arg1) {
-    u32 state;
-    u32 end;
-    u32 counter;
-    u32 v;
-    s32 *p;
-    u8 b;
-    state = arg1;
-    end = (state >> 5) | 1;
-    counter = state;
-    if (state < end) {
-        return state;
-    }
-    p = arg0;
-    for (;;) {
-        b = *p;
-        p = (s32 *)((u8 *)p + 1);
-        v = 0x5C;
-        if ((b ^ 0x2F) != 0) {
-            v = (s32)(u32)b;
-        }
-        v = v & 0xDF;
-        counter = counter - end;
-        state = state ^ ((state << 5) + (state >> 2) + v);
-        if (counter < end) {
-            break;
-        }
-    }
-    return state;
-}
-
-s32 func_002BFE18(s32 *arg0) {
-    s32 *p = arg0;
-    s32 v = p[3];
-    p[5] = v;
-    return v;
-}
+typedef struct{u32 x[2];} Item;extern Item*func_003AD3E0(s32);extern Item*func_003AD3A8(s32);
+s32 func_003A6178(register s32 a){register Item*p=func_003AD3E0(a);return p-func_003AD3A8(a);}
+typedef struct __attribute__((packed)){u32 v;} U;
+#define GET(p,o) (((U*)((u8*)(p)+(o)))->v)
+extern void func_002BFEB0(s32*,s32,s32);extern void func_002BFEF8(s32*,s32,s32);extern void func_002BFF88(s32*,s32,s32);
+s32 func_002BFE18(s32*p){p[5]=p[3];func_002BFEB0(p,p[5]-GET(p[5],28),1);p[6]=GET(p[5],12);p[7]=GET(p[5],20);func_002BFEF8(p,p[3]-GET(p[5],28),1);func_002BFF88(p,p[3]-GET(p[5],28),1);return 1;}
+extern u32 func_003FA9B8(void);
+u32 func_002BFD98(u8*p){u32 state=func_003FA9B8();u32 step=(state>>5)|1;u32 n=state;if(state>=step){do{u8 b=*p;u32 c=b!=47?b:92;n-=step;p++;state^=(state<<5)+(state>>2)+(c&223);}while(n>=step);}return state;}
+extern s32 func_003FA580(s32,u32);
+s32 func_002BFCE0(s32*p,s32 a){u8*h=(u8*)p[5];u32 base=GET(h,4);u32 result=65535;if(base){u32 pos=base;u32 end=pos+((u16)(((s64)h[3]<<8)|h[2])<<4);while(pos<end){if(func_003FA580(a,GET(pos,0))==0){result=(u16)(((s32)(pos-GET(p[5],4)))>>4);break;}pos+=16;}}return result;}

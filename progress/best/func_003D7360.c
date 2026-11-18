@@ -1,84 +1,12 @@
-typedef struct {
-    s32 flags;
-    s32 unk4;
-    s32 unk8;
-    s32 unkC;
-    s32 unk14;
-    s32 unk24;
-    s32 unk2C;
-} S003D7318;
-s32 func_003D7318(S003D7318 *arg0) {
-    s32 flags = arg0->flags;
-    s32 v5, v2;
-    if (flags & 0x100) {
-        v5 = arg0->unk24;
-        v2 = arg0->unk2C;
-    } else {
-        v5 = arg0->unkC;
-        v2 = arg0->unk8;
-    }
-    if (v5 == v2) {
-        return arg0->unk14;
-    }
-    if (flags & 0x100) {
-        return arg0->unk24;
-    }
-    return arg0->unk4;
-}
-
-typedef struct {
-    s32 flags;
-    s32 unk8;
-    s32 unkC;
-    s32 unk24;
-    s32 unk2C;
-} S003D7360;
-s32 func_003D7360(S003D7360 *arg0) {
-    s32 flags = arg0->flags;
-    s32 v5, v2;
-    if (flags & 0x100) {
-        v5 = arg0->unk24;
-        v2 = arg0->unk2C;
-    } else {
-        v5 = arg0->unkC;
-        v2 = arg0->unk8;
-    }
-    return (v5 != v2);
-}
-
-extern s32 func_003D79A0(void);
-extern s32 func_002AFFE8(s32*, const char*, void*);
-extern s32 D_004A9900;
-extern char D_00489130[];
-extern char D_004A9910[];
-s32 *func_003D73B8(void) {
-    if (D_004A9900 == 0) {
-        func_003D79A0();
-        func_002AFFE8(&D_004A9900, D_00489130, D_004A9910);
-    }
-    return &D_004A9900;
-}
-
-typedef struct {
-    s32 pad[1];
-    u8 *unk4;
-    s32 unk8;
-} S003D7428;
-extern s32 func_003D8118(S003D7428*);
-u8 func_003D7428(S003D7428 *arg0) {
-    u8 *p;
-    s32 v = (s32)arg0->unk4 + 1;
-    if ((u32)arg0->unk4 >= (u32)arg0->unk8) {
-        if (func_003D8118(arg0) == -1) {
-            return (u8)-1;
-        }
-        v = (s32)arg0->unk4 + 1;
-    }
-    arg0->unk4 = (u8*)v;
-    if (v >= arg0->unk8) {
-        if (func_003D8118(arg0) == -1) {
-            return (u8)-1;
-        }
-    }
-    return *arg0->unk4;
+extern "C" {extern char D_00488D80[],D_0047D9A8[];extern char*func_003CD828(void*,char*);}
+struct Cleanup{void**p;Cleanup(void**a):p(a){}~Cleanup(){if(p)*p=D_0047D9A8;}};
+extern "C" void*func_003D1F08(void**a,char**b){Cleanup g(a);*a=D_00488D80;void**dst=a+1;char*q=*b;char*p=q-16;if(*(s32*)(p+12))q=func_003CD828(p,q);else ++*(s32*)(p+8);*dst=q;g.p=0;return a;}
+extern "C" {extern s32 func_003D8CE0(u32);extern s32 func_003D8B40(u32);
+s32 func_003D7150(u32 a){return func_003D8CE0(a);}
+s64 func_003D71A0(s32**a){s32*p=*a;s64 r=0;if(p)r=(*p&12)!=12;return r;}
+s32 func_003D71C8(u32 a){return func_003D8B40(a);}}
+extern "C"{
+s32 func_003D7360(s32*a){s32 f=a[0];s32 x,y;if(f&256)x=a[9];else x=a[3];if(f&256)y=a[11];else y=a[2];return x!=y;}
+typedef struct Buf{u32 pad;u8*cur;u8*end;}Buf;extern s32 func_003D8118(Buf*);
+s32 func_003D7428(Buf*a){u8*p=a->cur;if(p>=a->end){if(func_003D8118(a)==-1)return -1;p=a->cur;}p++;a->cur=p;if(p>=a->end){if(func_003D8118(a)==-1)return -1;}return *a->cur;}
 }

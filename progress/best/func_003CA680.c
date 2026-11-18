@@ -1,61 +1,43 @@
-/* machine draft (m2c) for ee-gcc-2.9-991111 -O2 -G0, tried by autopilot */
-#ifndef M2C_DEFINES
-#define M2C_DEFINES
-typedef s32 M2C_UNK;
-typedef s8 M2C_UNK8;
-typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-#define M2C_ERROR(desc) (0)
-#define M2C_CARRY 0
-#define M2C_OVERFLOW(a) (0)
-#endif
-
-void *func_003CA3B0(s32, s32);                      /* extern */
-extern M2C_UNK D_0049B9D0;
+extern void *func_003CA3B0(s32);
+extern u8 D_0049B9D0[];
 
 u8 func_003CA680(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
-    u8 temp_3;
-    u8 temp_5;
-    void *temp_2;
+    u8 *p;
+    u8 temp5;
+    u8 temp3;
+    s32 s0 = arg3;
+    s32 s1 = arg2;
+    s32 t0 = arg0;
 
-    if (M2C_FIELD((&D_0049B9D0 + ((arg1 * 0x1C) + (arg0 * 0x70))), s32 *, 0x10) != 0) {
-        temp_2 = func_003CA3B0(arg0, arg0);
-        temp_5 = M2C_FIELD(temp_2, u8 *, 0x72);
-        if ((temp_5 == 1) && ((u8) M2C_FIELD(temp_2, u8 *, 0x64) >= 2U)) {
-            temp_3 = M2C_FIELD(temp_2, u8 *, 0x6A);
-            if (arg2 < (s32) temp_3) {
-                if (arg2 == -1) {
-                    return temp_3;
-                }
-                if (arg3 != 2) {
-                    if (arg3 < 3) {
-                        if (arg3 != temp_5) {
-                            return 0U;
-                        }
-                        return M2C_FIELD((temp_2 + (arg2 * 4)), u8 *, 0x30);
-                    }
-                    switch (arg3) {                 /* irregular */
-                    case 3:
-                        return M2C_FIELD((temp_2 + (arg2 * 4)), u8 *, 0x32);
-                    case 4:
-                        return M2C_FIELD((temp_2 + (arg2 * 4)), u8 *, 0x33);
-                    default:
-                        return 0U;
-                    }
-                } else {
-                    return M2C_FIELD((temp_2 + (arg2 * 4)), u8 *, 0x31);
-                }
-            } else {
-                goto block_17;
-            }
-        } else {
-            /* Duplicate return node #18. Try simplifying control flow for better match */
-            return 0U;
+    p = (u8*)D_0049B9D0;
+    p += arg0 * 0x70;
+    p += arg1 * 0x1C;
+    if (*(s32*)(p + 0x10) == 0) goto L108;
+    p = (u8*)func_003CA3B0(t0);
+    temp5 = p[0x72];
+    if (temp5 != 1) goto L10C;
+    if (p[0x64] < 2) goto L10C;
+    temp3 = p[0x6A];
+    if (arg2 >= temp3) goto L108;
+    if (arg2 == -1) return temp3;
+    if (arg3 != 2) {
+        if (arg3 < 3) {
+            if (arg3 != 1) goto L110;
+            return p[arg2*4 + 0x30];
         }
-    } else {
-block_17:
-        return 0U;
+        if (arg3 == 3) goto L68;
+        if (arg3 == 4) goto L78;
+        goto L110;
     }
+    return p[arg2*4 + 0x31];
+L68:
+    return p[arg2*4 + 0x32];
+L78:
+    return p[arg2*4 + 0x33];
+L108:
+    return 0;
+L10C:
+    return 0;
+L110:
+    return 0;
 }

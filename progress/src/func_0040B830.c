@@ -1,25 +1,49 @@
-/* machine draft (m2c) for ee-gcc-2.95.3 -O1 -G0, tried by autopilot */
-#ifndef M2C_DEFINES
-#define M2C_DEFINES
-typedef s32 M2C_UNK;
-typedef s8 M2C_UNK8;
-typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-#define M2C_ERROR(desc) (0)
-#define M2C_CARRY 0
-#define M2C_OVERFLOW(a) (0)
-#endif
+typedef struct { s32 value; } CopyTag;
+extern s32 func_002C5160(s32, s32, s32, CopyTag);
 
-s32 GetMemorySize_2();                              /* extern */
-M2C_UNK _InitTLB_2();                               /* extern */
-M2C_UNK func_0040B870();                            /* extern */
+s32 func_003978C8(register s32 a, register s32 b, register s32 c, register s32 d) {
+    return func_002C5160(a, b, c, (CopyTag){0});
+}
+
+void SetSyscall_10(s32, s32);
+void Copy_6(void*, void*, u32);
+void FlushCache_2(u32);
+s32 GetEntryAddress_8(s32);
+extern s32 D_00441D10[];
+extern s32 D_004419A0[];
+
+void func_0040B6B8(void) {
+    SetSyscall_10(D_00441D10[0], D_00441D10[1]);
+    Copy_6((void*)0x80075000, &D_004419A0, 0x328);
+    FlushCache_2(0);
+    FlushCache_2(2);
+    SetSyscall_10(D_00441D10[2], D_00441D10[3]);
+    SetSyscall_10(D_00441D10[4], D_00441D10[5]);
+    u32 i = 3;
+    s32 *q = &D_00441D10[6];
+    do {
+        s32 addr = GetEntryAddress_8(q[0]);
+        i++;
+        SetSyscall_10(q[0], addr);
+        q += 2;
+    } while (i < 8);
+}
+
+s32 _SetTLBEntry_4(void);
+
+s32 func_0040B7A0(s32 arg0) {
+    if ((u32)(arg0 - 0xD) < 0x23)
+        return _SetTLBEntry_4();
+    return -1;
+}
+
+s32 GetMemorySize_2(void);
+void _InitTLB_2(void);
+void func_0040B870(void);
 
 void func_0040B830(void) {
-    if (GetMemorySize_2() == 0x02000000) {
+    if (GetMemorySize_2() == 0x02000000)
         func_0040B870();
-        return;
-    }
-    _InitTLB_2();
+    else
+        _InitTLB_2();
 }

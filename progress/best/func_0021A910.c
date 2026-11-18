@@ -1,43 +1,87 @@
-/* machine draft (m2c), tried by autopilot */
-#ifndef M2C_DEFINES
-#define M2C_DEFINES
-typedef s32 M2C_UNK;
-typedef s8 M2C_UNK8;
-typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-#define M2C_ERROR(desc) (0)
-#define M2C_CARRY 0
-#define M2C_OVERFLOW(a) (0)
-#endif
+extern void func_0027B878(void*, void*);
+extern void *func_002B1FC0(s32);
+extern void *func_003D2910(s32);
+
+void func_002228C0(void *arg0, s32 arg1) {
+    if (arg1 >= 0) {
+        char *begin = *(char**)arg0;
+        char *end = *((char**)arg0 + 1);
+        s32 count = (((s32)(end - begin)) * 0xE9BD37A7) >> 4;
+        if ((u32)arg1 < (u32)count) {
+            char *dst = begin + arg1 * 0x170;
+            char *nxt = dst + 0x170;
+            s32 n = (((s32)(end - nxt)) * 0xE9BD37A7) >> 4;
+            char *d = dst;
+            char *nn = nxt;
+            while (n > 0) {
+                func_0027B878(d, nn);
+                nn += 0x170;
+                n--;
+                d += 0x170;
+            }
+            *((char**)arg0 + 1) = end - 0x170;
+        }
+    }
+}
+
+void func_00222AA0(void *arg0) {
+    char *begin = *(char**)arg0;
+    char *end = *((char**)arg0 + 1);
+    s32 n = ((((s32)(end - begin)) * 0xE9BD37A7) >> 4) - 1;
+    if (n >= 0) {
+        do {
+            func_002228C0(arg0, n);
+            n--;
+        } while (n >= 0);
+    }
+}
+
+void *func_0021D110(void *arg0) {
+    void *n1;
+    void *t1;
+    void *n2;
+    void *t2;
+    *(s32*)arg0 = 0;
+    n1 = func_002B1FC0(0xC);
+    if (!n1) n1 = func_003D2910(0xC);
+    *((void**)arg0 + 1) = n1;
+    *(void**)n1 = n1;
+    t1 = *((void**)arg0 + 1);
+    *((void**)t1 + 1) = t1;
+    n2 = func_002B1FC0(0xC);
+    if (!n2) n2 = func_003D2910(0xC);
+    *((void**)arg0 + 2) = n2;
+    *(void**)n2 = n2;
+    t2 = *((void**)arg0 + 2);
+    *((void**)t2 + 1) = t2;
+    return arg0;
+}
 
 void func_0021A910(s32 arg0, s32 arg1, void *arg2) {
-    s32 var_3;
-    void *temp_7;
-    void *var_4;
-
-    var_3 = arg0;
-    var_4 = arg0 + 0x24;
-    if (var_3 != arg1) {
-        temp_7 = arg2 + 0x24;
+    s32 p;
+    void *q;
+    s32 d;
+    p = arg0;
+    q = (void*)((char*)arg2 + 0x24);
+    if (arg0 != arg1) {
+        d = arg0 + 0x24;
         do {
-            var_3 += 0x38;
-            M2C_FIELD(var_4, f32 *, -0x24) = (f32) M2C_FIELD(arg2, f32 *, 0);
-            M2C_FIELD(var_4, f32 *, -0x20) = (f32) M2C_FIELD(arg2, f32 *, 4);
-            M2C_FIELD(var_4, f32 *, -0x1C) = (f32) M2C_FIELD(arg2, f32 *, 8);
-            M2C_FIELD(var_4, f32 *, -0x18) = (f32) M2C_FIELD(arg2, f32 *, 0xC);
-            M2C_FIELD(var_4, f32 *, -0x14) = (f32) M2C_FIELD(arg2, f32 *, 0x10);
-            M2C_FIELD(var_4, f32 *, -0x10) = (f32) M2C_FIELD(arg2, f32 *, 0x14);
-            M2C_FIELD(var_4, f32 *, -0xC) = (f32) M2C_FIELD(arg2, f32 *, 0x18);
-            M2C_FIELD(var_4, f32 *, -8) = (f32) M2C_FIELD(arg2, f32 *, 0x1C);
-            M2C_FIELD(var_4, f32 *, -4) = (f32) M2C_FIELD(arg2, f32 *, 0x20);
-            M2C_FIELD(var_4, f32 *, 0) = (f32) M2C_FIELD(arg2, f32 *, 0x24);
-            M2C_FIELD(var_4, f32 *, 4) = (f32) M2C_FIELD(temp_7, f32 *, 4);
-            M2C_FIELD(var_4, f32 *, 8) = (f32) M2C_FIELD(temp_7, f32 *, 8);
-            M2C_FIELD(var_4, f32 *, 0xC) = (f32) M2C_FIELD(temp_7, f32 *, 0xC);
-            M2C_FIELD(var_4, s32 *, 0x10) = (s32) M2C_FIELD(arg2, s32 *, 0x34);
-            var_4 += 0x38;
-        } while (var_3 != arg1);
+            p += 0x38;
+            *(f32*)(d - 0x24) = *(f32*)arg2;
+            *(f32*)(d - 0x20) = *(f32*)((char*)arg2+4);
+            *(f32*)(d - 0x1C) = *(f32*)((char*)arg2+8);
+            *(f32*)(d - 0x18) = *(f32*)((char*)arg2+0xC);
+            *(f32*)(d - 0x14) = *(f32*)((char*)arg2+0x10);
+            *(f32*)(d - 0x10) = *(f32*)((char*)arg2+0x14);
+            *(f32*)(d - 0xC) = *(f32*)((char*)arg2+0x18);
+            *(f32*)(d - 8) = *(f32*)((char*)arg2+0x1C);
+            *(f32*)(d - 4) = *(f32*)((char*)arg2+0x20);
+            *(f32*)(d) = *(f32*)((char*)arg2+0x24);
+            *(f32*)(d + 4) = *(f32*)((char*)q+4);
+            *(f32*)(d + 8) = *(f32*)((char*)q+8);
+            *(f32*)(d + 0xC) = *(f32*)((char*)q+0xC);
+            *(s32*)(d + 0x10) = *(s32*)((char*)arg2+0x34);
+            d += 0x38;
+        } while (p != arg1);
     }
 }

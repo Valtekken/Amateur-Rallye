@@ -1,24 +1,4 @@
-extern void *D_0043A908;
-
-typedef struct Node {
-    unsigned long long unk0;
-    char pad8[0x8];
-    unsigned int unk10;
-    unsigned int unk14;
-    char pad18[0x1C];
-    struct Node *next;
-    char pad38[0x18];
-    void *vtable;
-} Node;
-
-void func_003D8A78(void) {
-    Node *cur = (Node *)D_0043A908;
-    if (cur == NULL) return;
-    do {
-        if ((cur->unk0 & 0x208) == 0x200) {
-            void (*fn)(Node *, int) = *(void (**)(Node *, int))((char *)cur->vtable + 0x14);
-            fn(cur, -1);
-        }
-        cur = cur->next;
-    } while (cur != NULL);
-}
+s32 func_003D89B0(s32 a,char*b,s32 n){char*end=b+n;char*p=end;while(b<p){--p;if(*p==10)return end-p-1;}return a+n;}
+extern void*D_0043A908;
+s32 func_003D89F8(void){char*p=D_0043A908;s32 r=0;while(p){if(*(u32*)(p+16)<*(u32*)(p+20)){s32 t=(*(s32(**)(void*,s32))(*(char**)(p+80)+20))(p,-1);if(t==-1)r=-1;}p=*(char**)(p+52);}return r;}
+void func_003D8A78(void){char*p=D_0043A908;while(p){if((*(s64*)p&0x208)==0x200)(*(s32(**)(void*,s32))(*(char**)(p+80)+20))(p,-1);p=*(char**)(p+52);}}

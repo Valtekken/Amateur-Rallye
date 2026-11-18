@@ -1,45 +1,41 @@
-/* machine draft (m2c) for ee-gcc-2.9-991111 -O2 -G0, tried by autopilot */
-#ifndef M2C_DEFINES
-#define M2C_DEFINES
-typedef s32 M2C_UNK;
-typedef s8 M2C_UNK8;
-typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-#define M2C_ERROR(desc) (0)
-#define M2C_CARRY 0
-#define M2C_OVERFLOW(a) (0)
-#endif
-
-M2C_UNK func_003E1708(void *, M2C_UNK *);           /* extern */
-M2C_UNK func_003E3D68(M2C_UNK);                     /* extern */
-u32 func_003E5438(void *, M2C_UNK);                 /* extern */
-extern M2C_UNK D_00489AD0;
-extern M2C_UNK D_00489AF8;
+extern void func_003E1708(void *, char *);
+extern void func_003E3D68(int);
+extern u32 func_003E5438(void *, int);
+extern char D_00489AD0[];
+extern char D_00489AF8[];
 
 void func_003E1DF8(void *arg0) {
-    s32 temp_2_2;
-    u32 temp_16;
-    u32 temp_18;
-    u32 temp_2;
+    u32 t;
+    int chroma, profile, level, chroma2;
+    int a, b, c, d, e, f;
+    int v124, v128, v134, v138;
 
-    M2C_FIELD(arg0, s32 *, 0x848) = 1;
+    *(int *)((char *)arg0 + 0x848) = 1;
     func_003E3D68(0);
-    temp_2 = func_003E5438(arg0, 0x1C);
-    temp_2_2 = (temp_2 >> 0x11) & 3;
-    M2C_FIELD(arg0, s32 *, 0x140) = temp_2_2;
-    if (temp_2_2 != 1) {
-        func_003E1708(arg0, &D_00489AD0);
+    t = func_003E5438(arg0, 0x1C);
+    chroma = (t >> 1) & 0xFFF;
+    *(int *)((char *)arg0 + 0x140) = (t >> 17) & 3;
+    if (((t >> 17) & 3) != 1) {
+        func_003E1708(arg0, D_00489AD0);
     }
-    M2C_FIELD(arg0, s32 *, 0x13C) = (s32) ((temp_2 >> 0x13) & 1);
-    temp_16 = temp_2 >> 0x14;
-    temp_18 = func_003E5438(arg0, 0x10) >> 8;
-    if ((temp_16 != 0x48) && (temp_16 != 0x58) && (temp_16 != 0x44)) {
-        func_003E1708(arg0, &D_00489AF8);
+    *(int *)((char *)arg0 + 0x13C) = (t >> 19) & 1;
+    profile = t >> 20;
+    level = func_003E5438(arg0, 0x10) >> 8;
+    if (profile != 0x48 && profile != 0x58 && profile != 0x44) {
+        func_003E1708(arg0, D_00489AF8);
     }
-    M2C_FIELD(arg0, s32 *, 0x138) = (s32) (M2C_FIELD(arg0, s32 *, 0x138) + (temp_18 << 0xA));
-    M2C_FIELD(arg0, s32 *, 0x124) = (s32) ((((temp_2 >> 0xF) & 3) << 0xC) | (M2C_FIELD(arg0, s32 *, 0x124) & 0xFFF));
-    M2C_FIELD(arg0, s32 *, 0x128) = (s32) ((((temp_2 >> 0xD) & 3) << 0xC) | (M2C_FIELD(arg0, s32 *, 0x128) & 0xFFF));
-    M2C_FIELD(arg0, s32 *, 0x134) = (s32) (M2C_FIELD(arg0, s32 *, 0x134) + (((temp_2 >> 1) & 0xFFF) << 0x12));
+    v124 = *(int *)((char *)arg0 + 0x124);
+    v128 = *(int *)((char *)arg0 + 0x128);
+    v134 = *(int *)((char *)arg0 + 0x134);
+    v138 = *(int *)((char *)arg0 + 0x138);
+    chroma2 = (t >> 13) & 3;
+    a = (t >> 15) & 3;
+    v138 = v138 + (level << 10);
+    v124 = ((a) << 12) | (v124 & 0xFFF);
+    v128 = (chroma2 << 12) | (v128 & 0xFFF);
+    v134 = v134 + (chroma << 18);
+    *(int *)((char *)arg0 + 0x138) = v138;
+    *(int *)((char *)arg0 + 0x124) = v124;
+    *(int *)((char *)arg0 + 0x128) = v128;
+    *(int *)((char *)arg0 + 0x134) = v134;
 }

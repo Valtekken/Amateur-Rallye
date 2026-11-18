@@ -1,53 +1,6 @@
-/* machine draft (m2c) for ee-gcc-2.95.2 -O2 -G0 -fno-schedule-insns, tried by autopilot */
-#ifndef M2C_DEFINES
-#define M2C_DEFINES
-typedef s32 M2C_UNK;
-typedef s8 M2C_UNK8;
-typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-#define M2C_ERROR(desc) (0)
-#define M2C_CARRY 0
-#define M2C_OVERFLOW(a) (0)
-#endif
-
-M2C_UNK func_002BB1B8(u32);                         /* extern */
-M2C_UNK func_003F9698(M2C_UNK *, u32, s32);         /* extern */
-extern M2C_UNK D_0047FEC0;
-
-s32 func_002BB0A0(u32 arg0) {
-    s32 var_16;
-    s32 var_6;
-    u32 temp_5;
-    u32 var_4;
-
-    var_6 = 0;
-    temp_5 = arg0 + 0x300;
-    var_16 = 0xFFFFFFFF;
-    if (arg0 < temp_5) {
-        var_4 = arg0 + 0xC;
-        if (M2C_FIELD(arg0, s32 *, 4) == 0xFFFFFFFF) {
-            M2C_FIELD(arg0, s32 *, 4) = 0;
-            var_16 = 0;
-            M2C_FIELD(arg0, s32 *, 8) = 0;
-        } else {
-loop_3:
-            var_6 += 1;
-            if (var_4 < temp_5) {
-                if (M2C_FIELD(var_4, s32 *, 4) != 0xFFFFFFFF) {
-                    var_4 += 0xC;
-                    goto loop_3;
-                }
-                M2C_FIELD(var_4, s32 *, 8) = 0;
-                var_16 = var_6;
-                M2C_FIELD(var_4, s32 *, 4) = 0;
-            }
-        }
-    }
-    if (var_16 == 0xFFFFFFFF) {
-        func_003F9698(&D_0047FEC0, temp_5, var_6);
-        func_002BB1B8(arg0);
-    }
-    return var_16;
-}
+extern s32 func_002BDB28();extern void func_003F9698(const char*,...);extern void func_002BB1B8(u32);extern s32 func_002BB070(u32,s32);extern void func_003F94D0(void*,s32,s32);extern char D_0047FEC0[],D_0047FF48[];extern void*func_002B1FC0(u32);extern void func_003F96F8(void);extern void func_002B8A78(void*,u32);extern void*func_002B8938(void*,void*,u32);
+s32 func_002B7DD8(s32 a,void*b){s32 r=0;func_002BDB28();if(b)r=*(s32*)((char*)b+4);return r;}
+s32 func_002BB0A0(u32 a){u32 r=0xFFFFFFFFu,p=a,end=a+0x300;s32 i=0;while(p<end){if(*(u32*)(p+4)==0xFFFFFFFFu){*(u32*)(p+4)=0;*(u32*)(p+8)=0;r=i;break;}p+=12;i++;}if(r==0xFFFFFFFFu){func_003F9698(D_0047FEC0);func_002BB1B8(a);}return r;}
+void func_002BB150(u32 a,s32 b){s32 off;if(func_002BB070(a,b)){off=b*12;func_003F94D0((void*)(a+off),0,12);*(u32*)(a+off+4)=0xFFFFFFFFu;}}
+typedef struct __attribute__((packed)){u32 a,b;u8 pad[12];u16 key;}Packed;
+void*func_002BB398(void*a,Packed*b){void*p=(char*)a+40;void*r=func_002B1FC0(b->b);func_003F96F8();func_002B8A78(p,b->a);func_002B8938(p,r,b->b);if(*(u16*)((char*)a+100)!=b->key){func_003F9698(D_0047FF48);return 0;}return r;}

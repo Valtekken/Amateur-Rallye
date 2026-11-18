@@ -1,41 +1,4 @@
-typedef struct {
-    s32 unk0;
-    void *unk1C;
-    void *unk50;
-} S003D7600;
-typedef struct {
-    s16 unk60;
-    s32 (*unk64)(void*, void*);
-} S003D7600_unk50;
-s32 func_003D7600(S003D7600 *arg0) {
-    if (arg0->unk1C) {
-        return 0;
-    }
-    if ((arg0->unk0 & 2) == 0) {
-        S003D7600_unk50 *t = (S003D7600_unk50*)arg0->unk50;
-        s16 off = t->unk60;
-        return t->unk64((char*)arg0 + off, arg0);
-    }
-    return 0;
-}
-
-void func_003D7650(u32 *arg0, int arg1) {
-    if (arg1) {
-        *arg0 |= 0x200;
-    } else {
-        *arg0 &= ~0x200;
-    }
-}
-
-void func_003D7678(u32 *arg0, int arg1) {
-    if (arg1) {
-        *arg0 |= 2;
-    } else {
-        *arg0 &= ~2;
-    }
-}
-
-extern s32 func_003DA068(u32);
-s32 func_003D76C0(u32 a) {
-    return func_003DA068(a);
-}
+typedef struct Buf{u32 pad;u8*cur;u8*end;}Buf;extern s32 func_003D8118(Buf*);
+s32 func_003D7428(Buf*a){s32 r;if(a->cur<a->end||func_003D8118(a)!=-1){++a->cur;if(a->cur<a->end||func_003D8118(a)!=-1){r=*a->cur;goto done;}}r=-1;done:return r;}
+void func_003D7678(s32*a,s32 b){if(b)*a|=2;else *a&=~2;}
+extern s32 func_003DA068(u32,s32,s32);s32 func_003D76C0(u32 a,s32 b,s32 c){return func_003DA068(a,b,c);}

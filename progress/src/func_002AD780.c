@@ -1,35 +1,5 @@
-extern void (*D_00426AC0)(void) __attribute__((noreturn));
-
-void func_002AE718(void) {
-    D_00426AC0();
-}
-
-extern void (*D_00426AC4)(void);
-extern void func_002AD888(void);
-
-void func_002AD860(void) {
-    D_00426AC4 = func_002AD888;
-    func_002AD888();
-}
-
-extern void *func_002B1FC0(s32);
-extern void func_002AD758(void *);
-extern void func_003F94D0(void *, s32, s32);
-
-void *func_002AD7B8(void) {
-    void *temp_2;
-
-    temp_2 = func_002B1FC0(0x18);
-    if (temp_2 == NULL) {
-        func_002AD758(temp_2);
-    }
-    func_003F94D0(temp_2, 0, 0x18);
-    *(void **)((char *)temp_2 + 4) = (void *)((char *)temp_2 + 0x10);
-    return temp_2;
-}
-
-extern s32 func_003FA760(void);
-
-s32 func_002AD780(s32 a0, s32 a1, s32 a2) {
-    return (func_003FA760() != 0) ? 0 : a2;
-}
+typedef struct{s32 value;}CopyTag;extern s32 func_002C5160(s32,s32,s32,CopyTag);
+s32 func_003978C8(register s32 a,register s32 b,register s32 c,register s32 d){return func_002C5160(a,b,c,(CopyTag){0});}
+extern s32 func_003FA760();s32 func_002AD780(s32 a,s32 b,s32 c){return func_003FA760()!=0?0:c;}
+extern void(*D_00426AC0)(void);void func_002AD758(void){D_00426AC0();}
+extern s32 D_00494CA8;extern void func_002AD678(void);void func_002AD728(void){if(!D_00494CA8){D_00494CA8=1;func_002AD678();}}

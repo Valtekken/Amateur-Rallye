@@ -1,0 +1,3 @@
+typedef struct E{void*fn;u16 kind,flags;u32 key;void*obj;void(*destroy)(u32,int);s32 active;struct E*next;u32 pad;u64 refs;void*orig;}E;
+extern E**func_002AD838(void);extern void func_002AE718(void) __attribute__((noreturn));extern void func_002AE820(void*);extern s32 func_002B0B10(void*);
+void func_002AE940(E*a){E**p=func_002AD838();E*n;u64 refs=a->refs-1;a->refs=refs;if(!refs){n=*p;if(a!=n||a->active){if(n){if(n!=a){for(;;){E*t=n->next;p=&n->next;if(t){n=n->next;if(t==a)break;}else goto fail;}}if(n)goto found;}fail:func_002AE718();found:*p=a->next;if(a->destroy)a->destroy(a->key,2);if(!func_002B0B10(a->obj))func_002AE820(a->orig);func_002AE820(a);}}}

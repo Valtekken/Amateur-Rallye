@@ -1,0 +1,4 @@
+s32 func_003A0BD8(s32,s32);s32 func_00219DA8(s32,s32);
+s32 func_003A5DC8(register s32 a,register s32 b){func_003A0BD8(a,b);func_00219DA8(a+12,b+12);return a;}typedef struct{u16*d;s32 shift,n,m,stride;u8*a,*b;} Blend;
+void func_003E35B0(volatile Blend*p){u8*a=p->a,*b=p->b;u16*d=p->d;s32 n=p->n,pass=-1,i;do{do{for(i=0;i<16;i++){u32 k=i+p->shift;u32 v=k<16?a[k]:b[k-16];d[i]=(u16)(d[i]+v+1)>>1;}a+=p->stride;b+=p->stride;d+=p->stride;}while(--n>0);a+=128;b+=128;n=p->m;if(!(pass&n))break;pass=0;}while(1);}
+void func_003E3650(volatile Blend*p){u8*a=p->a,*b=p->b;u16*d=p->d;s32 n,pass=-1,outer=-1,i;do{n=p->n;pass=-1;do{do{for(i=0;i<8;i++){u32 k=(i+p->shift)&15;u16 v=(u16)(d[i]+(k<8?a[k]:b[k-8]));d[i]=(u16)(v+((s16)v>0))>>1;}a+=p->stride;b+=p->stride;d+=p->stride;}while(--n>0);a+=320;b+=320;n=p->m;if(!(pass&n))break;pass=0;}while(1);a=p->a+64;b=p->b+64;d=p->d+64;if(!outer)break;outer=0;}while(1);}

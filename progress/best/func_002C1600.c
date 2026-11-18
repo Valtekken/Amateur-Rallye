@@ -1,41 +1,11 @@
-/* machine draft (m2c) for ee-gcc-2.95.2 -O2 -G0, tried by autopilot */
-#ifndef M2C_DEFINES
-#define M2C_DEFINES
-typedef s32 M2C_UNK;
-typedef s8 M2C_UNK8;
-typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-#define M2C_ERROR(desc) (0)
-#define M2C_CARRY 0
-#define M2C_OVERFLOW(a) (0)
-#endif
-
-M2C_UNK RemoveDmacHandler_2(s32, s32);              /* extern */
-M2C_UNK RemoveIntcHandler_2(s32, s32);              /* extern */
-M2C_UNK func_002C16D8(s32, M2C_UNK);                /* extern */
-extern M2C_UNK D_00428DE0;
-
-void func_002C1600(void *arg0) {
-    s32 *temp_3;
-    s32 temp_2;
-    s32 temp_4;
-    void *temp_3_2;
-
-    M2C_FIELD(arg0, s32 *, 8) = 0;
-    temp_3 = (M2C_FIELD(arg0, s32 *, 4) * 0x10) + &D_00428DE0;
-    temp_2 = *temp_3 - 1;
-    *temp_3 = temp_2;
-    if (temp_2 >= 0) {
-        func_002C16D8(M2C_FIELD(arg0, s32 *, 4), 0);
-        *((M2C_FIELD(arg0, s32 *, 4) * 0x10) + &D_00428DE0) = 0;
-    }
-    temp_4 = M2C_FIELD(arg0, s32 *, 4) * 0x10;
-    temp_3_2 = &D_00428DE0 + temp_4;
-    if (M2C_FIELD(temp_3_2, s32 *, 4) != 0) {
-        RemoveIntcHandler_2(M2C_FIELD(temp_3_2, s32 *, 8), M2C_FIELD(arg0, s32 *, 0));
-        return;
-    }
-    RemoveDmacHandler_2(M2C_FIELD((&D_00428DE0 + temp_4), s32 *, 8), M2C_FIELD(arg0, s32 *, 0));
-}
+extern s32 func_003A0BD8(s32,s32); extern s32 func_00219DA8(s32,s32);
+s32 func_003A5DC8(register s32 a,register s32 b){func_003A0BD8(a,b);func_00219DA8(a+12,b+12);return a;}
+extern void func_002BEE48(s32,s32);
+s32 func_002C17A8(s32*p){p[5]++;func_002BEE48(p[4],1);return 0;}
+typedef struct {s32 count,type,irq,pad;} Entry;
+extern Entry D_00428DE0[];
+extern void func_002C16D8(void*,s32,s32);
+extern void RemoveIntcHandler_2(s32,s32);extern void RemoveDmacHandler_2(s32,s32);
+void func_002C1600(s32*p){Entry*e;p[2]=0;e=&D_00428DE0[p[1]];if(--e->count>=0){func_002C16D8(p,p[1],0);D_00428DE0[p[1]].count=0;}e=&D_00428DE0[p[1]];if(e->type)RemoveIntcHandler_2(e->irq,p[0]);else RemoveDmacHandler_2(D_00428DE0[p[1]].irq,p[0]);}
+typedef struct __attribute__((packed)){u8 x[2];u16 count;u32 base;} Header;
+void func_002BFEF8(s32*p,s32 off){Header*h=(Header*)p[5];u32*n=(u32*)h->base;u32*end=n+(u16)((h->x[0],((u8*)h)[3]<<8)|((u8*)h)[2])*4;while(n<end){if(n[0])n[0]+=off;if(n[1])n[1]+=off;if(n[2])n[2]+=off;if(n[3])n[3]+=off;n+=4;}}

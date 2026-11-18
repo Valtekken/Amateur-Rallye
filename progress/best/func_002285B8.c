@@ -1,65 +1,34 @@
-/* machine draft (m2c) for ee-gcc-2.95.2 -O2 -G0 -fno-schedule-insns, tried by autopilot */
-#ifndef M2C_DEFINES
-#define M2C_DEFINES
-typedef s32 M2C_UNK;
-typedef s8 M2C_UNK8;
-typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-#define M2C_ERROR(desc) (0)
-#define M2C_CARRY 0
-#define M2C_OVERFLOW(a) (0)
-#endif
-
-void *D_002AD408(M2C_UNK);                          /* extern */
-M2C_UNK func_00228F10(void *, void *, M2C_UNK);     /* extern */
-extern f32 D_00426518;
-extern f32 D_00426538;
+extern void *D_002AD408(s32);
+extern void func_00228F10(void *, void *, s32);
+extern f32 fabsf(f32);
+extern f32 D_00426518[];
+extern f32 D_00426538[];
 
 void func_002285B8(void *arg0) {
-    f32 sp10;
-    f32 sp14;
-    f32 sp18;
-    f32 sp20;
-    f32 sp24;
-    f32 sp28;
-    f32 *var_3;
-    f32 temp_f2;
-    f32 var_f1;
-    s32 temp_cond;
-    void *temp_2;
-    void *temp_2_2;
-    void *temp_3;
-    void *temp_4;
-
-    temp_2 = M2C_FIELD(arg0, void **, 4);
-    temp_4 = temp_2 + 0xC;
-    temp_3 = temp_2 + 0x18;
-    temp_cond = fabsf(M2C_FIELD(temp_3, f32 *, 8) - M2C_FIELD(temp_4, f32 *, 8)) < fabsf(M2C_FIELD(temp_2, f32 *, 0x18) - M2C_FIELD(temp_2, f32 *, 0xC));
-    sp20 = 0.0f;
-    sp24 = 0.0f;
-    sp28 = 0.0f;
-    sp18 = (M2C_FIELD(temp_3, f32 *, 8) + M2C_FIELD(temp_4, f32 *, 8)) * 0.5f;
-    sp10 = (M2C_FIELD(temp_2, f32 *, 0x18) + M2C_FIELD(temp_2, f32 *, 0xC)) * 0.5f;
-    sp14 = (M2C_FIELD(temp_3, f32 *, 4) + M2C_FIELD(temp_4, f32 *, 4)) * 0.5f;
-    if (temp_cond) {
-        var_3 = &D_00426518;
-        var_f1 = D_00426518;
-    } else {
-        var_3 = &D_00426538;
-        var_f1 = D_00426538;
-    }
-    temp_f2 = M2C_FIELD(var_3, f32 *, 8);
-    sp20 = var_f1;
-    sp24 = M2C_FIELD(var_3, f32 *, 4);
-    sp28 = temp_f2;
-    temp_2_2 = D_002AD408(0x14);
-    M2C_FIELD(temp_2_2, f32 *, 0) = sp20;
-    M2C_FIELD(temp_2_2, f32 *, 4) = sp24;
-    M2C_FIELD(temp_2_2, f32 *, 8) = temp_f2;
-    M2C_FIELD(temp_2_2, f32 *, 0xC) = (f32) -((sp20 * sp10) + (sp24 * sp14) + (sp28 * sp18));
-    M2C_FIELD(temp_2_2, s32 *, 0x10) = -1;
-    M2C_FIELD(arg0, void **, 0) = temp_2_2;
-    func_00228F10(arg0, temp_2_2, -1);
+    f32 diff[4] __attribute__((aligned(16)));
+    f32 mid[4] __attribute__((aligned(16)));
+    f32 tv[4] __attribute__((aligned(16)));
+    f32 dot;
+    f32 *p = *(f32 **)((char *)arg0 + 4);
+    f32 *v1 = (f32 *)((char *)p + 0xC);
+    f32 *v2 = (f32 *)((char *)p + 0x18);
+    f32 *t; void *r;
+    diff[0] = p[6] - p[3];
+    diff[1] = v2[1] - v1[1];
+    diff[2] = v2[2] - v1[2];
+    mid[0] = (p[6] + p[3]) * 0.5f;
+    mid[1] = (v2[1] + v1[1]) * 0.5f;
+    mid[2] = (v2[2] + v1[2]) * 0.5f;
+    tv[0] = 0.0f; tv[1] = 0.0f; tv[2] = 0.0f;
+    if (fabsf(diff[2]) < fabsf(diff[0])) { t = D_00426518; } else { t = D_00426538; }
+    tv[0] = t[0]; tv[1] = t[1]; tv[2] = t[2];
+    dot = -(tv[0] * mid[0] + tv[1] * mid[1] + tv[2] * mid[2]);
+    r = D_002AD408(0x14);
+    *(f32 *)((char *)r + 0) = tv[0];
+    *(f32 *)((char *)r + 4) = tv[1];
+    *(f32 *)((char *)r + 8) = tv[2];
+    *(f32 *)((char *)r + 0xC) = dot;
+    *(s32 *)((char *)r + 0x10) = -1;
+    *(void **)arg0 = r;
+    func_00228F10(arg0, r, -1);
 }

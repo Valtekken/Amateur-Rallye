@@ -1,15 +1,3 @@
-#ifndef M2C_DEFINES
-#define M2C_DEFINES
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-#define M2C_ERROR(desc) (0)
-#define M2C_CARRY 0
-#define M2C_OVERFLOW(a) (0)
-#endif
-typedef s32 M2C_UNK;
-typedef s8 M2C_UNK8;
-typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32;
 s32 func_00203180(void *arg0, void *arg1)
 {
   f32 *var_3;
@@ -39,7 +27,9 @@ s32 func_00203180(void *arg0, void *arg1)
   var_2 = 0 * 0xC;
   do
   {
- do { var_3 = var_2 + arg1; var_4_2 = 2; loop_4: var_4_2 -= 1; *var_3 *= 1.0f / temp_f3; var_3 += 4; if (var_4_2 >= 0) { goto loop_4; } var_4 += 1; var_2 = var_4 * 0xC; } while (0);
+    do { var_3 = (f32*)(var_2 + (s8*)arg1); var_4_2 = 2; 
+      loop_4: var_4_2 -= 1; *var_3 *= 1.0f / temp_f3; var_3 += 1; if (var_4_2 >= 0) { goto loop_4; } 
+      var_4 += 1; var_2 = var_4 * 0xC; } while (0);
   }
   while (var_4 < 3);
   return 1;

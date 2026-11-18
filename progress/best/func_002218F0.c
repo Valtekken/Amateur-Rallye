@@ -42,9 +42,9 @@ void func_002218F0(void *arg0) {
                 M2C_FIELD(temp_3, f32 *, 0x158) = (f32) (M2C_FIELD(temp_3, f32 *, 0x24) * temp_f0 * 0.033333335f);
                 M2C_FIELD(temp_3, f32 *, 0x15C) = (f32) (M2C_FIELD(temp_3, f32 *, 0x28) * temp_f0 * 0.033333335f);
                 M2C_FIELD(temp_3, f32 *, 0x160) = (f32) (M2C_FIELD(temp_3, f32 *, 0xB4) * 0.033333335f);
-                M2C_FIELD(temp_3, f32 *, 0x16C) = (f32) (M2C_FIELD(temp_3, f32 *, 0x34) * 0.033333335f);
-                M2C_FIELD(temp_3, f32 *, 0x168) = (f32) (M2C_FIELD(temp_3, f32 *, 0x5C) * 0.033333335f);
                 M2C_FIELD(temp_3, f32 *, 0x164) = (f32) (M2C_FIELD(temp_3, f32 *, 0xDC) * 0.033333335f);
+                M2C_FIELD(temp_3, f32 *, 0x168) = (f32) (M2C_FIELD(temp_3, f32 *, 0x5C) * 0.033333335f);
+                M2C_FIELD(temp_3, f32 *, 0x16C) = (f32) (M2C_FIELD(temp_3, f32 *, 0x34) * 0.033333335f);
             } while (var_16 >= 0);
         }
         temp_2_2 = M2C_FIELD(arg0, s32 *, 0);

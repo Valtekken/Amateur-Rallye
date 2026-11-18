@@ -1,4 +1,4 @@
-#include "context.h"
+
 
 extern s32 D_0043AF00[];
 extern s32 D_0043AF20[];
@@ -35,12 +35,12 @@ typedef struct {
 } S_e2978_a0;
 
 void func_003E2978(S_e2978_a0 *arg0, S_e2978_a1 *arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, s32 arg6, s32 arg7, s32 arg_sp0, s32 arg_sp8, s32 arg_sp10, s32 arg_sp18) {
-    s32 sp0;
-    s32 sp4;
-    s32 sp8;
+    volatile s32 sp0;
+    volatile s32 sp4;
+    volatile s32 sp8;
     s32 spC;
     s32 sp10;
-    s32 sp14;
+    volatile s32 sp14;
     s32 sp18;
     s32 temp2;
     s32 temp10;
@@ -78,11 +78,11 @@ void func_003E2978(S_e2978_a0 *arg0, S_e2978_a1 *arg1, s32 arg2, s32 arg3, s32 a
     s32 *temp8_2;
     s32 temp9_3;
 
-    sp0 = arg3;
-    sp4 = arg6;
-    sp8 = arg0->unk81C;
     sp14 = (s32)arg0 + 0x6BC;
+    sp8 = arg0->unk81C;
+    sp4 = arg6;
     temp2 = arg0->unk810 * 0x140;
+    sp0 = arg3;
     temp10 = arg_sp0 >> 1;
     temp23 = *(s32 *)(sp14 + temp2);
     temp2_2 = (void *)((unsigned char *)arg0 + (temp2 + 0x590));
@@ -99,15 +99,15 @@ void func_003E2978(S_e2978_a0 *arg0, S_e2978_a1 *arg1, s32 arg2, s32 arg3, s32 a
     temp2_3 = var2 + arg7;
     temp20 = (s32)(temp10 + sp4) >> 4;
     temp21 = (s32)(temp2_3 + var3) >> 4;
-    *(s32 *)((unsigned char *)temp12 + 4) = (s32)((temp10 + sp4) % 16);
+    *(s32 *)((unsigned char *)temp12 + 4) = (temp10 + sp4) - (temp20 << 4);
     sp10 = temp20 * arg1->unk_10 + temp21;
-    temp6 = (temp2_3 + var3) % 16;
+    temp6 = (temp2_3 + var3) - (temp21 << 4);
     *(s32 *)temp12 = sp8 + ((sp0 + arg4) << 5);
     temp25 = arg_sp8 & 1;
     if (temp25 != 0) {
         if ((temp6 + (arg5 << arg_sp10)) < 0x10) {
             *(s32 *)((unsigned char *)temp12 + 8) = arg5;
-            *(s32 *)((unsigned char *)temp12 + 0xC) = 0;
+            goto zero12;
         } else {
             temp2_4 = ((0x10 >> arg_sp10) - (temp6 >> arg_sp10)) - 1;
             *(s32 *)((unsigned char *)temp12 + 8) = temp2_4;
@@ -123,10 +123,13 @@ void func_003E2978(S_e2978_a0 *arg0, S_e2978_a1 *arg1, s32 arg2, s32 arg3, s32 a
             *(s32 *)((unsigned char *)temp12 + 0xC) = arg5 - temp2_5;
         }
     }
+    goto end12;
+zero12: *(s32 *)((unsigned char *)temp12+12)=0;
+end12:
     temp9 = temp6 * 0x10;
     sp18 = arg_sp18 * 4;
-    temp3 = arg_sp0 + ((unsigned int)arg_sp0 >> 0x1F);
-    temp5 = arg_sp8 + ((unsigned int)arg_sp8 >> 0x1F);
+    temp3 = arg_sp0 + (arg_sp0 < 0);
+    temp5 = arg_sp8 + (arg_sp8 < 0);
     temp18 = *(s32 *)((unsigned char *)arg0 + 0x590 + (arg0->unk810 * 0x140)) + (temp23 * 0x600);
     temp3_2 = temp3 >> 2;
     temp7 = arg4 >> 1;
@@ -141,14 +144,14 @@ void func_003E2978(S_e2978_a0 *arg0, S_e2978_a1 *arg1, s32 arg2, s32 arg3, s32 a
     } else {
         var6 = (temp5 >> 2) + (arg7 >> 1) + (temp7 + arg2);
     }
-    temp6_2 = var6 % 8;
+    temp6_2 = var6 - ((var6 >> 3) << 3);
     temp25_2 = (temp5 >> 1) & 1;
-    *(s32 *)((unsigned char *)temp15 + 4) = (temp3_2 + temp2_6) % 8;
+    *(s32 *)((unsigned char *)temp15 + 4) = (temp3_2 + temp2_6) - (((temp3_2 + temp2_6) >> 3) << 3);
     *(s32 *)temp15 = sp8 + (((sp0 + temp7) * 0x10) + 0x200);
     if (temp25_2 != 0) {
         if ((temp6_2 + (temp9_2 << arg_sp10)) < 8) {
             *(s32 *)((unsigned char *)temp15 + 8) = temp9_2;
-            *(s32 *)((unsigned char *)temp15 + 0xC) = 0;
+            goto zero15;
         } else {
             temp2_7 = ((8 >> arg_sp10) - (temp6_2 >> arg_sp10)) - 1;
             *(s32 *)((unsigned char *)temp15 + 8) = temp2_7;
@@ -164,6 +167,9 @@ void func_003E2978(S_e2978_a0 *arg0, S_e2978_a1 *arg1, s32 arg2, s32 arg3, s32 a
             *(s32 *)((unsigned char *)temp15 + 0xC) = temp9_2 - temp2_8;
         }
     }
+    goto end15;
+zero15: *(s32 *)((unsigned char *)temp15+12)=0;
+end15:
     *(s32 *)((unsigned char *)temp15 + 0x10) = 8 << arg_sp10;
     temp8 = arg0->unk810 * 0x140;
     temp7_2 = (temp23 * 4) + temp8;

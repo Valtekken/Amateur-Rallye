@@ -1,0 +1,5 @@
+/* identical to func_002B6C80 (matched), with its names changed by decompdecomp */
+extern s32 func_004074E8(s32,s32,s32);extern void func_003F9698(void*,s32);extern char D_0047F478[],D_0047F4C0[];extern s32 func_002B6AD0(void*,s32);extern s32 func_00406EA8(s32,s32);extern void func_00407130(s32);extern s32 func_002AC4B0(s32,s32);extern s32 func_002ABF20(s32,s32);
+s32 func_002B76D8(void*a,s32 b,s32 c,s32 d,s32*e){s32 r=0;void*v;if(func_004074E8(b,c,d)!=-1){if(*e!=1){v=*(void**)((char*)a+8);if(!(*(s32(**)(void*,s32))((char*)v+100))((char*)a+*(s16*)((char*)v+96),b))func_003F9698(D_0047F478,b);else r=1;}else r=1;}else func_003F9698(D_0047F4C0,b);return r;}
+s32 func_002B6A50(void*a){s32 r=0,fd;void*v=*(void**)((char*)a+8);fd=func_00406EA8((*(s32(**)(void*))((char*)v+124))((char*)a+*(s16*)((char*)v+120)),1);if(fd>=0){r=func_002B6AD0(a,fd);func_00407130(fd);}return r;}
+s32 func_002B9B90(s32 a){register s32 z=0;if(func_002AC4B0(a,z)<0)a=func_002ABF20(z,a);return a;}

@@ -1,71 +1,19 @@
-void func_003D7B00(void *arg0, u32 arg1) {
-    if (*(s32 *)arg0 == 0) {
-        arg1 |= 4;
-    }
-    *(u8 *)((u8 *)arg0 + 0x1A) = (u8)arg1;
+extern void func_003DF4B0(s32);
+void func_003DF518(s32 a){func_003DF4B0(a+8);}
+s64 func_003DBBB8(s64 a,u64 b){
+s32 t=((s32)(a>>32)&0x7ff00000)+0xfcc00000;
+union {u64 u; u32 w[2];} r;
+if(t>0){r.w[1]=t;r.w[0]=0;}
+else {s32 e=(-t)>>20;if(e<20){r.w[1]=0x80000>>e;r.w[0]=0;}else {e-=20; b &= 0xffff0000ULL; r.u=b; r.w[0]=e<31?1<<(31-e):1;}}
+return r.u;
 }
-
-extern s32 func_003DB208(s32 arg0, s32 arg1, s32 arg2);
-extern u32 D_0043A970[6];
-
-s32 func_003DB7C8(s32 arg0, s32 arg1) {
-    s32 val = arg0;
-    s32 cnt = arg1;
-    if (cnt >= 7) {
-        do {
-            cnt -= 6;
-            val = func_003DB208(val, 0x3D09, 0);
-        } while (cnt >= 7);
-    }
-    if (cnt == 0) {
-        return val;
-    }
-    return func_003DB208(val, D_0043A970[cnt - 1], 0);
-}
-
-s32 func_003DB9C0(void *arg0, void *arg1) {
-    s32 l1 = *(s32 *)((u8 *)arg1 + 0x10);
-    s32 diff = *(s32 *)((u8 *)arg0 + 0x10) - l1;
-    if (diff != 0) {
-        return diff;
-    }
-    u8 *base = (u8 *)arg0 + 0x14;
-    u32 *w0 = (u32 *)(base + l1 * 4);
-    u32 *w1 = (u32 *)((u8 *)arg1 + 0x14 + l1 * 4);
-    do {
-        w1--;
-        if (*w0 != *w1) {
-            if (*w0 >= *w1) {
-                return 1;
-            } else {
-                return -1;
-            }
-        }
-    } while (base < (u8 *)w0--);
-    return 0;
-}
-
-s64 func_003DBBB8(s64 arg0, s32 arg1) {
-    s64 high = ((arg0 >> 32) & 0x7FF00000LL);
-    s64 t = high + 0xFCC00000LL;
-    if (t > 0) {
-        return t << 32;
-    }
-    s32 exp = (s32)(-(t)) >> 20;
-    if (exp < 0x14) {
-        s64 m = ((s64)(0x80000 >> exp)) << 32;
-        return m;
-    }
-    s32 exp2 = exp - 0x14;
-    s64 var2;
-    if (exp2 < 0x1F) {
-        var2 = (s64)1 << (0x1F - exp2);
-    } else {
-        var2 = 1;
-    }
-    s64 var2h = var2 << 32;
-    var2h = var2h >> 32;
-    s64 mask = ((s64)-1) << 32;
-    s64 res = (arg1 & mask) | var2h;
-    return res;
-}
+s32 func_003DB9C0(void *a,void *b){
+s32 n=*(s32*)((char*)b+16),d=*(s32*)((char*)a+16)-n;
+u32 *base,*p,*q;
+if(d)return d;
+base=(u32*)((char*)a+20);p=base+n;q=(u32*)((char*)b+20)+n;
+do{--p;--q;if(*p!=*q)return *p<*q?-1:1;}while(p>base);
+return 0;}
+extern s32 func_003DB208(s32,s32,s32);
+extern s32 D_0043A970[];
+s32 func_003DB7C8(s32 a,s32 n){if(n>=7){do{a=func_003DB208(a,0x3d09,0);n-=6;}while(n>=7);}if(n==0)return a;return func_003DB208(a,D_0043A970[n-1],0);}

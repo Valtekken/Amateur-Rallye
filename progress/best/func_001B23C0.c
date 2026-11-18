@@ -1,25 +1,28 @@
-/* machine draft (m2c) for ee-gcc-2.95.2 -O2 -G0, tried by autopilot */
-#ifndef M2C_DEFINES
-#define M2C_DEFINES
-typedef s32 M2C_UNK;
-typedef s8 M2C_UNK8;
-typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-#define M2C_ERROR(desc) (0)
-#define M2C_CARRY 0
-#define M2C_OVERFLOW(a) (0)
-#endif
+s32 func_003978C8(register s32 a, register s32 b, register s32 c, register s32 d) {
+    return func_002C5160(a, b, c, 0);
+}
+
+f32 func_001B2DF0(void *arg0) {
+    f32 t0 = *(f32 *)((u8 *)arg0 + 0x94);
+    return (*(f32 *)((u8 *)arg0 + 0xC0) + t0 * *(f32 *)((u8 *)arg0 + 0x28)) / (t0 + 1.0f);
+}
+
+f32 func_001B2D60(void *arg0) {
+    f32 f0 = func_001D5E70((u8 *)arg0 + 0xD8, -1.0f, 1.0f);
+    f32 v84 = *(f32 *)((u8 *)arg0 + 0x84);
+    f32 v20 = *(f32 *)((u8 *)arg0 + 0x20);
+    f32 v88 = *(f32 *)((u8 *)arg0 + 0x88);
+    f32 vBC = *(f32 *)((u8 *)arg0 + 0xBC);
+    f32 result = vBC + f0 * v88 + v84 * v20;
+    result = result / (v84 + 1.0f);
+    return result;
+}
 
 f32 func_001B23C0(void *arg0) {
-    void **temp_6;
-    void *temp_2;
-
-    temp_6 = M2C_FIELD(arg0, void ***, 0xC8);
-    if (temp_6 != NULL) {
-        temp_2 = *temp_6;
-        return M2C_FIELD(temp_2, f32 (**)(void *, void *, void **), 0x1C)(temp_6 + M2C_FIELD(temp_2, s16 *, 0x18), arg0, temp_6);
+    void **p = *(void ***)((u8 *)arg0 + 0xC8);
+    if (p != NULL) {
+        void *v = *p;
+        return ((f32 (*)(void *, void *, void **))(*(void **)((u8 *)v + 0x1C)))((u8 *)p + *(s16 *)((u8 *)v + 0x18), arg0, p);
     }
     return 0.51f;
 }

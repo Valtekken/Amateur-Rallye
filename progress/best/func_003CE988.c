@@ -1,45 +1,31 @@
-/* machine draft (m2c) for ee-gcc-2.9-991111 -O2 -G0, tried by autopilot */
-#ifndef M2C_DEFINES
-#define M2C_DEFINES
-typedef s32 M2C_UNK;
-typedef s8 M2C_UNK8;
-typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-#define M2C_ERROR(desc) (0)
-#define M2C_CARRY 0
-#define M2C_OVERFLOW(a) (0)
-#endif
+extern void func_003D13B0(void*);
+extern s32 func_003F9288(void*, void*, u32);
 
-M2C_UNK func_003D13B0(M2C_UNK *);                   /* extern */
-s32 func_003F9288(void *, void *, u32);             /* extern */
-extern M2C_UNK D_00488D20;
+extern s32 D_00488D20;
 
 s32 func_003CE988(void **arg0, void **arg1, u32 arg2, u32 arg3) {
-    s32 var_2;
     u32 temp_16;
     u32 temp_16_2;
     u32 temp_16_3;
     u32 temp_3;
-    void *temp_5;
+    void *t5;
+    s32 var_2;
 
-    if ((u32) M2C_FIELD(*arg0, u32 *, -0x10) < arg2) {
-        func_003D13B0(&D_00488D20);
+    if (*(u32*)((char*)*arg0 - 0x10) < arg2) {
+        func_003D13B0((void*)&D_00488D20);
     }
-    temp_5 = *arg1;
-    temp_16 = M2C_FIELD(*arg0, s32 *, -0x10) - arg2;
-    temp_3 = M2C_FIELD(temp_5, u32 *, -0x10);
+    t5 = *arg1;
+    temp_16 = *(u32*)((char*)*arg0 - 0x10) - arg2;
+    temp_3 = *(u32*)((char*)t5 - 0x10);
     temp_16_2 = (arg3 < temp_16) ? arg3 : temp_16;
     temp_16_3 = (temp_3 < temp_16_2) ? temp_3 : temp_16_2;
-    var_2 = func_003F9288(*arg0 + arg2, temp_5, temp_16_3);
+    var_2 = func_003F9288((char*)*arg0 + arg2, t5, temp_16_3);
     if (var_2 == 0) {
         if (temp_16_3 != arg3) {
-            var_2 = (M2C_FIELD(*arg0, u32 *, -0x10) - arg2) - M2C_FIELD(*arg1, u32 *, -0x10);
-            /* Duplicate return node #8. Try simplifying control flow for better match */
-            return var_2;
+            var_2 = (*(u32*)((char*)*arg0 - 0x10) - arg2) - *(u32*)((char*)*arg1 - 0x10);
+        } else {
+            var_2 = 0;
         }
-        return 0;
     }
     return var_2;
 }

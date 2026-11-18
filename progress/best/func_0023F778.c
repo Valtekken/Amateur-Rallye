@@ -1,96 +1,84 @@
+typedef struct { f32 x,y,z; } Vec3;
+extern void func_00244788(void);
+extern void func_00244CF8(s32 arg0, void *arg1, void *arg2, void *arg3, void *arg4);
+extern f32 D_004264A0;
 extern void func_0024F6E0(void *dst, void *src);
 
-typedef struct {
-    s32 unk0;
-    void *unk4;
-    s16 unk8;
-    void (*unkC)(void *, s32, void *);
-    s32 unk10;
-    void *unk14;
-} S_obj_3F778;
+void func_00244C58(s32 arg0, Vec3 *arg1, Vec3 *arg2) {
+    f32 sp20, sp24, sp28;
+    f32 sp30, sp34, sp38;
+    s32 sp0=0, sp4=0, sp8=0;
+    s32 sp10=0, sp14=0, sp18=0;
+    func_00244788();
+    sp20 = arg1->x;
+    sp24 = arg1->y;
+    sp28 = arg1->z;
+    sp30 = arg2->x;
+    sp34 = arg2->y;
+    sp38 = arg2->z;
+    func_00244CF8(arg0, (void*)&sp20, (void*)&sp30, (void*)&sp0, (void*)&sp10);
+}
 
-typedef struct {
-    void *unk28;
-} S_arg0_3F778;
+typedef struct { void **unk0; s32 unk4; } S_f_3FBF0;
+typedef struct { f32 unk8, unk4, unkC; } S_fe_3FBF0;
 
-s32 func_0023F778(S_arg0_3F778 *arg0) {
+s32 func_0023FBF0(Vec3 *arg0, S_f_3FBF0 *arg1) {
+    void **base;
+    s32 count;
+    s32 i;
+    base = arg1->unk0;
+    count = ((s32)arg1->unk4 - (s32)base) >> 2;
+    if (count <= 0) return 1;
+    i = 0;
+    while (i < count) {
+        S_fe_3FBF0 *e = (S_fe_3FBF0 *)(*(void **)base[i] + 8);
+        f32 d = e->unk8 * arg0->x + e->unk4 * arg0->y + e->unkC * arg0->z;
+        s32 ret;
+        if (D_004264A0 <= d) ret = 1;
+        else if (d <= -D_004264A0) ret = -1;
+        else ret = 0;
+        if (ret == 1) return 0;
+        i++;
+    }
+    return 1;
+}
+
+s32 func_0023F778(void *arg0) {
     u8 sp[0x30];
     void *obj;
-    
-    func_0024F6E0(sp, arg0->unk28);
-    obj = *(void **)sp;
-    if (obj == 0) {
-        return 0;
+    s32 ref;
+    void *vt;
+    void (*fn)(void*, s32, void*);
+    func_0024F6E0(sp, *(void**)((char*)arg0+0x28));
+    obj = *(void**)sp;
+    if (obj == 0) return 0;
+    ref = *(s32*)obj;
+    ref = ref - 1;
+    *(s32*)obj = ref;
+    if (ref == 0) {
+        vt = *(void**)((char*)obj+4);
+        fn = *(void(**)(void*,s32,void*))((char*)vt+0xC);
+        fn((char*)obj + *(s16*)((char*)vt+8), 3, obj);
     }
-    {
-        void *p = obj;
-        s32 ref = *(s32 *)p;
-        ref = ref - 1;
-        *(s32 *)p = ref;
-        if (ref == 0) {
-            void *vt = *(void **)((s32)p + 4);
-            void (*fn)(void *, s32, void *) = *(void (**)(void *, s32, void *))((s32)vt + 0xC);
-            fn(p + *(s16 *)((s32)vt + 8), 3, p);
-        }
-    }
-    return *(s32 *)((s32)obj + 0x14);
+    return *(s32*)((char*)obj+0x14);
 }
 
-extern void func_001CA600(void *);
-extern void func_001CA7C8(void *, void *);
-extern void func_001CA990(void *, void *);
-
-typedef struct {
-    s32 pad[3];
-    void *unkC;
-    void *unk10;
-    void *unk14;
-    void *unk18;
-} S_3F650_arg;
-
-void *func_0023F650(S_3F650_arg *arg0, S_3F650_arg *arg1) {
-    func_001CA600(arg0);
-    func_001CA7C8(arg0 + 0xC, arg1 + 0xC);
-    func_001CA990(arg0 + 0x18, arg1 + 0x18);
-    return arg0;
-}
-
-typedef struct {
-    void *unk0;
-    void *unk4;
-    void *unk8;
-    void *unkC;
-    void *unk10;
-    void *unk14;
-    void *unk18;
-    s32 unk24;
-    s32 unk28;
-    s32 unk2C;
-    s32 unk30;
-    s32 unk34;
-} S_3FEDD0;
-
-void *func_0023EDD0(S_3FEDD0 *arg0) {
-    arg0->unk0 = 0;
-    arg0->unk4 = 0;
-    arg0->unk8 = 0;
-    ((void **)arg0)[3] = (void *)0; /* unkC */
-    ((S_3FEDD0 *)((char *)arg0 + 0xC))->unk8 = 0; /* offset C+8 = 14? */
-    return arg0;
-}
-
-extern void func_002AD390(void);
-extern void D_004735B0;
-
-typedef struct {
-    void *unk24;
-    void *unk4C;
-} S_3FED98;
-
-void func_0023ED98(S_3FED98 *arg0, s32 arg1) {
-    arg0->unk24 = &D_004735B0;
-    arg0->unk4C = &D_004735B0;
-    if (arg1 & 1) {
-        func_002AD390();
+typedef struct { void *unk18; s32 unk1C; } S_arr_3F730;
+s32 func_0023F730(S_arr_3F730 *arg0, s32 arg1) {
+    s32 *v7 = (s32 *) arg0->unk18;
+    s32 count = (((s32) arg0->unk1C) - ((s32) v7)) >> 2;
+    s32 i = 0;
+    if (count > 0) {
+        s32 *p = v7;
+        do {
+            if (arg1 != (*p)) {
+                i++;
+                p++;
+                if (i < count) continue;
+                break;
+            }
+            return i;
+        } while (1);
     }
+    return -1;
 }

@@ -1,43 +1,54 @@
-/* machine draft (m2c) for ee-gcc-2.95.2 -O2 -G0, tried by autopilot */
-#ifndef M2C_DEFINES
-#define M2C_DEFINES
-typedef s32 M2C_UNK;
-typedef s8 M2C_UNK8;
-typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-#define M2C_ERROR(desc) (0)
-#define M2C_CARRY 0
-#define M2C_OVERFLOW(a) (0)
-#endif
-
-void *D_002AD408(M2C_UNK);                          /* extern */
-M2C_UNK func_001E5C58(void *, M2C_UNK);             /* extern */
-
-void func_001E56D8(void *arg0, void *arg1) {
-    s32 var_3;
-    void *temp_2;
-    void *temp_2_2;
-    void *temp_3;
-
-    if (M2C_FIELD(arg0, s32 *, 8) != 7) {
-        func_001E5C58(arg0, 7);
-        temp_2 = D_002AD408(8);
-        M2C_FIELD(arg0, void **, 4) = temp_2;
-        M2C_FIELD(temp_2, f32 *, 0) = (f32) M2C_FIELD(arg1, f32 *, 0);
-        M2C_FIELD(temp_2, f32 *, 4) = (f32) M2C_FIELD(arg1, f32 *, 4);
-    } else {
-        temp_2_2 = M2C_FIELD(arg0, void **, 4);
-        var_3 = 0;
-        if ((M2C_FIELD(temp_2_2, f32 *, 0) == M2C_FIELD(arg1, f32 *, 0)) && (M2C_FIELD(temp_2_2, f32 *, 4) == M2C_FIELD(arg1, f32 *, 4))) {
-            var_3 = 1;
-        }
-        if (var_3 == 0) {
-            temp_3 = M2C_FIELD(arg0, void **, 4);
-            M2C_FIELD(arg0, s32 *, 0x10) = (s32) (M2C_FIELD(arg0, s32 *, 0x10) + 1);
-            M2C_FIELD(temp_3, f32 *, 0) = (f32) M2C_FIELD(arg1, f32 *, 0);
-            M2C_FIELD(temp_3, f32 *, 4) = (f32) M2C_FIELD(arg1, f32 *, 4);
-        }
+typedef struct TaggedLocal
+{
+  s32 name;
+  union 
+  {
+    s32 *i;
+    f32 *f;
+  } payload;
+  s32 tag;
+  unsigned b0 : 1;
+  unsigned b1 : 1;
+  unsigned b2 : 1;
+  unsigned rest : 29;
+  s32 changes;
+  s32 refs;
+  s32 owner;
+} TaggedLocal;
+extern void func_001E5C58(TaggedLocal *, TaggedLocal *, s32);
+extern void *D_002AD408(s32);
+void func_001E56D8(TaggedLocal *p, f32 *arg1)
+{
+  f32 new_var;
+  s32 equal;
+  if (p->tag != 7)
+  {
+    func_001E5C58(p, p, 7);
+    f32 *ptr = (f32 *) D_002AD408(8);
+    f32 f0 = arg1[0];
+    f32 f1 = arg1[1];
+    p->payload.f = ptr;
+    ptr[0] = f0;
+    ptr[1] = f1;
+  }
+  else
+  {
+    f32 *v = p->payload.f;
+    equal = 0;
+    if (v[0] == arg1[0])
+    {
+      if (p->payload.f[1] == arg1[1])
+      {
+        equal = 1;
+      }
     }
+    if (!equal)
+    {
+      p->changes++;
+      p->payload.f[0] = arg1[0];
+      new_var = arg1[1];
+      p->payload.f[1] = new_var;
+    }
+  }
 }
+

@@ -1,74 +1,13 @@
-/* machine draft (m2c) for ee-gcc-2.95.2 -O2 -G0, tried by autopilot */
-#ifndef M2C_DEFINES
-#define M2C_DEFINES
-typedef s32 M2C_UNK;
-typedef s8 M2C_UNK8;
-typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-#define M2C_ERROR(desc) (0)
-#define M2C_CARRY 0
-#define M2C_OVERFLOW(a) (0)
-#endif
-
-M2C_UNK func_00278338(s32, void *, void *, void **, void *, void *); /* extern */
-
-void func_0036A458(s32 arg0, void *arg1, void *arg2, f32 fparg0) {
-    f32 temp_f1;
-    s32 var_2;
-    void **temp_8;
-    void *temp_2;
-    void *temp_3;
-    void *temp_3_2;
-    void *temp_4;
-    void *temp_5;
-    void *temp_6;
-    void *temp_7;
-    void *temp_8_2;
-    void *temp_9;
-
-    temp_9 = M2C_FIELD(arg1, void **, 0x4C);
-    if (((s64) (M2C_FIELD(temp_9, s64 *, 0x78) << 0x1E) >> 0x20) & 1) {
-        temp_f1 = fparg0 - 1.0f;
-        var_2 = 0;
-        if ((-0.0000011920929f <= temp_f1) && (temp_f1 <= 0.0000011920929f)) {
-            var_2 = 1;
-        }
-        if (var_2 == 0) {
-            temp_8 = M2C_FIELD(temp_9, void ***, 0x60);
-            if (temp_8 != NULL) {
-                temp_3 = *temp_8;
-                M2C_FIELD(temp_3, M2C_UNK (**)(void *, s32, void *, void **, void *, void *), 0x14)(temp_8 + M2C_FIELD(temp_3, s16 *, 0x10), arg0 + 0x90, arg2, temp_8, temp_9, arg2);
-                return;
-            }
-            func_00278338(arg0 + 0x90, temp_9 + 0x20, arg2, temp_8, temp_9, arg2);
-            return;
-        }
-        goto block_8;
-    }
-block_8:
-    temp_2 = temp_9 + 0x20;
-    temp_3_2 = temp_9 + 0x30;
-    temp_4 = arg2 + 0x10;
-    M2C_FIELD(arg2, f32 *, 0) = (f32) M2C_FIELD(temp_9, f32 *, 0x20);
-    temp_5 = temp_9 + 0x40;
-    temp_6 = arg2 + 0x20;
-    temp_8_2 = temp_9 + 0x50;
-    temp_7 = arg2 + 0x30;
-    M2C_FIELD(arg2, f32 *, 4) = (f32) M2C_FIELD(temp_2, f32 *, 4);
-    M2C_FIELD(arg2, f32 *, 8) = (f32) M2C_FIELD(temp_2, f32 *, 8);
-    M2C_FIELD(arg2, f32 *, 0xC) = (f32) M2C_FIELD(temp_2, f32 *, 0xC);
-    M2C_FIELD(arg2, f32 *, 0x10) = (f32) M2C_FIELD(temp_9, f32 *, 0x30);
-    M2C_FIELD(temp_4, f32 *, 4) = (f32) M2C_FIELD(temp_3_2, f32 *, 4);
-    M2C_FIELD(temp_4, f32 *, 8) = (f32) M2C_FIELD(temp_3_2, f32 *, 8);
-    M2C_FIELD(temp_4, f32 *, 0xC) = (f32) M2C_FIELD(temp_3_2, f32 *, 0xC);
-    M2C_FIELD(arg2, f32 *, 0x20) = (f32) M2C_FIELD(temp_9, f32 *, 0x40);
-    M2C_FIELD(temp_6, f32 *, 4) = (f32) M2C_FIELD(temp_5, f32 *, 4);
-    M2C_FIELD(temp_6, f32 *, 8) = (f32) M2C_FIELD(temp_5, f32 *, 8);
-    M2C_FIELD(temp_6, f32 *, 0xC) = (f32) M2C_FIELD(temp_5, f32 *, 0xC);
-    M2C_FIELD(arg2, f32 *, 0x30) = (f32) M2C_FIELD(temp_9, f32 *, 0x50);
-    M2C_FIELD(temp_7, f32 *, 4) = (f32) M2C_FIELD(temp_8_2, f32 *, 4);
-    M2C_FIELD(temp_7, f32 *, 8) = (f32) M2C_FIELD(temp_8_2, f32 *, 8);
-    M2C_FIELD(temp_7, f32 *, 0xC) = (f32) M2C_FIELD(temp_8_2, f32 *, 0xC);
-}
+typedef struct V10{float x,y,z,w;}V10;typedef struct M10{V10 r[4];}M10;
+typedef struct VT10{u32 a,b,c,d;s16 delta,pad;void(*blend)(void*,void*,void*,void*,float);}VT10;
+typedef struct Blend10{VT10*vt;}Blend10;
+typedef struct State10{u32 x;Blend10*blend;char pad[24];M10 matrix;char pad2[16];u64 flags;}State10;
+typedef struct Actor10{char pad[76];State10*state;}Actor10;
+extern void func_00278338(void*,M10*,M10*,float);
+static inline void copyv10(V10*d,V10*s){d->x=s->x;d->y=s->y;d->z=s->z;d->w=s->w;}
+static inline void copym10(M10*d,M10*s){copyv10(&d->r[0],&s->r[0]);copyv10(&d->r[1],&s->r[1]);copyv10(&d->r[2],&s->r[2]);copyv10(&d->r[3],&s->r[3]);}
+static inline int close10(float value,const float *ep){float epsilon=*ep;int n=0;if(-epsilon<=value&&value<=epsilon)n=1;return n;}
+void func_0036A458(char*p,Actor10*a,M10*out,float t){int near;float delta;
+if(((a->state->flags>>30)%2)){float epsilon;delta=t-1.f;epsilon=0.0000011920929f;near=close10(delta,&epsilon);
+if(!near){State10*s=a->state;Blend10*b=s->blend;if(b)b->vt->blend((char*)b+b->vt->delta,a,p+144,out,t);else func_00278338(p+144,&s->matrix,out,t);return;}}
+copym10(out,&a->state->matrix);}

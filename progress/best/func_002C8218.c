@@ -1,27 +1,52 @@
-/* machine draft (m2c) for ee-gcc-2.95.2 -O2 -G0, tried by autopilot */
-#ifndef M2C_DEFINES
-#define M2C_DEFINES
-typedef s32 M2C_UNK;
-typedef s8 M2C_UNK8;
-typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-#define M2C_ERROR(desc) (0)
-#define M2C_CARRY 0
-#define M2C_OVERFLOW(a) (0)
-#endif
+extern void iSignalSema_2(s32);
+extern void func_004058C0(void *);
+extern s32 func_002C8440(void);
+
+typedef struct {
+    void *unk0;
+    s32 pad1;
+    s32 unk8;
+    u8 pad2[0x14 - 0xC];
+    s32 unk14;
+    s32 unk18;
+    void (*unk1C)(s32);
+    s32 unk20;
+    s32 unk24;
+} S_inner;
+typedef struct { s32 pad0[7]; S_inner *unk1C; u32 unk20; u32 unk24; u32 unk28; u32 unk2C; } S_00405950;
+
+void func_00405950(S_00405950 *arg0) {
+    u32 type = arg0->unk20;
+    if (type == 0x8000000A) {
+        S_inner *s = arg0->unk1C;
+        if (s->unk1C) s->unk1C(s->unk20);
+    } else if (type == 0x80000009) {
+        S_inner *s = arg0->unk1C;
+        s->unk24 = (s32)arg0->unk24;
+        s->unk14 = (s32)arg0->unk28;
+        s->unk18 = (s32)arg0->unk2C;
+    }
+    S_inner *s = arg0->unk1C;
+    if (s->unk8 >= 0) iSignalSema_2(s->unk8);
+    func_004058C0(s->unk0);
+    s->unk0 = 0;
+}
+
+s32 func_002C8308(void *arg0, s32 arg1) {
+    s32 old = *(s32 *)((u8 *)arg0 + 0x20);
+    if (arg1 == 0) func_002C8440();
+    *(s32 *)((u8 *)arg0 + 0x20) = arg1;
+    return old;
+}
+
+s32 func_002C8270(void **arg0, s32 arg1) {
+    void *s3 = *arg0;
+    f32 r = ((f32(*)(void *, s32, void *, s32))((s32 *)s3)[0x3C])((u8 *)arg0 + (s16)((s16 *)s3)[0x38], arg1 ? 3 : 1, s3, 3);
+    return r < -0.3f;
+}
 
 s32 func_002C8218(void **arg0, s32 arg1) {
-    s16 temp_6;
-    s32 var_2;
-    void *temp_3;
-
-    temp_3 = *arg0;
-    temp_6 = M2C_FIELD(temp_3, s16 *, 0x38);
-    var_2 = 1;
-    if (!(M2C_FIELD(temp_3, f32 (**)(void *, M2C_UNK, s16), 0x3C)(arg0 + temp_6, (arg1 == 0) ? 0 : 2, temp_6) > 0.3f)) {
-        var_2 = 0;
-    }
-    return var_2;
+    void *s3 = *arg0;
+    f32 r = ((f32(*)(void *, s32, void *))((s32 *)s3)[0x3C])((u8 *)arg0 + (s16)((s16 *)s3)[0x38], arg1 ? 2 : 0, s3);
+    return r > 0.3f;
 }

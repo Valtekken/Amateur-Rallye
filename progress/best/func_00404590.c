@@ -1,21 +1,8 @@
-/* machine draft (m2c) for ee-gcc-2.95.2 -O0 -G0 -O2, tried by autopilot */
-#ifndef M2C_DEFINES
-#define M2C_DEFINES
-typedef s32 M2C_UNK;
-typedef s8 M2C_UNK8;
-typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-#define M2C_ERROR(desc) (0)
-#define M2C_CARRY 0
-#define M2C_OVERFLOW(a) (0)
-#endif
-
-s8 func_00404590(s8 arg0) {
-    do {
-
-    } while (*(s32 *)0x1000F130 & 0x8000);
-    *(s8 *)0x1000F180 = arg0;
-    return arg0;
-}
+s32 func_003A0BD8(s32,s32);s32 func_00219DA8(s32,s32);
+s32 func_003A5DC8(register s32 a,register s32 b){func_003A0BD8(a,b);func_00219DA8(a+12,b+12);return a;}
+void func_004040D8(u32*p){u32 end=p[0]+16;p[1]--;p[2]++;if(p[2]==(u32)p+end)p[2]=(u32)p+16;}
+typedef struct{volatile s32 id;u32 a,b,c;u8*p,*q;void*r;} State;
+extern State D_0049E150;extern u8 D_0049E180[],D_0049E2C0[];void func_00404118(void);
+s32 FlushCache_2(s32);s32 func_0040B388(s32,State*,void(*)(void));void*func_00404070(s32);
+s32 func_004044D0(void){u8*p;FlushCache_2(0);D_0049E150.id=func_0040B388(0x210,&D_0049E150,func_00404118);if(D_0049E150.id<0)return 0;D_0049E150.c=0;p=(u8*)((u32)D_0049E180|0x20000000);D_0049E150.a=0;D_0049E150.b=0;D_0049E150.q=(u8*)((u32)D_0049E2C0|0x20000000);D_0049E150.p=p;*(u16*)(p+4)=0x210;p[6]=0x45;p[7]=0x48;*(u32*)(p+8)=0;*(u16*)(p+2)=0;D_0049E150.r=func_00404070(256);return 1;}
+s32 func_00404590(s32 a){while(*(volatile u32*)0x1000f130&0x8000){}*(volatile u8*)0x1000f180=a;return a;}

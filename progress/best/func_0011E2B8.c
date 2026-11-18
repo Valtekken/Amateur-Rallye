@@ -8,16 +8,17 @@ extern s32 func_002971B0(s32);
 extern s32 func_002971F8(s32);
 extern s32 func_00297500(void);
 extern s32 func_003FA310(char *, const char *, ...);
+static inline void *makekey(void *p,const char *s){func_001D4040(p,s);return p;}
 extern char D_00445D98[], D_00446648[], D_004473C8[], D_00447508[], D_00447520[], D_00447538[];
 typedef struct {s32 id; s32 pad[2]; s32 active;} UIItem;
-s32 func_0011E2B8(UIItem *item, s32 sound) {
- s32 result=-1;
+s64 func_0011E2B8(UIItem *item, s32 sound) {
+ s64 result=-1;
  s32 selected=func_002971B0(func_00297500());
  s32 event=func_002971F8(func_00297500());
  s32 manager=func_001E4280();
  union { char buffer[80]; struct {char key[16]; char name[64];} pos; } scratch;
 #define key scratch.pos.key
- s32 enabled; s32 audio; const char *effect;
+ s32 enabled;
  func_001D4040(key,D_00445D98);
  enabled=func_001E3598(manager,key);
  switch(event) {
@@ -25,16 +26,15 @@ s32 func_0011E2B8(UIItem *item, s32 sound) {
   if(item->active) {
    if((u32)(selected+1)<2) {
     result=-2;
-    if(sound) {audio=func_00262838(); effect=D_00447508; goto play;}
+    if(sound) {s32 audio=func_00262838(); func_001D4040(key,D_00447508); func_002623F0(audio,key);}
    } else if(enabled) {
     char *name=scratch.pos.name;
     result=selected;
     func_003FA310(name,D_004473C8,item->id);
     {s32 config=func_001E4280(); func_001D4040(key,name); func_001E3EC0(config,key,selected);}
     {s32 config=func_001E4280(); func_001D4040(key,name); func_001E33C8(config,key,0);}
-    if(sound) {audio=func_00262838(); effect=D_00447520; goto play;}
-   } else if(sound) {audio=func_00262838(); effect=D_00446648;
-play:func_001D4040(key,effect);func_002623F0(audio,key);}
+    if(sound) {s32 audio=func_00262838();func_001D4040(key,D_00447520);func_002623F0(audio,key);}
+   } else if(sound) {s32 audio=func_00262838();func_001D4040(key,D_00446648);func_002623F0(audio,key);}
   }
   break;
  case 5:
@@ -42,7 +42,7 @@ play:func_001D4040(key,effect);func_002623F0(audio,key);}
    char *name=scratch.buffer; char key2[4];
    func_003FA310(name,D_004473C8,item->id);
    result=-3;
-   {s32 config=func_001E4280();func_001D4040(key2,name);func_001E3EC0(config,key2,-1);}
+   {s32 config=func_001E4280();func_001E3EC0(config,makekey(key2,name),-1);}
    if(sound) {s32 audio=func_00262838();func_001D4040(key2,D_00447538);func_002623F0(audio,key2);}
   }
   break;

@@ -1,36 +1,6 @@
-/* machine draft (m2c) for ee-gcc-2.9-991111 -O2 -G0, tried by autopilot */
-#ifndef M2C_DEFINES
-#define M2C_DEFINES
-typedef s32 M2C_UNK;
-typedef s8 M2C_UNK8;
-typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-#define M2C_ERROR(desc) (0)
-#define M2C_CARRY 0
-#define M2C_OVERFLOW(a) (0)
-#endif
-
-M2C_UNK iSignalSema_2(s32, void *, s32, M2C_UNK);   /* extern */
-extern s32 D_00441110;
-extern s32 D_0049DC20;
-extern M2C_UNK D_0049DC28;
-
-u8 func_00403F58(u8 arg0) {
-    s32 temp_2;
-    s32 temp_6;
-    void *temp_5;
-
-    if ((arg0 >= 0x80U) || (D_00441110 == 0)) {
-        return -1U;
-    }
-    temp_2 = M2C_FIELD(&D_0049DC28, s32 *, 4) & 0x1FF;
-    temp_6 = temp_2 * 2;
-    temp_5 = &D_0049DC28 + temp_6;
-    M2C_FIELD(&D_0049DC28, s32 *, 4) = (s32) (temp_2 + 1);
-    M2C_FIELD(temp_5, s8 *, 8) = 1;
-    M2C_FIELD(temp_5, u8 *, 9) = arg0;
-    iSignalSema_2(D_0049DC20, temp_5, temp_6, 1);
-    return arg0;
-}
+s32 func_003A0BD8(s32,s32); s32 func_00219DA8(s32,s32);
+s32 func_003A5DC8(register s32 a,register s32 b){func_003A0BD8(a,b);func_00219DA8(a+12,b+12);return a;}
+s32 func_00403BF0(u32*a,u32*b,u32 n){u32 c=n>>2,i=0;if(c)do{a[i]=b[i];i++;}while(i<c);return 0;}
+extern s32 D_00441110,D_0049DC20; typedef struct {s32 x,n;u8 data[1040];} Q; extern Q D_0049DC28; extern s32 iSignalSema_2(s32,void*,s32,s32);
+s32 func_00403F58(u32 a){s32 i,k;u8*p; Q *base;if(a>=128||!D_00441110)return -1;base=&D_0049DC28;i=base->n&511;k=i*2;p=(u8*)&D_0049DC28+k;base->n=i+1;p[8]=1;p[9]=a;iSignalSema_2(D_0049DC20,p,k,1);return a;}
+void func_00404098(u32*p){u32 end=p[0]+16;p[1]++;p[3]++;if(p[3]==(u32)p+end)p[3]=(u32)p+16;}

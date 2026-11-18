@@ -8,38 +8,37 @@ extern const char D_0044EC28[];
 extern const char D_0044EC40[];
 extern const char D_0044EC58[];
 
+struct S_temp {
+    s32 unk0;
+    s32 unk4;
+    s32 unk8;
+    s32 unkC;
+    void *unk10;
+    s32 unk14;
+    s32 unk18;
+    s32 unk1C;
+    s32 unk20;
+};
+
 struct S_arg0 {
     s32 unk0;
     s32 unk4;
     s32 unk8;
     s32 unkC;
+    s32 unk10;
     f32 unk14;
     f32 unk18;
     f32 unk1C;
 };
 
-struct S_temp16 {
-    u32 unk0;
-    u32 unk4;
-    u32 unk8;
-    u32 unkC;
-    void *unk10;
-    u32 unk14;
-    u32 unk18;
-    u32 unk1C;
-    u32 unk20;
-};
-
 void *func_0015F6D8(void *arg0) {
     u8 buf[0x24];
-    struct S_temp16 *temp;
+    struct S_temp *temp;
     s32 sp0;
-    void *sp20;
 
     temp = D_002AD408(0x24);
     func_001D4040(buf, D_0044EBE8);
     sp0 = *(s32 *)buf;
-    sp20 = (void *)(buf + 0x20);
 
     temp->unk0 = 0;
     temp->unk4 = 0;
@@ -51,10 +50,10 @@ void *func_0015F6D8(void *arg0) {
     temp->unk1C = 0;
     temp->unk20 = sp0;
 
-    func_001E2460(sp20, temp, sp0);
-    func_001E2C08(sp20, D_0044EC28, ((struct S_arg0 *)arg0)->unk18);
-    func_001E2C08(sp20, D_0044EC40, ((struct S_arg0 *)arg0)->unk14);
-    func_001E2C08(sp20, D_0044EC58, ((struct S_arg0 *)arg0)->unk1C);
+    func_001E2460(buf + 0x20, temp, sp0);
+    func_001E2C08(buf + 0x20, D_0044EC28, ((struct S_arg0 *)arg0)->unk18);
+    func_001E2C08(buf + 0x20, D_0044EC40, ((struct S_arg0 *)arg0)->unk14);
+    func_001E2C08(buf + 0x20, D_0044EC58, ((struct S_arg0 *)arg0)->unk1C);
 
     return temp;
 }

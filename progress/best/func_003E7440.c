@@ -1,26 +1,3 @@
-/* machine draft (m2c) for ee-gcc-2.9-991111 -O2 -G0, tried by autopilot */
-#ifndef M2C_DEFINES
-#define M2C_DEFINES
-typedef s32 M2C_UNK;
-typedef s8 M2C_UNK8;
-typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-#define M2C_ERROR(desc) (0)
-#define M2C_CARRY 0
-#define M2C_OVERFLOW(a) (0)
-#endif
-
-M2C_UNK func_003E7498(M2C_UNK, s32);                /* extern */
-
-void func_003E7440(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
-    M2C_FIELD(arg0, s32 *, 0xC) = arg1;
-    M2C_FIELD(arg0, s32 *, 0x24) = (s32) (arg2 + arg3);
-    M2C_FIELD(arg0, s32 *, 0x28) = arg3;
-    M2C_FIELD(arg0, s32 *, 8) = arg1;
-    M2C_FIELD(arg0, s64 *, 0) = 0;
-    M2C_FIELD(arg0, s32 *, 0x10) = 0;
-    M2C_FIELD(arg0, s64 *, 0x18) = 0;
-    func_003E7498(0, arg1);
-}
+typedef struct {u64 bits;u8 *start,*cur;u32 count;u64 total;u8 *wrap,*end;u32 size;} BS;
+void func_003E7498(BS*,s32);
+void func_003E7440(volatile BS*p,u8*b,u8*c,s32 n){p->cur=b;p->end=c+n;p->size=n;p->start=b;p->bits=0;p->count=0;p->total=0;*(u8*volatile*)&p->wrap=c;func_003E7498((BS*)p,0);}

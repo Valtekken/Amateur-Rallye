@@ -1,3 +1,4 @@
+/* identical to func_00400378 (matched), with its names changed by decompdecomp */
 s32 func_003DB9C0(void *arg0, void *arg1) {
     s32 l1 = *(s32 *)((u8 *)arg1 + 0x10);
     s32 diff = *(s32 *)((u8 *)arg0 + 0x10) - l1;

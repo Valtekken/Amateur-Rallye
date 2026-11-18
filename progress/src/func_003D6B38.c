@@ -1,47 +1,9 @@
-s32 func_003D7D08(u32);
-s32 func_003D7D68(u32);
-s32 func_003D7E50(u32);
-
-s32 func_003D6B38(u32 a) {
-    return func_003D7D08(a);
-}
-
-s32 func_003D6B58(u32 a) {
-    return func_003D7D68(a);
-}
-
-s32 func_003D6B78(u32 a) {
-    return func_003D7E50(a);
-}
-
-extern s8 func_003D30B0(s32);
-extern void func_003D6F68(s32, s32);
-extern void func_003D4D70(s32);
-extern s32 func_003D4EA0(void **);
-extern void func_003D6A38(int a, int b, void *c, void *s);
-
-s32 func_003D6988(void **arg0, int arg1, int arg2) {
-    void *obj;
-    u8 b;
-    s32 ok;
-
-    obj = *arg0;
-    b = ((u8 *)obj)[0x1A];
-    if (b) {
-        ok = 0;
-        ((u8 *)obj)[0x1A] = b | 2;
-    } else {
-        if (*(s32 *)((char *)obj + 4)) {
-            func_003D4D70(*(s32 *)((char *)obj + 4));
-        }
-        ok = 1;
-        if ((*(s64 *)((char *)*arg0 + 0x10) & 1)) {
-            ok = func_003D4EA0(arg0);
-        }
-    }
-    if (ok) {
-        obj = *arg0;
-        func_003D6A38(*(s32 *)obj, arg1, (void *)arg2, obj);
-    }
-    return (s32)arg0;
-}
+extern char D_00488D80[],D_0047D9A8[];extern char*func_003CD828(void*,char*);
+void*func_003D1F08(void**a,char**b){char*q=*b;char*p=q-16;void**dst=a+1;*a=D_00488D80;if(*(s32*)(p+12))q=func_003CD828(p,q);else ++*(s32*)(p+8);*dst=q;return a;}
+extern s32 func_003D8E78(s64,s64,s64*,s32);
+s32 func_003D6A80(s64 a,s64 b,...){return func_003D8E78(a,b,(s64*)((char*)__builtin_next_arg(b)-48),0);}
+extern s32 D_00439528;extern void *D_00439538,*D_00439578,*D_004395C0,*D_00439600;
+extern char D_0043A6E0[],D_0043A738[],D_0043A790[],D_0043A7E8[],D_0043A848[],D_0043A8A8[];
+s32 func_003D6AB8(s32 a){void*p,*q,*r;s32 old;if(a!=D_00439528){if(a){p=D_0043A7E8;r=D_0043A8A8;q=D_0043A848;}else{p=D_0043A6E0;r=D_0043A790;q=D_0043A738;}D_004395C0=p;D_00439538=q;D_00439600=r;D_00439578=r;old=D_00439528;D_00439528=a;return old;}return a;}
+extern s32 func_003D7D08(u32);
+s32 func_003D6B38(u32 a){return func_003D7D08(a);}

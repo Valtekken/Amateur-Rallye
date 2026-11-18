@@ -1,38 +1,15 @@
-/* machine draft (m2c), tried by autopilot */
-#ifndef M2C_DEFINES
-#define M2C_DEFINES
-typedef s32 M2C_UNK;
-typedef s8 M2C_UNK8;
-typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-#define M2C_ERROR(desc) (0)
-#define M2C_CARRY 0
-#define M2C_OVERFLOW(a) (0)
-#endif
-
 s32 func_00238F48(void *arg0) {
-    s32 *var_3;
-    s32 temp_2;
-    s32 var_2;
-
-    temp_2 = M2C_FIELD(arg0, s32 *, 8);
-    var_3 = M2C_FIELD(arg0, s32 **, 4);
-    if (var_3 != temp_2) {
-        var_2 = *var_3;
-loop_2:
-        var_3 += 4;
-        if (var_2 == 0) {
-            if (var_3 != temp_2) {
-                var_2 = *var_3;
-                goto loop_2;
-            }
-            goto block_6;
+    s32 *end = *(s32 **)((char*)arg0 + 8);
+    s32 *p = *(s32 **)((char*)arg0 + 4);
+    if (p == end) return 0;
+    s32 v = *p;
+    while (1) {
+        if (v == 0) {
+            p++;
+            if (p == end) return 0;
+            v = *p;
+        } else {
+            return v;
         }
-    } else {
-block_6:
-        var_2 = 0;
     }
-    return var_2;
 }

@@ -1,78 +1,18 @@
-extern void *D_002AD408(int);
-extern void *func_001D4040(void *, const char *);
-extern void func_001E2460(void *, void *);
-extern void func_001E2C78(void *, const char *, int);
-extern void func_001E25B0(void *, const char *, unsigned int *);
-extern unsigned int func_00193B60(void);
-extern unsigned int func_001930D8(unsigned int, unsigned int);
-extern void *func_0021E290(void *);
-extern void *func_00205BF8(void *);
-extern void func_0021E540(void *, void *, unsigned int, unsigned int, unsigned int);
-extern void func_0021E740(void *, int);
+extern void func_001D4040(void*,const char*);
+extern void *D_002AD408(s32);
+extern void func_001E2460(void*,void*);
+extern void func_001E2C78(void*,const char*,s32);
+extern void func_001E2B98(void*,const char*,s32);
+extern void func_001E25B0(void*,const char*,void*);
+extern s32 func_00193B60(void);
+extern s32 func_001930D8(s32,s32);
+extern char D_0044BEF0[],D_0044BF00[],D_0044BF18[],D_0044BC38[],D_0044CB40[],D_0044DD18[];
+extern s32 func_0021E290(s32);
+extern void *func_00205BF8(s32);
+extern void func_0021E540(void*,void*,s32,s32,s32);
+extern void func_0021E740(void*,s32);
 
-extern const char D_0044C598[];
-extern const char D_0044BC38[];
-extern unsigned long D_0044DD18;
-
-void *func_0014EC98(void) {
-    unsigned long sp[0xC];
-    void *v0;
-    void *v1;
-    void *a0;
-    
-    v0 = D_002AD408(0x24);
-    a0 = (void *)((unsigned char *)v0 + 0x14);
-    func_001D4040(sp, D_0044C598);
-    ((unsigned int *)v0)[0] = 0;
-    ((unsigned int *)v0)[1] = 0;
-    ((unsigned int *)v0)[2] = 0;
-    ((unsigned int *)v0)[3] = 0;
-    v1 = (void *)&D_0044DD18;
-    ((unsigned int *)v0)[4] = (unsigned int)v1;
-    ((unsigned int *)a0)[0] = 0;
-    ((unsigned int *)a0)[1] = 0;
-    ((unsigned int *)v0)[5] = 0;
-    ((unsigned int *)v0)[8] = ((unsigned int *)sp)[0];
-    func_001E2460((void *)((unsigned char *)sp + 0x20), v0);
-    func_001E2C78((void *)((unsigned char *)sp + 0x20), D_0044BC38, 0);
-    return v0;
-}
-
-void func_0014ED38(void *arg0, int arg2) {
-    unsigned long sp[0x6];
-    unsigned int sp4;
-    
-    func_001E2460(sp, (void *)arg2);
-    func_001E25B0(sp, D_0044BC38, &sp4);
-    ((unsigned int *)arg0)[10] = func_001930D8(func_00193B60(), sp4);
-}
-
-void *func_0014ED90(void) {
-    void *v0;
-    void *v1;
-    unsigned int a1;
-    
-    v0 = func_0021E290(D_002AD408(0x7C));
-    v1 = func_00205BF8(D_002AD408(0x90));
-    a1 = ((unsigned int *)v1)[34] + 1;
-    ((unsigned long long *)v1)[15] = (((unsigned long long *)v1)[15] & ~3ULL) | 1ULL;
-    ((unsigned int *)v1)[25] = 2;
-    ((unsigned int *)v1)[34] = a1;
-    func_0021E540(v0, v1, a1, 1, 2);
-    func_0021E740(v0, 2);
-    ((unsigned int *)v0)[0] = ((unsigned int *)v0)[0] & ~2;
-    return v0;
-}
-
-int func_0014EE30(void *arg0, int arg1) {
-    unsigned int temp;
-    if (arg1 < 0) {
-        return -1;
-    }
-    temp = func_001E4280();
-    if (func_001E38C8(temp, ((unsigned int *)arg0)[23] + arg1 * 4) == 0) {
-        return -1;
-    }
-    temp = func_001E4280();
-    return func_001E3650(temp, ((unsigned int *)arg0)[23] + arg1 * 4);
-}
+void *func_00145E98(void *arg0){u32 tmp[4];s32*p=arg0;func_001D4040(tmp,D_0044BEF0);p[3]=0;p[4]=0;p[5]=0;p[1]=tmp[0];p[0]=-1;p[2]=(s32)D_0044CB40;func_001D4040(p+5,D_0044BF00);return p;}
+void *func_00145F08(void *arg0){u32 tmp[8];u32 reg[4];s32*p; s32*v1; s32 id; p=D_002AD408(0x24);func_001D4040(tmp,D_0044BEF0);id=tmp[0];v1=p+5;p[2]=0;p[4]=(s32)D_0044DD18;p[3]=0;p[1]=0;p[0]=0;p[5]=0;v1[2]=0;v1[1]=0;p[8]=id;func_001E2460(reg,p);func_001E2C78(reg,D_0044BC38,*(s32*)((char*)arg0+0xC));func_001E2B98(reg,D_0044BF18,*(s32*)((char*)arg0+0x10));return p;}
+void func_0014ED38(void *arg0,s32 arg2){s32 sp[6];func_001E2460(sp,(void*)arg2);func_001E25B0(sp,D_0044BC38,sp+1);*(s32*)((char*)arg0+0x28)=func_001930D8(func_00193B60(),sp[1]);}
+void *func_0014ED90(void){void*p;void*q;s32 n;p=func_0021E290(D_002AD408(0x7C));q=func_00205BF8(D_002AD408(0x90));n=*(s32*)((char*)q+0x88)+1;*(s64*)((char*)q+0x78)=((*(s64*)((char*)q+0x78))&~3)|1;*(s32*)((char*)q+0x64)=2;*(s32*)((char*)q+0x88)=n;func_0021E540(p,q,n,1,2);func_0021E740(p,2);*(s32*)p&=~2;return p;}

@@ -1,0 +1,6 @@
+extern void func_003CDDB0(void**,s32,s32,s32,s32);extern void func_003CE0D0(void**,s32,s32);
+void *func_003D0178(void**p,s8*pos,s8*end){s32 diff=pos-(s8*)*p;s8*v;func_003CDDB0(p,diff,end-pos,0,0);v=*p;if(*(u32*)(v-8)>=2){func_003CE0D0(p,*(s32*)(v-16),1);v=*p;}*(s32*)(v-4)=1;return v+diff;}
+s64 func_003D5278(void **a,s32 b){u8*p=*a;u64 v=*(u64*)(p+16);s32 bit=v&1;*(u64*)(p+16)=b ? v|1 : v&~1;return bit;}
+extern s32 func_003D6F68(s32,s8);extern s32 func_003D6F88(s32);
+void**func_003D5938(void**a,s8 b){u8*p=*a;if(!p[26]){if(func_003D6F68(*(s32*)p,b)==-1){u8*q=*a;u32 flag=4;q[26]=flag;}}return a;}
+void**func_003D5990(void**a){u8*p=*a;if(!p[26]&&func_003D6F88(*(s32*)p)==-1){u32 flag=4;u8*q=*a;q[26]=flag;return a;}return a;}typedef struct I9{s32 a,b,c,d;s64 e;u16 f;volatile u8 g,h;s32 i,j,k;void*l;}I9;typedef struct O9{I9*p;s32 b,c;}O9;extern u8 D_00489120[],D_00488F48[];O9*func_003D5DA0(O9*a,s32 b){I9*p;if(b){I9*q=(I9*)((u8*)a+8);a->p=q;q->g=4;q->h=0;q->l=D_00489120;q->f=32;q->e=17;q->i=6;q->j=0;a->c=0;q->b=0;q->c=0;}p=a->p;p->l=D_00488F48;if(!b){u8*t=D_00488F48;u64 x=*(u64*)t;u64 y=*(u64*)(t+8);u16 v=*(u16*)(t+8);s32 diff=(u8*)a-((u8*)p-8);u64 sp[2];sp[0]=x;sp[1]=y;*(u16*)((u8*)sp+8)=v+(u16)diff;p->l=sp;}a->b=0;return a;}

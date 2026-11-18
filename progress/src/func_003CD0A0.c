@@ -1,0 +1,3 @@
+extern s32 PollSema_2(s32);extern s32 SignalSema_2(s32);extern char*func_003FAD88(char*,const char*,s32);extern s32 func_00405E90(void*,s32,s32,void*,s32,void*,s32,s32,s32);
+extern s32 D_004361F0,D_004361F4;typedef struct Rpc10{s32 w[10];}Rpc10;extern Rpc10 D_0049BC40;extern char D_0049BD04[];extern s32 D_0049D200[];
+s32 func_003CD0A0(register s32 a,register s32 b,register char*c){s32 r;char*p;if(PollSema_2(D_004361F4)<0)return -200;if(!D_0049BC40.w[9]){SignalSema_2(D_004361F4);return -100;}if(!c||!*c){SignalSema_2(D_004361F4);return -210;}func_003FAD88(D_0049BD04,c,1023);p=D_0049BD04-20;*(s32*)p=a;*(s32*)(p+4)=b;p[1043]=0;*(s32*)(p+8)=0;r=func_00405E90(&D_0049BC40,15,1,p,1044,D_0049D200,4,0,0);if(!r)D_004361F0=15;else SignalSema_2(D_004361F4);return r;}

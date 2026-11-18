@@ -1,0 +1,3 @@
+s32 func_003D8758(void*a,s32 b,s32 c){return (*(s32(**)(void*,s32,s32,s32))(*(char**)((char*)a+80)+68))(a,b,0,c);}
+s32 func_003D88B8(void*a,s32 b){u8*p=*(u8**)((char*)a+4);u8*cap=*(u8**)((char*)a+12);s32 r;if(cap<p){r=p[-1];if(r==(b&255)){*(u8**)((char*)a+4)=p-1;goto done;}}r=(*(s32(**)(void*,s32))(*(char**)((char*)a+80)+44))(a,b);done:if(r!=-1)*(s32*)a&=~16;return r;}
+s32 func_003D8938(void*a){u8*p=*(u8**)((char*)a+4);u8*cap=*(u8**)((char*)a+12);s32 r;if(cap<p){*(u8**)((char*)a+4)=p-1;r=p[-1];goto done;}r=(*(s32(**)(void*,s32))(*(char**)((char*)a+80)+44))(a,-1);done:if(r!=-1)*(s32*)a&=~16;return r;}

@@ -1,77 +1,11 @@
-void func_002C00B8(s32 *arg1, s32 arg2) {
-    if (*arg1 != 0) {
-        *arg1 = *arg1 + arg2;
-    }
-}
-
-void func_002BFEF8(s32 *arg0, s32 arg1) {
-    s32 *head;
-    s32 *node;
-    s32 base;
-    s32 off;
-    s32 end;
-    s32 v0;
-    s32 v1;
-    s32 v2;
-    s32 v3;
-    head = arg0 + 5;
-    node = head;
-    base = *(s32 *)(head + 1);
-    off = ((s32) (*(u8 *)(head + 3)) << 8) | (s32) (*(u8 *)(head + 2));
-    end = base + (off * 16);
-    while ((s32)(u32)node < end) {
-        v0 = *node;
-        if (v0 != 0) *node = v0 + arg1;
-        v1 = *(node + 1);
-        if (v1 != 0) *(node + 1) = v1 + arg1;
-        v2 = *(node + 2);
-        if (v2 != 0) *(node + 2) = v2 + arg1;
-        v3 = *(node + 3);
-        if (v3 != 0) *(node + 3) = v3 + arg1;
-        node = (s32 *)((u8 *)node + 0x10);
-    }
-}
-
-s32 func_002BFEB0(s32, s32);
-s32 func_002BFF88(s32, s32);
-u32 func_003FA9B8();
-u32 func_003F9698(void *, u32, u32, s32);
-s32 func_003FA580(s32, s32);
-
-u32 func_002BFD98(s32 *arg0, u32 arg1) {
-    u32 state;
-    u32 end;
-    u32 counter;
-    u32 v;
-    s32 *p;
-    u8 b;
-    state = arg1;
-    end = (state >> 5) | 1;
-    counter = state;
-    if (state < end) {
-        return state;
-    }
-    p = arg0;
-    for (;;) {
-        b = *p;
-        p = (s32 *)((u8 *)p + 1);
-        v = 0x5C;
-        if ((b ^ 0x2F) != 0) {
-            v = (s32)(u32)b;
-        }
-        v = v & 0xDF;
-        counter = counter - end;
-        state = state ^ ((state << 5) + (state >> 2) + v);
-        if (counter < end) {
-            break;
-        }
-    }
-    return state;
-}
-
-s32 func_002BFE18(s32 *arg0) {
-    s32 *p = arg0;
-    s32 v = p[3];
-    p[5] = v;
-    return v;
-}
+extern s32 func_003A0BD8(s32,s32); extern s32 func_00219DA8(s32,s32);
+s32 func_003A5DC8(register s32 a,register s32 b){func_003A0BD8(a,b);func_00219DA8(a+12,b+12);return a;}
+extern void func_002BEE48(s32,s32);
+s32 func_002C17A8(s32*p){p[5]++;func_002BEE48(p[4],1);return 0;}
+typedef struct {s32 count,type,irq,pad;} Entry;
+extern Entry D_00428DE0[];
+extern void func_002C16D8(void*,s32,s32);
+extern void RemoveIntcHandler_2(s32,s32);extern void RemoveDmacHandler_2(s32,s32);
+void func_002C1600(s32*p){Entry*e;p[2]=0;e=&D_00428DE0[p[1]];if(--e->count>=0){func_002C16D8(p,p[1],0);D_00428DE0[p[1]].count=0;}e=&D_00428DE0[p[1]];if(e->type)RemoveIntcHandler_2(e->irq,p[0]);else RemoveDmacHandler_2(D_00428DE0[p[1]].irq,p[0]);}
+typedef struct __attribute__((packed)){u8 x[2];u16 count;u32 base;} Header;
+void func_002BFEF8(s32*p,s32 off){Header*h=(Header*)p[5];u32*n=(u32*)h->base;u32*end=n+(u16)((h->x[0],((u8*)h)[3]<<8)|((u8*)h)[2])*4;while(n<end){if(n[0])n[0]+=off;if(n[1])n[1]+=off;if(n[2])n[2]+=off;if(n[3])n[3]+=off;n+=4;}}

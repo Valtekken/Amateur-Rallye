@@ -1,26 +1,6 @@
-typedef struct A {
-    int flags;
-    int unk4;
-    int unk8;
-    int unkC;
-} A;
-
-typedef struct B {
-    char pad[4];
-    A *unk4;
-    int unk8;
-} B;
-
-s32 func_003D8C20(B *arg0) {
-    A *tmp = arg0->unk4;
-    if (tmp == 0) {
-        return -1;
-    }
-    s32 v3;
-    if (tmp->flags & 0x100) {
-        v3 = tmp->unk8;
-    } else {
-        v3 = tmp->unkC;
-    }
-    return arg0->unk8 - (tmp->unk4 - v3);
-}
+typedef struct A {int flags,unk4,unk8,unkC;} A; typedef struct B {int pad; A *unk4; int unk8;} B;
+s32 func_003D8C20(B *a,A *p){s32 n;p=a->unk4;if(!p)return -1;n=(p->flags&256)?p->unk8:p->unkC;n=p->unk4-n;return a->unk8-n;}
+extern s32 func_003D7F50(void*,u32,s32);
+s32 func_003DA700(s32 a,u32*p){u8 *q=(u8*)p[5];if((u32)q>=p[6])return func_003D7F50(p,a&255,a);p[5]=(u32)(q+1);*q=a;return a&255;}
+extern s32 func_003DE2F0(void*);extern void func_003D6EB0(void*,s32); extern u8 D_00489000[];
+void *func_003DA770(register void*a){func_003D6EB0(a,0);*(void**)((u8*)a+80)=D_00489000;return (func_003DE2F0(a),a);}

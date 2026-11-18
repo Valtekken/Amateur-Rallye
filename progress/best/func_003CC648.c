@@ -1,30 +1,52 @@
-extern u8 D_20000010[];
-extern u8 D_20000050[];
-
-void func_003CC648(void *arg0) {
-    u32 *p = (u32 *)((u32)arg0 | 0x20000000);
-    u32 cnt1 = p[0];
-    if (cnt1) {
-        u8 *dst = (u8 *)p[2];
-        u32 i = 0;
-        if ((s32)cnt1 > 0) {
-            u32 base = (u32)(u8 *)D_20000010;
-            do {
-                dst[i] = *(u8 *)(base + i);
-                i = i + 1;
-            } while (i < cnt1);
-        }
+void func_003B9520(void *a);
+extern s32 func_003CC348(s32, s32, void *, s32);
+extern s32 D_004361F0;
+s32 func_003CC480(s32 a, s32 b, void *c);
+extern s32 PollSema_2(s32);
+extern s32 SignalSema_2(s32);
+extern s32 func_00405E90(void *, s32, s32, void *, s32, void *, s32, s32, s32);
+extern s32 D_004361F4;
+typedef struct Rpc8
+{
+  s32 w[10];
+} Rpc8;
+extern Rpc8 D_0049BC40;
+extern s32 D_0049BCC0[];
+extern s32 D_0049D200[];
+s32 func_003CC4B8(s32 a);
+void func_003CC648(void *a)
+{
+  s32 *p = (s32 *) (((u32) a) | 0x20000000);
+  s32 i;
+  u8 *d;
+  if (p[0])
+  {
+    d = (u8 *) p[2];
+    i = 0;
+    if (p[0] > 0)
+    {
+      u8 *base = ((u8 *) p) + 16;
+      do
+      {
+        i = base[i++];
+        *(d++) = i;
+      }
+      while (i < p[0]);
     }
-    u32 cnt2 = p[1];
-    if (cnt2) {
-        u8 *dst = (u8 *)p[3];
-        u32 i = 0;
-        if ((s32)cnt2 > 0) {
-            u32 base = (u32)(u8 *)D_20000050;
-            do {
-                dst[i] = *(u8 *)(base + i);
-                i = i + 1;
-            } while (i < cnt2);
-        }
+  }
+  if (p[1])
+  {
+    d = (u8 *) p[3];
+    i = 0;
+    if (p[1] > 0)
+    {
+      u8 *base = ((u8 *) p) - -80;
+      do
+      {
+        *(d++) = base[i++];
+      }
+      while (i < p[1]);
     }
+  }
 }
+

@@ -1,15 +1,8 @@
-extern void func_002ABBE8(s64 *arg0, void *arg1);
-extern void func_002AD320(s32 a0, s32 a1, s32 a2, s64 a3, s64 t0);
-
-void func_002AC758(s64 arg0) {
-    s64 sp20[2];
-    sp20[0] = arg0;
-    func_002ABBE8(sp20, (void *)sp20); // try passing sp
-    s32 a0 = *(s32 *)((char *)sp20 + 0x0);
-    s32 a1 = *(s32 *)((char *)sp20 + 0x4);
-    s32 a2 = *(s32 *)((char *)sp20 + 0x8);
-    s64 v0 = *(s64 *)((char *)sp20 + 0x10);
-    s64 t0 = (s64)(v0 * 4) >> 32;
-    s64 a3 = (v0 & 0x3FFFFFFF) != 0 ? (t0 | 1) : t0;
-    func_002AD320(a0, a1, a2, a3, t0);
-}
+typedef struct{s32 value;}CopyTag;extern s32 func_002C5160(s32,s32,s32,CopyTag);
+s32 func_003978C8(register s32 a,register s32 b,register s32 c,register s32 d){return func_002C5160(a,b,c,(CopyTag){0});}
+extern void func_002AC8C0(float*,s32*);extern float func_002AC7B0(s32*);extern s32*func_002AC950(s32*,s32*,s32*);
+float func_002ACB88(float a,float b){s32 x[4],y[4],z[4];func_002AC8C0(&a,x);func_002AC8C0(&b,y);return func_002AC7B0(func_002AC950(x,y,z));}
+float func_002ACBE0(float a,float b){s32 x[4],y[4],z[4];func_002AC8C0(&a,x);func_002AC8C0(&b,y);y[1]^=1;return func_002AC7B0(func_002AC950(x,y,z));}
+typedef struct{s32 type,sign,exp,pad;s64 mant;}Wide;
+extern void func_002ABBE8(s64*,Wide*);extern void func_002AD320(s32,s32,s32,s32);
+void func_002AC758(s64 a){Wide p;s32 t;s64 m;func_002ABBE8(&a,&p);m=p.mant;t=(m<<2)>>32;func_002AD320(p.type,p.sign,p.exp,(m&0x3fffffff)?t|1:t);}

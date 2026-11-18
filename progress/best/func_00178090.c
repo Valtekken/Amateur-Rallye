@@ -1,8 +1,36 @@
-#define P(p,o) (*(char**)((char*)(p)+(o)))
-#define F(p,o) (*(float*)((char*)(p)+(o)))
-#define I(p,o) (*(int*)((char*)(p)+(o)))
-extern void func_0017AA18(void*,float,float),func_00267F60(void*),func_00269200(int,void*);extern int func_001751D8(void*);
-void func_00177FA8(void*p){func_0017AA18(p,0.f,0.f);}
-void func_00178028(char*p){int off=0,n=3;func_00267F60(P(P(p,12),4));do{--n;func_001751D8(P(p,16)+off);off+=400;}while(n>=0);}
-float func_00178090(char*p){char*q=P(p,20);float x=F(q,40)/F(q,68);float low=0.f,high=1.f;if(x<low)return low;if(x>high)x=high;return x;}
-void func_00179D88(void*unused,char*p){int off=0,n=3,h=I(p,44);func_00269200(h,P(P(p,12),4));do{--n;func_00269200(h,P(p,16)+off);off+=400;}while(n>=0);func_00269200(h,P(p,20));}
+typedef struct 
+{
+  s32 value;
+} CopyTag;
+extern s32 func_002C5160(s32, s32, s32, CopyTag);
+s32 func_003978C8(register s32 a, register s32 b, register s32 c, register s32 d);
+extern void D_002AD390(void *);
+extern s32 func_0019EAC8(s32, s32);
+void func_00178E50(void *arg0, s32 arg1);
+f32 func_001780E0(void *arg0);
+float func_00178090(void *arg0)
+{
+  void *q = *((void **) (((char *) arg0) + 0x14));
+  float new_var;
+  float x = (*((float *) (((char *) q) + 0x28))) / (*((float *) (((char *) q) + 0x44)));
+  float low = 0.0f;
+  float high = 1.0f;
+  new_var = x;
+  if (new_var < low)
+  {
+    if (low || q)
+    {
+      return low;
+    }
+    else
+    {
+      return low;
+    }
+  }
+  if (x > high)
+  {
+    x = high;
+  }
+  return x;
+}
+

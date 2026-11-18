@@ -1,42 +1,59 @@
-/* machine draft (m2c) for ee-gcc-2.9-991111 -O2 -G0, tried by autopilot */
-#ifndef M2C_DEFINES
-#define M2C_DEFINES
-typedef s32 M2C_UNK;
-typedef s8 M2C_UNK8;
-typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-#define M2C_ERROR(desc) (0)
-#define M2C_CARRY 0
-#define M2C_OVERFLOW(a) (0)
-#endif
+extern void func_00406AC8(void);
+extern s32 WaitSema_2(s32);
+extern void func_00406C18(void);
+extern void func_0040AF58(void);
+extern void func_0040AFA0(void);
+extern void func_00406B48(void);
+extern s32 func_00407F48(s32, s32);
+extern void func_00403EC0(s32, void *, void *);
 
-M2C_UNK func_00403EC0(s32, void *, void *);         /* extern */
+extern s32 D_004411AC;
+extern s32 D_004411A8;
+extern s32 D_004A12C0[16];
+
+s32 func_00406B18(s32 a, s32 b) {
+    func_00406AC8();
+    WaitSema_2(D_004411AC);
+    return 0;
+}
+
+s32 func_00406B58(s32 arg0, s32 arg1) {
+    s32 temp;
+
+    func_00406B18(0x1B, 0);
+    if (D_004411A8 == 0)
+        func_00406C18();
+    func_0040AF58();
+    temp = D_004A12C0[0];
+    D_004A12C0[1] = arg1;
+    D_004A12C0[0] = arg0;
+    func_0040AFA0();
+    func_00406B48();
+    return temp;
+}
+
+s32 func_004080F0(s32 a0) {
+    return func_00407F48(a0, 6);
+}
 
 void func_00405E00(void *arg0) {
-    s32 temp_4;
-    void *temp_5;
-    void *temp_6;
-
-    temp_5 = M2C_FIELD(arg0, void **, 0x34);
-    temp_6 = M2C_FIELD(temp_5, void **, 0x40);
-    if (M2C_FIELD(temp_6, void **, 0xC) != NULL) {
-        M2C_FIELD(M2C_FIELD(temp_6, void **, 0x10), void **, 0x3C) = temp_5;
+    void *temp5 = *(void **)((char *)arg0 + 0x34);
+    void *temp6 = *(void **)((char *)temp5 + 0x40);
+    if (*(void **)((char *)temp6 + 0xC) == NULL) {
+        *(void **)((char *)temp6 + 0xC) = temp5;
     } else {
-        M2C_FIELD(temp_6, void **, 0xC) = temp_5;
+        *(void **)((char *)*(void **)((char *)temp6 + 0x10) + 0x3C) = temp5;
     }
-    M2C_FIELD(temp_6, void **, 0x10) = temp_5;
-    M2C_FIELD(temp_5, s32 *, 0x20) = (s32) M2C_FIELD(arg0, s32 *, 0x14);
-    M2C_FIELD(temp_5, s32 *, 0x1C) = (s32) M2C_FIELD(arg0, s32 *, 0x1C);
-    M2C_FIELD(temp_5, s32 *, 0x24) = (s32) M2C_FIELD(arg0, s32 *, 0x20);
-    M2C_FIELD(temp_5, s32 *, 0xC) = (s32) M2C_FIELD(arg0, s32 *, 0x24);
-    M2C_FIELD(temp_5, s32 *, 0x28) = (s32) M2C_FIELD(arg0, s32 *, 0x28);
-    M2C_FIELD(temp_5, s32 *, 0x2C) = (s32) M2C_FIELD(arg0, s32 *, 0x2C);
-    M2C_FIELD(temp_5, s32 *, 0x30) = (s32) M2C_FIELD(arg0, s32 *, 0x30);
-    M2C_FIELD(temp_5, s32 *, 0x34) = (s32) M2C_FIELD(arg0, s32 *, 0x10);
-    temp_4 = M2C_FIELD(temp_6, s32 *, 0);
-    if ((temp_4 >= 0) && (M2C_FIELD(temp_6, s32 *, 4) == 0)) {
-        func_00403EC0(temp_4, temp_5, temp_6);
+    *(void **)((char *)temp6 + 0x10) = temp5;
+    *(s32 *)((char *)temp5 + 0x20) = *(s32 *)((char *)arg0 + 0x14);
+    *(s32 *)((char *)temp5 + 0x1C) = *(s32 *)((char *)arg0 + 0x1C);
+    *(s32 *)((char *)temp5 + 0x24) = *(s32 *)((char *)arg0 + 0x20);
+    *(s32 *)((char *)temp5 + 0xC) = *(s32 *)((char *)arg0 + 0x24);
+    *(s32 *)((char *)temp5 + 0x28) = *(s32 *)((char *)arg0 + 0x28);
+    *(s32 *)((char *)temp5 + 0x2C) = *(s32 *)((char *)arg0 + 0x2C);
+    *(s32 *)((char *)temp5 + 0x30) = *(s32 *)((char *)arg0 + 0x30);
+    *(s32 *)((char *)temp5 + 0x34) = *(s32 *)((char *)arg0 + 0x10);
+    if (*(s32 *)temp6 >= 0 && *(s32 *)((char *)temp6 + 4) == 0) {
+        func_00403EC0(*(s32 *)temp6, temp5, temp6);
     }
 }

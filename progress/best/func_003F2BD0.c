@@ -1,4 +1,4 @@
-/* machine draft (m2c) for ee-gcc-2.9-991111 -O2 -G0, tried by autopilot */
+/* machine draft */
 #ifndef M2C_DEFINES
 #define M2C_DEFINES
 typedef s32 M2C_UNK;
@@ -12,7 +12,7 @@ typedef s32 M2C_UNK32;
 #define M2C_OVERFLOW(a) (0)
 #endif
 
-f32 func_003F3038();                                /* extern */
+extern f32 func_003F3038();
 extern M2C_UNK D_0048B630;
 extern f32 D_0048B63C;
 extern M2C_UNK D_0048B640;
@@ -78,7 +78,7 @@ block_18:
         return var_f12 - (var_f12 * (temp_f0 + temp_f1));
     }
     temp_4 = var_4 * 4;
-    var_f0 = *(temp_4 + &D_0048B630) - (((var_f12 * (temp_f0 + temp_f1)) - *(temp_4 + &D_0048B640)) - var_f12);
+    var_f0 = *(f32*)((char*)&D_0048B630 + temp_4) - (((var_f12 * (temp_f0 + temp_f1)) - *(f32*)((char*)&D_0048B640 + temp_4)) - var_f12);
     if (M2C_BITWISE(s32, temp_17) < 0) {
         var_f0 = -var_f0;
     }

@@ -1,68 +1,49 @@
-#include "context.h"
-
-void *func_003CD828(void *arg);
-
-typedef struct {
-    u32 unk0;
-    u8 pad[0x16];
-    u8 unk1A;
-} S_func_003D7B00;
-
-void func_003D7B00(S_func_003D7B00 *arg0, s32 arg1) {
-    s32 v = arg0->unk0;
-    if (v == 0) {
-        arg1 |= 4;
-    }
-    arg0->unk1A = (u8)arg1;
-}
+extern void func_003CE0D0(void **arg0, s32 arg1, u32 arg2);
+extern void *func_003CD828(void **arg0);
 
 typedef struct {
-    u8 pad[0x8];
+    u8 _pad0[8];
     s32 count;
-    s32 unkC;
-} S_func_003D0EA8;
-
-void *func_003D0EA8(S_func_003D0EA8 *arg0) {
-    if (arg0->unkC) {
-        return func_003CD828(arg0);
-    }
-    arg0->count++;
-    return (void *)((u8 *)arg0 + 0x10);
-}
-
-extern u8 D_00436208[0x10];
-typedef struct {
-    u8 pad[0x8];
-    s32 count;
-    s32 unkC;
+    s32 flag;
 } S_D_00436208;
+extern S_D_00436208 D_00436208;
 
-void **func_003D0D88(void **arg0) {
-    void *var;
-    S_D_00436208 *p = (S_D_00436208 *)D_00436208;
-    if (p->unkC) {
-        var = func_003CD828(p);
-    } else {
-        p->count++;
-        var = (void *)(D_00436208 + 0x10);
-    }
-    *arg0 = var;
-    return arg0;
+void func_003D0520(void **arg0) {
+    void *temp = *arg0;
+    if ((u32)(*(s32 *)((char *)temp - 8)) < 2U)
+        return;
+    func_003CE0D0(arg0, *(s32 *)((char *)temp - 0x10), 1);
 }
 
 void **func_003D0D30(void **arg0, void **arg1) {
-    void *var;
-    void *temp;
-    S_D_00436208 *p;
-    var = *arg1;
-    temp = (void *)((u8 *)var - 0x10);
-    p = (S_D_00436208 *)temp;
-    if (p->unkC) {
-        var = func_003CD828(p);
+    void *p = *arg1;
+    void *q = (char *)p - 0x10;
+    void *r;
+    if (*(s32 *)((char *)q + 0xC) != 0) {
+        r = func_003CD828((void **)q);
     } else {
-        p->count++;
-        var = (void *)((u8 *)p + 0x10);
+        (*(s32 *)((char *)q + 0x8))++;
+        r = p;
     }
-    *arg0 = var;
+    *arg0 = r;
     return arg0;
+}
+
+void **func_003D0D88(void **arg0) {
+    void *r;
+    if (D_00436208.flag != 0) {
+        r = func_003CD828((void *)&D_00436208);
+    } else {
+        D_00436208.count++;
+        r = (char *)&D_00436208 + 0x10;
+    }
+    *arg0 = r;
+    return arg0;
+}
+
+void *func_003D0EA8(void *arg0) {
+    if (*(s32 *)((char *)arg0 + 0xC) != 0)
+        return func_003CD828((void **)arg0);
+    (*(s32 *)((char *)arg0 + 0x8))++;
+    return (char *)arg0 + 0x10;
 }

@@ -1,55 +1,94 @@
-/* machine draft (m2c) for ee-gcc-2.9-991111 -O2 -G0, tried by autopilot */
-#ifndef M2C_DEFINES
-#define M2C_DEFINES
-typedef s32 M2C_UNK;
-typedef s8 M2C_UNK8;
-typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-#define M2C_ERROR(desc) (0)
-#define M2C_CARRY 0
-#define M2C_OVERFLOW(a) (0)
-#endif
-
-M2C_UNK func_003D4D70(s32, void **, s32);           /* extern */
-s32 func_003D8118(void *, void **);                 /* extern */
-
-u8 func_003D31D8(void ***arg0) {
-    s32 temp_6;
-    u8 var_2;
-    u8 var_5;
-    void **temp_3;
-    void **temp_5;
-    void *temp_16;
-    void *temp_2;
-
-    temp_5 = *arg0;
-    var_2 = -1U;
-    if (M2C_FIELD(temp_5, u8 *, 0x1A) == 0) {
-        temp_6 = M2C_FIELD(temp_5, s32 *, 4);
-        if (temp_6 != 0) {
-            temp_2 = M2C_FIELD(temp_5, void **, 0);
-            if (M2C_FIELD(temp_2, s32 *, 8) == M2C_FIELD(temp_2, s32 *, 4)) {
-                func_003D4D70(temp_6, temp_5, temp_6);
-            }
-        }
-        temp_16 = M2C_FIELD(*arg0, void **, 0);
-        if ((u32) M2C_FIELD(temp_16, u32 *, 4) >= (u32) M2C_FIELD(temp_16, u32 *, 8)) {
-            var_5 = -1U;
-            if (func_003D8118(temp_16, *arg0) != -1) {
-                goto block_7;
-            }
-        } else {
-block_7:
-            var_5 = *(u8 *) M2C_FIELD(temp_16, u32 *, 4);
-        }
-        var_2 = var_5;
-        if (var_5 == -1U) {
-            temp_3 = *arg0;
-            M2C_FIELD(temp_3, u8 *, 0x1A) = (u8) (M2C_FIELD(temp_3, u8 *, 0x1A) | 1);
-            var_2 = var_5;
-        }
-    }
-    return var_2;
+typedef s32 (*Handler)(void);
+extern Handler D_00437E58;
+extern Handler func_002ABA80(s32);
+extern void *func_003D4938(void *, void *);
+extern void func_003D4F40(void *);
+extern void *func_002B1FC0(u32);
+extern char D_00488EB8[];
+extern char D_00439570[];
+inline static void *construct_error(void *msg, void *obj)
+{
+  return func_003D4938(obj, msg);
 }
+
+void *func_003D2910(u32 n);
+extern s32 func_003DA6B8(void *);
+extern u8 D_0048BD29[];
+s32 func_003D30B0(void *a);
+typedef struct Buf
+{
+  void *v;
+  u8 *cur;
+  u8 *end;
+} Buf;
+typedef struct Stream
+{
+  Buf *buf;
+  void *tied;
+  u8 pad[18];
+  u8 state;
+} Stream;
+typedef struct 
+{
+  Stream *s;
+  s32 ok;
+} Input;
+extern void func_003D4D70(void *);
+extern s32 func_003D8118(Buf *);
+void *func_003D3118(Input *a, s8 *out);
+s32 func_003D31D8(Input *a)
+{
+  Stream *s = a->s;
+  int new_var;
+  unsigned char c;
+  if (s->state)
+  {
+    return -1;
+  }
+  {
+    void *t = s->tied;
+    if (t)
+    {
+      Buf *b = s->buf;
+      if (b->end == b->cur)
+      {
+        func_003D4D70(t);
+      }
+    }
+    {
+      Buf *b = a->s->buf;
+      if (b->cur >= b->end)
+      {
+        s32 r = func_003D8118(b);
+        c = -1;
+        if (r != (-1))
+        {
+          c = *b->cur;
+        }
+      }
+      else
+        if (b || a)
+      {
+        c = *b->cur;
+      }
+      else
+      {
+        c = *b->cur;
+      }
+      if (b)
+      {
+        new_var = -1;
+      }
+      else
+      {
+        new_var = -1;
+      }
+      if (c == new_var)
+      {
+        a->s->state |= 1;
+      }
+    }
+  }
+  return c;
+}
+

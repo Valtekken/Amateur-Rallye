@@ -4,7 +4,7 @@ static inline void *alloc(unsigned z){void *q=func_002B1FC0(z);if(!q)q=func_003D
 static inline void *zeroalloc(void){int *q=(int*)D_0040E618[-1];if(!q)return func_00152D28(0);D_0040E618[-1]=*q;return q;}
 static inline void copywords(int *f,int *l,int *d){func_003F93CC(d,f,((s32)((u32)l-(u32)f)>>2)*4);}
 static inline unsigned capacity(V *a){int *p=a->begin;return a->cap-p;}
-V *func_0035D9F8(V *a,V *b){
+V *func_0035D9F8(V *b,V *a){
 s32 n;unsigned bytes; int *p,*first,*last; unsigned old;
 if(a!=b){last=b->end;first=b->begin;n=last-first;
 if(capacity(a)<(unsigned)n){

@@ -1,56 +1,6 @@
-/* machine draft (m2c) for ee-gcc-2.9-991111 -O2 -G0, tried by autopilot */
-#ifndef M2C_DEFINES
-#define M2C_DEFINES
-typedef s32 M2C_UNK;
-typedef s8 M2C_UNK8;
-typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-#define M2C_ERROR(desc) (0)
-#define M2C_CARRY 0
-#define M2C_OVERFLOW(a) (0)
-#endif
-
-M2C_UNK func_003D4D70(s32, s32);                    /* extern */
-s32 func_003DA6B8(void *);                          /* extern */
-
-s32 func_003D5A40(void **arg0) {
-    s32 temp_2_3;
-    s32 temp_5;
-    s32 var_2;
-    s32 var_4;
-    u8 temp_2;
-    void *temp_2_2;
-    void *temp_3;
-    void *temp_3_2;
-
-    temp_3 = *arg0;
-    temp_2 = M2C_FIELD(temp_3, u8 *, 0x1A);
-    if (temp_2 != 0) {
-        var_4 = 0;
-        M2C_FIELD(temp_3, u8 *, 0x1A) = (u8) (temp_2 | 2);
-    } else {
-        temp_5 = M2C_FIELD(temp_3, s32 *, 4);
-        var_4 = 1;
-        if (temp_5 != 0) {
-            temp_2_2 = M2C_FIELD(temp_3, void **, 0);
-            var_4 = 1;
-            if (M2C_FIELD(temp_2_2, s32 *, 8) == M2C_FIELD(temp_2_2, s32 *, 4)) {
-                func_003D4D70(temp_5, temp_5);
-                var_4 = 1;
-            }
-        }
-    }
-    var_2 = -1;
-    if (var_4 != 0) {
-        temp_2_3 = func_003DA6B8(M2C_FIELD(*arg0, void **, 0));
-        var_2 = temp_2_3;
-        if (temp_2_3 == -1) {
-            temp_3_2 = *arg0;
-            M2C_FIELD(temp_3_2, u8 *, 0x1A) = (u8) (M2C_FIELD(temp_3_2, u8 *, 0x1A) | 1);
-            var_2 = temp_2_3;
-        }
-    }
-    return var_2;
-}
+extern void func_003D13B0(void*);extern char D_00488D20[];extern s32 func_003F9288(void*,s32,u32);
+s32 func_003CEA50(register char**a,register s32 b,register u32 c,register u32 d){u32 n;s32 r;char*p=*a;if(*(u32*)(p-16)<c)func_003D13B0(D_00488D20);n=*(u32*)(*a-16)-c;r=func_003F9288(*a+c,b,d<n?d:n);if(!r)r=*(u32*)(*a-16)-c-d;return r;}
+extern void**func_003D4D70(void**);extern s32 func_003DA6B8(void*);extern s32 func_003D4EA0(void**);
+s32 func_003D5A40(register void**a){register u8*p=*a;register s32 r,good;register u8 f=p[26];if(f){good=0;p[26]=f|2;}else{void*t=*(void**)(p+4);if(t){s32*b=*(void**)p;if(b[2]==b[1])func_003D4D70(t);}good=1;}if(good){good=func_003DA6B8(*(void**)*a);if(good==-1){u8*p=*a;p[26]|=1;}return good;}return -1;}
+s32 func_003D5B48(void**a){u8*p=*a;u8 f=p[26];s32 r;if(f){p[26]=f|2;return 0;}else{void*t=*(void**)(p+4);if(t)func_003D4D70(t);r=1;if((s32)(*(s64*)((char*)*a+16)&1))return func_003D4EA0(a);}return r;}
+s32 func_003D5BC8(void**a,s32 n){u8*p=*a;u8 f=p[26];s32 r;if(f){p[26]=f|2;return 0;}else{void*t=*(void**)(p+4);if(t){s32*b;if(!n||(b=*(void**)p,(b[2]-b[1])<n))func_003D4D70(t);}r=1;if(!n){if((s32)(*(s64*)((char*)*a+16)&1))return func_003D4EA0(a);}}return r;}

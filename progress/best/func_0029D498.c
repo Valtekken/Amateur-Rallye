@@ -1,5 +1,3 @@
-#include "context.h"
-
 extern void func_001E2460(void *, void *);
 extern void func_001E25B0(void *, void *, void *);
 extern void func_001E28F8(void *, void *, void *);
@@ -21,17 +19,17 @@ typedef struct {
     void *unk14;
     void *unk18;
     void *unk1C;
-    char pad2[12];
+    char pad2[8];
     void *unk28;
     void *unk2C;
-    char pad3[24];
+    char pad3[20];
     void *unk44;
     void *unk48;
     void *unk4C;
 } Unk;
 
 void func_0029D498(Unk *arg0, void *arg1, void *arg2) {
-    char sp[0x30];
+    char sp[0x20];
     func_001E2460(sp, arg2);
     func_001E25B0(sp, D_0047C030, &arg0->unkC);
     func_001E28F8(sp, D_0047C040, &arg0->unk10);

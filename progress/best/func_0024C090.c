@@ -1,69 +1,50 @@
-/* machine draft (m2c) for ee-gcc-2.95.2 -O2 -G0, tried by autopilot */
-#ifndef M2C_DEFINES
-#define M2C_DEFINES
-typedef s32 M2C_UNK;
-typedef s8 M2C_UNK8;
-typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-#define M2C_ERROR(desc) (0)
-#define M2C_CARRY 0
-#define M2C_OVERFLOW(a) (0)
-#endif
+typedef struct { float x, y, z; } Vec;
+typedef struct { int pad[3]; Vec *p; } Node;
+typedef struct {
+    Node *a, *b;
+    Vec dir;
+    float len;
+    int f18, f1C, f20, f24, f28;
+    int f2C, f30;
+    Vec v34;
+    int f40;
+    int f44;
+} Obj;
 
-f32 func_001CF4C0(void *, void *, void *, f32, f32); /* extern */
-extern f32 D_00478468;
+extern float D_00478468;
+extern float func_001CF4C0(Vec *);
 
-void *func_0024C090(void *arg0, void *arg1, void *arg2) {
-    f32 sp8;
-    f32 temp_f0;
-    f32 temp_f0_2;
-    f32 temp_f1;
-    void *temp_17;
-    void *temp_2;
-    void *temp_2_2;
-    void *temp_3;
-    void *temp_5;
-    void *temp_6;
+static inline void init(Vec *r, float x, float y, float z) { r->x=x; r->y=y; r->z=z; }
+static inline void sub(Vec *r, Vec *a, Vec *b) { init(r, a->x-b->x, a->y-b->y, a->z-b->z); }
+static inline void copy(Vec *d, Vec *s) { d->x=s->x; d->y=s->y; d->z=s->z; }
+static inline float normalize(Vec *v) {
+    float n = func_001CF4C0(v);
+    if (n < D_00478468) { v->x=0; v->y=0; v->z=0; }
+    else { v->x/=n; v->y/=n; v->z/=n; }
+    return n;
+}
 
-    temp_17 = arg0 + 8;
-    M2C_FIELD(arg0, void **, 0) = arg1;
-    temp_2 = arg0 + 0x34;
-    M2C_FIELD(arg0, void **, 4) = arg2;
-    M2C_FIELD(arg0, f32 *, 8) = 0.0f;
-    M2C_FIELD(temp_17, f32 *, 4) = 0.0f;
-    M2C_FIELD(temp_17, f32 *, 8) = 0.0f;
-    M2C_FIELD(arg0, s32 *, 0x18) = 0;
-    M2C_FIELD(arg0, s32 *, 0x1C) = 0;
-    M2C_FIELD(arg0, s32 *, 0x20) = 0;
-    M2C_FIELD(arg0, s32 *, 0x24) = 0;
-    M2C_FIELD(arg0, s32 *, 0x28) = 0;
-    M2C_FIELD(arg0, s32 *, 0x34) = 0;
-    M2C_FIELD(temp_2, s32 *, 0xC) = 0;
-    M2C_FIELD(temp_2, s32 *, 4) = 0;
-    M2C_FIELD(temp_2, s32 *, 8) = 0;
-    temp_5 = M2C_FIELD(arg0, void **, 4);
-    temp_6 = M2C_FIELD(arg0, void **, 0);
-    temp_2_2 = M2C_FIELD(temp_5, void **, 0xC);
-    temp_3 = M2C_FIELD(temp_6, void **, 0xC);
-    temp_f0 = M2C_FIELD(temp_2_2, f32 *, 0) - M2C_FIELD(temp_3, f32 *, 0);
-    sp8 = M2C_FIELD(temp_2_2, f32 *, 8) - M2C_FIELD(temp_3, f32 *, 8);
-    temp_f1 = M2C_FIELD(temp_2_2, f32 *, 4) - M2C_FIELD(temp_3, f32 *, 4);
-    M2C_FIELD(arg0, f32 *, 8) = temp_f0;
-    M2C_FIELD(temp_17, f32 *, 4) = temp_f1;
-    M2C_FIELD(temp_17, f32 *, 8) = sp8;
-    temp_f0_2 = func_001CF4C0(temp_17, temp_5, temp_6, temp_f0, temp_f1);
-    if (!(temp_f0_2 < D_00478468)) {
-        M2C_FIELD(arg0, f32 *, 8) = (f32) (M2C_FIELD(arg0, f32 *, 8) / temp_f0_2);
-        M2C_FIELD(temp_17, f32 *, 4) = (f32) (M2C_FIELD(temp_17, f32 *, 4) / temp_f0_2);
-        M2C_FIELD(temp_17, f32 *, 8) = (f32) (M2C_FIELD(temp_17, f32 *, 8) / temp_f0_2);
-    } else {
-        M2C_FIELD(arg0, f32 *, 8) = 0.0f;
-        M2C_FIELD(temp_17, f32 *, 8) = 0.0f;
-        M2C_FIELD(temp_17, f32 *, 4) = 0.0f;
-    }
-    M2C_FIELD(arg0, f32 *, 0x14) = temp_f0_2;
-    M2C_FIELD(arg0, s32 *, 0x44) = 0;
-    return arg0;
+Obj *func_0024C090(Obj *p, Node *a, Node *b) {
+    Vec tmp;
+    Vec *s1 = &p->dir;
+    int *v0 = (int *)((char *)p + 0x34);
+    p->a = a;
+    p->b = b;
+    p->dir.x = 0.0f;
+    s1->y = 0.0f;
+    s1->z = 0.0f;
+    p->f18 = 0;
+    p->f1C = 0;
+    p->f20 = 0;
+    p->f24 = 0;
+    p->f28 = 0;
+    v0[0] = 0;
+    v0[3] = 0;
+    v0[2] = 0;
+    v0[1] = 0;
+    p->f44 = 0;
+    sub(&tmp, b->p, a->p);
+    copy(&p->dir, &tmp);
+    p->len = normalize(&p->dir);
+    return p;
 }
