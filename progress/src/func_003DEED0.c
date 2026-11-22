@@ -1,3 +1,4 @@
+/* identical to func_003DEEB0 (matched), with its names changed by decompdecomp */
 /* machine draft (m2c) for ee-gcc-2.95.3 -O1 -G0, tried by autopilot */
 #ifndef M2C_DEFINES
 #define M2C_DEFINES

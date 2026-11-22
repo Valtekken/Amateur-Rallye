@@ -1,68 +1,28 @@
-/* machine draft (m2c) for ee-gcc-2.95.2 -O2 -G0, tried by autopilot */
-#ifndef M2C_DEFINES
-#define M2C_DEFINES
-typedef s32 M2C_UNK;
-typedef s8 M2C_UNK8;
-typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-#define M2C_ERROR(desc) (0)
-#define M2C_CARRY 0
-#define M2C_OVERFLOW(a) (0)
-#endif
-
-f32 func_003F3E80(f32);                             /* extern */
-
+typedef struct { f32 x, y, z, w; } V;
+extern f32 func_003F3E80(f32);
+#define F(p,o) (*(f32*)((char*)(p)+(o)))
+#define S(p,o) (*(s32*)((char*)(p)+(o)))
 s32 func_001FD1E8(void *arg0, void *arg1) {
-    f32 sp0;
-    f32 sp4;
-    f32 sp8;
-    f32 temp_f0;
-    f32 temp_f12;
-    f32 temp_f1;
-    f32 temp_f1_2;
-    f32 temp_f2;
-    f32 temp_f3;
-    f32 var_f0;
+    volatile V v;
+    f32 temp_f0, temp_f3, temp_f12, var_f0;
     s32 var_2;
-    void *temp_2;
-    void *temp_3;
-
-    if ((M2C_FIELD(arg0, s32 *, 0x24) != 0) || (var_2 = 1, (M2C_FIELD(arg0, s32 *, 0x2C) != 0))) {
-        temp_2 = arg1 + 0x40;
-        temp_3 = arg0 + 0x30;
-        temp_f2 = M2C_FIELD(arg1, f32 *, 0x40) - M2C_FIELD(arg0, f32 *, 0x30);
-        sp0 = temp_f2;
-        temp_f0 = M2C_FIELD(temp_2, f32 *, 4) - M2C_FIELD(temp_3, f32 *, 4);
-        sp4 = temp_f0;
-        temp_f3 = M2C_FIELD(temp_2, f32 *, 8) - M2C_FIELD(temp_3, f32 *, 8);
-        var_f0 = temp_f3 * temp_f3;
-        temp_f12 = (temp_f2 * temp_f2) + (temp_f0 * temp_f0) + var_f0;
-        sp8 = temp_f3;
-        if (temp_f12 <= 1.1920929e-7f) {
-            sp0 = 0.0f;
-            sp4 = 0.0f;
-            sp8 = 0.0f;
-        } else {
-            M2C_ERROR(/* unknown instruction: c1 0xc0004 */);
-            if (var_f0 != var_f0) {
-                var_f0 = func_003F3E80(temp_f12);
-            }
-            temp_f1 = 1.0f / var_f0;
-            sp0 *= temp_f1;
-            sp8 *= temp_f1;
-            sp4 *= temp_f1;
+    void *t1, *t2;
+    if ((S(arg0,0x24) != 0) || (var_2 = 1, (S(arg0,0x2C) != 0))) {
+        t1 = (char *)arg1 + 0x40; t2 = (char *)arg0 + 0x30;
+        temp_f3 = F(arg1,0x40) - F(arg0,0x30); v.x = temp_f3;
+        temp_f0 = F(t1,4) - F(t2,4); v.y = temp_f0;
+        f32 d = F(t1,8) - F(t2,8); var_f0 = d * d;
+        temp_f12 = (temp_f3 * temp_f3) + (temp_f0 * temp_f0) + var_f0; v.z = d;
+        if (temp_f12 <= 1.1920929e-7f) { v.x = 0.0f; v.y = 0.0f; v.z = 0.0f; }
+        else {
+            var_f0 = func_003F3E80(temp_f12);
+            f32 inv = 1.0f / var_f0;
+            v.x *= inv; v.z *= inv; v.y *= inv;
         }
-        temp_f1_2 = (sp0 * M2C_FIELD(arg0, f32 *, 0)) + (sp4 * M2C_FIELD(arg0, f32 *, 4)) + (sp8 * M2C_FIELD(arg0, f32 *, 8));
-        if ((M2C_FIELD(arg0, s32 *, 0x24) == 0) || (var_2 = 0, !(M2C_FIELD(arg0, f32 *, 0x20) <= temp_f1_2))) {
+        f32 dot = (v.x * F(arg0,0)) + (v.y * F(arg0,4)) + (v.z * F(arg0,8));
+        if ((S(arg0,0x24) == 0) || (var_2 = 0, !(F(arg0,0x20) <= dot))) {
             var_2 = 1;
-            if (M2C_FIELD(arg0, s32 *, 0x2C) != 0) {
-                var_2 = 0;
-                if (!(temp_f1_2 <= M2C_FIELD(arg0, f32 *, 0x28))) {
-                    var_2 = 1;
-                }
-            }
+            if (S(arg0,0x2C) != 0) { var_2 = 0; if (!(dot <= F(arg0,0x28))) var_2 = 1; }
         }
     }
     return var_2;

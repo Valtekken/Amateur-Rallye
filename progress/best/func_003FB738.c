@@ -1,4 +1,4 @@
- #define PRINT(P,N) do {vp->len=(N);vp->base=(P);vp++;out.size+=(N);if(++out.count>=8){if(func_003FB5C0(fp,&out))goto done;vp=vec;}}while(0)
+#define PRINT(P,N) do {vp->len=(N);vp->base=(P);vp++;out.size+=(N);if(++out.count>=8){if(func_003FB5C0(fp,&out))goto done;vp=vec;}}while(0)
  #define PAD(N,P) do {pad=(N);while(pad>16){PRINT(P,16);pad-=16;}if(pad>0){PRINT(P,pad);}}while(0)
 extern int func_00400A98(u64);
 extern int func_003F6EC0(u64);
@@ -24,8 +24,8 @@ typedef struct Vec
 typedef struct Out
 {
   Vec *v;
-  u32 count;
-  u32 size;
+  s32 count;
+  s32 size;
 } Out;
 extern s32 *func_003FF5F0(void);
 extern s32 func_003FDBA8(File *);
@@ -331,7 +331,7 @@ s32 func_003FB738(s32 ctx, File *fp, char *fmt, char *ap)
         goto output;
       }
         flags |= 256;
-        p = func_003FCC50(ctx, real, prec, flags, &negative, ap, ch, &ndig);
+        p = func_003FCC50(ctx, real, prec, flags, &negative, &decpt, ch, &ndig);
         if ((ch == 'g') || (ch == 'G'))
       {
         if ((decpt < (-3)) || (decpt > prec))
@@ -370,9 +370,9 @@ s32 func_003FB738(s32 ctx, File *fp, char *fmt, char *ap)
         }
       }
       else
-        if (new_var11 = decpt >= ndig)
+        if (decpt >= ndig)
       {
-        len = decpt + flags;
+        len = decpt + (flags & 1);
       }
       else
       {
@@ -689,4 +689,3 @@ s32 func_003FB738(s32 ctx, File *fp, char *fmt, char *ap)
   return (new_var9->flags & 64) ? (-1) : (ret);
 
 }
-

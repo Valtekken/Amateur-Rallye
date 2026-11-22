@@ -1,123 +1,51 @@
-/* machine draft (m2c) for ee-gcc-2.95.2 -O2 -G0, tried by autopilot */
-#ifndef M2C_DEFINES
-#define M2C_DEFINES
-typedef s32 M2C_UNK;
-typedef s8 M2C_UNK8;
-typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-#define M2C_ERROR(desc) (0)
-#define M2C_CARRY 0
-#define M2C_OVERFLOW(a) (0)
-#endif
-
-M2C_UNK func_0023E8C0(void *, f32 *, void *, void *, void *, f32, f32); /* extern */
+typedef struct { f32 x, y, z, w; } V;
+extern s32 func_0023E8C0(void *, f32 *, void *, void *, void *, f32, f32);
 extern f32 D_00479C98;
 extern f32 D_00479C9C;
+#define F(p,o) (*(f32*)((char*)(p)+(o)))
+#define P(p,o) (*(void**)((char*)(p)+(o)))
 
 void *func_00259DC0(void *arg0, void *arg2, f32 fparg0) {
-    f32 sp0;
-    f32 sp4;
-    f32 sp8;
-    f32 sp10;
-    f32 sp14;
-    f32 sp18;
-    f32 sp20;
-    f32 sp24;
-    f32 sp28;
-    f32 sp30;
-    f32 sp34;
-    f32 sp38;
-    f32 sp40;
-    f32 sp44;
-    f32 sp48;
-    f32 temp_f0;
-    f32 temp_f0_2;
-    f32 temp_f0_3;
-    f32 temp_f0_4;
-    f32 temp_f10;
-    f32 temp_f12;
-    f32 temp_f12_2;
-    f32 temp_f13;
-    f32 temp_f1;
-    f32 temp_f1_2;
-    f32 temp_f1_3;
-    f32 temp_f2;
-    f32 temp_f2_2;
-    f32 temp_f2_3;
-    f32 temp_f3;
-    f32 temp_f3_2;
-    f32 temp_f3_3;
-    f32 temp_f3_4;
-    f32 temp_f4;
-    f32 temp_f5;
-    f32 temp_f5_2;
-    f32 temp_f6;
-    f32 temp_f7;
-    f32 temp_f8;
-    f32 temp_f9;
-    void *temp_3;
-    void *temp_6;
-    void *temp_8;
-
-    temp_3 = arg2 + 0xC;
-    temp_8 = M2C_FIELD(arg2, void **, 0x50);
-    temp_f13 = M2C_FIELD(arg2, f32 *, 0xC);
-    temp_6 = temp_8 + 0x11C;
-    temp_f10 = M2C_FIELD(temp_3, f32 *, 8);
-    temp_f12 = -fparg0 * M2C_FIELD(temp_8, f32 *, 0x24);
-    temp_f7 = M2C_FIELD(temp_3, f32 *, 4);
-    temp_f5 = temp_f10 * temp_f12;
-    temp_f3 = temp_f13 * temp_f12;
-    temp_f12_2 = temp_f7 * temp_f12;
-    sp18 = temp_f5;
-    sp10 = temp_f3;
-    sp14 = temp_f12_2;
-    temp_f8 = M2C_FIELD(temp_8, f32 *, 0x11C) + temp_f3;
-    temp_f9 = M2C_FIELD(temp_6, f32 *, 4) + temp_f12_2;
-    temp_f5_2 = M2C_FIELD(temp_6, f32 *, 8) + temp_f5;
-    sp0 = temp_f8;
-    sp4 = temp_f9;
-    temp_f1 = (temp_f8 * temp_f13) + (temp_f9 * temp_f7) + (temp_f5_2 * temp_f10);
-    sp8 = temp_f5_2;
-    if (temp_f1 < (D_00479C98 * D_00479C9C)) {
-        temp_f0 = temp_f10 * temp_f1;
-        temp_f6 = M2C_FIELD(arg2, f32 *, 0x20);
-        temp_f2 = temp_f13 * temp_f1;
-        temp_f3_2 = temp_f7 * temp_f1;
-        sp18 = temp_f0;
-        sp10 = temp_f2;
-        sp14 = temp_f3_2;
-        sp8 = temp_f5_2 - temp_f0;
-        sp0 = temp_f8 - temp_f2;
-        sp4 = temp_f9 - temp_f3_2;
-        temp_f0_2 = M2C_FIELD(temp_8, f32 *, 0x20);
-        temp_f1_2 = temp_f10 * temp_f0_2;
-        temp_f2_2 = temp_f13 * temp_f0_2;
-        temp_f0_3 = temp_f7 * temp_f0_2;
-        temp_f3_3 = temp_f1_2 * D_00479C9C;
-        sp48 = temp_f1_2;
-        temp_f4 = temp_f2_2 * D_00479C9C;
-        sp40 = temp_f2_2;
-        temp_f1_3 = temp_f0_3 * D_00479C9C;
-        sp44 = temp_f0_3;
-        temp_f2_3 = temp_f3_3 * temp_f7;
-        sp38 = temp_f3_3;
-        temp_f0_4 = temp_f4 * temp_f7;
-        sp30 = temp_f4;
-        temp_f3_4 = temp_f1_3 * temp_f7;
-        sp34 = temp_f1_3;
-        sp28 = temp_f2_3;
-        sp20 = temp_f0_4;
-        sp24 = temp_f3_4;
-        sp18 = temp_f2_3 * temp_f6;
-        sp10 = temp_f0_4 * temp_f6;
-        sp14 = temp_f3_4 * temp_f6;
-        func_0023E8C0(arg2, &sp10, temp_6, arg2, temp_8, temp_f12_2, temp_f13);
+    volatile V v0, v1, v2, v3, v4;
+    void *t3 = (char *)arg2 + 0xC;
+    void *t8 = P(arg2,0x50);
+    f32 f13 = F(arg2,0xC);
+    void *t6 = (char *)t8 + 0x11C;
+    f32 f10 = F(t3,8);
+    f32 f12 = -fparg0 * F(t8,0x24);
+    f32 f7 = F(t3,4);
+    f32 f5 = f10 * f12;
+    f32 f3 = f13 * f12;
+    f32 f12b = f7 * f12;
+    v1.z = f5; v1.x = f3; v1.y = f12b;
+    f32 f8 = F(t8,0x11C) + f3;
+    f32 f9 = F(t6,4) + f12b;
+    f32 f5b = F(t6,8) + f5;
+    v0.x = f8; v0.y = f9; v0.z = f5b;
+    f32 f1 = (f8 * f13) + (f9 * f7) + (f5b * f10);
+    if (f1 < (D_00479C98 * D_00479C9C)) {
+        f32 f0 = f10 * f1;
+        f32 f6 = F(arg2,0x20);
+        f32 f2 = f13 * f1;
+        f32 f3b = f7 * f1;
+        v1.z = f0; v1.x = f2; v1.y = f3b;
+        v0.z = f5b - f0; v0.x = f8 - f2; v0.y = f9 - f3b;
+        f32 f0b = F(t8,0x20);
+        f32 f1b = f10 * f0b;
+        f32 f2b = f13 * f0b;
+        f32 f0c = f7 * f0b;
+        f32 f3c = f1b * D_00479C9C;
+        f32 f4 = f2b * D_00479C9C;
+        f32 f1c = f0c * D_00479C9C;
+        f32 f2c = f3c * f7;
+        f32 f0d = f4 * f7;
+        f32 f3d = f1c * f7;
+        v4.z = f1b; v4.x = f2b; v4.y = f0c;
+        v3.z = f3c; v3.x = f4; v3.y = f1c;
+        v2.z = f2c; v2.x = f0d; v2.y = f3d;
+        v1.z = f2c * f6; v1.x = f0d * f6; v1.y = f3d * f6;
+        func_0023E8C0(arg2, (f32*)&v1, t6, arg2, t8, f12b, f13);
     }
-    M2C_FIELD(arg0, f32 *, 0) = sp0;
-    M2C_FIELD(arg0, f32 *, 4) = sp4;
-    M2C_FIELD(arg0, f32 *, 8) = sp8;
+    F(arg0,0) = v0.x; F(arg0,4) = v0.y; F(arg0,8) = v0.z;
     return arg0;
 }

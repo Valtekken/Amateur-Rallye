@@ -1,114 +1,130 @@
-/* machine draft (m2c) for ee-gcc-2.95.2 -O2 -G0 -fno-schedule-insns, tried by autopilot */
-#ifndef M2C_DEFINES
-#define M2C_DEFINES
-typedef s32 M2C_UNK;
-typedef s8 M2C_UNK8;
-typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-#define M2C_ERROR(desc) (0)
-#define M2C_CARRY 0
-#define M2C_OVERFLOW(a) (0)
-#endif
+typedef struct {
+    void *ptr;        // +0x0
+    f32 f4;           // +0x4
+    f32 f8;           // +0x8
+    f32 fC;           // +0xC
+    f32 f10;          // +0x10
+    f32 f14;          // +0x14
+    f32 f18;          // +0x18
+    f32 f1C;          // +0x1C
+    f32 f20;          // +0x20
+    f32 f24;          // +0x24
+    f32 f28;          // +0x28
+    f32 f2C;          // +0x2C
+    f32 f30;          // +0x30
+    f32 f34;          // +0x34
+    f32 f38;          // +0x38
+} Struct_198728;
 
-void func_00198728(void *arg0) {
-    f32 temp_f0;
-    f32 temp_f0_2;
-    f32 temp_f1;
-    f32 temp_f1_2;
-    f32 temp_f1_3;
-    f32 temp_f2;
-    f32 temp_f2_2;
-    f32 temp_f2_3;
-    f32 temp_f2_4;
-    f32 temp_f2_5;
-    f32 temp_f2_6;
-    f32 temp_f3;
-    f32 temp_f5;
-    f32 temp_f5_2;
-    f32 var_f0;
-    f32 var_f6;
-    s32 temp_10;
-    s32 temp_10_2;
-    s32 temp_2;
-    s32 temp_2_2;
-    s32 temp_2_4;
-    s32 temp_4;
-    s32 temp_4_2;
-    s32 temp_5;
-    s32 temp_5_3;
-    s32 var_3;
-    s32 var_3_2;
-    s32 var_3_3;
-    s32 var_4;
-    void *temp_2_3;
-    void *temp_2_5;
-    void *temp_5_2;
+typedef struct {
+    s32 unk_174[2];   // +0x174, +0x178
+    f32 f68;          // +0x68
+    f32 f70;          // +0x70
+} Struct_198728_Ptr;
 
-    temp_f2 = M2C_FIELD(arg0, f32 *, 0x34);
-    temp_f1 = M2C_FIELD(arg0, f32 *, 0x24);
-    if (temp_f1 < temp_f2) {
-        temp_f3 = M2C_FIELD(arg0, f32 *, 0x38);
-        if (temp_f3 < M2C_FIELD(arg0, f32 *, 0x30)) {
-            temp_f2_2 = temp_f2 / temp_f1;
-            temp_10 = M2C_BITWISE(s32, temp_f2_2) >> 0x1F;
-            temp_5 = M2C_BITWISE(s32, temp_f2_2) & 0x7FFFFF;
-            temp_2 = ((M2C_BITWISE(u32, temp_f2_2) >> 0x17) & 0xFF) - 0x7F;
-            temp_4 = ~(temp_2 >> 0x1F);
-            var_3 = (((u32) ((temp_5 | 0x800000) << 8) >> (0x1F - temp_2)) & temp_4) ^ temp_10;
-            if (!((temp_5 << 8) & ((1 << (0x1F - (temp_2 & temp_4))) - 1))) {
-                var_3 -= temp_10;
+void func_00198728(Struct_198728 *arg0) {
+    f32 f2 = arg0->f34;
+    f32 f1 = arg0->f24;
+    if (f1 < f2) {
+        f32 f3 = arg0->f38;
+        if (f3 < arg0->f30) {
+            f32 ratio = f2 / f1;
+            u32 bits = *(u32*)&ratio;
+            u32 sign = bits >> 31;
+            u32 exp = (bits >> 23) & 0xFF;
+            u32 mantissa = bits & 0x7FFFFF;
+            
+            exp -= 0x7F;
+            s32 exp_signed = (s32)exp;
+            u32 neg_exp_mask = ~(exp_signed >> 31);
+            u32 shift = 0x1F - exp;
+            
+            u32 recip_bits = ((mantissa | 0x800000) << 8) >> shift;
+            recip_bits &= neg_exp_mask;
+            
+            u32 mantissa_check = (mantissa << 8) & ((1u << shift) - 1);
+            if (mantissa_check == 0) {
+                recip_bits ^= sign;
+                recip_bits -= sign;
             }
-            temp_f2_3 = (f32) var_3;
-            temp_5_2 = M2C_FIELD(arg0, void **, 0);
-            M2C_FIELD(arg0, f32 *, 0x34) = (f32) M2C_FIELD(arg0, f32 *, 0x28);
-            M2C_FIELD(arg0, f32 *, 0x38) = (f32) (temp_f3 + (M2C_FIELD(arg0, f32 *, 0x2C) * temp_f2_3));
-            temp_2_2 = (s32) ((M2C_FIELD((temp_5_2 + 0x174), s32 *, 4) - M2C_FIELD(temp_5_2, s32 *, 0x174)) * 0xAAAAAAAB) >> 4;
-            if (temp_2_2 > 0) {
-                var_3_2 = temp_2_2;
-                var_4 = 0;
+            
+            f32 recip = (f32)(s32)recip_bits;
+            
+            f32 f0 = arg0->f2C * recip;
+            arg0->f34 = arg0->f28;
+            arg0->f38 = f3 + f0;
+            
+            Struct_198728_Ptr *ptr = (Struct_198728_Ptr*)arg0->ptr;
+            s32 diff = ptr->unk_174[1] - ptr->unk_174[0];
+            s32 count = (diff * 0xAAAAAAAB) >> 4;
+            
+            if (count > 0) {
+                s32 i = count;
+                s32 offset = 0;
+                void *base = (void*)ptr->unk_174[0];
                 do {
-                    var_3_2 -= 1;
-                    temp_2_3 = M2C_FIELD(temp_5_2, s32 *, 0x174) + var_4;
-                    temp_f0 = M2C_FIELD(temp_2_3, f32 *, 0x10);
-                    var_4 += 0x30;
-                    M2C_FIELD(temp_2_3, f32 *, 0x10) = (f32) (temp_f0 - (M2C_FIELD(arg0, f32 *, 0x2C) * temp_f2_3));
-                } while (var_3_2 != 0);
+                    i--;
+                    void *elem = (void*)((char*)base + offset);
+                    f32 val = *(f32*)((char*)elem + 0x10);
+                    offset += 0x30;
+                    *(f32*)((char*)elem + 0x10) = val - (arg0->f2C * recip);
+                } while (i != 0);
             }
         }
     }
-    temp_f2_4 = M2C_FIELD(arg0, f32 *, 0x18);
-    temp_f1_2 = M2C_FIELD(arg0, f32 *, 8);
-    if (temp_f1_2 < temp_f2_4) {
-        temp_f5 = M2C_FIELD(arg0, f32 *, 0x1C);
-        if (temp_f5 < M2C_FIELD(arg0, f32 *, 0x14)) {
-            temp_f2_5 = temp_f2_4 / temp_f1_2;
-            temp_10_2 = M2C_BITWISE(s32, temp_f2_5) >> 0x1F;
-            temp_5_3 = M2C_BITWISE(s32, temp_f2_5) & 0x7FFFFF;
-            temp_2_4 = ((M2C_BITWISE(u32, temp_f2_5) >> 0x17) & 0xFF) - 0x7F;
-            temp_4_2 = ~(temp_2_4 >> 0x1F);
-            var_3_3 = (((u32) ((temp_5_3 | 0x800000) << 8) >> (0x1F - temp_2_4)) & temp_4_2) ^ temp_10_2;
-            if (!((temp_5_3 << 8) & ((1 << (0x1F - (temp_2_4 & temp_4_2))) - 1))) {
-                var_3_3 -= temp_10_2;
+    
+    f32 f2_2 = arg0->f18;
+    f32 f1_2 = arg0->f8;
+    if (f1_2 < f2_2) {
+        f32 f5 = arg0->f1C;
+        if (f5 < arg0->f14) {
+            f32 ratio = f2_2 / f1_2;
+            u32 bits = *(u32*)&ratio;
+            u32 sign = bits >> 31;
+            u32 exp = (bits >> 23) & 0xFF;
+            u32 mantissa = bits & 0x7FFFFF;
+            
+            exp -= 0x7F;
+            s32 exp_signed = (s32)exp;
+            u32 neg_exp_mask = ~(exp_signed >> 31);
+            u32 shift = 0x1F - exp;
+            
+            u32 recip_bits = ((mantissa | 0x800000) << 8) >> shift;
+            recip_bits &= neg_exp_mask;
+            
+            u32 mantissa_check = (mantissa << 8) & ((1u << shift) - 1);
+            if (mantissa_check == 0) {
+                recip_bits ^= sign;
+                recip_bits -= sign;
             }
-            temp_2_5 = M2C_FIELD(arg0, void **, 0);
-            temp_f0_2 = M2C_FIELD(arg0, f32 *, 0x10) * (f32) var_3_3;
-            M2C_FIELD(arg0, f32 *, 0x18) = (f32) M2C_FIELD(arg0, f32 *, 0xC);
-            var_f6 = 5000.0f;
-            M2C_FIELD(arg0, f32 *, 0x1C) = (f32) (temp_f5 + temp_f0_2);
-            temp_f2_6 = M2C_FIELD(temp_2_5, f32 *, 0x68);
-            temp_f5_2 = temp_f2_6 - temp_f0_2;
-            temp_f1_3 = M2C_FIELD(temp_2_5, f32 *, 0x70) * (1.0f - (temp_f0_2 / temp_f2_6));
-            if (temp_f5_2 > 5000.0f) {
-                var_f6 = temp_f5_2;
+            
+            f32 recip = (f32)(s32)recip_bits;
+            
+            f32 f0 = arg0->f10 * recip;
+            arg0->f18 = arg0->fC;
+            arg0->f1C = f5 + f0;
+            
+            Struct_198728_Ptr *ptr = (Struct_198728_Ptr*)arg0->ptr;
+            f32 f2_3 = ptr->f68;
+            f32 f1_3 = ptr->f70;
+            f32 f5_2 = f2_3 - f0;
+            f32 f0_div = f0 / f2_3;
+            
+            f32 f4 = 5000.0f;
+            f32 f3 = 1.0f - f0_div;
+            
+            f32 f6 = f4;
+            if (f4 < f5_2) {
+                f6 = f5_2;
             }
-            var_f0 = 1000.0f;
-            M2C_FIELD(temp_2_5, f32 *, 0x68) = var_f6;
-            if (temp_f1_3 > 1000.0f) {
-                var_f0 = temp_f1_3;
+            
+            f32 f0_clamp = 1000.0f;
+            ptr->f68 = f6;
+            f32 f1_new = f1_3 * f3;
+            if (f0_clamp < f1_new) {
+                f0_clamp = f1_new;
             }
-            M2C_FIELD(M2C_FIELD(arg0, void **, 0), f32 *, 0x70) = var_f0;
+            ptr->f70 = f0_clamp;
         }
     }
 }

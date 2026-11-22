@@ -5,78 +5,100 @@ extern void *func_00152D28(s32);
 extern void func_002B2028(void *);
 extern u32 D_0040E618[];
 
-void func_002D9828(void *arg0, u16 *arg1, u16 *arg2) {
-    void *unk0 = *(void **)((char *)arg0 + 0);
-    void *unk4 = *(void **)((char *)arg0 + 4);
-    void *unk8 = *(void **)((char *)arg0 + 8);
+typedef struct {
+    u16 *begin;
+    u16 *end;
+    u16 *cap;
+} Vector;
 
-    if (unk4 != unk8) {
-        if (unk4 != 0) {
-            *(u16 *)unk4 = *(u16 *)((char *)unk4 - 2);
+void func_002D9828(Vector *vec, u16 *pos, u16 *elem) {
+    u16 val;
+    u16 *old_end;
+    u16 *src_end;
+    s32 diff;
+    u16 *begin;
+    u16 *end;
+    u16 *cap;
+    s32 size;
+    s32 size_bytes;
+    s32 tmp;
+    s32 new_cap_bytes;
+    u16 *new_begin;
+    u32 head;
+    s32 count_before;
+    u16 *new_pos;
+    u16 *after_pos;
+    s32 after_bytes;
+    u16 *new_end;
+    s32 old_cap_elements;
+    s32 old_cap_bytes;
+
+    if (vec->end != vec->cap) {
+        if (vec->end == 0) {
+            goto skip_copy;
         }
-        void *t4 = unk4;
-        *(void **)((char *)arg0 + 4) = (void *)((char *)t4 + 2);
-        s32 diff = (s32)((char *)t4 - 2 - (char *)arg1);
-        diff = (diff >> 1) << 1;
-        u16 saved = *arg2;
-        func_003F93CC((void *)((char *)t4 - diff), arg1, diff);
-        *arg1 = saved;
+        *vec->end = vec->end[-1];
+skip_copy:
+        old_end = vec->end;
+        vec->end = vec->end + 1;
+        src_end = old_end - 1;
+        diff = (src_end - pos) << 1;
+        val = *elem;
+        func_003F93CC((u16 *)((char *)old_end - diff), pos, diff);
+        *pos = val;
         return;
     }
 
-    s32 d = (s32)((char *)unk4 - (char *)unk0);
-    d = d >> 1;
-    s32 t3 = d << 1;
-    s32 factor = (d != 0) ? t3 : 1;
-    void *var17;
-    s32 var20;
-    if (factor == 0) {
-        var17 = 0;
-        var20 = 0;
+    begin = vec->begin;
+    end = vec->end;
+    cap = vec->cap;
+    size = (s32)((char *)end - (char *)begin) >> 1;
+    size_bytes = size << 1;
+    tmp = (size != 0) ? size_bytes : 1;
+    new_cap_bytes = tmp << 1;
+
+    if (new_cap_bytes != 0) {
+        new_begin = (u16 *)func_002B1FC0(new_cap_bytes);
+        if (new_begin == 0) {
+            new_begin = (u16 *)func_003D2910(new_cap_bytes);
+        }
     } else {
-        var20 = factor << 1;
-        if (var20 != 0) {
-            var17 = func_002B1FC0(var20);
-            if (var17 == 0) {
-                var17 = func_003D2910(var20);
-            }
+        head = D_0040E618[-1];
+        if (head != 0) {
+            new_begin = (u16 *)head;
+            D_0040E618[-1] = *(u32 *)head;
         } else {
-            if (D_0040E618[-1] != 0) {
-                var17 = (void *)D_0040E618[-1];
-                D_0040E618[-1] = *(u32 *)D_0040E618[-1];
-            } else {
-                var17 = func_00152D28(0);
-            }
+            new_begin = (u16 *)func_00152D28(0);
         }
     }
 
-    void *p5 = unk0;
-    s32 diff2 = (s32)((char *)arg1 - (char *)p5);
-    u16 *temp16_2 = (u16 *)((char *)var17 + diff2);
-    func_003F93CC(var17, p5, (diff2 >> 1) << 1);
-    if (temp16_2 != 0) {
-        *temp16_2 = *arg2;
-    }
-    u16 *temp16_3 = temp16_2 + 1;
-    void *t6 = unk4;
-    s32 diff3 = (s32)((char *)t6 - (char *)arg1);
-    u16 *end = (u16 *)((char *)temp16_3 + diff3);
-    func_003F93CC(temp16_3, arg1, (diff3 >> 1) << 1);
+    count_before = (s32)((char *)pos - (char *)begin) >> 1;
+    new_pos = new_begin + count_before;
 
-    void *old0 = unk0;
-    void *old8 = unk8;
-    s32 cnt = (s32)((char *)old8 - (char *)old0) >> 1;
-    if (cnt != 0) {
-        s32 bytes = cnt << 1;
-        if (bytes != 0) {
-            func_002B2028(old0);
+    func_003F93CC(new_begin, begin, count_before << 1);
+
+    if (new_pos != 0) {
+        *new_pos = *elem;
+    }
+
+    after_pos = new_pos + 1;
+    after_bytes = (s32)((char *)vec->end - (char *)pos);
+    new_end = after_pos + (after_bytes >> 1);
+
+    func_003F93CC(after_pos, pos, after_bytes);
+
+    old_cap_elements = (s32)((char *)vec->cap - (char *)vec->begin) >> 1;
+    if (old_cap_elements != 0) {
+        old_cap_bytes = old_cap_elements << 1;
+        if (old_cap_bytes != 0) {
+            func_002B2028(vec->begin);
         } else {
-            *(u32 *)old0 = D_0040E618[-1];
-            D_0040E618[-1] = (u32)old0;
+            *(u32 *)vec->begin = D_0040E618[-1];
+            D_0040E618[-1] = (u32)vec->begin;
         }
     }
 
-    *(void **)((char *)arg0 + 4) = end;
-    *(void **)((char *)arg0 + 8) = (void *)((char *)var17 + var20);
-    *(void **)((char *)arg0 + 0) = var17;
+    vec->end = new_end;
+    vec->cap = new_begin + (new_cap_bytes >> 1);
+    vec->begin = new_begin;
 }

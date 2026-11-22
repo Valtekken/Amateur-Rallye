@@ -1,56 +1,90 @@
-/* machine draft (m2c) for ee-gcc-2.95.2 -O2 -G0, tried by autopilot */
-#ifndef M2C_DEFINES
-#define M2C_DEFINES
-typedef s32 M2C_UNK;
-typedef s8 M2C_UNK8;
-typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-#define M2C_ERROR(desc) (0)
-#define M2C_CARRY 0
-#define M2C_OVERFLOW(a) (0)
-#endif
-
 void func_0017C268(void *arg0, void *arg1) {
-    f32 temp_f10;
-    f32 temp_f1;
-    f32 temp_f2;
-    f32 temp_f3;
-    f32 temp_f5;
-    f32 temp_f9;
-    f32 var_f0;
-    f32 var_f0_2;
-    void *temp_2;
-    void *temp_3;
-
-    temp_f3 = M2C_FIELD(arg0, f32 *, 0x58);
-    var_f0 = -temp_f3;
-    temp_f9 = M2C_FIELD(arg0, f32 *, 0xEC);
-    temp_f10 = M2C_FIELD(arg0, f32 *, 0xF0);
-    temp_2 = M2C_FIELD(M2C_FIELD(M2C_FIELD(arg0, void **, 0x18), void **, 0xC), void **, 4);
-    temp_f1 = M2C_FIELD(arg1, f32 *, 0xEC);
-    temp_3 = temp_2 + 0xE0;
-    temp_f2 = M2C_FIELD(arg1, f32 *, 0x58);
-    temp_f5 = M2C_FIELD(temp_2, f32 *, 0x1C);
-    if (temp_f9 < var_f0) {
-        var_f0_2 = 0.0f;
-        if (!(temp_f1 < -temp_f2)) {
-            var_f0 = -temp_f3;
-            goto block_3;
-        }
-    } else {
-block_3:
-        if (!(var_f0 <= temp_f9)) {
-            if (!(-temp_f2 <= temp_f1)) {
-                var_f0_2 = (M2C_FIELD(arg0, f32 *, 0x68) * M2C_FIELD(arg0, f32 *, 0x6C) * temp_f9) + (M2C_FIELD(arg0, f32 *, 0x28) * temp_f5 * M2C_FIELD(temp_3, f32 *, 4)) + (M2C_FIELD(arg0, f32 *, 0x70) * M2C_FIELD(arg0, f32 *, 0x74) * temp_f10);
-            } else {
-                goto block_7;
-            }
-        } else {
-block_7:
-            var_f0_2 = (M2C_FIELD(arg0, f32 *, 0x68) * M2C_FIELD(arg0, f32 *, 0x6C) * temp_f9) + (M2C_FIELD(arg0, f32 *, 0x28) * temp_f5 * M2C_FIELD(temp_3, f32 *, 4)) + (M2C_FIELD(arg0, f32 *, 0x70) * M2C_FIELD(arg0, f32 *, 0x74) * temp_f10) + (M2C_FIELD(arg0, f32 *, 0x78) * (temp_f9 - temp_f1)) + (M2C_FIELD(arg0, f32 *, 0x7C) * (temp_f10 - M2C_FIELD(arg1, f32 *, 0xF0)));
-        }
+    f32 f3 = *(f32*)((char*)arg0 + 0x58);
+    void *v0 = *(void**)((char*)arg0 + 0x18);
+    f32 f9 = *(f32*)((char*)arg0 + 0xEC);
+    f32 f10 = *(f32*)((char*)arg0 + 0xF0);
+    void *v1 = *(void**)((char*)v0 + 0xC);
+    void *v2 = *(void**)((char*)v1 + 0x4);
+    void *v3 = (char*)v2 + 0xE0;
+    f32 f4 = *(f32*)((char*)arg1 + 0xF0);
+    f32 f1 = *(f32*)((char*)arg1 + 0xEC);
+    f32 f2 = *(f32*)((char*)arg1 + 0x58);
+    f32 f5 = *(f32*)((char*)v2 + 0x1C);
+    
+    f32 f0 = -f3;
+    f32 f1_2, f7, f8;
+    f32 f0_2, f1_3;
+    f32 f2_2, f6;
+    f32 f1_4, f5_3;
+    f32 f4_2, f3_2;
+    f32 f0_3, f2_3, f1_6, f3_3, f4_3;
+    
+    if (!(f9 < f0)) goto L_2B8;
+    
+    f0 = -f2;
+    if (f1 < f0) {
+        f0 = 0.0f;
+        goto L_36C;
     }
-    M2C_FIELD(arg0, f32 *, 0x94) = var_f0_2;
+    f0 = -f3;
+    
+L_2B8:
+    if (f0 <= f9) goto L_2E0;
+    
+    f0 = -f2;
+    if (!(f0 <= f1)) goto L_338;
+    
+    f1_2 = *(f32*)((char*)arg0 + 0x6C);
+    f7 = f9 - f1_2;
+    
+L_2E0:
+    f0_2 = *(f32*)((char*)arg0 + 0x68);
+    f1_3 = *(f32*)((char*)arg0 + 0x6C);
+    f8 = f10 - f4;
+    
+    f2_2 = *(f32*)((char*)arg0 + 0x28);
+    f6 = *(f32*)((char*)v3 + 0x4);
+    
+    f1_4 = *(f32*)((char*)arg0 + 0x70);
+    f5_3 = *(f32*)((char*)arg0 + 0x74);
+    f4_2 = *(f32*)((char*)arg0 + 0x78);
+    f3_2 = *(f32*)((char*)arg0 + 0x7C);
+    
+    f0_2 = f0_2 * f1_3;
+    f2_2 = f2_2 * f5;
+    f0_2 = f0_2 * f9;
+    f2_2 = f2_2 * f6;
+    f1_4 = f1_4 * f5_3;
+    f1_4 = f1_4 * f10;
+    f4_2 = f4_2 * f7;
+    f3_2 = f3_2 * f8;
+    
+    f0_2 = f0_2 + f2_2;
+    f0_2 = f0_2 + f1_4;
+    f0_2 = f0_2 + f4_2;
+    f0_2 = f0_2 + f3_2;
+    
+    f0 = f0_2;
+    goto L_36C;
+    
+L_338:
+    f0_3 = *(f32*)((char*)arg0 + 0x68);
+    f2_3 = *(f32*)((char*)arg0 + 0x28);
+    f1_6 = *(f32*)((char*)arg0 + 0x70);
+    f3_3 = *(f32*)((char*)arg0 + 0x74);
+    f4_3 = *(f32*)((char*)v3 + 0x4);
+    
+    f0_3 = f0_3 * f1;
+    f2_3 = f2_3 * f5;
+    f0_3 = f0_3 * f9;
+    f2_3 = f2_3 * f4_3;
+    f1_6 = f1_6 * f3_3;
+    f1_6 = f1_6 * f10;
+    f0_3 = f0_3 + f2_3;
+    f0_3 = f0_3 + f1_6;
+    
+    f0 = f0_3;
+    
+L_36C:
+    *(f32*)((char*)arg0 + 0x94) = f0;
 }

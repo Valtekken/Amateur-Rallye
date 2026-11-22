@@ -1,4 +1,4 @@
-/* machine draft (m2c) for ee-gcc-2.95.3 -O1 -G0, tried by autopilot */
+/* machine draft (m2c) for ee-gcc-2.95.2 -O0 -G0, tried by autopilot */
 #ifndef M2C_DEFINES
 #define M2C_DEFINES
 typedef s32 M2C_UNK;

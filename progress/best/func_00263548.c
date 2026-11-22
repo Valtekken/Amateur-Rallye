@@ -1,87 +1,83 @@
-/* machine draft (m2c) for ee-gcc-2.95.2 -O2 -G0, tried by autopilot */
-#ifndef M2C_DEFINES
-#define M2C_DEFINES
-typedef s32 M2C_UNK;
-typedef s8 M2C_UNK8;
-typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-#define M2C_ERROR(desc) (0)
-#define M2C_CARRY 0
-#define M2C_OVERFLOW(a) (0)
-#endif
+typedef struct {
+    void *begin;
+    void *end;
+    void *cap;
+} Vec;
 
-s32 D_002AD408(M2C_UNK);                            /* extern */
-M2C_UNK func_001577C8(void *, s32 *, s32 *);        /* extern */
-s32 func_0021E290(s32);                             /* extern */
-s32 func_0021E9C0(s32, s32 *);                      /* extern */
-s32 func_0021F4B0(s32);                             /* extern */
+typedef struct {
+    void *begin;
+    void *end;
+} Vec2;
 
-void func_00263548(void *arg0, void *arg1) {
-    s32 sp0;
-    f32 sp4;
-    f32 sp10;
-    f32 sp14;
-    f32 sp18;
-    f32 sp1C;
-    s32 sp20;
-    s32 sp30;
-    s32 sp34;
-    s32 *temp_5;
-    s32 *temp_5_2;
-    s32 temp_2_2;
-    s32 temp_4;
-    s32 temp_4_2;
-    s32 var_2;
-    s32 var_3;
-    u32 var_17;
-    void *temp_2;
-    void *temp_3;
+extern s32 D_002AD408(s32);
+extern s32 func_001577C8(void *, s32 *, s32 *);
+extern s32 func_0021E290(s32);
+extern s32 func_0021E9C0(s32, s32 *, s32 *);
+extern s32 func_0021F4B0(s32);
 
-    var_17 = 0;
-    if (((s32) (M2C_FIELD(arg1, s32 *, 4) - M2C_FIELD(arg1, s32 *, 0)) >> 5) != 0) {
-        var_2 = 0 << 5;
-        do {
-            temp_3 = M2C_FIELD(arg1, s32 *, 0) + var_2;
-            temp_4 = M2C_FIELD(temp_3, s32 *, 0);
-            temp_2 = temp_3 + 4;
-            sp0 = temp_4;
-            sp4 = M2C_FIELD(temp_3, f32 *, 4);
-            M2C_FIELD(&sp4, f32 *, 4) = (f32) M2C_FIELD(temp_2, f32 *, 4);
-            M2C_FIELD(&sp4, f32 *, 8) = (f32) M2C_FIELD(temp_2, f32 *, 8);
-            sp10 = M2C_FIELD(temp_3, f32 *, 0x10);
-            sp14 = M2C_FIELD(temp_3, f32 *, 0x14);
-            sp18 = M2C_FIELD(temp_3, f32 *, 0x18);
-            sp1C = M2C_FIELD(temp_3, f32 *, 0x1C);
-            temp_4_2 = func_0021F4B0(temp_4);
-            sp20 = sp0;
-            temp_2_2 = func_0021E9C0(temp_4_2, &sp20);
-            var_3 = temp_2_2;
-            sp30 = temp_2_2;
-            if (var_3 != 0) {
-                temp_5 = M2C_FIELD(arg0, s32 **, 4);
-                if (temp_5 == M2C_FIELD(arg0, s32 *, 8)) {
-                    func_001577C8(arg0, temp_5, &sp30);
-                } else {
-                    goto block_6;
-                }
-            } else {
-                var_3 = func_0021E290(D_002AD408(0x7C));
-                temp_5_2 = M2C_FIELD(arg0, s32 **, 4);
-                sp34 = var_3;
-                if (temp_5_2 != M2C_FIELD(arg0, s32 *, 8)) {
-block_6:
-                    if (M2C_FIELD(arg0, s32 **, 4) != NULL) {
-                        *M2C_FIELD(arg0, s32 **, 4) = var_3;
-                    }
-                    M2C_FIELD(arg0, s32 **, 4) = (s32 *) (M2C_FIELD(arg0, s32 **, 4) + 4);
-                } else {
-                    func_001577C8(arg0, temp_5_2, &sp34);
-                }
-            }
-            var_17 += 1;
-            var_2 = var_17 << 5;
-        } while (var_17 < (u32) ((s32) (M2C_FIELD(arg1, s32 *, 4) - M2C_FIELD(arg1, s32 *, 0)) >> 5));
+void func_00263548(Vec *arg0, Vec2 *arg1) {
+    s32 stack[16];
+    
+    Vec2 *s2 = arg1;
+    Vec *s0 = arg0;
+    s32 s1 = 0;
+    s32 count;
+    char *element;
+    s32 res1;
+    s32 res2;
+    s32 res3;
+    
+    count = ((char*)s2->end - (char*)s2->begin) >> 5;
+    if (count == 0) goto L_end;
+    
+L_loop:
+    element = (char*)s2->begin + s1 * 32;
+    
+    stack[0] = *(s32*)element;
+    *(f32*)&stack[1] = *(f32*)(element + 4);
+    *(f32*)&stack[2] = *(f32*)(element + 8);
+    *(f32*)&stack[3] = *(f32*)(element + 12);
+    *(f32*)&stack[4] = *(f32*)(element + 16);
+    *(f32*)&stack[5] = *(f32*)(element + 20);
+    *(f32*)&stack[6] = *(f32*)(element + 24);
+    *(f32*)&stack[7] = *(f32*)(element + 28);
+    
+    res1 = func_0021F4B0(*(s32*)element);
+    stack[8] = *(s32*)element;
+    
+    res2 = func_0021E9C0(res1, (s32*)(element + 4), &stack[8]);
+    
+    if (res2 == 0) goto L_res2_zero;
+    
+    stack[12] = (s32)(element + 4);
+    if (s0->end == s0->cap) goto L_full_res2_nonzero;
+    
+L_not_full_res2_nonzero:
+    if (s0->end != NULL) {
+        *(s32*)s0->end = (s32)(element + 4);
     }
+    s0->end = (char*)s0->end + 4;
+    goto L_loop_inc;
+    
+L_full_res2_nonzero:
+    func_001577C8(s0, (s32*)&s0->end, &stack[12]);
+    goto L_loop_inc;
+    
+L_res2_zero:
+    res3 = func_0021E290(D_002AD408(0x7C));
+    stack[13] = res3;
+    if (s0->end == s0->cap) goto L_full_res2_zero;
+    
+L_not_full_res2_zero:
+    stack[13] = (s32)(element + 4);
+    
+L_full_res2_zero:
+    func_001577C8(s0, (s32*)&s0->end, &stack[13]);
+    
+L_loop_inc:
+    s1++;
+    if (s1 < count) goto L_loop;
+    
+L_end:
+    return;
 }

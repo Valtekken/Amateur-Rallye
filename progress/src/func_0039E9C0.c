@@ -1,3 +1,4 @@
+/* identical to func_003B4478 (matched), with its names changed by decompdecomp */
 typedef struct { u32 w[3]; } S12;
 extern void func_003AA2E8(S12 *, S12 *);
 

@@ -1,61 +1,42 @@
-/* machine draft (m2c) for ee-gcc-2.9-991111 -O2 -G0, tried by autopilot */
-#ifndef M2C_DEFINES
-#define M2C_DEFINES
-typedef s32 M2C_UNK;
-typedef s8 M2C_UNK8;
-typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-#define M2C_ERROR(desc) (0)
-#define M2C_CARRY 0
-#define M2C_OVERFLOW(a) (0)
-#endif
+s32 func_003DB410(u32);
 
-s32 func_003DB410(u32);                             /* extern */
-
-s32 func_003DBC50(void *arg0, s32 *arg1) {
-    s32 temp_2;
-    s32 temp_6;
-    s64 var_4;
-    u32 *var_17;
-    u32 temp_18;
-    u32 temp_19;
-    u32 var_18;
-    u32 var_3;
-    u32 var_7;
-    u32 var_7_2;
-
-    temp_19 = arg0 + 0x14;
-    var_17 = (temp_19 + (M2C_FIELD(arg0, s32 *, 0x10) * 4)) - 4;
-    temp_18 = M2C_FIELD(var_17, u32 *, 0);
-    temp_2 = func_003DB410(temp_18);
-    *arg1 = 0x20 - temp_2;
-    if (temp_2 < 0xB) {
-        var_4 = (temp_18 >> (0xB - temp_2)) | 0x3FF00000;
-        var_7 = 0;
-        if (temp_19 < (u32) var_17) {
-            var_7 = M2C_FIELD(var_17, u32 *, -4);
+s64 func_003DBC50(void *arg0, s32 *arg1) {
+    u32 *base = (u32 *)((char *)arg0 + 0x14);
+    s32 count = *(s32 *)((char *)arg0 + 0x10);
+    u32 *end_ptr = base + count - 1;
+    u32 word0 = *end_ptr;
+    s32 bitpos = func_003DB410(word0);
+    *arg1 = 0x20 - bitpos;
+    
+    u32 word1 = 0;
+    u32 upper, lower;
+    
+    if (bitpos < 0xB) {
+        s32 shift = 0xB - bitpos;
+        upper = (word0 >> shift) | 0x3FF00000;
+        if (base < end_ptr) {
+            word1 = end_ptr[-1];
         }
-        var_3 = (temp_18 << (temp_2 + 0x15)) | (var_7 >> (0xB - temp_2));
+        s32 shift2 = bitpos + 0x15;
+        lower = (word0 << shift2) | (word1 >> shift);
     } else {
-        var_7_2 = 0;
-        if (temp_19 < (u32) var_17) {
-            var_17 -= 4;
-            var_7_2 = *var_17;
+        if (base < end_ptr) {
+            end_ptr = end_ptr - 1;
+            word1 = *end_ptr;
         }
-        temp_6 = temp_2 - 0xB;
-        if (temp_6 != 0) {
-            var_4 = (temp_18 << temp_6) | ((var_7_2 >> -temp_6) | 0x3FF00000);
-            var_18 = 0;
-            if (temp_19 < (u32) var_17) {
-                var_18 = M2C_FIELD(var_17, u32 *, -4);
+        s32 shift = bitpos - 0xB;
+        if (shift != 0) {
+            u32 word2 = 0;
+            if (base < end_ptr) {
+                word2 = end_ptr[-1];
             }
-            var_3 = (var_7_2 << temp_6) | (var_18 >> -temp_6);
+            upper = (word0 << shift) | ((word1 >> -shift) | 0x3FF00000);
+            lower = (word1 << shift) | (word2 >> -shift);
         } else {
-            var_3 = var_7_2;
-            var_4 = temp_18 | 0x3FF00000;
+            upper = word0 | 0x3FF00000;
+            lower = word1;
         }
     }
-    return (var_4 << 0x20) | ((u64) ((s64) var_3 << 0x20) >> 0x20);
+    
+    return ((u64)upper << 32) | lower;
 }

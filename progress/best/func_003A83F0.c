@@ -1,36 +1,30 @@
-/* machine draft (m2c) for ee-gcc-2.95.2 -O0 -G0, tried by autopilot */
-#ifndef M2C_DEFINES
-#define M2C_DEFINES
-typedef s32 M2C_UNK;
-typedef s8 M2C_UNK8;
-typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-#define M2C_ERROR(desc) (0)
-#define M2C_CARRY 0
-#define M2C_OVERFLOW(a) (0)
-#endif
+struct Vec {
+    void *begin;
+    void *end;
+    void *cap;
+};
 
-M2C_UNK func_003A8160(s32, s32);                    /* extern */
-s32 func_003A8230(void *);                          /* extern */
-M2C_UNK func_003A8390(void *, s32, s32);            /* extern */
-u32 func_003AF008(void *);                          /* extern */
-s32 func_003AF198(void *, u32, s32, s32);           /* extern */
+u32 func_003AF008(struct Vec *);
+s32 func_003A8230(struct Vec *);
+s32 func_003AF198(struct Vec *, u32, void *, void *);
+void func_003A8160(void *, void *);
+void func_003A8390(struct Vec *, void *, s32);
 
-void func_003A83F0(void *arg0, u32 arg1) {
-    s32 sp0;
-    s32 sp4;
-    s32 temp_2;
-
-    if (func_003AF008(arg0) < arg1) {
-        sp0 = func_003A8230(arg0);
-        temp_2 = func_003AF198(arg0, arg1, M2C_FIELD(arg0, s32 *, 0), M2C_FIELD(arg0, s32 *, 4));
-        sp4 = temp_2;
-        func_003A8160(M2C_FIELD(arg0, s32 *, 0), M2C_FIELD(arg0, s32 *, 4));
-        func_003A8390(arg0, M2C_FIELD(arg0, s32 *, 0), (s32) ((M2C_FIELD(arg0, s32 *, 8) - M2C_FIELD(arg0, s32 *, 0)) * 0xAAAAAAAB) >> 4);
-        M2C_FIELD(arg0, s32 *, 0) = temp_2;
-        M2C_FIELD(arg0, s32 *, 4) = (s32) (sp4 + (sp0 * 0x30));
-        M2C_FIELD(arg0, s32 *, 8) = (s32) (M2C_FIELD(arg0, s32 *, 0) + (arg1 * 0x30));
+void func_003A83F0(register struct Vec *arg0, register u32 arg1)
+{
+    register s32 count;
+    void *new_end;
+    s32 stack_count; // force extra stack slot
+    
+    if (func_003AF008(arg0) < arg1)
+    {
+        count = func_003A8230(arg0);
+        stack_count = count; // force store to stack
+        new_end = func_003AF198(arg0, arg1, arg0->begin, arg0->end);
+        func_003A8160(arg0->begin, arg0->end);
+        func_003A8390(arg0, arg0->begin, (s32)(((s32)arg0->cap - (s32)arg0->begin) * 0xAAAAAAAB) >> 4);
+        arg0->begin = new_end;
+        arg0->end = (char *)new_end + stack_count * 0x30;
+        arg0->cap = (char *)arg0->begin + arg1 * 0x30;
     }
 }

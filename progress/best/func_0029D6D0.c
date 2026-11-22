@@ -1,4 +1,5 @@
-#include "context.h"
+typedef struct { f32 f[8]; } Elem;
+typedef struct { Elem *begin; Elem *end; Elem *cap; } Buffer;
 
 extern int func_00297500(void);
 extern int func_002971F8(int);
@@ -10,115 +11,81 @@ extern void func_001E3D10(int, void *, int);
 extern char D_0047C0E0[];
 
 typedef struct {
-    char pad[0x30];
-    int unk30;
-    int unk34;
-    int unk40;
-    int unk14;
+    char pad[0x14];
+    s32 unk14;
+    f32 unk18;
+    f32 unk1C;
+    f32 unk20;
+    f32 unk24;
+    f32 unk28;
+    f32 unk2C;
+    s32 unk30;
+    s32 unk34;
+    char pad2[0x4];
+    s32 unk3C;
+    s32 unk40;
 } Unk;
 
 void func_0029D6D0(Unk *arg0) {
-    char sp[0x60];
-    int v0;
-    int var18 = 0, var19 = 0;
-    int t = func_002971F8(func_00297500());
-    if (t == 3) {
+    int v0 = func_002971F8(func_00297500());
+    if (v0 == 3) {
         if (arg0->unk34 == 0) {
             func_0029DA78(arg0, 1);
         } else {
             arg0->unk40++;
             if (arg0->unk40 >= 10) {
                 func_0029DA78(arg0, arg0->unk14);
-                v0 = func_001E4280();
-                func_001D4040(sp, D_0047C0E0);
-                func_001E3D10(v0, sp, 1);
-                arg0->unk34 = var18;
-                goto end;
+                int res = func_001E4280();
+                func_001D4040(arg0, D_0047C0E0);
+                func_001E3D10(res, arg0, 1);
+                arg0->unk34 = 0;
+                return;
             }
         }
-        v0 = func_001E4280();
-        func_001D4040(sp, D_0047C0E0);
-        func_001E3D10(v0, sp, 1);
-        arg0->unk40 = 0;
-        arg0->unk34 = var18;
-        goto end;
-    }
-    if (t == 2 || t == 8 || t == 9) {
-        if (t == 2) {
-            if (arg0->unk30 == 0) {
-                var19 = 1;
-                func_0029D940(arg0, 1);
-                v0 = func_001E4280();
-                func_001D4040(sp, D_0047C0E0);
-                func_001E3D10(v0, sp, 1);
-                arg0->unk40 = 0;
-                arg0->unk30 = var19;
-                goto end;
-            } else {
-                arg0->unk40++;
-                if (arg0->unk40 >= 10) {
-                    func_0029D940(arg0, arg0->unk14);
-                    v0 = func_001E4280();
-                    func_001D4040(sp, D_0047C0E0);
-                    func_001E3D10(v0, sp, 1);
-                    arg0->unk40 = 0;
-                    arg0->unk30 = var19;
-                    goto end;
-                }
-                arg0->unk40 = arg0->unk40;
-            }
-        } else if (t == 8) {
-            if (arg0->unk30 == 0) {
-                var19 = 1;
-                func_0029D940(arg0, 1);
-                v0 = func_001E4280();
-                func_001D4040(sp, D_0047C0E0);
-                func_001E3D10(v0, sp, 1);
-                arg0->unk40 = 0;
-                arg0->unk30 = var19;
-                goto end;
-            } else {
-                arg0->unk40++;
-                if (arg0->unk40 >= 10) {
-                    func_0029D940(arg0, arg0->unk14);
-                    v0 = func_001E4280();
-                    func_001D4040(sp, D_0047C0E0);
-                    func_001E3D10(v0, sp, 1);
-                    arg0->unk40 = 0;
-                    arg0->unk30 = var19;
-                    goto end;
-                }
-            }
-        } else if (t == 9) {
+        int res = func_001E4280();
+        func_001D4040(arg0, D_0047C0E0);
+        func_001E3D10(res, arg0, 1);
+        arg0->unk34 = 0;
+    } else if (v0 == 2 || v0 == 8 || v0 == 9) {
+        if (v0 == 2) {
             if (arg0->unk34 == 0) {
-                var18 = 1;
                 func_0029DA78(arg0, 1);
-                v0 = func_001E4280();
-                func_001D4040(sp, D_0047C0E0);
-                func_001E3D10(v0, sp, 1);
-                arg0->unk40 = 0;
-                arg0->unk34 = var18;
-                goto end;
+                int res = func_001E4280();
+                func_001D4040(arg0, D_0047C0E0);
+                func_001E3D10(res, arg0, 1);
+                arg0->unk34 = 1;
             } else {
                 arg0->unk40++;
                 if (arg0->unk40 >= 10) {
                     func_0029DA78(arg0, arg0->unk14);
-                    v0 = func_001E4280();
-                    func_001D4040(sp, D_0047C0E0);
-                    func_001E3D10(v0, sp, 1);
-                    arg0->unk34 = var18;
-                    goto end;
+                    int res = func_001E4280();
+                    func_001D4040(arg0, D_0047C0E0);
+                    func_001E3D10(res, arg0, 1);
+                    arg0->unk34 = 1;
+                } else {
+                    arg0->unk34 = arg0->unk34;
+                }
+            }
+        } else {
+            if (arg0->unk34 == 0) {
+                func_0029DA78(arg0, 1);
+                int res = func_001E4280();
+                func_001D4040(arg0, D_0047C0E0);
+                func_001E3D10(res, arg0, 1);
+                arg0->unk34 = 1;
+            } else {
+                arg0->unk40++;
+                if (arg0->unk40 >= 10) {
+                    func_0029DA78(arg0, arg0->unk14);
+                    int res = func_001E4280();
+                    func_001D4040(arg0, D_0047C0E0);
+                    func_001E3D10(res, arg0, 1);
+                    arg0->unk34 = 1;
                 }
             }
         }
-        arg0->unk40 = 0;
-        arg0->unk34 = var18;
-        arg0->unk30 = var19;
-        goto end;
+        arg0->unk34 = 0;
+    } else {
+        arg0->unk34 = 0;
     }
-    arg0->unk40 = 0;
-    arg0->unk34 = var18;
-    arg0->unk30 = var19;
-end:
-    return;
 }

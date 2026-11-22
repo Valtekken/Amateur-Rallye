@@ -1,134 +1,112 @@
-/* machine draft (m2c) for ee-gcc-2.9-991111 -O2 -G0, tried by autopilot */
-#ifndef M2C_DEFINES
-#define M2C_DEFINES
-typedef s32 M2C_UNK;
-typedef s8 M2C_UNK8;
-typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-#define M2C_ERROR(desc) (0)
-#define M2C_CARRY 0
-#define M2C_OVERFLOW(a) (0)
-#endif
+typedef struct {
+    u32 field_0;
+    u32 field_4;
+    u64 field_8;
+    u64 field_10;
+} VecStruct;
 
-extern M2C_UNK D_00494C80;
+extern VecStruct D_00494C80;
 
-M2C_UNK *func_002ABC88(M2C_UNK *arg0, M2C_UNK *arg1, M2C_UNK *arg2) {
-    s32 temp_2;
-    s32 temp_2_2;
-    s32 temp_3_2;
-    s32 var_2;
-    s32 var_7;
-    s32 var_7_2;
-    s32 var_9;
-    u32 temp_3;
-    u32 temp_4;
-    u64 temp_2_3;
-    u64 temp_4_2;
-    u64 var_10;
-    u64 var_11;
-    u64 var_5;
-    u64 var_7_3;
-
-    temp_4 = M2C_FIELD(arg0, u32 *, 0);
-    if (temp_4 >= 2U) {
-        temp_3 = M2C_FIELD(arg1, u32 *, 0);
-        if (temp_3 < 2U) {
-            /* Duplicate return node #5. Try simplifying control flow for better match */
-            return arg1;
-        }
-        temp_2 = temp_3 ^ 4;
-        if ((temp_4 ^ 4) == 0) {
-            if ((temp_2 == 0) && (M2C_FIELD(arg0, s32 *, 4) != M2C_FIELD(arg1, s32 *, 4))) {
-                return &D_00494C80;
-            }
-            /* Duplicate return node #3. Try simplifying control flow for better match */
-            return arg0;
-        }
-        if (temp_2 != 0) {
-            temp_2_2 = temp_4 ^ 2;
-            if ((temp_3 ^ 2) == 0) {
-                if (temp_2_2 == 0) {
-                    M2C_FIELD(arg2, s64 *, 0) = (s64) M2C_FIELD(arg0, u32 *, 0);
-                    M2C_FIELD(arg2, s64 *, 8) = (s64) M2C_FIELD(arg0, s64 *, 8);
-                    M2C_FIELD(arg2, u64 *, 0x10) = (u64) M2C_FIELD(arg0, u64 *, 0x10);
-                    M2C_FIELD(arg2, s32 *, 4) = (s32) (M2C_FIELD(arg0, s32 *, 4) & M2C_FIELD(arg1, s32 *, 4));
-                    return arg2;
-                }
-                /* Duplicate return node #3. Try simplifying control flow for better match */
+VecStruct *func_002ABC88(VecStruct *arg0, VecStruct *arg1, VecStruct *arg2) {
+    u32 a0_f0 = arg0->field_0;
+    if (a0_f0 < 2) {
+        return arg0;
+    }
+    u32 a1_f0 = arg1->field_0;
+    if (a1_f0 < 2) {
+        return arg1;
+    }
+    if ((a0_f0 ^ 4) == 0) {
+        if ((a1_f0 ^ 4) == 0) {
+            if (arg0->field_4 == arg1->field_4) {
                 return arg0;
             }
-            if (temp_2_2 != 0) {
-                var_7 = (s32) M2C_FIELD(arg0, s64 *, 8);
-                var_9 = M2C_FIELD(arg1, s32 *, 8);
-                var_11 = M2C_FIELD(arg0, u64 *, 0x10);
-                temp_3_2 = var_7 - var_9;
-                var_10 = M2C_FIELD(arg1, u64 *, 0x10);
-                if (((temp_3_2 <= -1) ? -temp_3_2 : temp_3_2) < 0x40) {
-                    if (var_9 < var_7) {
-                        do {
-                            var_9 += 1;
-                            var_10 = (var_10 & 1) | (var_10 >> 1);
-                        } while (var_9 < var_7);
-                    }
-                    if (var_7 < var_9) {
-                        var_7_2 = var_9 - var_7;
-                        do {
-                            var_11 = (var_11 & 1) | (var_11 >> 1);
-                            var_7_2 -= 1;
-                        } while (var_7_2 != 0);
-                        var_7 = var_9;
-                    }
-                } else if (var_9 < var_7) {
-                    var_10 = 0;
-                } else {
-                    var_7 = var_9;
-                    var_11 = 0;
-                }
-                temp_2_3 = var_11 + var_10;
-                if (M2C_FIELD(arg0, s32 *, 4) != M2C_FIELD(arg1, s32 *, 4)) {
-                    var_2 = var_10 - var_11;
-                    if (M2C_FIELD(arg0, s32 *, 4) == 0) {
-                        var_2 = var_11 - var_10;
-                    }
-                    if (var_2 >= 0) {
-                        M2C_FIELD(arg2, s64 *, 8) = var_7;
-                        M2C_FIELD(arg2, u64 *, 0x10) = (u64) var_2;
-                        M2C_FIELD(arg2, s32 *, 4) = 0;
-                    } else {
-                        M2C_FIELD(arg2, s64 *, 8) = var_7;
-                        M2C_FIELD(arg2, u64 *, 0x10) = (u64) (0 - var_2);
-                        M2C_FIELD(arg2, s32 *, 4) = 1;
-                    }
-                    var_5 = M2C_FIELD(arg2, u64 *, 0x10);
-                    var_7_3 = var_5;
-                    if ((u64) ((u64) (-1 << 5) >> 4) >= (u32) (var_5 - 1)) {
-                        do {
-                            temp_4_2 = var_7_3 * 2;
-                            M2C_FIELD(arg2, u64 *, 0x10) = temp_4_2;
-                            M2C_FIELD(arg2, s64 *, 8) = (s32) ((s32) M2C_FIELD(arg2, s64 *, 8) - 1);
-                            var_7_3 = temp_4_2;
-                        } while ((u64) ((u64) (-1 << 5) >> 4) >= (u32) (temp_4_2 - 1));
-                        var_5 = temp_4_2;
-                    }
-                } else {
-                    M2C_FIELD(arg2, s32 *, 4) = M2C_FIELD(arg0, s32 *, 4);
-                    M2C_FIELD(arg2, s64 *, 8) = var_7;
-                    var_5 = temp_2_3;
-                    M2C_FIELD(arg2, u64 *, 0x10) = temp_2_3;
-                }
-                M2C_FIELD(arg2, s64 *, 0) = 3;
-                if ((u64) (-1U >> 3) < var_5) {
-                    M2C_FIELD(arg2, u64 *, 0x10) = (u64) ((var_5 & 1) | (var_5 >> 1));
-                    M2C_FIELD(arg2, s64 *, 8) = (s32) ((s32) M2C_FIELD(arg2, s64 *, 8) + 1);
-                }
-                return arg2;
-            }
-            /* Duplicate return node #5. Try simplifying control flow for better match */
-            return arg1;
+            return &D_00494C80;
         }
         return arg1;
     }
-    return arg0;
+    if ((a1_f0 ^ 4) == 0) {
+        return arg0;
+    }
+    if ((a0_f0 ^ 2) == 0) {
+        if ((a1_f0 ^ 2) == 0) {
+            arg2->field_0 = arg0->field_0;
+            arg2->field_8 = arg0->field_8;
+            arg2->field_10 = arg0->field_10;
+            arg2->field_4 = arg0->field_4 & arg1->field_4;
+            return arg2;
+        }
+        return arg0;
+    }
+    if ((a1_f0 ^ 2) == 0) {
+        return arg1;
+    }
+
+    u32 a0_f8_low = (u32)arg0->field_8;
+    u32 a1_f8_low = (u32)arg1->field_8;
+    u64 a0_f10 = arg0->field_10;
+    u64 a1_f10 = arg1->field_10;
+    s32 diff = a0_f8_low - a1_f8_low;
+    u32 abs_diff = diff < 0 ? -diff : diff;
+    if (abs_diff < 0x40) {
+        if (a1_f8_low < a0_f8_low) {
+            u32 a0_f4 = arg0->field_4;
+            u32 a1_f4 = arg1->field_4;
+            do {
+                a1_f8_low++;
+                a1_f10 = (a1_f10 & 1) | (a1_f10 >> 1);
+            } while (a1_f8_low < a0_f8_low);
+        }
+        if (a0_f8_low < a1_f8_low) {
+            u32 a1_f4 = arg1->field_4;
+            u32 count = a1_f8_low - a0_f8_low;
+            do {
+                a0_f10 = (a0_f10 & 1) | (a0_f10 >> 1);
+                count--;
+            } while (count != 0);
+            a0_f8_low = a1_f8_low;
+        }
+    } else if (a1_f8_low < a0_f8_low) {
+        u32 a0_f4 = arg0->field_4;
+        a1_f10 = 0;
+    } else {
+        a0_f8_low = a1_f8_low;
+        u32 a1_f4 = arg1->field_4;
+        a0_f10 = 0;
+    }
+
+    if (arg0->field_4 == arg1->field_4) {
+        arg2->field_4 = arg0->field_4;
+        arg2->field_8 = a0_f8_low;
+        arg2->field_10 = a0_f10 + a1_f10;
+    } else {
+        u64 sum = a0_f10 + a1_f10;
+        s64 diff2;
+        if (arg0->field_4 != 0) {
+            diff2 = a0_f10 - a1_f10;
+        } else {
+            diff2 = a1_f10 - a0_f10;
+        }
+        if (diff2 < 0) {
+            arg2->field_8 = a0_f8_low;
+            arg2->field_10 = -diff2;
+            arg2->field_4 = 0;
+        } else {
+            arg2->field_8 = a0_f8_low;
+            arg2->field_10 = diff2;
+            arg2->field_4 = 1;
+        }
+        u64 val = arg2->field_10;
+        if ((u64)(-1ULL >> 3) < val) {
+            arg2->field_10 = (val & 1) | (val >> 1);
+            arg2->field_8 = (u32)arg2->field_8 + 1;
+        }
+    }
+
+    arg2->field_0 = 3;
+    if ((u64)(-1ULL >> 3) < arg2->field_10) {
+        arg2->field_10 = (arg2->field_10 & 1) | (arg2->field_10 >> 1);
+        arg2->field_8 = (u32)arg2->field_8 + 1;
+    }
+    return arg2;
 }

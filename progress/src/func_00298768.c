@@ -1,0 +1,2 @@
+extern void func_001E2460(void *, int); extern void func_001E25B0(void *, const char *, void *); extern void func_00297398(void *, int); extern const char D_0047BBE0[];
+void func_00298768(void *arg0,int arg1,int arg2){struct {int x; char pad[12]; char sp[12];} t; int v; func_001E2460(t.sp,arg2); func_001E25B0(t.sp,D_0047BBE0,(char*)arg0+12); v=*(int*)((char*)arg0+12); t.x=0; func_00297398(&t.x,v);}

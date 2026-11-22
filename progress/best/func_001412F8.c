@@ -1,91 +1,80 @@
-/* machine draft (m2c) for ee-gcc-2.95.2 -O2 -G0, tried by autopilot */
-#ifndef M2C_DEFINES
-#define M2C_DEFINES
-typedef s32 M2C_UNK;
-typedef s8 M2C_UNK8;
-typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-#define M2C_ERROR(desc) (0)
-#define M2C_CARRY 0
-#define M2C_OVERFLOW(a) (0)
-#endif
-
 void func_001412F8(void *arg1, f32 fparg0) {
-    f32 sp0;
-    f32 sp4;
-    f32 sp8;
-    f32 spC;
-    f32 temp_f12;
-    f32 var_f12;
-    f32 var_f1;
-
-    var_f12 = fparg0;
-    var_f1 = 1.0f;
-    if (var_f12 > 1.0f) {
-        var_f12 = 1.0f;
+    f32 sp[4];
+    f32 one = 1.0f;
+    f32 zero = 0.0f;
+    f32 temp_f12 = fparg0;
+    
+    if (one < temp_f12) {
+        temp_f12 = one;
+        // stack frame allocated in delay slot
     }
-    if (var_f12 < 0.0f) {
-        var_f12 = 0.0f;
+    if (temp_f12 < zero) {
+        temp_f12 = zero;
     }
-    temp_f12 = 1.0f - var_f12;
-    if (temp_f12 > 0.8f) {
-        M2C_FIELD(arg1, f32 *, 0xC) = 1.0f;
-        sp0 = 1.0f;
-        sp4 = 1.0f;
-        sp8 = 1.0f;
-        spC = 1.0f;
-        M2C_FIELD(arg1, f32 *, 0) = 1.0f;
-        M2C_FIELD(arg1, f32 *, 4) = 1.0f;
-        M2C_FIELD(arg1, f32 *, 8) = 1.0f;
+    
+    temp_f12 = one - temp_f12;
+    
+    if (0.8f < temp_f12) {
+        *(f32*)((char*)arg1 + 0xC) = one;
+        sp[0] = one;
+        sp[1] = one;
+        sp[2] = one;
+        sp[3] = one;
+        *(f32*)((char*)arg1 + 0x0) = one;
+        *(f32*)((char*)arg1 + 0x4) = one;
+        *(f32*)((char*)arg1 + 0x8) = one;
         return;
     }
-    if ((temp_f12 > 0.6f) && (temp_f12 <= 0.8f)) {
-        M2C_FIELD(arg1, f32 *, 0xC) = 1.0f;
-        M2C_FIELD(arg1, f32 *, 8) = 0.0f;
-        sp0 = 0.0f;
-        sp4 = 1.0f;
-        sp8 = 0.0f;
-        spC = 1.0f;
-        M2C_FIELD(arg1, f32 *, 0) = 0.0f;
-        goto block_20;
+    
+    if (0.6f < temp_f12) {
+        if (temp_f12 <= 0.8f) {
+            *(f32*)((char*)arg1 + 0xC) = one;
+            *(f32*)((char*)arg1 + 0x8) = zero;
+            sp[0] = zero;
+            sp[1] = one;
+            sp[2] = zero;
+            sp[3] = one;
+            *(f32*)((char*)arg1 + 0x0) = zero;
+            *(f32*)((char*)arg1 + 0x4) = one;
+            return;
+        }
     }
-    if ((temp_f12 > 0.4f) && (temp_f12 <= 0.6f)) {
-        sp8 = 0.0f;
-        M2C_FIELD(arg1, f32 *, 0xC) = 1.0f;
-        M2C_FIELD(arg1, f32 *, 8) = sp8;
-        sp0 = 1.0f;
-        sp4 = 1.0f;
-        spC = 1.0f;
-        M2C_FIELD(arg1, f32 *, 0) = 1.0f;
-        M2C_FIELD(arg1, f32 *, 4) = 1.0f;
-        return;
+    
+    if (0.4f < temp_f12) {
+        if (temp_f12 <= 0.6f) {
+            sp[2] = zero;
+            *(f32*)((char*)arg1 + 0xC) = one;
+            *(f32*)((char*)arg1 + 0x8) = zero;
+            sp[0] = one;
+            sp[1] = one;
+            sp[3] = one;
+            *(f32*)((char*)arg1 + 0x0) = one;
+            *(f32*)((char*)arg1 + 0x4) = one;
+            return;
+        }
     }
-    if (!(temp_f12 > 0.2f)) {
-        sp4 = 0.0f;
-        goto block_19;
+    
+    if (0.2f < temp_f12) {
+        if (temp_f12 <= 0.4f) {
+            *(f32*)((char*)arg1 + 0xC) = one;
+            *(f32*)((char*)arg1 + 0x4) = 0.75f;
+            *(f32*)((char*)arg1 + 0x8) = 0.3f;
+            sp[0] = one;
+            sp[1] = 0.75f;
+            sp[2] = 0.3f;
+            sp[3] = one;
+            *(f32*)((char*)arg1 + 0x0) = one;
+            return;
+        }
     }
-    if (!(temp_f12 <= 0.4f)) {
-        sp4 = 0.0f;
-block_19:
-        var_f1 = sp4;
-        M2C_FIELD(arg1, f32 *, 0xC) = 1.0f;
-        M2C_FIELD(arg1, f32 *, 8) = var_f1;
-        sp0 = 1.0f;
-        sp8 = 0.0f;
-        spC = 1.0f;
-        M2C_FIELD(arg1, f32 *, 0) = 1.0f;
-block_20:
-        M2C_FIELD(arg1, f32 *, 4) = var_f1;
-        return;
-    }
-    M2C_FIELD(arg1, f32 *, 0xC) = 1.0f;
-    M2C_FIELD(arg1, f32 *, 4) = 0.75f;
-    M2C_FIELD(arg1, f32 *, 8) = 0.3f;
-    sp0 = 1.0f;
-    sp4 = 0.75f;
-    sp8 = 0.3f;
-    spC = 1.0f;
-    M2C_FIELD(arg1, f32 *, 0) = 1.0f;
+    
+    // temp_f12 <= 0.2
+    sp[1] = zero;  // delay slot store
+    *(f32*)((char*)arg1 + 0xC) = one;
+    *(f32*)((char*)arg1 + 0x8) = sp[1];  // load back
+    sp[0] = one;
+    sp[2] = zero;
+    sp[3] = one;
+    *(f32*)((char*)arg1 + 0x0) = one;
+    *(f32*)((char*)arg1 + 0x4) = sp[1];
 }

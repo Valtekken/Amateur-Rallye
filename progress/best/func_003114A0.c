@@ -1,6 +1,6 @@
 typedef struct {u64 a:14,b:6,c:14,d:6,e:14,f:6,g:4;} Bits;
-typedef struct {float v[6];Bits x,y;s32 z; s32 pad[5];} __attribute__((aligned(16))) Rec;
-typedef struct {u32 *b,*e,*c;} V;
+typedef struct {float v[6];Bits x,y;s32 z; s32 pad;} __attribute__((aligned(16))) Rec;
+typedef struct {u32 *b,*e,*c,*p5,*p6,*p7,*p8,*p9;} V;
 typedef struct {Rec *b,*e,*c;} W;
 extern V D_0042DB58; extern W D_0042E430; extern s32 D_0042DB64; extern u32 D_0040E618[];
 extern void func_003116D8(void),func_003F93CC(void*,void*,int),func_002B2028(void*),func_002DE820(W*,Rec*,u32,Rec*);

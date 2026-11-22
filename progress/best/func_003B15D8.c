@@ -8,27 +8,13 @@ extern void func_003A34D0(void *, s32);
 extern void func_003A3C30(void *, s32 *);
 
 typedef struct {
-    void *f00;
-    void *f04;
-    s32 f08;
-    void *f0C;
-    void *f10;
-    s32 f14;
-    void *f18;
-    void *f1C;
-    u8 _pad0[4];
-    void *f24;
-    u8 _pad1[8];
-    s32 unk30;
-} S_D_004262D0;
+    void *f00; void *f04; s32 f08; void *f0C; void *f10; s32 f14;
+    void *f18; void *f1C; u8 _pad0[4]; void *f24; u8 _pad1[8]; s32 unk30;
+} S;
 
-void func_003B15D8(S_D_004262D0 *arg0, s32 arg1) {
-    s32 sp0;
-    s32 sp4;
-    s32 sp20;
-    void *sp10;
-    void *t19;
-
+void func_003B15D8(S *arg0, s32 arg1) {
+    s32 sp0, sp4, sp20;
+    void *sp10, *t19;
     sp20 = arg1;
     sp0 = func_003A3910(func_003B3118(arg0, arg1));
     arg0->unk30 = arg0->unk30 - 1;

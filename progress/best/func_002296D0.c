@@ -1,27 +1,4 @@
-extern void D_002AD390(void *);
-extern void func_0026FFC8(void *);
-
-void func_002296D0(void *arg0) {
-    void **p = (void **)arg0;
-    void *head = p[0];
-    void *node = (void *)p[0];
-    node = *(void **)node; /* head->next */
-    while (node != head) {
-        void *f = *(void **)((char *)node + 8);
-        if (f != NULL) {
-            D_002AD390(f);
-        }
-        node = *(void **)node;
-    }
-    func_0026FFC8(arg0);
-    head = p[1];
-    node = *(void **)head;
-    while (node != head) {
-        void *f = *(void **)((char *)node + 8);
-        if (f != NULL) {
-            D_002AD390(f);
-        }
-        node = *(void **)node;
-    }
-    func_0026FFC8((char *)arg0 + 4);
-}
+extern void D_002AD390(void*),func_0026FFC8(void*);
+typedef struct N {struct N*next,*prev;void*value;} N;
+typedef struct {N*head;} L;
+void func_002296D0(L*p){N*n; volatile N *h[2];for(n=p[0].head->next;(h[0]=p[0].head,n!=h[0]);n=n->next)if(n->value)D_002AD390(n->value);func_0026FFC8(p);for(n=p[1].head->next;(h[1]=p[1].head,n!=h[1]);n=n->next)if(n->value)D_002AD390(n->value);func_0026FFC8(p+1);}

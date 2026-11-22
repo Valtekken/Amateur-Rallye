@@ -1,89 +1,96 @@
-/* machine draft (m2c) for ee-gcc-2.95.2 -O2 -G0, tried by autopilot */
-#ifndef M2C_DEFINES
-#define M2C_DEFINES
-typedef s32 M2C_UNK;
-typedef s8 M2C_UNK8;
-typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-#define M2C_ERROR(desc) (0)
-#define M2C_CARRY 0
-#define M2C_OVERFLOW(a) (0)
-#endif
+extern f32 func_003F3E80(f32);
 
-f32 func_003F3E80(f32, f32, f32);                   /* extern */
-
-s32 func_00204C08(void *arg0, void *arg1, void *arg2, void *arg3) {
-    f32 temp_f10;
-    f32 temp_f11;
-    f32 temp_f12;
-    f32 temp_f13;
-    f32 temp_f14;
-    f32 temp_f21;
-    f32 temp_f23;
-    f32 temp_f24;
-    f32 temp_f2;
-    f32 temp_f4;
-    f32 temp_f6;
-    f32 temp_f7;
-    f32 temp_f8;
-    f32 temp_f9;
-    f32 var_f0;
-    f32 var_f20;
-    f32 var_f22;
-    f32 var_f25;
-    s32 var_18;
-
-    temp_f10 = M2C_FIELD(arg0, f32 *, 0);
-    var_18 = 1;
-    temp_f7 = M2C_FIELD(arg1, f32 *, 0);
-    temp_f13 = M2C_FIELD(arg0, f32 *, 4);
-    temp_f11 = M2C_FIELD(arg0, f32 *, 8);
-    temp_f8 = M2C_FIELD(arg1, f32 *, 4);
-    temp_f9 = M2C_FIELD(arg1, f32 *, 8);
-    temp_f23 = (temp_f10 * temp_f8) - (temp_f13 * temp_f7);
-    temp_f24 = (temp_f11 * temp_f7) - (temp_f10 * temp_f9);
-    temp_f12 = temp_f23 * temp_f23;
-    temp_f14 = temp_f24 * temp_f24;
-    temp_f21 = (temp_f13 * temp_f9) - (temp_f11 * temp_f8);
-    temp_f6 = -M2C_FIELD(arg0, f32 *, 0xC);
-    temp_f2 = -M2C_FIELD(arg1, f32 *, 0xC);
-    temp_f4 = temp_f21 * temp_f21;
-    if ((temp_f14 < temp_f12) && (temp_f4 < temp_f12) && (var_f25 = 0.0f, (temp_f12 > 0.0f))) {
-        var_f20 = -((temp_f7 * temp_f6) - (temp_f10 * temp_f2)) / temp_f23;
-        var_f22 = -((temp_f13 * temp_f2) - (temp_f8 * temp_f6)) / temp_f23;
-    } else if (temp_f4 < temp_f14) {
-        var_f20 = 0.0f;
-        if (temp_f14 > 0.0f) {
-            var_f25 = ((temp_f7 * temp_f6) - (temp_f10 * temp_f2)) / temp_f24;
-            var_f22 = ((temp_f11 * temp_f2) - (temp_f9 * temp_f6)) / temp_f24;
+s32 func_00204C08(f32 *arg0, f32 *arg1, f32 *arg2, f32 *arg3) {
+    f32 f10 = arg0[0];
+    f32 f13 = arg0[1];
+    f32 f11 = arg0[2];
+    f32 f6 = -arg0[3];
+    f32 f7 = arg1[0];
+    f32 f8 = arg1[1];
+    f32 f9 = arg1[2];
+    f32 f2 = -arg1[3];
+    
+    f32 f0 = f13 * f7;
+    f32 f3 = f11 * f7;
+    f32 f4 = f10 * f8;
+    f32 f1 = f10 * f9;
+    f32 f22 = f13 * f9;
+    f32 f1_ = f11 * f8;
+    
+    f32 f23 = f4 - f0;  // cross_z
+    f32 f24 = f3 - f1;  // cross_y
+    f32 f21 = f22 - f1_; // cross_x
+    
+    f32 f12 = f23 * f23; // cross_z^2
+    f32 f14 = f24 * f24; // cross_y^2
+    f32 f4_ = f21 * f21; // cross_x^2
+    
+    f32 f20, f22_, f25;
+    s32 f18 = 1;
+    
+    if (f14 < f12) {
+        if (f4_ < f12) {
+            if (f12 > 0.0f) {
+                f20 = -((f7 * f6) - (f10 * f2)) / f23;
+                f22_ = -((f13 * f2) - (f8 * f6)) / f23;
+                f25 = 0.0f;
+            } else {
+                f20 = 0.0f;
+                f22_ = 0.0f;
+                f25 = 0.0f;
+                f18 = 0;
+            }
         } else {
-            goto block_8;
+            if (f14 > 0.0f) {
+                f20 = 0.0f;
+                f25 = ((f7 * f6) - (f10 * f2)) / f24;
+                f22_ = ((f11 * f2) - (f9 * f6)) / f24;
+            } else {
+                f20 = 0.0f;
+                f22_ = 0.0f;
+                f25 = 0.0f;
+                f18 = 0;
+            }
         }
     } else {
-block_8:
-        var_f22 = 0.0f;
-        if (temp_f4 > 0.0f) {
-            var_f25 = -((temp_f8 * temp_f6) - (temp_f13 * temp_f2)) / temp_f21;
-            var_f20 = -((temp_f11 * temp_f2) - (temp_f9 * temp_f6)) / temp_f21;
+        if (f4_ < f14) {
+            if (f14 > 0.0f) {
+                f22_ = 0.0f;
+                f25 = -((f8 * f6) - (f13 * f2)) / f21;
+                f20 = -((f11 * f2) - (f9 * f6)) / f21;
+            } else {
+                f20 = 0.0f;
+                f22_ = 0.0f;
+                f25 = 0.0f;
+                f18 = 0;
+            }
         } else {
-            var_f20 = 0.0f;
-            var_18 = 0;
-            var_f22 = 0.0f;
-            var_f25 = 0.0f;
+            if (f4_ > 0.0f) {
+                f20 = 0.0f;
+                f25 = -((f8 * f6) - (f13 * f2)) / f21;
+                f20 = -((f11 * f2) - (f9 * f6)) / f21;
+            } else {
+                f20 = 0.0f;
+                f22_ = 0.0f;
+                f25 = 0.0f;
+                f18 = 0;
+            }
         }
     }
-    var_f0 = temp_f4 + temp_f14;
-    M2C_ERROR(/* unknown instruction: c1 0xc0004 */);
-    if (var_f0 != var_f0) {
-        var_f0 = func_003F3E80(var_f0 + temp_f12, temp_f13, temp_f14);
+    
+    f32 f0_ = f4_ + f14 + f12;
+    f32 inv_len = 1.0f / func_003F3E80(f0_);
+    if (inv_len != inv_len) {
+        inv_len = 1.0f / func_003F3E80(f0_);
     }
-    M2C_FIELD(arg3, f32 *, 8) = (f32) (temp_f23 / var_f0);
-    M2C_FIELD(arg3, f32 *, 0) = (f32) (temp_f21 / var_f0);
-    M2C_FIELD(arg3, f32 *, 4) = (f32) (temp_f24 / var_f0);
-    M2C_FIELD(arg2, f32 *, 8) = var_f25;
-    M2C_FIELD(arg2, f32 *, 0) = var_f22;
-    M2C_FIELD(arg2, f32 *, 4) = var_f20;
-    return var_18;
+    
+    arg2[0] = f21 * inv_len;
+    arg2[1] = f24 * inv_len;
+    arg2[2] = f23 * inv_len;
+    
+    arg3[0] = f22_ * inv_len;
+    arg3[1] = f20 * inv_len;
+    arg3[2] = f25 * inv_len;
+    
+    return f18;
 }
