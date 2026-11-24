@@ -48,13 +48,22 @@ inline int inline_fn(s32 arg0, int arg1)
   return arg0 < arg1;
 }
 
+inline int inline_fn2(s32 arg0, int arg1, int arg2)
+{
+  return (arg0 + arg1) - arg2;
+}
+
 s32 func_003FB738(s32 ctx, File *fp, char *fmt, char *ap)
 {
   char *new_var3;
   s32 *new_var;
+  long long new_var24;
+  s32 *new_var16;
   char expbuf[16];
   Out out;
   Vec vec[8];
+  s32 ret;
+  char *new_var23;
   Vec *vp;
   char buf[348];
   s32 new_var14;
@@ -64,19 +73,21 @@ s32 func_003FB738(s32 ctx, File *fp, char *fmt, char *ap)
   s32 dprec;
   int new_var11;
   int new_var4;
+  unsigned int new_var17;
   File *new_var9;
   int new_var10;
   unsigned int scan;
   unsigned int new_var5;
-  s32 ret;
   s32 n;
   s32 width;
   int new_var13;
+  char *new_var21;
   s32 prec;
   s32 flags;
   unsigned short new_var7;
   s32 ch;
   s32 len;
+  char *new_var22;
   s32 size;
   int new_var2;
   s32 pad;
@@ -87,10 +98,12 @@ s32 func_003FB738(s32 ctx, File *fp, char *fmt, char *ap)
   u32 new_var12;
   u64 real;
   s32 new_var15;
+  long long new_var20;
   char negative;
   int decpt;
   char *new_var8;
   int ndig;
+  s32 *new_var18;
   char *new_var6;
   int expsize;
   s32 decimal = *func_003FF5F0();
@@ -104,19 +117,22 @@ s32 func_003FB738(s32 ctx, File *fp, char *fmt, char *ap)
   }
   if (((fp->flags & 26) == 10) && (fp->fd >= 0))
   {
-    new_var3 = fmt;
     return func_003FB608(fp, new_var3, ap);
+    new_var3 = fmt;
   }
   vp = vec;
   out.v = vec;
   ap = &decpt;
   out.count = (out.size = 0);
+  new_var16 = &state;
+  new_var18 = new_var16;
   new_var = (s32 *) ap;
   ret = 0;
   for (;;)
   {
-    p = fmt;
-    while ((scan = func_003FF9D8(D_004404DC, &n, new_var3, D_00440938, &state)) > 0)
+    new_var22 = fmt;
+    p = new_var22;
+    while ((scan = func_003FF9D8(D_004404DC, &n, new_var3, D_00440938, new_var18)) > 0)
     {
       fmt += scan;
       if (n == 37)
@@ -149,6 +165,7 @@ s32 func_003FB738(s32 ctx, File *fp, char *fmt, char *ap)
     dispatch:
     switch (ch)
     {
+      s64 **new_var19;
       case ' ':
         if (!sign)
       {
@@ -162,11 +179,11 @@ s32 func_003FB738(s32 ctx, File *fp, char *fmt, char *ap)
 
       case '*':
         width = *new_var;
-        ap += 8;
         if (width >= 0)
       {
         goto again;
       }
+        ap += 8;
         width = -width;
 
       case '-':
@@ -197,9 +214,9 @@ s32 func_003FB738(s32 ctx, File *fp, char *fmt, char *ap)
         prec = prec * 10;
         prec = prec + (ch - prec);
         ch = (signed char) (new_var7 = *(fmt++));
+        goto dispatch;
       }
 
-        goto dispatch;
 
       case '0':
         flags |= 128;
@@ -222,7 +239,6 @@ s32 func_003FB738(s32 ctx, File *fp, char *fmt, char *ap)
       case '8':
 
       case '9':
-        width = 0;
         do
       {
         width = (width * new_var5) + (ch - '0');
@@ -247,6 +263,7 @@ s32 func_003FB738(s32 ctx, File *fp, char *fmt, char *ap)
       }
       else
       {
+        width = 0;
         flags |= 16;
       }
         goto again;
@@ -271,12 +288,13 @@ s32 func_003FB738(s32 ctx, File *fp, char *fmt, char *ap)
         new_var2 = 'G';
 
       case 'i':
+        new_var17 = flags & 64;
         if (flags & 16)
       {
         val = *((s64 *) ap);
       }
       else
-        if (flags & 64)
+        if (new_var17)
       {
         val = *((s16 *) ap);
       }
@@ -347,7 +365,8 @@ s32 func_003FB738(s32 ctx, File *fp, char *fmt, char *ap)
       {
         --decpt;
         expsize = func_003FCE00(expbuf, decpt, ch);
-        len = expsize + ndig;
+        len = expsize;
+        len += ndig;
         if ((ndig > 1) || (flags & 1))
         {
           len++;
@@ -383,7 +402,7 @@ s32 func_003FB738(s32 ctx, File *fp, char *fmt, char *ap)
         }
         else
         {
-          len = (dprec + 2) - decpt;
+          len = inline_fn2(dprec, 2, decpt);
         }
       }
         if (negative)
@@ -391,22 +410,24 @@ s32 func_003FB738(s32 ctx, File *fp, char *fmt, char *ap)
         sign = '-';
       }
         goto output;
+        new_var19 = (s64 **) ap;
+        new_var21 = ap;
 
       case 'n':
         if (flags & 16)
       {
-        *(*((s64 **) ap)) = ret;
+        *(*new_var19) = ret;
+        ap += 8;
       }
       else
         if (flags & 64)
       {
-        *(*((s16 **) ap)) = ret;
+        *(*((s16 **) new_var21)) = ret;
       }
       else
       {
-        *(*((s32 **) ap)) = ret;
+        *(*((s32 **) new_var21)) = ret;
       }
-        ap += 8;
         continue;
 
       case 'O':
@@ -427,7 +448,8 @@ s32 func_003FB738(s32 ctx, File *fp, char *fmt, char *ap)
 
       case 's':
         p = *((char **) ap);
-        ap += 8;
+        ap += (long) 8;
+        new_var20 = 0;
         if (!p)
       {
         p = D_0048BEA8;
@@ -452,7 +474,7 @@ s32 func_003FB738(s32 ctx, File *fp, char *fmt, char *ap)
       {
         len = func_003FA9B8(p);
       }
-        sign = 0;
+        sign = new_var20;
         prec = 0;
         goto output;
 
@@ -569,7 +591,8 @@ s32 func_003FB738(s32 ctx, File *fp, char *fmt, char *ap)
     }
     else
     {
-      size += flags & 2;
+      new_var24 = flags;
+      size += new_var24 & 2;
     }
     if (!(flags & 132))
     {
@@ -592,8 +615,13 @@ s32 func_003FB738(s32 ctx, File *fp, char *fmt, char *ap)
       PAD(new_var14 - size, D_0048BE70);
     }
     PAD(dprec - len, D_0048BE70);
-    if (flags & 256)
+    if (!(flags & 256))
     {
+      PRINT(p, 1);
+    }
+    else
+    {
+      new_var23 = prefix;
       if (ch >= 'f')
       {
         new_var6 = D_0048BE70;
@@ -603,37 +631,35 @@ s32 func_003FB738(s32 ctx, File *fp, char *fmt, char *ap)
           if ((decpt < ndig) || (flags & 1))
           {
             PRINT((char *) decimal, 1);
-            PAD(dprec - 1, new_var6);
+            PAD(dprec - 1, D_0048BE70);
+          }
+        }
+        else
+          if (decpt <= 0)
+        {
+          PRINT(D_0048BEE8, 1);
+          new_var4 = -decpt;
+          PRINT((char *) decimal, 1);
+          PAD(new_var4, new_var6);
+          PRINT(p, ndig);
+        }
+        else
+          if (decpt >= dprec)
+        {
+          PRINT(p, ndig);
+          PAD(decpt - ndig, D_0048BE70);
+          if (flags & 1)
+          {
+            PRINT(D_0048BEF0, 1);
           }
         }
         else
         {
-          new_var4 = -decpt;
-          if (decpt <= 0)
-          {
-            PRINT(D_0048BEE8, 1);
-            PRINT((char *) decimal, 1);
-            PAD(new_var4, new_var6);
-            PRINT(p, ndig);
-          }
-          else
-            if (decpt >= dprec)
-          {
-            PRINT(p, ndig);
-            PAD(decpt - ndig, D_0048BE70);
-            if (flags & 1)
-            {
-              PRINT(D_0048BEF0, 1);
-            }
-          }
-          else
-          {
-            PRINT(p, decpt);
-            p += decpt;
-            new_var8 = D_0048BEF0;
-            PRINT(new_var8, 1);
-            PRINT(p, dprec - decpt);
-          }
+          PRINT(p, decpt);
+          p += decpt;
+          new_var8 = D_0048BEF0;
+          PRINT(new_var8, 1);
+          PRINT(p, dprec - decpt);
         }
       }
       else
@@ -642,7 +668,7 @@ s32 func_003FB738(s32 ctx, File *fp, char *fmt, char *ap)
         {
           prefix[0] = *(p++);
           prefix[1] = '.';
-          PRINT(prefix, 2);
+          PRINT(new_var23, 2);
           if (func_002AC4B0(real, 0 ^ 0))
           {
             PRINT(p, dprec - 1);
@@ -659,17 +685,14 @@ s32 func_003FB738(s32 ctx, File *fp, char *fmt, char *ap)
         PRINT(expbuf, expsize);
       }
     }
-    else
-    {
-      PRINT(p, len);
-    }
     if (flags & 4)
     {
       PAD(new_var14 - size, D_0048BE60);
     }
     new_var10 = size > new_var14;
     ret += (!new_var10) ? (width) : (size);
-    if (out.size && func_003FB5C0(fp, &out))
+    width = out.size;
+    if (width && func_003FB5C0(fp, &out))
     {
       goto done;
     }
@@ -689,3 +712,4 @@ s32 func_003FB738(s32 ctx, File *fp, char *fmt, char *ap)
   return (new_var9->flags & 64) ? (-1) : (ret);
 
 }
+

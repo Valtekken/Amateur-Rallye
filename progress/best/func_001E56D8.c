@@ -28,8 +28,8 @@ void func_001E56D8(TaggedLocal *p, f32 *arg1)
     f32 f0 = arg1[0];
     f32 f1 = arg1[1];
     p->payload.f = ptr;
-    ptr[0] = f0;
     ptr[1] = f1;
+    ptr[0] = f0;
   }
   else
   {
@@ -45,10 +45,10 @@ void func_001E56D8(TaggedLocal *p, f32 *arg1)
     if (!equal)
     {
       p->changes++;
-      p->payload.f[0] = arg1[0];
+      v = p->payload.f;
+      v[0] = arg1[0];
       new_var = arg1[1];
-      p->payload.f[1] = new_var;
+      v[1] = new_var;
     }
   }
 }
-

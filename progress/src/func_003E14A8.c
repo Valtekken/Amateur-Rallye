@@ -1,53 +1,32 @@
-extern void func_003E1520(void *);
-extern void func_003E3D68(s32);
-extern void func_003E1708(void *, const char *);
-extern void func_003E67F0(void *, s32, s32, s32);
-extern void func_003E6900(void *, s32, s32, s32);
-extern const char D_00489A88[];
+/* machine draft (m2c) for ee-gcc-2.9-991111 -O2 -G0, tried by autopilot */
+#ifndef M2C_DEFINES
+#define M2C_DEFINES
+typedef s32 M2C_UNK;
+typedef s8 M2C_UNK8;
+typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+#define M2C_ERROR(desc) (0)
+#define M2C_CARRY 0
+#define M2C_OVERFLOW(a) (0)
+#endif
 
-void func_003D7B00(void *arg0, s32 arg1) {
-    if (!*(s32*)((u8*)arg0 + 0)) {
-        arg1 |= 4;
-    }
-    *(u8*)((u8*)arg0 + 0x1A) = arg1;
-}
+M2C_UNK func_003E1520(void *);                      /* extern */
 
 s32 func_003E14A8(void *arg0) {
     s32 var_4;
     void *temp_16;
 
-    temp_16 = *(void **)((u8*)arg0 + 0x40);
+    temp_16 = M2C_FIELD(arg0, void **, 0x40);
     var_4 = 0;
-    if (*(s32*)((u8*)temp_16 + 4) != 0) {
-        if (*(s32*)((u8*)temp_16 + 8) != 0) {
+    if (M2C_FIELD(temp_16, s32 *, 4) != 0) {
+        if (M2C_FIELD(temp_16, s32 *, 8) != 0) {
             func_003E1520(temp_16);
             var_4 = 1;
-            *(s32*)((u8*)arg0 + 8) = *(s32*)((u8*)temp_16 + 0x118) - *(s32*)((u8*)temp_16 + 0xAC);
-            *(s32*)((u8*)temp_16 + 4) = 0;
+            M2C_FIELD(arg0, s32 *, 8) = (s32) (M2C_FIELD(temp_16, s32 *, 0x118) - M2C_FIELD(temp_16, s32 *, 0xAC));
+            M2C_FIELD(temp_16, s32 *, 4) = 0;
         }
     }
     return var_4;
-}
-
-void func_003E1510(void *arg0) {
-    *(s32*)((u8*)arg0 + 0x848) = 0;
-    func_003E3D68(1);
-}
-
-void func_003E1520(void *arg0) {
-    s32 temp_6;
-    s32 temp_7;
-
-    temp_6 = *(s32*)((u8*)arg0 + 0x118);
-    if (*(s32*)((u8*)arg0 + 0x120) != 0) {
-        func_003E1708(arg0, D_00489A88);
-    } else {
-        temp_7 = temp_6 - 1;
-        if (*(s32*)((u8*)arg0 + 0x174) == 3) {
-            func_003E67F0(arg0, *(s32*)((u8*)arg0 + 0x1BC), temp_6 - 1, temp_7);
-        } else {
-            func_003E6900(arg0, *(s32*)((u8*)arg0 + 0x1CC), *(s32*)((u8*)arg0 + 0x1DC), temp_7);
-        }
-    }
-    *(s32*)((u8*)arg0 + 0x120) = 0;
 }

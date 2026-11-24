@@ -1,5 +1,5 @@
-extern void func_003F7320(void);
-extern void func_003FA9B8(void *);
+extern void func_003F7320(void (*)(void));
+extern int func_003FA9B8(void *);
 extern s32 func_00151930(void *);
 extern void func_00151A28(void *, void *, void *, void *, void *, void *, void *, void *);
 extern void func_00152720(void);
@@ -28,17 +28,17 @@ extern u32 D_00484658[];
 extern u32 D_00484750[];
 extern u32 D_00484770[];
 extern u32 D_00484798[];
-inline volatile int inline_fn(volatile int arg0)
+static volatile int inline_fn(volatile int arg0)
 {
   return arg0;
 }
 
-inline u32 inline_fn2(u32 *arg0, volatile int arg1)
+static inline u32 inline_fn2(u32 *arg0, volatile int arg1)
 {
   return arg0[arg1];
 }
 
-void func_002FDDF8(unsigned long long arg0)
+void func_002FDDF8(void *arg0)
 {
   u32 new_var11;
   u32 *d530 = D_0042D530;
@@ -48,31 +48,25 @@ void func_002FDDF8(unsigned long long arg0)
   char *new_var8;
   volatile int new_var2;
   u32 *new_var9;
-  volatile short new_var4;
+  short new_var4;
   u32 *new_var7;
   int new_var12;
   volatile int new_var5;
   volatile int new_var13;
   int new_var3;
   volatile int new_var6;
+
+  if (D_0042D530[0] == 0) {
+    volatile s32 *p = (volatile s32 *)D_0049B228;
+    D_0042D530[0] = 1;
+    p[0] = -1;
+    p[3] = (s32)D_00486E78;
+    p[2] = (p[1] = (p[4] = 0));
+    func_003F7320(func_002FDDD0);
+  }
   new_var5 = 0x20;
   new_var6 = 1;
   new_var11 = (u32) (-new_var6);
-  if (d530[0] == 0)
-  {
-    D_0049B228[0] = new_var11;
-    new_var2 = (new_var = 3);
-    D_00486E78[new_var2] = 0;
-    new_var14 = (new_var2 = 0);
-    new_var3 = 2;
-    D_0049B228[4] = new_var14;
-    new_var10 = new_var2;
-    D_0049B228[1] = new_var10;
-    D_0049B228[new_var3] = inline_fn(new_var2);
-    func_003F7320();
-    new_var13 = new_var2;
-    D_0042D530[new_var13] = new_var6;
-  }
   u32 *sp_114 = (u32 *) (((char *) (&arg0)) + new_var5);
   ;
   new_var8 = (char *) (&arg0);
@@ -86,9 +80,10 @@ void func_002FDDF8(unsigned long long arg0)
     u32 *sp_120 = new_var7;
   }
   while (new_var13);
-  u32 *d510_4 = new_var9;
-  new_var5 = new_var2;
-  volatile unsigned int val = inline_fn2(d510_4, new_var5);
+  u32 *d510_4 = D_0042D510;
+  if (*d510_4) do { char *name = (char *)*d510_4; if (name && func_003FA9B8(name)) { func_003FA9B8(name); } ++d510_4; } while (*d510_4);
+  new_var5 = 0;
+  volatile unsigned int val = d510_4[new_var5];
   new_var12 = val;
   new_var12 = new_var5;
   new_var12 = new_var12 != new_var12;
@@ -123,4 +118,3 @@ void func_002FDDF8(unsigned long long arg0)
   return;
 
 }
-

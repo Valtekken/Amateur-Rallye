@@ -1,20 +1,28 @@
-void *func_00272EA0(void *arg0, void *arg1, void *arg2) {
-    if (arg0 != arg1) {
+/* identical to func_00275388 (matched), with its names changed by decompdecomp */
+typedef struct {
+    f32 x;
+    f32 y;
+    f32 z;
+    f32 w;
+    s32 flags;
+} Vec4S;
+
+void *func_00272EA0(Vec4S *src, Vec4S *end, Vec4S *dst) {
+    if (src != end) {
         do {
-            arg0 = (char *)arg0 + 0x14;
-            if (arg2 != NULL) {
-                *(u32 *)arg2 = 0;
-                *(u32 *)((char *)arg2 + 4) = 0;
-                *(u32 *)((char *)arg2 + 8) = 0;
-                *(f32 *)arg2 = *(f32 *)arg0;
-                *(f32 *)((char *)arg2 + 4) = *(f32 *)((char *)arg0 + 4);
-                *(f32 *)((char *)arg2 + 8) = *(f32 *)((char *)arg0 + 8);
-                *(f32 *)((char *)arg2 + 0xC) = *(f32 *)((char *)arg0 + 0xC);
-                *(u32 *)((char *)arg2 + 0x10) = *(u32 *)((char *)arg0 + 0x10);
-                arg0 = (char *)arg0 + 0x14;
+            if (dst != NULL) {
+                dst->x = 0.0f;
+                dst->y = 0.0f;
+                dst->z = 0.0f;
+                dst->x = src->x;
+                dst->y = src->y;
+                dst->z = src->z;
+                dst->w = src->w;
+                dst->flags = src->flags;
             }
-            arg2 = (char *)arg2 + 0x14;
-        } while (arg0 != arg1);
+            src++;
+            dst++;
+        } while (src != end);
     }
-    return arg2;
+    return dst;
 }

@@ -1,31 +1,32 @@
-/* machine draft (m2c) for ee-gcc-2.9-991111 -O2 -G0, tried by autopilot */
-#ifndef M2C_DEFINES
-#define M2C_DEFINES
-typedef s32 M2C_UNK;
-typedef s8 M2C_UNK8;
-typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-#define M2C_ERROR(desc) (0)
-#define M2C_CARRY 0
-#define M2C_OVERFLOW(a) (0)
-#endif
-
-M2C_UNK func_003F7820(void *);                      /* extern */
-M2C_UNK func_00401E28(void *, void *, s32, s32);    /* extern */
-extern void *D_004404DC;
-
-void func_00401DB0(void *arg0, s32 arg1, s32 arg2) {
-    void *var_3;
-
-    var_3 = M2C_FIELD(arg0, void **, 0x54);
-    if (var_3 == NULL) {
-        var_3 = D_004404DC;
-        M2C_FIELD(arg0, void **, 0x54) = var_3;
+typedef struct Re
+{
+  u8 pad[0x38];
+  s32 ready;
+} Re;
+typedef struct S54
+{
+  u8 pad[0x54];
+  Re *r;
+} S54;
+extern Re *D_004404DC;
+extern void func_003F7820(Re *);
+extern s32 func_00401E28(Re *, S54 *, s32, s32);
+s32 func_00401DB0(S54 *a, register s32 b, register s32 c)
+{
+  if (!a->r)
+  {
+    do
+    {
+      a->r = D_004404DC;
     }
-    if (M2C_FIELD(var_3, s32 *, 0x38) == 0) {
-        func_003F7820(var_3);
-    }
-    func_00401E28(M2C_FIELD(arg0, void **, 0x54), arg0, arg1, arg2);
+    while (0);
+  }
+  if (!a->r->ready)
+  {
+    func_003F7820(a->r);
+  }
+  a++;
+  a--;
+  return func_00401E28(a->r, a, b, c);
 }
+

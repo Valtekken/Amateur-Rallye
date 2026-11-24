@@ -1,0 +1,2 @@
+extern int func_001E2460(void *,void *);extern int func_001E28F8(void *,void *,void *);extern int func_003FA310(void *,const char *,int);extern char D_004711D0[];
+void func_0018CE40(void *arg0,void *arg1,void *arg2){int i=0;char buf[256],sp100[16];func_001E2460(sp100,arg2);if(*(int*)((char*)arg0+12)>0){do{func_003FA310(buf,D_004711D0,i);func_001E28F8(sp100,buf,(void*)(*(unsigned*)((char*)arg0+16)+i*4));i++;}while(i<*(int*)((char*)arg0+12));}}

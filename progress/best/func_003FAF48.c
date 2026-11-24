@@ -1,6 +1,48 @@
-s32 func_003A0BD8(s32,s32);s32 func_00219DA8(s32,s32);
-s32 func_003A5DC8(register s32 a,register s32 b){func_003A0BD8(a,b);func_00219DA8(a+12,b+12);return a;}
-s8*func_003FAF48(s8*p,s8*q){s32 n;if(!*p)return !*q?p:0;do{n=0;if(!*q)return p;if(*q==*p){do{n++;if(!q[n])return p;}while(q[n]==p[n]);}p++;}while(*p);return 0;}
-s8*func_003FAFE0(s8*p,s8*d,s8**save){s8*q,c,t,*ret;if(!p){p=*save;if(!p)return 0;}again:c=*p++;q=d;while((t=*q++)!=0){if(c==t)goto again;}ret=p-1;if(!c){*save=0;return 0;}for(;;){c=*p++;q=d;do{t=*q++;if(t==c){if(t)p[-1]=0;else p=0;*save=p;return ret;}}while(t);}}
-extern s32 D_004404DC;s64 func_003FB080(s32,s32,s32,s32);
-s64 func_003FB2B8(s32 a,s32 b,s32 c){return func_003FB080(D_004404DC,a,b,c);}
+/* machine draft (m2c) for ee-gcc-2.95.2 -O0 -G0 -O2, tried by autopilot */
+#ifndef M2C_DEFINES
+#define M2C_DEFINES
+typedef s32 M2C_UNK;
+typedef s8 M2C_UNK8;
+typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+#define M2C_ERROR(desc) (0)
+#define M2C_CARRY 0
+#define M2C_OVERFLOW(a) (0)
+#endif
+
+s8 *func_003FAF48(s8 *arg0, s8 *arg1) {
+    s32 var_7;
+    s8 *var_4;
+    s8 temp_6;
+
+    var_4 = arg0;
+    if (*var_4 == 0) {
+        return (*arg1 == 0) ? var_4 : NULL;
+    }
+loop_3:
+    var_7 = 0;
+    if (*arg1 != 0) {
+        if (*arg1 == *var_4) {
+loop_5:
+            var_7 += 1;
+            temp_6 = *(arg1 + var_7);
+            if (temp_6 != 0) {
+                if (temp_6 != *(var_4 + var_7)) {
+                    goto block_7;
+                }
+                goto loop_5;
+            }
+            /* Duplicate return node #2. Try simplifying control flow for better match */
+            return var_4;
+        }
+block_7:
+        var_4 += 1;
+        if (*var_4 != 0) {
+            goto loop_3;
+        }
+        return NULL;
+    }
+    return var_4;
+}

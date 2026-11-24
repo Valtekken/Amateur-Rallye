@@ -1,0 +1,2 @@
+extern void func_00192130(void *,void *); extern void func_001D2900(void *,s32); extern void func_001D4040(void *,void *); extern void func_001E3EC0(s32,void *,void *);
+void func_00192998(void *arg0,void *arg1,void *arg2){s32 tmp; char buf[16]; func_00192130(arg0,arg1); func_001D2900((char *)arg0+12,*(s32 *)((char *)arg0+0x68)); tmp=func_001E4280(); func_001D4040(buf,*(void **)((char *)arg0+12)); func_001E3EC0(tmp,buf,arg2);}

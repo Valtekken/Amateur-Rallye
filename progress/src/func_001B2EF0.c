@@ -1,0 +1,1 @@
+void func_001B2EF0(void *arg0){void *obj,*vt; s16 off; void (*fn)(void*,void*); *(s32*)((u8*)arg0+0xCC)=1; obj=*(void**)((u8*)arg0+0xC8); *(s32*)((u8*)arg0+0xD0)=1; if(obj){vt=*(void**)obj; off=*(s16*)((u8*)vt+0x28); fn=*(void(**)(void*,void*))((u8*)vt+0x2C); fn((u8*)obj+off,obj);}}

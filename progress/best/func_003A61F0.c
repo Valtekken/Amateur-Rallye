@@ -1,10 +1,2 @@
-extern void *func_002AFEB8(s32, void *);
-typedef struct { u8 b[24]; } Block24;
-void *func_003A61F0(register void *arg0, register void *arg1) {
-    register Block24 *ret;
-    ret = (Block24 *)func_002AFEB8(0x18, arg0);
-    if (ret != 0) {
-        *ret = *(Block24 *)arg1;
-    }
-    return ret;
-}
+extern void *func_002AFEB8(s32,void*); typedef struct{u8 b[24];} B;
+void *func_003A61F0(register void *a,register void *b){register B *p=func_002AFEB8(24,a);return p ? (*p=*(B*)b,p) : p;}

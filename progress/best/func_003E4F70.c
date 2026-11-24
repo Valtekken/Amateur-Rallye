@@ -1,56 +1,14 @@
-extern void func_003E0EF0(u32);
-extern void func_003E5348(void *, s32);
-extern s32 func_003E5240(void *, s32);
-extern s32 func_003E5438(void *, s32);
-extern void func_003E5B60(void *);
+extern void func_003E0EF0(u32 arg0);
 
 s32 func_003E4F70(void *arg0) {
     s32 counter = 0;
-    if ((*(volatile u32 *)0x10002010 & 0x80004000) != 0x80000000)
-        return counter;
-    do {
-        if (counter++ >= 0x1389) {
-            func_003E0EF0(*(u32 *)((u8 *)arg0 + 0x858));
-            counter = 0;
-        }
-    } while ((*(volatile u32 *)0x10002010 & 0x80004000) == 0x80000000);
+    if ((*(volatile u32 *)0x10002010 & 0x80004000) == 0x80000000) {
+        do {
+            if (counter++ >= 0x1389) {
+                func_003E0EF0(*(u32 *)((u8 *)arg0 + 0x858));
+                counter = 0;
+            }
+        } while ((*(volatile u32 *)0x10002010 & 0x80004000) == 0x80000000);
+    }
     return counter;
-}
-
-s64 func_003E5018(void *arg0) {
-    s64 res;
-    s32 cnt = 0;
-    res = *(volatile s64 *)0x10002000;
-    if (res >= 0) return res;
-    if ((*(volatile u32 *)0x10002010 & 0x4000) != 0) return res;
-    do {
-        if (cnt++ >= 0x1389) {
-            func_003E0EF0(*(u32 *)((u8 *)arg0 + 0x858));
-            cnt = 0;
-        }
-        res = *(volatile s64 *)0x10002000;
-        if (res >= 0) return res;
-    } while ((*(volatile u32 *)0x10002010 & 0x4000) == 0);
-    return res;
-}
-
-void func_003E5588(void *arg0) {
-    volatile u32 *reg20 = (volatile u32 *)0x10002020;
-    s32 m;
-    func_003E4F70(arg0);
-    m = (-(s32)(*reg20 & 7)) & 7;
-    if (m != 0)
-        func_003E5348(arg0, m);
-    while (func_003E5240(arg0, 0x18) != 1)
-        func_003E5348(arg0, 8);
-}
-
-s32 func_003E5608(void *arg0) {
-    *(s32 *)((u8 *)arg0 + 0x1B4) = func_003E5438(arg0, 5);
-    if (func_003E5438(arg0, 1) == 0)
-        return 0;
-    func_003E5438(arg0, 1);
-    func_003E5348(arg0, 7);
-    func_003E5B60(arg0);
-    return 0;
 }

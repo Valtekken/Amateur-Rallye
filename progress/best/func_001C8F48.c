@@ -1,20 +1,21 @@
-f32 *func_001C8F48(f32 *left, f32 *right, f32 pivot) {
-    f32 *l = left;
-    f32 *r = right;
-    f32 p = pivot;
-    u64 tmp;
-    f32 stack_tmp[4];
-    
-    loop:
-    r -= 2;
-    while (*l < p) l += 2;
-    while (p < *r) r -= 2;
-    if ((u32)l < (u32)r) {
-        tmp = *(u64 *)l;
-        *(u64 *)l = *(u64 *)r;
-        *(u64 *)r = tmp;
-        l += 2;
-        goto loop;
+typedef struct { f32 key; u32 v; } __attribute__((packed)) E8;
+typedef union { u64 q; f32 f; } UF;
+
+E8 *func_001C8F48(E8 *l, E8 *r, u64 pivot) {
+    volatile UF u;
+    E8 tmp;
+    f32 p;
+    u.q = pivot;
+    p = u.f;
+    for (;;) {
+        r--;
+        while (p < *(f32 *)l) l++;
+        while (*(f32 *)r < p) r--;
+        if ((u32)l >= (u32)r) break;
+        tmp = *l;
+        *l = *r;
+        *r = tmp;
+        l++;
     }
     return l;
 }

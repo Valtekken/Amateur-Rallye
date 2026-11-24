@@ -1,123 +1,68 @@
-typedef struct VecElem {
-    f32 x, y, z, w;
-    s32 unk_10;
-} VecElem;
-
-typedef struct Vec {
-    VecElem *begin;
-    VecElem *end;
-    VecElem *cap;
-} Vec;
-
+typedef struct { f32 x, y, z, w; s32 unk; } Elem;
+typedef struct { Elem *begin, *end, *cap; } Vec;
 extern u32 D_0040E618[];
+extern void *func_002B1FC0(s32);
+extern void *func_003D2910(s32);
+extern void func_002B2028(void *);
+extern void *func_00152D28(void *, void *);
+extern void *func_00272EA0(void *, void *, void *, s32);
 
-extern void *func_002B1FC0(s32 size);
-extern void *func_003D2910(s32 size);
-extern void func_002B2028(void *ptr);
-extern void *func_00152D28(void *a0, void *a1);
-extern void *func_00272EA0(void *dst, void *src, void *a2, s32 a3);
+void func_002E81D0(Vec *v, Elem *pos, Elem *val) {
+    Elem *end, *p, *nb, *ne;
+    Elem save;
+    s32 n, size;
+    void *mem;
 
-void func_002E81D0(Vec *arg0, VecElem *arg1, VecElem *arg2) {
-    Vec *s18 = arg0;
-    VecElem *s19 = arg1;
-    VecElem *s17 = arg2;
-    VecElem *s16;
-    s32 s20;
-    VecElem sp_data;
-    VecElem *end = s18->end;
-    VecElem *cap = s18->cap;
-    VecElem *begin = s18->begin;
-    VecElem *prev;
-    VecElem *dst;
-    s32 count;
-    s32 alloc_size;
-    void *alloc_ptr;
-    VecElem *new_end;
-    VecElem *temp;
-
-    if (end != cap) {
-        prev = end - 1;
-        if (end != NULL) {
-            end->x = prev->x;
-            end->y = prev->y;
-            end->z = prev->z;
-            end->w = prev->w;
-            end->unk_10 = prev->unk_10;
-            s18->end = end + 1;
-            s18->end->x = 0;
-            s18->end->y = 0;
-            s18->end->z = 0;
-            s18->end->w = 0;
-            s18->end->unk_10 = 0;
-        }
-        dst = s18->end;
-        s18->end = end + 1;
-        count = (s32)(prev - s19) * (s32)0xCCCCCCCD >> 2;
-        sp_data = *s17;
-        if (count > 0) {
-            do {
-                prev--;
-                dst--;
-                dst->x = prev->x;
-                dst->y = prev->y;
-                dst->z = prev->z;
-                dst->w = prev->w;
-                dst->unk_10 = prev->unk_10;
-                count--;
-            } while (count > 0);
-        }
-        *s19 = sp_data;
-        return;
+    end = v->end;
+    if (end == v->cap) goto grow;
+    if (end != NULL) {
+        p = end - 1;
+        *(u32 *)((char *)end + 4) = 0;
+        *(u32 *)((char *)end + 8) = 0;
+        end->x = p->x; end->y = p->y; end->z = p->z; end->w = p->w; end->unk = p->unk;
     }
-    s20 = (s32)(end - begin) * (s32)0xCCCCCCCD >> 2;
-    if (s20 == 0) {
-        s20 = 1;
-    }
-    alloc_size = s20 * 0x14;
-    if (alloc_size != 0) {
-        alloc_ptr = func_002B1FC0(alloc_size);
-        if (alloc_ptr == NULL) {
-            alloc_ptr = func_003D2910(alloc_size);
+    end = v->end;
+    p = end - 1;
+    v->end = end + 1;
+    n = (s32)(p - pos) * (s32)0xCCCCCCCD >> 2;
+    save.x = val->x; save.y = val->y; save.z = val->z; save.w = val->w; save.unk = val->unk;
+    {
+        Elem *dst = end;
+        while (n > 0) {
+            p--; dst--;
+            dst->x = p->x; dst->y = p->y; dst->z = p->z; dst->w = p->w; dst->unk = p->unk;
+            n--;
         }
+    }
+    pos->x = save.x; pos->y = save.y; pos->z = save.z; pos->w = save.w; pos->unk = save.unk;
+    return;
+grow:
+    n = (s32)(end - v->begin) * (s32)0xCCCCCCCD >> 2;
+    size = n ? n * 2 : 1;
+    size *= 20;
+    if (size != 0) {
+        mem = func_002B1FC0(size);
+        if (mem == NULL) mem = func_003D2910(size);
     } else {
         if (D_0040E618[-1] != 0) {
-            alloc_ptr = (void *)D_0040E618[-1];
-            D_0040E618[-1] = *(u32 *)alloc_ptr;
+            mem = (void *)D_0040E618[-1];
+            D_0040E618[-1] = *(u32 *)mem;
         } else {
-            alloc_ptr = func_00152D28(NULL, (void *)&D_0040E618[-1]);
+            mem = func_00152D28(NULL, &D_0040E618[-1]);
         }
     }
-    s16 = (VecElem *)alloc_ptr;
-    new_end = func_00272EA0(begin, s19, s16, 0);
-    if (new_end != NULL) {
-        new_end->x = 0;
-        new_end->y = 0;
-        new_end->z = 0;
-        new_end->w = 0;
-        new_end->unk_10 = 0;
-        new_end->x = s17->x;
-        new_end->y = s17->y;
-        new_end->z = s17->z;
-        new_end->w = s17->w;
-        new_end->unk_10 = s17->unk_10;
+    nb = (Elem *)mem;
+    ne = func_00272EA0(v->begin, pos, nb, 0);
+    if (ne != NULL) {
+        ne->x = 0; ne->y = 0; ne->z = 0;
+        ne->x = val->x; ne->y = val->y; ne->z = val->z; ne->w = val->w; ne->unk = val->unk;
     }
-    temp = func_00272EA0(s19, end, new_end + 1, 0);
-    dst = begin;
-    if ((u32)dst < (u32)end) {
-        do {
-            dst++;
-        } while ((u32)dst < (u32)end);
+    {
+        Elem *dst = func_00272EA0(pos, v->end, ne + 1, 0);
+        n = (s32)(v->cap - v->begin) * (s32)0xCCCCCCCD >> 2;
+        if (n != 0) func_002B2028(v->begin);
+        v->end = dst;
+        v->begin = nb;
+        v->cap = nb + n;
     }
-    count = (s32)(cap - begin) * (s32)0xCCCCCCCD >> 2;
-    if (count != 0) {
-        if (count * 0x14 != 0) {
-            func_002B2028(begin);
-        } else {
-            *(u32 *)begin = D_0040E618[-1];
-            D_0040E618[-1] = (u32)begin;
-        }
-    }
-    s18->end = temp;
-    s18->begin = s16;
-    s18->cap = s16 + s20;
 }

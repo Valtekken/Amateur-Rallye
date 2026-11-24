@@ -36,7 +36,7 @@ static void release_ref(void *p) {
     }
 }
 
-void func_003D16A8(s32 arg0) {
+void func_003D16A8(register s32 arg0) {
     void *sp10;
     void *sp4;
     void *sp0;

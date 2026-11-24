@@ -1,0 +1,1 @@
+typedef struct { u32 data[9]; } S; extern void func_00205628(void *,void *); extern void func_0027C7A0(void *); void func_0027C6A8(void *a,void *b){*(S*)((char*)a+0xBC)=*(S*)b; func_00205628((char*)a+0xAC,(char*)a+0xBC); func_0027C7A0(a);}

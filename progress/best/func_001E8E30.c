@@ -4,6 +4,7 @@ typedef struct
   u32 *p;
   int bit;
 } Iter;
+
 typedef struct 
 {
   int z[2];
@@ -20,6 +21,7 @@ typedef struct
   int pad40[2];
   Iter solid;
 } Surface;
+
 typedef struct 
 {
   int a;
@@ -35,6 +37,7 @@ typedef struct
   } v;
   int name;
 } Parser;
+
 extern void *D_002AD408(int);
 extern char *func_001D4010(int *);
 extern void func_001D4040(void *, const char *);
@@ -42,7 +45,7 @@ extern void func_001E2460(void *, void *);
 extern void func_001E2E38(void *, void *, void *);
 extern void func_001E2C08(void *, void *, float);
 extern void func_001E2B98(void *, void *, int);
-extern void func_003FA310(void *, const char *, int);
+extern int func_003FA310(void *, const char *, int);
 extern char D_0044DD18[];
 extern char D_00477070[];
 extern char D_00477088[];
@@ -51,7 +54,8 @@ extern char D_004770B0[];
 extern char D_004770C8[];
 extern char D_004770E0[];
 extern char D_004770F8[];
-inline static Iter *advance(Iter *it, int i)
+
+static inline Iter *advance(Iter *it, int i)
 {
   int n = i + it->bit;
   int q = n / 32;
@@ -67,18 +71,18 @@ inline static Iter *advance(Iter *it, int i)
   return it;
 }
 
-inline static void *initstr(void *p, const char *s)
+static inline void *initstr(void *p, const char *s)
 {
   func_001D4040(p, s);
   return p;
 }
 
-inline static void initvec(void *v)
+static inline void initvec(void *v)
 {
   int *a = v;
-  a[0] = 0;
   a[2] = 0;
   a[1] = 0;
+  a[0] = 0;
 }
 
 void *func_001E8E30(Surface *s)
@@ -94,25 +98,25 @@ void *func_001E8E30(Surface *s)
     } ref;
   } tmp;
   Iter result;
-  int new_var2;
+  int i = 0;
   Iter begin;
   Iter it;
   char *new_var;
   int parser[4];
   Parser *p;
-  int i = 0;
+  int zero = 0;
+  
   p = D_002AD408(36);
   func_001D4040(buf, D_00477070);
-  p->c = 0;
-  new_var2 = 0;
-  p->d = 0;
-  p->b = 0;
-  p->a = new_var2;
+  p->c = zero;
+  p->d = zero;
+  p->b = zero;
+  p->a = zero;
   p->vt = D_0044DD18;
   initvec(&p->v);
   p->name = *((int *) buf);
   func_001E2460(parser, p);
-  if (s->count > new_var2)
+  if (s->count > zero)
   {
     do
     {
@@ -143,4 +147,3 @@ void *func_001E8E30(Surface *s)
   }
   return p;
 }
-

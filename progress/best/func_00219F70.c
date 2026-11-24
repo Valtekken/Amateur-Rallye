@@ -1,98 +1,10 @@
-/* machine draft (m2c) for ee-gcc-2.95.2 -O2 -G0 -fno-schedule-insns, tried by autopilot */
-#ifndef M2C_DEFINES
-#define M2C_DEFINES
-typedef s32 M2C_UNK;
-typedef s8 M2C_UNK8;
-typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-#define M2C_ERROR(desc) (0)
-#define M2C_CARRY 0
-#define M2C_OVERFLOW(a) (0)
-#endif
-
-M2C_UNK *func_00152D28(M2C_UNK);                    /* extern */
-M2C_UNK *func_002B1FC0(s32);                        /* extern */
-M2C_UNK *func_003D2910(s32);                        /* extern */
-M2C_UNK func_003F93CC(M2C_UNK *, s32, s32);         /* extern */
-extern M2C_UNK D_0040E618;
-
-void *func_00219F70(void *arg0, void *arg1) {
-    M2C_UNK *temp_2_2;
-    M2C_UNK *temp_2_5;
-    M2C_UNK *var_17;
-    M2C_UNK *var_17_2;
-    s32 temp_16;
-    s32 temp_16_2;
-    s32 temp_2;
-    s32 temp_2_3;
-    s32 temp_2_4;
-    s32 temp_5;
-    s32 var_16;
-    s32 var_16_2;
-    void *temp_20;
-    void *temp_21;
-
-    M2C_FIELD(arg0, M2C_UNK **, 0) = NULL;
-    M2C_FIELD(arg0, M2C_UNK **, 4) = NULL;
-    temp_2 = (s32) (M2C_FIELD(arg1, s32 *, 4) - M2C_FIELD(arg1, s32 *, 0)) >> 2;
-    M2C_FIELD(arg0, void **, 8) = NULL;
-    if (temp_2 != 0) {
-        var_16 = temp_2 * 4;
-        if (var_16 != 0) {
-            temp_2_2 = func_002B1FC0(var_16);
-            var_17 = temp_2_2;
-            if (temp_2_2 == NULL) {
-                var_17 = func_003D2910(var_16);
-            }
-        } else if (M2C_FIELD(&D_0040E618, M2C_UNK **, -4) != NULL) {
-            var_17 = M2C_FIELD(&D_0040E618, M2C_UNK **, -4);
-            M2C_FIELD(&D_0040E618, M2C_UNK **, -4) = (M2C_UNK *) *M2C_FIELD(&D_0040E618, M2C_UNK **, -4);
-        } else {
-            var_17 = func_00152D28(0);
-        }
-    } else {
-        var_17 = NULL;
-        var_16 = 0;
-    }
-    M2C_FIELD(arg0, M2C_UNK **, 0) = var_17;
-    M2C_FIELD(arg0, void **, 8) = (void *) (var_17 + var_16);
-    M2C_FIELD(arg0, M2C_UNK **, 4) = var_17;
-    temp_21 = arg1 + 0xC;
-    temp_20 = arg0 + 0xC;
-    temp_2_3 = M2C_FIELD(arg1, s32 *, 0);
-    temp_16 = M2C_FIELD(arg1, s32 *, 4) - temp_2_3;
-    func_003F93CC(var_17, temp_2_3, (temp_16 >> 2) * 4);
-    M2C_FIELD(arg0, M2C_UNK **, 4) = (M2C_UNK *) (var_17 + temp_16);
-    M2C_FIELD(arg0, M2C_UNK **, 0xC) = NULL;
-    M2C_FIELD(temp_20, M2C_UNK **, 4) = NULL;
-    temp_2_4 = (s32) (M2C_FIELD(temp_21, s32 *, 4) - M2C_FIELD(arg1, s32 *, 0xC)) >> 2;
-    M2C_FIELD(temp_20, void **, 8) = NULL;
-    if (temp_2_4 != 0) {
-        var_16_2 = temp_2_4 * 4;
-        if (var_16_2 != 0) {
-            temp_2_5 = func_002B1FC0(var_16_2);
-            var_17_2 = temp_2_5;
-            if (temp_2_5 == NULL) {
-                var_17_2 = func_003D2910(var_16_2);
-            }
-        } else if (M2C_FIELD(&D_0040E618, M2C_UNK **, -4) != NULL) {
-            var_17_2 = M2C_FIELD(&D_0040E618, M2C_UNK **, -4);
-            M2C_FIELD(&D_0040E618, M2C_UNK **, -4) = (M2C_UNK *) *M2C_FIELD(&D_0040E618, M2C_UNK **, -4);
-        } else {
-            var_17_2 = func_00152D28(0);
-        }
-    } else {
-        var_17_2 = NULL;
-        var_16_2 = 0;
-    }
-    M2C_FIELD(arg0, M2C_UNK **, 0xC) = var_17_2;
-    M2C_FIELD(temp_20, M2C_UNK **, 4) = var_17_2;
-    M2C_FIELD(temp_20, void **, 8) = (void *) (var_17_2 + var_16_2);
-    temp_5 = M2C_FIELD(arg1, s32 *, 0xC);
-    temp_16_2 = M2C_FIELD(temp_21, s32 *, 4) - temp_5;
-    func_003F93CC(var_17_2, temp_5, (temp_16_2 >> 2) * 4);
-    M2C_FIELD(temp_20, M2C_UNK **, 4) = (M2C_UNK *) (var_17_2 + temp_16_2);
-    return arg0;
-}
+typedef struct {int *begin,*end,*cap;} V; typedef struct {V v[2];} V2;
+extern void *func_00152D28(unsigned);extern void *func_002B1FC0(unsigned);extern void *func_003D2910(unsigned);extern void func_003F93CC(void*,const void*,unsigned);extern u32 D_0040E618[];
+static inline void *alloc(unsigned z){void*q=func_002B1FC0(z);if(!q)q=func_003D2910(z);return q;}
+static inline void *zeroalloc(void){int*q=(int*)D_0040E618[-1];if(!q)return func_00152D28(0);D_0040E618[-1]=*q;return q;}
+static inline void copy(V*d,V*s){unsigned n,bytes;int*p;volatile int allocator;
+n=s->end-s->begin;d->begin=0;d->end=0;d->cap=0;
+if(n){bytes=n*4;if(bytes)p=alloc(bytes);else p=zeroalloc();}else{p=0;bytes=0;}
+d->begin=p;d->end=p;d->cap=(int*)((char*)p+bytes);
+{int*sb=s->begin;int diff=(char*)s->end-(char*)sb;func_003F93CC(p,sb,(diff>>2)*4);d->end=(int*)((char*)p+diff);}}
+V2 *func_00219F70(V2*a,V2*b){volatile int allocator2[4];copy(&a->v[0],&b->v[0]);copy(&a->v[1],&b->v[1]);return a;}
