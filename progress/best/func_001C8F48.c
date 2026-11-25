@@ -1,4 +1,4 @@
-typedef struct { f32 key; u32 v; } __attribute__((packed)) E8;
+typedef struct { f32 key; u32 v; } E8;
 typedef union { u64 q; f32 f; } UF;
 
 E8 *func_001C8F48(E8 *l, E8 *r, u64 pivot) {
@@ -7,10 +7,22 @@ E8 *func_001C8F48(E8 *l, E8 *r, u64 pivot) {
     f32 p;
     u.q = pivot;
     p = u.f;
-    for (;;) {
-        r--;
-        while (p < *(f32 *)l) l++;
-        while (*(f32 *)r < p) r--;
+    r--;
+    while (1) {
+        s32 c1;
+        while (1) {
+            f32 key = l->key;
+            c1 = p < key;
+            if (!c1) break;
+            l++;
+        }
+        s32 c2;
+        while (1) {
+            f32 key = r->key;
+            c2 = key < p;
+            if (!c2) break;
+            r--;
+        }
         if ((u32)l >= (u32)r) break;
         tmp = *l;
         *l = *r;

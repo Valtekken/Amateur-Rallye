@@ -20,17 +20,14 @@ typedef struct Tbl {
 } Tbl;
 
 void func_002DFA58(Tbl *arg0, u32 arg1) {
-    s32 sp0 = 0;
-    s32 sp4 = 0;
-    s32 sp8 = 0;
-    u64 sp20 = 0;
-    s32 sp28 = 0;
+    s32 sp[11];
 
     s32 temp_20 = (arg0->end - arg0->begin) >> 2;
     if ((u32)temp_20 < arg1) {
-        void *temp_16 = (void *)((char *)D_00483F78 + 0xE0);
-        sp20 = arg1;
-        s64 *temp_2 = func_00152F00(D_00483F78, temp_16, &sp20, 0);
+        s64 *base = D_00483F78;
+        void *temp_16 = (char *)base + 0xE0;
+        *(u64 *)&sp[8] = arg1;
+        s64 *temp_2 = func_00152F00(base, temp_16, (u64 *)&sp[8], 0);
         s32 var_2;
         if (temp_2 != temp_16) {
             var_2 = (s32)*temp_2;
@@ -39,10 +36,10 @@ void func_002DFA58(Tbl *arg0, u32 arg1) {
         }
         s32 temp_16_2 = var_2;
         if ((u32)temp_20 < (u32)temp_16_2) {
-            sp28 = 0;
-            sp0 = 0;
-            sp4 = 0;
-            sp8 = 0;
+            sp[10] = 0;
+            sp[0] = 0;
+            sp[1] = 0;
+            sp[2] = 0;
             s32 var_18;
             void *var_3;
             if (temp_16_2 != 0) {
@@ -65,10 +62,10 @@ void func_002DFA58(Tbl *arg0, u32 arg1) {
                 var_3 = NULL;
                 var_18 = 0;
             }
-            sp0 = (s32)var_3;
-            sp4 = (s32)var_3;
-            sp8 = (s32)var_3 + var_18;
-            sp4 = func_002DEEE8(var_3, temp_16_2, &sp28);
+            sp[0] = (s32)var_3;
+            sp[1] = (s32)var_3;
+            sp[2] = (s32)var_3 + var_18;
+            sp[1] = func_002DEEE8(var_3, temp_16_2, &sp[10]);
 
             s32 i = 0;
             if (temp_20 != 0) {
@@ -80,8 +77,8 @@ void func_002DFA58(Tbl *arg0, u32 arg1) {
                         do {
                             u32 mod = (u32)key % (u32)temp_16_2;
                             ((Node **)(arg0->begin))[i] = node->next;
-                            node->next = ((Node **)(sp0))[mod];
-                            ((Node **)(sp0))[mod] = node;
+                            node->next = ((Node **)(sp[0]))[mod];
+                            ((Node **)(sp[0]))[mod] = node;
                             node = ((Node **)(arg0->begin))[i];
                             if (node != NULL) {
                                 key = node->key;
@@ -96,12 +93,12 @@ void func_002DFA58(Tbl *arg0, u32 arg1) {
             s32 old_cap = arg0->cap;
             s32 old_end = arg0->end;
             s32 old_capacity_count = (old_cap - old_begin) >> 2;
-            arg0->begin = sp0;
-            arg0->cap = sp8;
-            arg0->end = sp4;
-            sp4 = old_end;
-            sp0 = old_begin;
-            sp8 = old_cap;
+            arg0->begin = sp[0];
+            arg0->cap = sp[2];
+            arg0->end = sp[1];
+            sp[1] = old_end;
+            sp[0] = old_begin;
+            sp[2] = old_cap;
             if (old_capacity_count != 0) {
                 if (old_capacity_count * 4 != 0) {
                     func_002B2028((void *)old_begin);

@@ -13,7 +13,7 @@ int func_003EFBA8(register int *self,register int *arg) {
  func_00151A28(&str,0,-1,p,func_003FA9B8(p));
  p=func_001D4010(arg); func_00151A28(&str,*(int*)(str-16),0,p,func_003FA9B8(p));
  p=D_0048B3D8; func_00151A28(&str,*(int*)(str-16),0,p,func_003FA9B8(p));
- n=*(int*)(str-16); path=D_0048B370; if(n){str[n]=0;path=str;}
+ if(*(int*)(str-16)){str[*(int*)(str-16)]=0;path=str;}else path=D_0048B370;
  if(func_002AA520(tmp,path,self[1])) func_003F9698(D_0048B378,func_001D4010(arg));
  else func_003F9698(D_0048B3A0,func_001D4010(arg));
  res=self[1]; p=str-16; *(int*)(p+8)-=1; n=*(int*)(p+8);

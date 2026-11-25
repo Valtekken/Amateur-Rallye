@@ -17,7 +17,7 @@ inline s32 *inline_fn(void *arg0)
   return (s32 *) (((s8 *) arg0) + 0x20);
 }
 
-void func_002535E8(void **arg1, void **arg2)
+void func_002535E8(void *unused, void **arg1, void **arg2)
 {
   s32 temp_16;
   s8 *new_var;
@@ -53,4 +53,3 @@ void func_002535E8(void **arg1, void **arg2)
     while (var_18 != (*arg2));
   }
 }
-

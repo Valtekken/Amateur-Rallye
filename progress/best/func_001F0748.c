@@ -1,52 +1,17 @@
-extern s32 func_001F0408(void *a0, void *a1);
-extern s32 func_001F0468(void *a0, void *a1);
-
-s32 func_001F06B8(void *arg0, void *arg1, s32 arg2) {
-    s32 i;
-    s32 ok;
-    char *p;
-    void *a1;
-
-    ok = 1;
-    i = 0;
-    if (arg2 > 0) {
-        p = (char *)arg1;
-        a1 = p;
-        goto loop;
-        while (1) {
-        loop:
-            ok = ok & (func_001F0408(arg0, a1) != 0);
-            i++;
-            p += 0x10;
-            if (i >= arg2) break;
-            a1 = p;
-            if (ok != 1) break;
-        }
-    }
-    return ok;
-}
+extern s32 func_001F0468(void *arg0, void *arg1);
 
 s32 func_001F0748(void *arg0, void *arg1, s32 arg2) {
-    s32 i;
-    s32 ok;
-    char *p;
-    void *a1;
-
-    ok = 1;
-    i = 0;
+    s32 ok = 1;
+    s32 i = 0;
     if (arg2 > 0) {
-        p = (char *)arg1;
-        a1 = p;
-        goto loop;
-        while (1) {
-        loop:
-            ok = ok & (func_001F0468(arg0, a1) != 0);
-            i++;
+        char *p = arg1;
+        do {
+            s32 r = func_001F0468(arg0, p);
+            s32 b = r != 0;
+            ok &= b;
+            i += 1;
             p += 0x34;
-            if (i >= arg2) break;
-            a1 = p;
-            if (ok != 1) break;
-        }
+        } while (i < arg2 && ok == 1);
     }
     return ok;
 }

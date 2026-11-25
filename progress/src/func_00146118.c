@@ -1,0 +1,42 @@
+extern u8 D_0044CB00[];
+extern const char D_0044BF40[];
+extern void func_001D4040(void *, const char *);
+
+void *func_00146118(void *arg0) {
+    s32 *p = (s32 *)arg0;
+    s32 sp[32];
+    s32 *a, *b, *c, *d, *e, *f, *g;
+    void *ret = arg0;
+    (void)sp;
+    func_001D4040(sp, D_0044BF40);
+    p[1] = sp[0];
+    a = p + 6;
+    p[0] = -1;
+    b = p + 9;
+    p[2] = (s32)D_0044CB00;
+    c = p + 12;
+    a[0] = 0;
+    d = p + 15;
+    a[2] = (a[1] = 0);
+    e = p + 18;
+    b[0] = 0;
+    f = p + 21;
+    b[2] = (b[1] = 0);
+    g = p + 24;
+    c[0] = 0;
+    c[2] = (c[1] = 0);
+    d[0] = 0;
+    d[2] = (d[1] = 0);
+    e[0] = 0;
+    e[2] = (e[1] = 0);
+    f[0] = 0;
+    f[2] = (f[1] = 0);
+    g[0] = 0;
+    g[2] = (g[1] = 0);
+    p[0x6C / 4] = 0;
+    *(f32 *)((char *)arg0 + 0x7C) = 100.0f;
+    *(f32 *)((char *)arg0 + 0x80) = 100.0f;
+    *(f32 *)((char *)arg0 + 0x88) = 100.0f;
+    *(f32 *)((char *)arg0 + 0x84) = 100.0f;
+    return ret;
+}

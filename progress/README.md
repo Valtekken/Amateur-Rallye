@@ -9,11 +9,11 @@ judge accepted them as matches.
 <!-- decompdecomp:details:start -->
 - **Game:** Master Rallye
 - **Platform:** ps2
-- **Compiler:** ee-gcc-2.9-991111
+- **Compiler:** ee-gcc-2.95.2
 <!-- decompdecomp:details:end -->
 <!-- decompdecomp:progress:start -->
-- **Progress:** 7457 matching function(s), 2879 best attempt(s)
-- **Completion:** 7,457 / 12,322 functions (60.5%). 283 set aside, excluded from completion.
+- **Progress:** 7620 matching function(s), 2900 best attempt(s)
+- **Completion:** 7,620 / 12,320 functions (61.9%). 285 set aside, excluded from completion.
 <!-- decompdecomp:progress:end -->
 
 ## What's in this folder

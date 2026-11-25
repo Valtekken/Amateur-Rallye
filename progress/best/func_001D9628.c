@@ -31,22 +31,14 @@ void func_001D9628(u32 arg0, u32 arg1, u32 arg2, u32 arg3) {
         sp10 = temp_2;
         temp_2_2 = temp_2 + ((temp_5_2 == 0) ? sp10 : (s32)sp14);
         var_22 = temp_2_2 * 8;
-        if (temp_2_2 != 0) {
-            if (var_22 != 0) {
-                temp_21 = func_002B1FC0(var_22, temp_5_2, &sp10);
-                var_20 = temp_21;
-                if (temp_21 == 0) {
-                    var_20 = func_003D2910(var_22);
-                }
-            } else if (D_0040E618[-1] != 0) {
-                var_20 = D_0040E618[-1];
-                D_0040E618[-1] = *(u32 *)D_0040E618[-1];
-            } else {
-                var_20 = func_00152D28(0, temp_5_2, D_0040E618[-1]);
+        if (var_22 != 0) {
+            temp_21 = func_002B1FC0(var_22, temp_5_2, &sp10);
+            var_20 = temp_21;
+            if (temp_21 == 0) {
+                var_20 = func_003D2910(var_22);
             }
         } else {
             var_20 = 0;
-            var_22 = 0;
         }
         temp_16 = b->unk4;
         temp_21 = func_001D9F40(arg1, b->unk4, func_001D9598(func_001D9F40(b->unk0, arg1, var_20, 0), sp14, arg3, 0), 0);
@@ -62,25 +54,19 @@ void func_001D9628(u32 arg0, u32 arg1, u32 arg2, u32 arg3) {
                     if (((s32 *)(temp_4 + 4))[0] + 0x10 == 0) {
                         *(u32 *)temp_3 = D_0040E618[-1];
                         D_0040E618[-1] = temp_4;
-                        goto block_48;
+                    } else {
+                        var_16 += 8;
+                        func_002B2028(temp_4, 0);
+                        continue;
                     }
-                    var_16 += 8;
-                    func_002B2028(temp_4, 0);
-                } else {
-block_48:
-                    var_16 += 8;
                 }
+                var_16 += 8;
             } while (var_16 < temp_16);
         }
         temp_4_2 = b->unk0;
         temp_2_5 = (s32)((s32)(b->unk8 - temp_4_2) >> 3);
         if (temp_2_5 != 0) {
-            if ((u32)(temp_2_5 * 8) != 0) {
-                func_002B2028(temp_4_2, 0);
-            } else {
-                *(u32 *)temp_4_2 = D_0040E618[-1];
-                D_0040E618[-1] = temp_4_2;
-            }
+            func_002B2028(temp_4_2, 0);
         }
         b->unk4 = temp_21;
         b->unk8 = (s32)(var_20 + var_22);
@@ -109,7 +95,7 @@ block_48:
                 do {
                     var_17 -= 8;
                     var_16_2 -= 8;
-                    if (var_16_2 != var_17) {
+if (var_16_2 != var_17) {
                         temp_3_4 = *(u32 *)var_17;
                         temp_4_4 = temp_3_4 - 0x10;
                         temp_2_6 = ((s32 *)(temp_4_4 + 8))[0] - 1;

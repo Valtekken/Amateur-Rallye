@@ -1,38 +1,51 @@
-extern s32 func_0023E538(void *);
-#define V4(p,o) (*(volatile f32 *)((u8 *)(p)+(o)))
-#define V4I(p,o) (*(volatile s32 *)((u8 *)(p)+(o)))
+void func_0023E538(void *);
 
-void func_0023E3E8(void *arg0, s32 arg1, s32 arg2, void *arg3, void *arg4, s32 arg5, void *arg6, void *arg7, f32 f0, f32 f1, f32 f2, f32 f3, s32 sp0, s32 sp8) {
-    volatile f32 *p2, *p3, *p4;
-    u8 *b = (u8 *)arg0;
+void func_0023E3E8(void *arg0, s32 arg1, s32 arg2, void *arg3, void *arg4, s32 arg5, void *arg6, void *arg7, f32 fparg0, f32 fparg1, f32 fparg2, f32 fparg3, s32 arg_sp0, s32 arg_sp8) {
+    // Declare pointers in the order the target initializes them
+    void *p2 = (u8 *)arg0 + 0xC;
+    void *p3 = (u8 *)arg0 + 0x2C;
+    void *p4 = (u8 *)arg0 + 0x38;
+    
     func_0023E538(arg0);
-    V4I(b,0x4C) = arg1;
-    V4I(b,0x50) = arg2;
-    p2 = (volatile f32 *)(b + 0xC);
-    p3 = (volatile f32 *)(b + 0x2C);
-    p4 = (volatile f32 *)(b + 0x38);
-    V4(b,0x0) = V4(arg3,0x0);
-    V4(b,0x4) = V4(arg3,0x4);
-    V4(b,0x8) = V4(arg3,0x8);
-    V4(b,0xC) = V4(arg4,0x0);
-    p2[1] = V4(arg4,0x4);
-    p2[2] = V4(arg4,0x8);
-    V4(b,0x18) = f0;
-    V4(b,0x1C) = f1;
-    V4(b,0x20) = f2;
-    V4(b,0x24) = f3;
-    V4I(b,0x28) = arg5;
-    {
-        s32 v0 = *(volatile s32 *)&sp0;
-        V4(b,0x2C) = V4(arg6,0x0);
-        p3[1] = V4(arg6,0x4);
-        p3[2] = V4(arg6,0x8);
-        V4(b,0x38) = V4(arg7,0x0);
-        p4[1] = V4(arg7,0x4);
-        p4[2] = V4(arg7,0x8);
-        V4I(b,0x44) = v0;
-    }
-    V4I(b,0x48) = sp8;
-    V4I(b,0xD4) = 0;
-    V4I(b,0xD8) = 0;
+    
+    *(volatile s32 *)((u8 *)arg0 + 0x4C) = arg1;
+    *(volatile s32 *)((u8 *)arg0 + 0x50) = arg2;
+    
+    // arg3 stores - use arg3 directly (target keeps in $s1)
+    *(volatile f32 *)((u8 *)arg0 + 0x00) = *(volatile f32 *)((u8 *)arg3 + 0x00);
+    *(volatile f32 *)((u8 *)arg0 + 0x04) = *(volatile f32 *)((u8 *)arg3 + 0x04);
+    *(volatile f32 *)((u8 *)arg0 + 0x08) = *(volatile f32 *)((u8 *)arg3 + 0x08);
+    
+    // arg4 stores - use p2 and arg4 (target: $v0=p2, $s2=arg4)
+    *(volatile f32 *)((u8 *)p2 + 0x00) = *(volatile f32 *)((u8 *)arg4 + 0x00);
+    *(volatile f32 *)((u8 *)p2 + 0x04) = *(volatile f32 *)((u8 *)arg4 + 0x04);
+    *(volatile f32 *)((u8 *)p2 + 0x08) = *(volatile f32 *)((u8 *)arg4 + 0x08);
+    
+    // fparg stores
+    *(volatile f32 *)((u8 *)arg0 + 0x18) = fparg0;
+    *(volatile f32 *)((u8 *)arg0 + 0x1C) = fparg1;
+    *(volatile f32 *)((u8 *)arg0 + 0x20) = fparg2;
+    *(volatile f32 *)((u8 *)arg0 + 0x24) = fparg3;
+    
+    // arg5
+    *(volatile s32 *)((u8 *)arg0 + 0x28) = arg5;
+    
+    // stack arg0
+    s32 v0 = *(volatile s32 *)&arg_sp0;
+    
+    // arg6 stores - use p3 and arg6 (target: $v1=p3, $s3=arg6)
+    *(volatile f32 *)((u8 *)arg0 + 0x2C) = *(volatile f32 *)((u8 *)arg6 + 0x00);
+    *(volatile f32 *)((u8 *)p3 + 0x04) = *(volatile f32 *)((u8 *)arg6 + 0x04);
+    *(volatile f32 *)((u8 *)p3 + 0x08) = *(volatile f32 *)((u8 *)arg6 + 0x08);
+    
+    // arg7 stores - use p4 and arg7 (target: $a0=p4, $s4=arg7)
+    *(volatile f32 *)((u8 *)arg0 + 0x38) = *(volatile f32 *)((u8 *)arg7 + 0x00);
+    *(volatile f32 *)((u8 *)p4 + 0x04) = *(volatile f32 *)((u8 *)arg7 + 0x04);
+    *(volatile f32 *)((u8 *)p4 + 0x08) = *(volatile f32 *)((u8 *)arg7 + 0x08);
+    
+    *(volatile s32 *)((u8 *)arg0 + 0x44) = v0;
+    *(volatile s32 *)((u8 *)arg0 + 0x48) = arg_sp8;
+    
+    *(volatile s32 *)((u8 *)arg0 + 0xD4) = 0;
+    *(volatile s32 *)((u8 *)arg0 + 0xD8) = 0;
 }
