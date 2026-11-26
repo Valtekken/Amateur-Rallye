@@ -1,19 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="840" height="710" viewBox="0 0 840 710" role="img" aria-labelledby="title desc">
-<title id="title">7,620 / 12,320 functions matched (61.9%)</title>
+<title id="title">7,643 / 12,320 functions matched (62.0%)</title>
 <desc id="desc">Completion excludes set-aside functions. Green: matched; gold: attempted; grey: open; red: set aside.</desc>
 <rect width="840" height="710" rx="12" fill="#0f172a"/>
 <g font-family="sans-serif" fill="#f1f5f9">
 <text x="20" y="32" font-size="20">Decompilation progress</text>
 <text x="820" y="32" text-anchor="end" font-size="16">ps2</text>
-<text x="20" y="59" font-size="16">7,620 / 12,320 functions matched (61.9%)</text>
+<text x="20" y="59" font-size="16">7,643 / 12,320 functions matched (62.0%)</text>
 <rect x="20" y="74" width="800" height="18" rx="4" fill="#334155"/>
-<rect x="20" y="74" width="494.805" height="18" rx="4" fill="#238636"/>
+<rect x="20" y="74" width="496.299" height="18" rx="4" fill="#238636"/>
 <rect x="20" y="108" width="10" height="10" fill="#238636"/>
-<text x="36" y="118" font-size="13">Matched: 7,620</text>
+<text x="36" y="118" font-size="13">Matched: 7,643</text>
 <rect x="220" y="108" width="10" height="10" fill="#bf8700"/>
-<text x="236" y="118" font-size="13">Attempt: 2,888</text>
+<text x="236" y="118" font-size="13">Attempt: 2,950</text>
 <rect x="420" y="108" width="10" height="10" fill="#64748b"/>
-<text x="436" y="118" font-size="13">Open: 1,812</text>
+<text x="436" y="118" font-size="13">Open: 1,727</text>
 <rect x="620" y="108" width="10" height="10" fill="#b54747"/>
 <text x="636" y="118" font-size="13">Aside: 285</text>
 <text x="20" y="144" font-size="12">Function map: up to 3 function(s) per tile</text>
@@ -534,8 +534,9 @@
 <g><title>Functions 430–432: {&#x27;matched&#x27;: 3}</title>
 <rect x="650.000" y="170" width="8.000" height="8" fill="#238636"/>
 </g>
-<g><title>Functions 433–435: {&#x27;attempt&#x27;: 3}</title>
-<rect x="660.000" y="170" width="8.000" height="8" fill="#bf8700"/>
+<g><title>Functions 433–435: {&#x27;matched&#x27;: 1, &#x27;attempt&#x27;: 2}</title>
+<rect x="660.000" y="170" width="2.667" height="8" fill="#238636"/>
+<rect x="662.667" y="170" width="5.333" height="8" fill="#bf8700"/>
 </g>
 <g><title>Functions 436–438: {&#x27;attempt&#x27;: 1, &#x27;open&#x27;: 1, &#x27;matched&#x27;: 1}</title>
 <rect x="670.000" y="170" width="2.667" height="8" fill="#238636"/>
@@ -901,9 +902,8 @@
 <g><title>Functions 709–711: {&#x27;matched&#x27;: 3}</title>
 <rect x="780.000" y="180" width="8.000" height="8" fill="#238636"/>
 </g>
-<g><title>Functions 712–714: {&#x27;matched&#x27;: 2, &#x27;attempt&#x27;: 1}</title>
-<rect x="790.000" y="180" width="5.333" height="8" fill="#238636"/>
-<rect x="795.333" y="180" width="2.667" height="8" fill="#bf8700"/>
+<g><title>Functions 712–714: {&#x27;matched&#x27;: 3}</title>
+<rect x="790.000" y="180" width="8.000" height="8" fill="#238636"/>
 </g>
 <g><title>Functions 715–717: {&#x27;open&#x27;: 2, &#x27;attempt&#x27;: 1}</title>
 <rect x="800.000" y="180" width="2.667" height="8" fill="#bf8700"/>
@@ -1916,9 +1916,9 @@
 <rect x="312.667" y="220" width="2.667" height="8" fill="#bf8700"/>
 <rect x="315.333" y="220" width="2.667" height="8" fill="#64748b"/>
 </g>
-<g><title>Functions 1,531–1,533: {&#x27;open&#x27;: 2, &#x27;attempt&#x27;: 1}</title>
-<rect x="320.000" y="220" width="2.667" height="8" fill="#bf8700"/>
-<rect x="322.667" y="220" width="5.333" height="8" fill="#64748b"/>
+<g><title>Functions 1,531–1,533: {&#x27;open&#x27;: 1, &#x27;attempt&#x27;: 2}</title>
+<rect x="320.000" y="220" width="5.333" height="8" fill="#bf8700"/>
+<rect x="325.333" y="220" width="2.667" height="8" fill="#64748b"/>
 </g>
 <g><title>Functions 1,534–1,536: {&#x27;matched&#x27;: 1, &#x27;open&#x27;: 2}</title>
 <rect x="330.000" y="220" width="2.667" height="8" fill="#238636"/>
@@ -1951,13 +1951,13 @@
 <g><title>Functions 1,555–1,557: {&#x27;open&#x27;: 3}</title>
 <rect x="400.000" y="220" width="8.000" height="8" fill="#64748b"/>
 </g>
-<g><title>Functions 1,558–1,560: {&#x27;matched&#x27;: 2, &#x27;open&#x27;: 1}</title>
+<g><title>Functions 1,558–1,560: {&#x27;matched&#x27;: 2, &#x27;attempt&#x27;: 1}</title>
 <rect x="410.000" y="220" width="5.333" height="8" fill="#238636"/>
-<rect x="415.333" y="220" width="2.667" height="8" fill="#64748b"/>
+<rect x="415.333" y="220" width="2.667" height="8" fill="#bf8700"/>
 </g>
-<g><title>Functions 1,561–1,563: {&#x27;open&#x27;: 1, &#x27;matched&#x27;: 2}</title>
+<g><title>Functions 1,561–1,563: {&#x27;attempt&#x27;: 1, &#x27;matched&#x27;: 2}</title>
 <rect x="420.000" y="220" width="5.333" height="8" fill="#238636"/>
-<rect x="425.333" y="220" width="2.667" height="8" fill="#64748b"/>
+<rect x="425.333" y="220" width="2.667" height="8" fill="#bf8700"/>
 </g>
 <g><title>Functions 1,564–1,566: {&#x27;matched&#x27;: 1, &#x27;open&#x27;: 2}</title>
 <rect x="430.000" y="220" width="2.667" height="8" fill="#238636"/>
@@ -2075,9 +2075,9 @@
 <g><title>Functions 1,666–1,668: {&#x27;matched&#x27;: 3}</title>
 <rect x="770.000" y="220" width="8.000" height="8" fill="#238636"/>
 </g>
-<g><title>Functions 1,669–1,671: {&#x27;matched&#x27;: 2, &#x27;open&#x27;: 1}</title>
+<g><title>Functions 1,669–1,671: {&#x27;matched&#x27;: 2, &#x27;attempt&#x27;: 1}</title>
 <rect x="780.000" y="220" width="5.333" height="8" fill="#238636"/>
-<rect x="785.333" y="220" width="2.667" height="8" fill="#64748b"/>
+<rect x="785.333" y="220" width="2.667" height="8" fill="#bf8700"/>
 </g>
 <g><title>Functions 1,672–1,674: {&#x27;matched&#x27;: 3}</title>
 <rect x="790.000" y="220" width="8.000" height="8" fill="#238636"/>
@@ -2193,9 +2193,10 @@
 <g><title>Functions 1,774–1,776: {&#x27;attempt&#x27;: 3}</title>
 <rect x="330.000" y="230" width="8.000" height="8" fill="#bf8700"/>
 </g>
-<g><title>Functions 1,777–1,779: {&#x27;matched&#x27;: 1, &#x27;open&#x27;: 2}</title>
+<g><title>Functions 1,777–1,779: {&#x27;matched&#x27;: 1, &#x27;open&#x27;: 1, &#x27;attempt&#x27;: 1}</title>
 <rect x="340.000" y="230" width="2.667" height="8" fill="#238636"/>
-<rect x="342.667" y="230" width="5.333" height="8" fill="#64748b"/>
+<rect x="342.667" y="230" width="2.667" height="8" fill="#bf8700"/>
+<rect x="345.333" y="230" width="2.667" height="8" fill="#64748b"/>
 </g>
 <g><title>Functions 1,780–1,782: {&#x27;matched&#x27;: 3}</title>
 <rect x="350.000" y="230" width="8.000" height="8" fill="#238636"/>
@@ -2224,9 +2225,9 @@
 <rect x="410.000" y="230" width="5.333" height="8" fill="#238636"/>
 <rect x="415.333" y="230" width="2.667" height="8" fill="#bf8700"/>
 </g>
-<g><title>Functions 1,801–1,803: {&#x27;open&#x27;: 2, &#x27;attempt&#x27;: 1}</title>
-<rect x="420.000" y="230" width="2.667" height="8" fill="#bf8700"/>
-<rect x="422.667" y="230" width="5.333" height="8" fill="#64748b"/>
+<g><title>Functions 1,801–1,803: {&#x27;attempt&#x27;: 2, &#x27;open&#x27;: 1}</title>
+<rect x="420.000" y="230" width="5.333" height="8" fill="#bf8700"/>
+<rect x="425.333" y="230" width="2.667" height="8" fill="#64748b"/>
 </g>
 <g><title>Functions 1,804–1,806: {&#x27;attempt&#x27;: 2, &#x27;matched&#x27;: 1}</title>
 <rect x="430.000" y="230" width="2.667" height="8" fill="#238636"/>
@@ -2295,17 +2296,18 @@
 <rect x="582.667" y="230" width="2.667" height="8" fill="#bf8700"/>
 <rect x="585.333" y="230" width="2.667" height="8" fill="#64748b"/>
 </g>
-<g><title>Functions 1,852–1,854: {&#x27;open&#x27;: 3}</title>
-<rect x="590.000" y="230" width="8.000" height="8" fill="#64748b"/>
+<g><title>Functions 1,852–1,854: {&#x27;open&#x27;: 1, &#x27;attempt&#x27;: 2}</title>
+<rect x="590.000" y="230" width="5.333" height="8" fill="#bf8700"/>
+<rect x="595.333" y="230" width="2.667" height="8" fill="#64748b"/>
 </g>
 <g><title>Functions 1,855–1,857: {&#x27;matched&#x27;: 1, &#x27;attempt&#x27;: 1, &#x27;open&#x27;: 1}</title>
 <rect x="600.000" y="230" width="2.667" height="8" fill="#238636"/>
 <rect x="602.667" y="230" width="2.667" height="8" fill="#bf8700"/>
 <rect x="605.333" y="230" width="2.667" height="8" fill="#64748b"/>
 </g>
-<g><title>Functions 1,858–1,860: {&#x27;matched&#x27;: 2, &#x27;open&#x27;: 1}</title>
+<g><title>Functions 1,858–1,860: {&#x27;matched&#x27;: 2, &#x27;attempt&#x27;: 1}</title>
 <rect x="610.000" y="230" width="5.333" height="8" fill="#238636"/>
-<rect x="615.333" y="230" width="2.667" height="8" fill="#64748b"/>
+<rect x="615.333" y="230" width="2.667" height="8" fill="#bf8700"/>
 </g>
 <g><title>Functions 1,861–1,863: {&#x27;matched&#x27;: 3}</title>
 <rect x="620.000" y="230" width="8.000" height="8" fill="#238636"/>
@@ -2434,13 +2436,12 @@
 <rect x="140.000" y="240" width="5.333" height="8" fill="#238636"/>
 <rect x="145.333" y="240" width="2.667" height="8" fill="#64748b"/>
 </g>
-<g><title>Functions 1,960–1,962: {&#x27;attempt&#x27;: 1, &#x27;matched&#x27;: 2}</title>
-<rect x="150.000" y="240" width="5.333" height="8" fill="#238636"/>
-<rect x="155.333" y="240" width="2.667" height="8" fill="#bf8700"/>
+<g><title>Functions 1,960–1,962: {&#x27;matched&#x27;: 3}</title>
+<rect x="150.000" y="240" width="8.000" height="8" fill="#238636"/>
 </g>
-<g><title>Functions 1,963–1,965: {&#x27;matched&#x27;: 1, &#x27;open&#x27;: 2}</title>
-<rect x="160.000" y="240" width="2.667" height="8" fill="#238636"/>
-<rect x="162.667" y="240" width="5.333" height="8" fill="#64748b"/>
+<g><title>Functions 1,963–1,965: {&#x27;matched&#x27;: 2, &#x27;open&#x27;: 1}</title>
+<rect x="160.000" y="240" width="5.333" height="8" fill="#238636"/>
+<rect x="165.333" y="240" width="2.667" height="8" fill="#64748b"/>
 </g>
 <g><title>Functions 1,966–1,968: {&#x27;open&#x27;: 1, &#x27;attempt&#x27;: 2}</title>
 <rect x="170.000" y="240" width="5.333" height="8" fill="#bf8700"/>
@@ -4572,9 +4573,9 @@
 <g><title>Functions 3,760–3,762: {&#x27;attempt&#x27;: 3}</title>
 <rect x="550.000" y="310" width="8.000" height="8" fill="#bf8700"/>
 </g>
-<g><title>Functions 3,763–3,765: {&#x27;matched&#x27;: 2, &#x27;open&#x27;: 1}</title>
+<g><title>Functions 3,763–3,765: {&#x27;matched&#x27;: 2, &#x27;attempt&#x27;: 1}</title>
 <rect x="560.000" y="310" width="5.333" height="8" fill="#238636"/>
-<rect x="565.333" y="310" width="2.667" height="8" fill="#64748b"/>
+<rect x="565.333" y="310" width="2.667" height="8" fill="#bf8700"/>
 </g>
 <g><title>Functions 3,766–3,768: {&#x27;attempt&#x27;: 2, &#x27;open&#x27;: 1}</title>
 <rect x="570.000" y="310" width="5.333" height="8" fill="#bf8700"/>
@@ -4619,9 +4620,8 @@
 <rect x="670.000" y="310" width="2.667" height="8" fill="#238636"/>
 <rect x="672.667" y="310" width="5.333" height="8" fill="#bf8700"/>
 </g>
-<g><title>Functions 3,799–3,801: {&#x27;attempt&#x27;: 2, &#x27;open&#x27;: 1}</title>
-<rect x="680.000" y="310" width="5.333" height="8" fill="#bf8700"/>
-<rect x="685.333" y="310" width="2.667" height="8" fill="#64748b"/>
+<g><title>Functions 3,799–3,801: {&#x27;attempt&#x27;: 3}</title>
+<rect x="680.000" y="310" width="8.000" height="8" fill="#bf8700"/>
 </g>
 <g><title>Functions 3,802–3,804: {&#x27;open&#x27;: 2, &#x27;matched&#x27;: 1}</title>
 <rect x="690.000" y="310" width="2.667" height="8" fill="#238636"/>
@@ -4651,9 +4651,9 @@
 <g><title>Functions 3,820–3,822: {&#x27;matched&#x27;: 3}</title>
 <rect x="750.000" y="310" width="8.000" height="8" fill="#238636"/>
 </g>
-<g><title>Functions 3,823–3,825: {&#x27;open&#x27;: 2, &#x27;attempt&#x27;: 1}</title>
-<rect x="760.000" y="310" width="2.667" height="8" fill="#bf8700"/>
-<rect x="762.667" y="310" width="5.333" height="8" fill="#64748b"/>
+<g><title>Functions 3,823–3,825: {&#x27;open&#x27;: 1, &#x27;attempt&#x27;: 2}</title>
+<rect x="760.000" y="310" width="5.333" height="8" fill="#bf8700"/>
+<rect x="765.333" y="310" width="2.667" height="8" fill="#64748b"/>
 </g>
 <g><title>Functions 3,826–3,828: {&#x27;aside&#x27;: 1, &#x27;matched&#x27;: 2}</title>
 <rect x="770.000" y="310" width="5.333" height="8" fill="#238636"/>
@@ -4826,11 +4826,13 @@
 <rect x="392.667" y="320" width="2.667" height="8" fill="#bf8700"/>
 <rect x="395.333" y="320" width="2.667" height="8" fill="#64748b"/>
 </g>
-<g><title>Functions 3,955–3,957: {&#x27;open&#x27;: 3}</title>
-<rect x="400.000" y="320" width="8.000" height="8" fill="#64748b"/>
+<g><title>Functions 3,955–3,957: {&#x27;matched&#x27;: 1, &#x27;open&#x27;: 2}</title>
+<rect x="400.000" y="320" width="2.667" height="8" fill="#238636"/>
+<rect x="402.667" y="320" width="5.333" height="8" fill="#64748b"/>
 </g>
-<g><title>Functions 3,958–3,960: {&#x27;open&#x27;: 3}</title>
-<rect x="410.000" y="320" width="8.000" height="8" fill="#64748b"/>
+<g><title>Functions 3,958–3,960: {&#x27;attempt&#x27;: 1, &#x27;open&#x27;: 2}</title>
+<rect x="410.000" y="320" width="2.667" height="8" fill="#bf8700"/>
+<rect x="412.667" y="320" width="5.333" height="8" fill="#64748b"/>
 </g>
 <g><title>Functions 3,961–3,963: {&#x27;open&#x27;: 2, &#x27;matched&#x27;: 1}</title>
 <rect x="420.000" y="320" width="2.667" height="8" fill="#238636"/>
@@ -5120,18 +5122,17 @@
 <rect x="420.000" y="330" width="5.333" height="8" fill="#238636"/>
 <rect x="425.333" y="330" width="2.667" height="8" fill="#bf8700"/>
 </g>
-<g><title>Functions 4,204–4,206: {&#x27;attempt&#x27;: 1, &#x27;open&#x27;: 2}</title>
-<rect x="430.000" y="330" width="2.667" height="8" fill="#bf8700"/>
-<rect x="432.667" y="330" width="5.333" height="8" fill="#64748b"/>
+<g><title>Functions 4,204–4,206: {&#x27;attempt&#x27;: 2, &#x27;open&#x27;: 1}</title>
+<rect x="430.000" y="330" width="5.333" height="8" fill="#bf8700"/>
+<rect x="435.333" y="330" width="2.667" height="8" fill="#64748b"/>
 </g>
 <g><title>Functions 4,207–4,209: {&#x27;open&#x27;: 1, &#x27;matched&#x27;: 2}</title>
 <rect x="440.000" y="330" width="5.333" height="8" fill="#238636"/>
 <rect x="445.333" y="330" width="2.667" height="8" fill="#64748b"/>
 </g>
-<g><title>Functions 4,210–4,212: {&#x27;matched&#x27;: 1, &#x27;attempt&#x27;: 1, &#x27;open&#x27;: 1}</title>
+<g><title>Functions 4,210–4,212: {&#x27;matched&#x27;: 1, &#x27;attempt&#x27;: 2}</title>
 <rect x="450.000" y="330" width="2.667" height="8" fill="#238636"/>
-<rect x="452.667" y="330" width="2.667" height="8" fill="#bf8700"/>
-<rect x="455.333" y="330" width="2.667" height="8" fill="#64748b"/>
+<rect x="452.667" y="330" width="5.333" height="8" fill="#bf8700"/>
 </g>
 <g><title>Functions 4,213–4,215: {&#x27;open&#x27;: 1, &#x27;aside&#x27;: 1, &#x27;matched&#x27;: 1}</title>
 <rect x="460.000" y="330" width="2.667" height="8" fill="#238636"/>
@@ -5162,18 +5163,17 @@
 <rect x="520.000" y="330" width="2.667" height="8" fill="#238636"/>
 <rect x="522.667" y="330" width="5.333" height="8" fill="#bf8700"/>
 </g>
-<g><title>Functions 4,234–4,236: {&#x27;open&#x27;: 2, &#x27;matched&#x27;: 1}</title>
-<rect x="530.000" y="330" width="2.667" height="8" fill="#238636"/>
-<rect x="532.667" y="330" width="5.333" height="8" fill="#64748b"/>
+<g><title>Functions 4,234–4,236: {&#x27;open&#x27;: 1, &#x27;matched&#x27;: 2}</title>
+<rect x="530.000" y="330" width="5.333" height="8" fill="#238636"/>
+<rect x="535.333" y="330" width="2.667" height="8" fill="#64748b"/>
 </g>
 <g><title>Functions 4,237–4,239: {&#x27;attempt&#x27;: 2, &#x27;open&#x27;: 1}</title>
 <rect x="540.000" y="330" width="5.333" height="8" fill="#bf8700"/>
 <rect x="545.333" y="330" width="2.667" height="8" fill="#64748b"/>
 </g>
-<g><title>Functions 4,240–4,242: {&#x27;matched&#x27;: 1, &#x27;open&#x27;: 1, &#x27;attempt&#x27;: 1}</title>
+<g><title>Functions 4,240–4,242: {&#x27;matched&#x27;: 1, &#x27;attempt&#x27;: 2}</title>
 <rect x="550.000" y="330" width="2.667" height="8" fill="#238636"/>
-<rect x="552.667" y="330" width="2.667" height="8" fill="#bf8700"/>
-<rect x="555.333" y="330" width="2.667" height="8" fill="#64748b"/>
+<rect x="552.667" y="330" width="5.333" height="8" fill="#bf8700"/>
 </g>
 <g><title>Functions 4,243–4,245: {&#x27;attempt&#x27;: 1, &#x27;matched&#x27;: 1, &#x27;open&#x27;: 1}</title>
 <rect x="560.000" y="330" width="2.667" height="8" fill="#238636"/>
@@ -5203,9 +5203,10 @@
 <rect x="630.000" y="330" width="2.667" height="8" fill="#238636"/>
 <rect x="632.667" y="330" width="5.333" height="8" fill="#bf8700"/>
 </g>
-<g><title>Functions 4,267–4,269: {&#x27;open&#x27;: 2, &#x27;matched&#x27;: 1}</title>
+<g><title>Functions 4,267–4,269: {&#x27;open&#x27;: 1, &#x27;attempt&#x27;: 1, &#x27;matched&#x27;: 1}</title>
 <rect x="640.000" y="330" width="2.667" height="8" fill="#238636"/>
-<rect x="642.667" y="330" width="5.333" height="8" fill="#64748b"/>
+<rect x="642.667" y="330" width="2.667" height="8" fill="#bf8700"/>
+<rect x="645.333" y="330" width="2.667" height="8" fill="#64748b"/>
 </g>
 <g><title>Functions 4,270–4,272: {&#x27;open&#x27;: 2, &#x27;matched&#x27;: 1}</title>
 <rect x="650.000" y="330" width="2.667" height="8" fill="#238636"/>
@@ -5304,9 +5305,9 @@
 <rect x="80.000" y="340" width="5.333" height="8" fill="#238636"/>
 <rect x="85.333" y="340" width="2.667" height="8" fill="#bf8700"/>
 </g>
-<g><title>Functions 4,342–4,344: {&#x27;open&#x27;: 1, &#x27;matched&#x27;: 2}</title>
+<g><title>Functions 4,342–4,344: {&#x27;attempt&#x27;: 1, &#x27;matched&#x27;: 2}</title>
 <rect x="90.000" y="340" width="5.333" height="8" fill="#238636"/>
-<rect x="95.333" y="340" width="2.667" height="8" fill="#64748b"/>
+<rect x="95.333" y="340" width="2.667" height="8" fill="#bf8700"/>
 </g>
 <g><title>Functions 4,345–4,347: {&#x27;open&#x27;: 1, &#x27;matched&#x27;: 1, &#x27;attempt&#x27;: 1}</title>
 <rect x="100.000" y="340" width="2.667" height="8" fill="#238636"/>
@@ -5460,9 +5461,10 @@
 <rect x="470.000" y="340" width="5.333" height="8" fill="#238636"/>
 <rect x="475.333" y="340" width="2.667" height="8" fill="#bf8700"/>
 </g>
-<g><title>Functions 4,459–4,461: {&#x27;open&#x27;: 2, &#x27;matched&#x27;: 1}</title>
+<g><title>Functions 4,459–4,461: {&#x27;open&#x27;: 1, &#x27;attempt&#x27;: 1, &#x27;matched&#x27;: 1}</title>
 <rect x="480.000" y="340" width="2.667" height="8" fill="#238636"/>
-<rect x="482.667" y="340" width="5.333" height="8" fill="#64748b"/>
+<rect x="482.667" y="340" width="2.667" height="8" fill="#bf8700"/>
+<rect x="485.333" y="340" width="2.667" height="8" fill="#64748b"/>
 </g>
 <g><title>Functions 4,462–4,464: {&#x27;open&#x27;: 1, &#x27;matched&#x27;: 2}</title>
 <rect x="490.000" y="340" width="5.333" height="8" fill="#238636"/>
@@ -5569,9 +5571,10 @@
 <g><title>Functions 4,543–4,545: {&#x27;matched&#x27;: 3}</title>
 <rect x="760.000" y="340" width="8.000" height="8" fill="#238636"/>
 </g>
-<g><title>Functions 4,546–4,548: {&#x27;open&#x27;: 2, &#x27;attempt&#x27;: 1}</title>
-<rect x="770.000" y="340" width="2.667" height="8" fill="#bf8700"/>
-<rect x="772.667" y="340" width="5.333" height="8" fill="#64748b"/>
+<g><title>Functions 4,546–4,548: {&#x27;open&#x27;: 1, &#x27;attempt&#x27;: 1, &#x27;matched&#x27;: 1}</title>
+<rect x="770.000" y="340" width="2.667" height="8" fill="#238636"/>
+<rect x="772.667" y="340" width="2.667" height="8" fill="#bf8700"/>
+<rect x="775.333" y="340" width="2.667" height="8" fill="#64748b"/>
 </g>
 <g><title>Functions 4,549–4,551: {&#x27;attempt&#x27;: 3}</title>
 <rect x="780.000" y="340" width="8.000" height="8" fill="#bf8700"/>
@@ -5604,33 +5607,33 @@
 <rect x="60.000" y="350" width="5.333" height="8" fill="#238636"/>
 <rect x="65.333" y="350" width="2.667" height="8" fill="#64748b"/>
 </g>
-<g><title>Functions 4,576–4,578: {&#x27;matched&#x27;: 2, &#x27;open&#x27;: 1}</title>
+<g><title>Functions 4,576–4,578: {&#x27;matched&#x27;: 2, &#x27;attempt&#x27;: 1}</title>
 <rect x="70.000" y="350" width="5.333" height="8" fill="#238636"/>
-<rect x="75.333" y="350" width="2.667" height="8" fill="#64748b"/>
+<rect x="75.333" y="350" width="2.667" height="8" fill="#bf8700"/>
 </g>
-<g><title>Functions 4,579–4,581: {&#x27;matched&#x27;: 2, &#x27;open&#x27;: 1}</title>
+<g><title>Functions 4,579–4,581: {&#x27;matched&#x27;: 2, &#x27;attempt&#x27;: 1}</title>
 <rect x="80.000" y="350" width="5.333" height="8" fill="#238636"/>
-<rect x="85.333" y="350" width="2.667" height="8" fill="#64748b"/>
+<rect x="85.333" y="350" width="2.667" height="8" fill="#bf8700"/>
 </g>
-<g><title>Functions 4,582–4,584: {&#x27;open&#x27;: 1, &#x27;matched&#x27;: 2}</title>
+<g><title>Functions 4,582–4,584: {&#x27;attempt&#x27;: 1, &#x27;matched&#x27;: 2}</title>
 <rect x="90.000" y="350" width="5.333" height="8" fill="#238636"/>
-<rect x="95.333" y="350" width="2.667" height="8" fill="#64748b"/>
+<rect x="95.333" y="350" width="2.667" height="8" fill="#bf8700"/>
 </g>
 <g><title>Functions 4,585–4,587: {&#x27;matched&#x27;: 2, &#x27;attempt&#x27;: 1}</title>
 <rect x="100.000" y="350" width="5.333" height="8" fill="#238636"/>
 <rect x="105.333" y="350" width="2.667" height="8" fill="#bf8700"/>
 </g>
-<g><title>Functions 4,588–4,590: {&#x27;attempt&#x27;: 2, &#x27;open&#x27;: 1}</title>
-<rect x="110.000" y="350" width="5.333" height="8" fill="#bf8700"/>
-<rect x="115.333" y="350" width="2.667" height="8" fill="#64748b"/>
+<g><title>Functions 4,588–4,590: {&#x27;attempt&#x27;: 2, &#x27;matched&#x27;: 1}</title>
+<rect x="110.000" y="350" width="2.667" height="8" fill="#238636"/>
+<rect x="112.667" y="350" width="5.333" height="8" fill="#bf8700"/>
 </g>
 <g><title>Functions 4,591–4,593: {&#x27;attempt&#x27;: 2, &#x27;open&#x27;: 1}</title>
 <rect x="120.000" y="350" width="5.333" height="8" fill="#bf8700"/>
 <rect x="125.333" y="350" width="2.667" height="8" fill="#64748b"/>
 </g>
-<g><title>Functions 4,594–4,596: {&#x27;attempt&#x27;: 1, &#x27;open&#x27;: 2}</title>
-<rect x="130.000" y="350" width="2.667" height="8" fill="#bf8700"/>
-<rect x="132.667" y="350" width="5.333" height="8" fill="#64748b"/>
+<g><title>Functions 4,594–4,596: {&#x27;attempt&#x27;: 2, &#x27;open&#x27;: 1}</title>
+<rect x="130.000" y="350" width="5.333" height="8" fill="#bf8700"/>
+<rect x="135.333" y="350" width="2.667" height="8" fill="#64748b"/>
 </g>
 <g><title>Functions 4,597–4,599: {&#x27;attempt&#x27;: 2, &#x27;open&#x27;: 1}</title>
 <rect x="140.000" y="350" width="5.333" height="8" fill="#bf8700"/>
@@ -5702,9 +5705,9 @@
 <rect x="312.667" y="350" width="2.667" height="8" fill="#bf8700"/>
 <rect x="315.333" y="350" width="2.667" height="8" fill="#64748b"/>
 </g>
-<g><title>Functions 4,651–4,653: {&#x27;open&#x27;: 2, &#x27;attempt&#x27;: 1}</title>
-<rect x="320.000" y="350" width="2.667" height="8" fill="#bf8700"/>
-<rect x="322.667" y="350" width="5.333" height="8" fill="#64748b"/>
+<g><title>Functions 4,651–4,653: {&#x27;matched&#x27;: 1, &#x27;attempt&#x27;: 2}</title>
+<rect x="320.000" y="350" width="2.667" height="8" fill="#238636"/>
+<rect x="322.667" y="350" width="5.333" height="8" fill="#bf8700"/>
 </g>
 <g><title>Functions 4,654–4,656: {&#x27;attempt&#x27;: 2, &#x27;open&#x27;: 1}</title>
 <rect x="330.000" y="350" width="5.333" height="8" fill="#bf8700"/>
@@ -5721,14 +5724,12 @@
 <rect x="360.000" y="350" width="5.333" height="8" fill="#238636"/>
 <rect x="365.333" y="350" width="2.667" height="8" fill="#bf8700"/>
 </g>
-<g><title>Functions 4,666–4,668: {&#x27;attempt&#x27;: 2, &#x27;open&#x27;: 1}</title>
-<rect x="370.000" y="350" width="5.333" height="8" fill="#bf8700"/>
-<rect x="375.333" y="350" width="2.667" height="8" fill="#64748b"/>
+<g><title>Functions 4,666–4,668: {&#x27;attempt&#x27;: 3}</title>
+<rect x="370.000" y="350" width="8.000" height="8" fill="#bf8700"/>
 </g>
-<g><title>Functions 4,669–4,671: {&#x27;attempt&#x27;: 1, &#x27;open&#x27;: 1, &#x27;matched&#x27;: 1}</title>
+<g><title>Functions 4,669–4,671: {&#x27;attempt&#x27;: 2, &#x27;matched&#x27;: 1}</title>
 <rect x="380.000" y="350" width="2.667" height="8" fill="#238636"/>
-<rect x="382.667" y="350" width="2.667" height="8" fill="#bf8700"/>
-<rect x="385.333" y="350" width="2.667" height="8" fill="#64748b"/>
+<rect x="382.667" y="350" width="5.333" height="8" fill="#bf8700"/>
 </g>
 <g><title>Functions 4,672–4,674: {&#x27;matched&#x27;: 2, &#x27;open&#x27;: 1}</title>
 <rect x="390.000" y="350" width="5.333" height="8" fill="#238636"/>
@@ -5759,10 +5760,9 @@
 <rect x="450.000" y="350" width="5.333" height="8" fill="#238636"/>
 <rect x="455.333" y="350" width="2.667" height="8" fill="#64748b"/>
 </g>
-<g><title>Functions 4,693–4,695: {&#x27;attempt&#x27;: 1, &#x27;matched&#x27;: 1, &#x27;open&#x27;: 1}</title>
+<g><title>Functions 4,693–4,695: {&#x27;attempt&#x27;: 2, &#x27;matched&#x27;: 1}</title>
 <rect x="460.000" y="350" width="2.667" height="8" fill="#238636"/>
-<rect x="462.667" y="350" width="2.667" height="8" fill="#bf8700"/>
-<rect x="465.333" y="350" width="2.667" height="8" fill="#64748b"/>
+<rect x="462.667" y="350" width="5.333" height="8" fill="#bf8700"/>
 </g>
 <g><title>Functions 4,696–4,698: {&#x27;attempt&#x27;: 2, &#x27;matched&#x27;: 1}</title>
 <rect x="470.000" y="350" width="2.667" height="8" fill="#238636"/>
@@ -5773,9 +5773,9 @@
 <rect x="482.667" y="350" width="2.667" height="8" fill="#bf8700"/>
 <rect x="485.333" y="350" width="2.667" height="8" fill="#64748b"/>
 </g>
-<g><title>Functions 4,702–4,704: {&#x27;open&#x27;: 1, &#x27;matched&#x27;: 2}</title>
+<g><title>Functions 4,702–4,704: {&#x27;attempt&#x27;: 1, &#x27;matched&#x27;: 2}</title>
 <rect x="490.000" y="350" width="5.333" height="8" fill="#238636"/>
-<rect x="495.333" y="350" width="2.667" height="8" fill="#64748b"/>
+<rect x="495.333" y="350" width="2.667" height="8" fill="#bf8700"/>
 </g>
 <g><title>Functions 4,705–4,707: {&#x27;matched&#x27;: 1, &#x27;open&#x27;: 2}</title>
 <rect x="500.000" y="350" width="2.667" height="8" fill="#238636"/>
@@ -5828,20 +5828,21 @@
 <g><title>Functions 4,741–4,743: {&#x27;open&#x27;: 3}</title>
 <rect x="620.000" y="350" width="8.000" height="8" fill="#64748b"/>
 </g>
-<g><title>Functions 4,744–4,746: {&#x27;attempt&#x27;: 1, &#x27;open&#x27;: 2}</title>
-<rect x="630.000" y="350" width="2.667" height="8" fill="#bf8700"/>
-<rect x="632.667" y="350" width="5.333" height="8" fill="#64748b"/>
+<g><title>Functions 4,744–4,746: {&#x27;attempt&#x27;: 2, &#x27;open&#x27;: 1}</title>
+<rect x="630.000" y="350" width="5.333" height="8" fill="#bf8700"/>
+<rect x="635.333" y="350" width="2.667" height="8" fill="#64748b"/>
 </g>
-<g><title>Functions 4,747–4,749: {&#x27;open&#x27;: 2, &#x27;attempt&#x27;: 1}</title>
-<rect x="640.000" y="350" width="2.667" height="8" fill="#bf8700"/>
-<rect x="642.667" y="350" width="5.333" height="8" fill="#64748b"/>
+<g><title>Functions 4,747–4,749: {&#x27;attempt&#x27;: 3}</title>
+<rect x="640.000" y="350" width="8.000" height="8" fill="#bf8700"/>
 </g>
-<g><title>Functions 4,750–4,752: {&#x27;open&#x27;: 3}</title>
-<rect x="650.000" y="350" width="8.000" height="8" fill="#64748b"/>
+<g><title>Functions 4,750–4,752: {&#x27;attempt&#x27;: 1, &#x27;open&#x27;: 2}</title>
+<rect x="650.000" y="350" width="2.667" height="8" fill="#bf8700"/>
+<rect x="652.667" y="350" width="5.333" height="8" fill="#64748b"/>
 </g>
-<g><title>Functions 4,753–4,755: {&#x27;matched&#x27;: 1, &#x27;open&#x27;: 2}</title>
+<g><title>Functions 4,753–4,755: {&#x27;matched&#x27;: 1, &#x27;attempt&#x27;: 1, &#x27;open&#x27;: 1}</title>
 <rect x="660.000" y="350" width="2.667" height="8" fill="#238636"/>
-<rect x="662.667" y="350" width="5.333" height="8" fill="#64748b"/>
+<rect x="662.667" y="350" width="2.667" height="8" fill="#bf8700"/>
+<rect x="665.333" y="350" width="2.667" height="8" fill="#64748b"/>
 </g>
 <g><title>Functions 4,756–4,758: {&#x27;attempt&#x27;: 1, &#x27;open&#x27;: 2}</title>
 <rect x="670.000" y="350" width="2.667" height="8" fill="#bf8700"/>
@@ -6013,9 +6014,8 @@
 <rect x="330.000" y="360" width="2.667" height="8" fill="#238636"/>
 <rect x="332.667" y="360" width="5.333" height="8" fill="#bf8700"/>
 </g>
-<g><title>Functions 4,897–4,899: {&#x27;attempt&#x27;: 2, &#x27;open&#x27;: 1}</title>
-<rect x="340.000" y="360" width="5.333" height="8" fill="#bf8700"/>
-<rect x="345.333" y="360" width="2.667" height="8" fill="#64748b"/>
+<g><title>Functions 4,897–4,899: {&#x27;attempt&#x27;: 3}</title>
+<rect x="340.000" y="360" width="8.000" height="8" fill="#bf8700"/>
 </g>
 <g><title>Functions 4,900–4,902: {&#x27;attempt&#x27;: 3}</title>
 <rect x="350.000" y="360" width="8.000" height="8" fill="#bf8700"/>
@@ -6089,9 +6089,10 @@
 <rect x="530.000" y="360" width="2.667" height="8" fill="#bf8700"/>
 <rect x="532.667" y="360" width="5.333" height="8" fill="#64748b"/>
 </g>
-<g><title>Functions 4,957–4,959: {&#x27;matched&#x27;: 1, &#x27;open&#x27;: 2}</title>
+<g><title>Functions 4,957–4,959: {&#x27;matched&#x27;: 1, &#x27;open&#x27;: 1, &#x27;attempt&#x27;: 1}</title>
 <rect x="540.000" y="360" width="2.667" height="8" fill="#238636"/>
-<rect x="542.667" y="360" width="5.333" height="8" fill="#64748b"/>
+<rect x="542.667" y="360" width="2.667" height="8" fill="#bf8700"/>
+<rect x="545.333" y="360" width="2.667" height="8" fill="#64748b"/>
 </g>
 <g><title>Functions 4,960–4,962: {&#x27;attempt&#x27;: 1, &#x27;matched&#x27;: 2}</title>
 <rect x="550.000" y="360" width="5.333" height="8" fill="#238636"/>
@@ -6106,9 +6107,9 @@
 <rect x="572.667" y="360" width="2.667" height="8" fill="#bf8700"/>
 <rect x="575.333" y="360" width="2.667" height="8" fill="#64748b"/>
 </g>
-<g><title>Functions 4,969–4,971: {&#x27;open&#x27;: 2, &#x27;matched&#x27;: 1}</title>
-<rect x="580.000" y="360" width="2.667" height="8" fill="#238636"/>
-<rect x="582.667" y="360" width="5.333" height="8" fill="#64748b"/>
+<g><title>Functions 4,969–4,971: {&#x27;attempt&#x27;: 1, &#x27;matched&#x27;: 2}</title>
+<rect x="580.000" y="360" width="5.333" height="8" fill="#238636"/>
+<rect x="585.333" y="360" width="2.667" height="8" fill="#bf8700"/>
 </g>
 <g><title>Functions 4,972–4,974: {&#x27;matched&#x27;: 1, &#x27;open&#x27;: 2}</title>
 <rect x="590.000" y="360" width="2.667" height="8" fill="#238636"/>
@@ -6164,9 +6165,10 @@
 <rect x="720.000" y="360" width="5.333" height="8" fill="#238636"/>
 <rect x="725.333" y="360" width="2.667" height="8" fill="#64748b"/>
 </g>
-<g><title>Functions 5,014–5,016: {&#x27;matched&#x27;: 1, &#x27;open&#x27;: 2}</title>
+<g><title>Functions 5,014–5,016: {&#x27;matched&#x27;: 1, &#x27;attempt&#x27;: 1, &#x27;open&#x27;: 1}</title>
 <rect x="730.000" y="360" width="2.667" height="8" fill="#238636"/>
-<rect x="732.667" y="360" width="5.333" height="8" fill="#64748b"/>
+<rect x="732.667" y="360" width="2.667" height="8" fill="#bf8700"/>
+<rect x="735.333" y="360" width="2.667" height="8" fill="#64748b"/>
 </g>
 <g><title>Functions 5,017–5,019: {&#x27;open&#x27;: 1, &#x27;attempt&#x27;: 1, &#x27;matched&#x27;: 1}</title>
 <rect x="740.000" y="360" width="2.667" height="8" fill="#238636"/>
@@ -6239,17 +6241,18 @@
 <rect x="120.000" y="370" width="5.333" height="8" fill="#238636"/>
 <rect x="125.333" y="370" width="2.667" height="8" fill="#bf8700"/>
 </g>
-<g><title>Functions 5,074–5,076: {&#x27;attempt&#x27;: 1, &#x27;open&#x27;: 2}</title>
-<rect x="130.000" y="370" width="2.667" height="8" fill="#bf8700"/>
-<rect x="132.667" y="370" width="5.333" height="8" fill="#64748b"/>
+<g><title>Functions 5,074–5,076: {&#x27;attempt&#x27;: 2, &#x27;open&#x27;: 1}</title>
+<rect x="130.000" y="370" width="5.333" height="8" fill="#bf8700"/>
+<rect x="135.333" y="370" width="2.667" height="8" fill="#64748b"/>
 </g>
 <g><title>Functions 5,077–5,079: {&#x27;open&#x27;: 2, &#x27;matched&#x27;: 1}</title>
 <rect x="140.000" y="370" width="2.667" height="8" fill="#238636"/>
 <rect x="142.667" y="370" width="5.333" height="8" fill="#64748b"/>
 </g>
-<g><title>Functions 5,080–5,082: {&#x27;matched&#x27;: 1, &#x27;open&#x27;: 2}</title>
+<g><title>Functions 5,080–5,082: {&#x27;matched&#x27;: 1, &#x27;attempt&#x27;: 1, &#x27;open&#x27;: 1}</title>
 <rect x="150.000" y="370" width="2.667" height="8" fill="#238636"/>
-<rect x="152.667" y="370" width="5.333" height="8" fill="#64748b"/>
+<rect x="152.667" y="370" width="2.667" height="8" fill="#bf8700"/>
+<rect x="155.333" y="370" width="2.667" height="8" fill="#64748b"/>
 </g>
 <g><title>Functions 5,083–5,085: {&#x27;open&#x27;: 3}</title>
 <rect x="160.000" y="370" width="8.000" height="8" fill="#64748b"/>
@@ -6311,8 +6314,9 @@
 <rect x="292.667" y="370" width="2.667" height="8" fill="#bf8700"/>
 <rect x="295.333" y="370" width="2.667" height="8" fill="#64748b"/>
 </g>
-<g><title>Functions 5,125–5,127: {&#x27;open&#x27;: 3}</title>
-<rect x="300.000" y="370" width="8.000" height="8" fill="#64748b"/>
+<g><title>Functions 5,125–5,127: {&#x27;open&#x27;: 2, &#x27;attempt&#x27;: 1}</title>
+<rect x="300.000" y="370" width="2.667" height="8" fill="#bf8700"/>
+<rect x="302.667" y="370" width="5.333" height="8" fill="#64748b"/>
 </g>
 <g><title>Functions 5,128–5,130: {&#x27;attempt&#x27;: 3}</title>
 <rect x="310.000" y="370" width="8.000" height="8" fill="#bf8700"/>
@@ -6540,9 +6544,8 @@
 <g><title>Functions 5,305–5,307: {&#x27;matched&#x27;: 3}</title>
 <rect x="100.000" y="380" width="8.000" height="8" fill="#238636"/>
 </g>
-<g><title>Functions 5,308–5,310: {&#x27;open&#x27;: 1, &#x27;matched&#x27;: 2}</title>
-<rect x="110.000" y="380" width="5.333" height="8" fill="#238636"/>
-<rect x="115.333" y="380" width="2.667" height="8" fill="#64748b"/>
+<g><title>Functions 5,308–5,310: {&#x27;matched&#x27;: 3}</title>
+<rect x="110.000" y="380" width="8.000" height="8" fill="#238636"/>
 </g>
 <g><title>Functions 5,311–5,313: {&#x27;matched&#x27;: 1, &#x27;attempt&#x27;: 2}</title>
 <rect x="120.000" y="380" width="2.667" height="8" fill="#238636"/>
@@ -6953,9 +6956,8 @@
 <rect x="560.000" y="390" width="5.333" height="8" fill="#238636"/>
 <rect x="565.333" y="390" width="2.667" height="8" fill="#bf8700"/>
 </g>
-<g><title>Functions 5,686–5,688: {&#x27;open&#x27;: 1, &#x27;attempt&#x27;: 2}</title>
-<rect x="570.000" y="390" width="5.333" height="8" fill="#bf8700"/>
-<rect x="575.333" y="390" width="2.667" height="8" fill="#64748b"/>
+<g><title>Functions 5,686–5,688: {&#x27;attempt&#x27;: 3}</title>
+<rect x="570.000" y="390" width="8.000" height="8" fill="#bf8700"/>
 </g>
 <g><title>Functions 5,689–5,691: {&#x27;matched&#x27;: 2, &#x27;open&#x27;: 1}</title>
 <rect x="580.000" y="390" width="5.333" height="8" fill="#238636"/>
@@ -8047,9 +8049,8 @@
 <rect x="390.000" y="430" width="5.333" height="8" fill="#238636"/>
 <rect x="395.333" y="430" width="2.667" height="8" fill="#bf8700"/>
 </g>
-<g><title>Functions 6,595–6,597: {&#x27;attempt&#x27;: 1, &#x27;matched&#x27;: 2}</title>
-<rect x="400.000" y="430" width="5.333" height="8" fill="#238636"/>
-<rect x="405.333" y="430" width="2.667" height="8" fill="#bf8700"/>
+<g><title>Functions 6,595–6,597: {&#x27;matched&#x27;: 3}</title>
+<rect x="400.000" y="430" width="8.000" height="8" fill="#238636"/>
 </g>
 <g><title>Functions 6,598–6,600: {&#x27;open&#x27;: 2, &#x27;matched&#x27;: 1}</title>
 <rect x="410.000" y="430" width="2.667" height="8" fill="#238636"/>
@@ -8163,9 +8164,8 @@
 <g><title>Functions 6,685–6,687: {&#x27;matched&#x27;: 3}</title>
 <rect x="700.000" y="430" width="8.000" height="8" fill="#238636"/>
 </g>
-<g><title>Functions 6,688–6,690: {&#x27;attempt&#x27;: 1, &#x27;matched&#x27;: 2}</title>
-<rect x="710.000" y="430" width="5.333" height="8" fill="#238636"/>
-<rect x="715.333" y="430" width="2.667" height="8" fill="#bf8700"/>
+<g><title>Functions 6,688–6,690: {&#x27;matched&#x27;: 3}</title>
+<rect x="710.000" y="430" width="8.000" height="8" fill="#238636"/>
 </g>
 <g><title>Functions 6,691–6,693: {&#x27;matched&#x27;: 2, &#x27;attempt&#x27;: 1}</title>
 <rect x="720.000" y="430" width="5.333" height="8" fill="#238636"/>
@@ -8216,9 +8216,8 @@
 <g><title>Functions 6,730–6,732: {&#x27;matched&#x27;: 3}</title>
 <rect x="50.000" y="440" width="8.000" height="8" fill="#238636"/>
 </g>
-<g><title>Functions 6,733–6,735: {&#x27;matched&#x27;: 2, &#x27;attempt&#x27;: 1}</title>
-<rect x="60.000" y="440" width="5.333" height="8" fill="#238636"/>
-<rect x="65.333" y="440" width="2.667" height="8" fill="#bf8700"/>
+<g><title>Functions 6,733–6,735: {&#x27;matched&#x27;: 3}</title>
+<rect x="60.000" y="440" width="8.000" height="8" fill="#238636"/>
 </g>
 <g><title>Functions 6,736–6,738: {&#x27;matched&#x27;: 3}</title>
 <rect x="70.000" y="440" width="8.000" height="8" fill="#238636"/>
@@ -11435,9 +11434,9 @@
 <rect x="50.000" y="550" width="2.667" height="8" fill="#238636"/>
 <rect x="52.667" y="550" width="5.333" height="8" fill="#bf8700"/>
 </g>
-<g><title>Functions 9,373–9,375: {&#x27;attempt&#x27;: 2, &#x27;matched&#x27;: 1}</title>
-<rect x="60.000" y="550" width="2.667" height="8" fill="#238636"/>
-<rect x="62.667" y="550" width="5.333" height="8" fill="#bf8700"/>
+<g><title>Functions 9,373–9,375: {&#x27;matched&#x27;: 2, &#x27;attempt&#x27;: 1}</title>
+<rect x="60.000" y="550" width="5.333" height="8" fill="#238636"/>
+<rect x="65.333" y="550" width="2.667" height="8" fill="#bf8700"/>
 </g>
 <g><title>Functions 9,376–9,378: {&#x27;matched&#x27;: 2, &#x27;attempt&#x27;: 1}</title>
 <rect x="70.000" y="550" width="5.333" height="8" fill="#238636"/>
@@ -11675,10 +11674,9 @@
 <rect x="670.000" y="550" width="5.333" height="8" fill="#238636"/>
 <rect x="675.333" y="550" width="2.667" height="8" fill="#64748b"/>
 </g>
-<g><title>Functions 9,559–9,561: {&#x27;matched&#x27;: 1, &#x27;open&#x27;: 1, &#x27;attempt&#x27;: 1}</title>
+<g><title>Functions 9,559–9,561: {&#x27;matched&#x27;: 1, &#x27;attempt&#x27;: 2}</title>
 <rect x="680.000" y="550" width="2.667" height="8" fill="#238636"/>
-<rect x="682.667" y="550" width="2.667" height="8" fill="#bf8700"/>
-<rect x="685.333" y="550" width="2.667" height="8" fill="#64748b"/>
+<rect x="682.667" y="550" width="5.333" height="8" fill="#bf8700"/>
 </g>
 <g><title>Functions 9,562–9,564: {&#x27;attempt&#x27;: 1, &#x27;matched&#x27;: 2}</title>
 <rect x="690.000" y="550" width="5.333" height="8" fill="#238636"/>
@@ -11714,9 +11712,9 @@
 <rect x="762.667" y="550" width="2.667" height="8" fill="#bf8700"/>
 <rect x="765.333" y="550" width="2.667" height="8" fill="#64748b"/>
 </g>
-<g><title>Functions 9,586–9,588: {&#x27;open&#x27;: 2, &#x27;attempt&#x27;: 1}</title>
-<rect x="770.000" y="550" width="2.667" height="8" fill="#bf8700"/>
-<rect x="772.667" y="550" width="5.333" height="8" fill="#64748b"/>
+<g><title>Functions 9,586–9,588: {&#x27;attempt&#x27;: 2, &#x27;open&#x27;: 1}</title>
+<rect x="770.000" y="550" width="5.333" height="8" fill="#bf8700"/>
+<rect x="775.333" y="550" width="2.667" height="8" fill="#64748b"/>
 </g>
 <g><title>Functions 9,589–9,591: {&#x27;open&#x27;: 1, &#x27;matched&#x27;: 2}</title>
 <rect x="780.000" y="550" width="5.333" height="8" fill="#238636"/>
@@ -11787,9 +11785,9 @@
 <rect x="150.000" y="560" width="2.667" height="8" fill="#238636"/>
 <rect x="152.667" y="560" width="5.333" height="8" fill="#64748b"/>
 </g>
-<g><title>Functions 9,643–9,645: {&#x27;open&#x27;: 2, &#x27;attempt&#x27;: 1}</title>
-<rect x="160.000" y="560" width="2.667" height="8" fill="#bf8700"/>
-<rect x="162.667" y="560" width="5.333" height="8" fill="#64748b"/>
+<g><title>Functions 9,643–9,645: {&#x27;attempt&#x27;: 2, &#x27;open&#x27;: 1}</title>
+<rect x="160.000" y="560" width="5.333" height="8" fill="#bf8700"/>
+<rect x="165.333" y="560" width="2.667" height="8" fill="#64748b"/>
 </g>
 <g><title>Functions 9,646–9,648: {&#x27;open&#x27;: 3}</title>
 <rect x="170.000" y="560" width="8.000" height="8" fill="#64748b"/>
@@ -11858,9 +11856,9 @@
 <rect x="330.000" y="560" width="2.667" height="8" fill="#bf8700"/>
 <rect x="332.667" y="560" width="5.333" height="8" fill="#64748b"/>
 </g>
-<g><title>Functions 9,697–9,699: {&#x27;open&#x27;: 2, &#x27;attempt&#x27;: 1}</title>
-<rect x="340.000" y="560" width="2.667" height="8" fill="#bf8700"/>
-<rect x="342.667" y="560" width="5.333" height="8" fill="#64748b"/>
+<g><title>Functions 9,697–9,699: {&#x27;attempt&#x27;: 2, &#x27;open&#x27;: 1}</title>
+<rect x="340.000" y="560" width="5.333" height="8" fill="#bf8700"/>
+<rect x="345.333" y="560" width="2.667" height="8" fill="#64748b"/>
 </g>
 <g><title>Functions 9,700–9,702: {&#x27;attempt&#x27;: 3}</title>
 <rect x="350.000" y="560" width="8.000" height="8" fill="#bf8700"/>
@@ -12178,9 +12176,9 @@
 <rect x="410.000" y="570" width="2.667" height="8" fill="#238636"/>
 <rect x="412.667" y="570" width="5.333" height="8" fill="#bf8700"/>
 </g>
-<g><title>Functions 9,961–9,963: {&#x27;attempt&#x27;: 1, &#x27;open&#x27;: 2}</title>
-<rect x="420.000" y="570" width="2.667" height="8" fill="#bf8700"/>
-<rect x="422.667" y="570" width="5.333" height="8" fill="#64748b"/>
+<g><title>Functions 9,961–9,963: {&#x27;attempt&#x27;: 2, &#x27;open&#x27;: 1}</title>
+<rect x="420.000" y="570" width="5.333" height="8" fill="#bf8700"/>
+<rect x="425.333" y="570" width="2.667" height="8" fill="#64748b"/>
 </g>
 <g><title>Functions 9,964–9,966: {&#x27;attempt&#x27;: 1, &#x27;matched&#x27;: 2}</title>
 <rect x="430.000" y="570" width="5.333" height="8" fill="#238636"/>
@@ -12535,9 +12533,8 @@
 <g><title>Functions 10,258–10,260: {&#x27;matched&#x27;: 3}</title>
 <rect x="610.000" y="580" width="8.000" height="8" fill="#238636"/>
 </g>
-<g><title>Functions 10,261–10,263: {&#x27;matched&#x27;: 2, &#x27;attempt&#x27;: 1}</title>
-<rect x="620.000" y="580" width="5.333" height="8" fill="#238636"/>
-<rect x="625.333" y="580" width="2.667" height="8" fill="#bf8700"/>
+<g><title>Functions 10,261–10,263: {&#x27;matched&#x27;: 3}</title>
+<rect x="620.000" y="580" width="8.000" height="8" fill="#238636"/>
 </g>
 <g><title>Functions 10,264–10,266: {&#x27;matched&#x27;: 3}</title>
 <rect x="630.000" y="580" width="8.000" height="8" fill="#238636"/>
@@ -12653,8 +12650,9 @@
 <g><title>Functions 10,366–10,368: {&#x27;attempt&#x27;: 3}</title>
 <rect x="170.000" y="590" width="8.000" height="8" fill="#bf8700"/>
 </g>
-<g><title>Functions 10,369–10,371: {&#x27;attempt&#x27;: 3}</title>
-<rect x="180.000" y="590" width="8.000" height="8" fill="#bf8700"/>
+<g><title>Functions 10,369–10,371: {&#x27;attempt&#x27;: 2, &#x27;matched&#x27;: 1}</title>
+<rect x="180.000" y="590" width="2.667" height="8" fill="#238636"/>
+<rect x="182.667" y="590" width="5.333" height="8" fill="#bf8700"/>
 </g>
 <g><title>Functions 10,372–10,374: {&#x27;attempt&#x27;: 2, &#x27;open&#x27;: 1}</title>
 <rect x="190.000" y="590" width="5.333" height="8" fill="#bf8700"/>
@@ -12747,10 +12745,9 @@
 <rect x="430.000" y="590" width="2.667" height="8" fill="#238636"/>
 <rect x="432.667" y="590" width="5.333" height="8" fill="#bf8700"/>
 </g>
-<g><title>Functions 10,447–10,449: {&#x27;open&#x27;: 1, &#x27;matched&#x27;: 1, &#x27;attempt&#x27;: 1}</title>
+<g><title>Functions 10,447–10,449: {&#x27;attempt&#x27;: 2, &#x27;matched&#x27;: 1}</title>
 <rect x="440.000" y="590" width="2.667" height="8" fill="#238636"/>
-<rect x="442.667" y="590" width="2.667" height="8" fill="#bf8700"/>
-<rect x="445.333" y="590" width="2.667" height="8" fill="#64748b"/>
+<rect x="442.667" y="590" width="5.333" height="8" fill="#bf8700"/>
 </g>
 <g><title>Functions 10,450–10,452: {&#x27;attempt&#x27;: 2, &#x27;matched&#x27;: 1}</title>
 <rect x="450.000" y="590" width="2.667" height="8" fill="#238636"/>
@@ -13087,10 +13084,9 @@
 <rect x="600.000" y="600" width="5.333" height="8" fill="#238636"/>
 <rect x="605.333" y="600" width="2.667" height="8" fill="#64748b"/>
 </g>
-<g><title>Functions 10,738–10,740: {&#x27;open&#x27;: 1, &#x27;matched&#x27;: 1, &#x27;attempt&#x27;: 1}</title>
-<rect x="610.000" y="600" width="2.667" height="8" fill="#238636"/>
-<rect x="612.667" y="600" width="2.667" height="8" fill="#bf8700"/>
-<rect x="615.333" y="600" width="2.667" height="8" fill="#64748b"/>
+<g><title>Functions 10,738–10,740: {&#x27;matched&#x27;: 2, &#x27;attempt&#x27;: 1}</title>
+<rect x="610.000" y="600" width="5.333" height="8" fill="#238636"/>
+<rect x="615.333" y="600" width="2.667" height="8" fill="#bf8700"/>
 </g>
 <g><title>Functions 10,741–10,743: {&#x27;attempt&#x27;: 3}</title>
 <rect x="620.000" y="600" width="8.000" height="8" fill="#bf8700"/>
@@ -13333,9 +13329,8 @@
 <rect x="470.000" y="610" width="5.333" height="8" fill="#238636"/>
 <rect x="475.333" y="610" width="2.667" height="8" fill="#bf8700"/>
 </g>
-<g><title>Functions 10,939–10,941: {&#x27;matched&#x27;: 2, &#x27;open&#x27;: 1}</title>
-<rect x="480.000" y="610" width="5.333" height="8" fill="#238636"/>
-<rect x="485.333" y="610" width="2.667" height="8" fill="#64748b"/>
+<g><title>Functions 10,939–10,941: {&#x27;matched&#x27;: 3}</title>
+<rect x="480.000" y="610" width="8.000" height="8" fill="#238636"/>
 </g>
 <g><title>Functions 10,942–10,944: {&#x27;open&#x27;: 2, &#x27;attempt&#x27;: 1}</title>
 <rect x="490.000" y="610" width="2.667" height="8" fill="#bf8700"/>
@@ -13446,9 +13441,9 @@
 <rect x="760.000" y="610" width="2.667" height="8" fill="#238636"/>
 <rect x="762.667" y="610" width="5.333" height="8" fill="#bf8700"/>
 </g>
-<g><title>Functions 11,026–11,028: {&#x27;attempt&#x27;: 2, &#x27;open&#x27;: 1}</title>
-<rect x="770.000" y="610" width="5.333" height="8" fill="#bf8700"/>
-<rect x="775.333" y="610" width="2.667" height="8" fill="#64748b"/>
+<g><title>Functions 11,026–11,028: {&#x27;attempt&#x27;: 2, &#x27;matched&#x27;: 1}</title>
+<rect x="770.000" y="610" width="2.667" height="8" fill="#238636"/>
+<rect x="772.667" y="610" width="5.333" height="8" fill="#bf8700"/>
 </g>
 <g><title>Functions 11,029–11,031: {&#x27;attempt&#x27;: 3}</title>
 <rect x="780.000" y="610" width="8.000" height="8" fill="#bf8700"/>
@@ -13788,9 +13783,9 @@
 <g><title>Functions 11,311–11,313: {&#x27;matched&#x27;: 3}</title>
 <rect x="120.000" y="630" width="8.000" height="8" fill="#238636"/>
 </g>
-<g><title>Functions 11,314–11,316: {&#x27;matched&#x27;: 2, &#x27;open&#x27;: 1}</title>
+<g><title>Functions 11,314–11,316: {&#x27;matched&#x27;: 2, &#x27;attempt&#x27;: 1}</title>
 <rect x="130.000" y="630" width="5.333" height="8" fill="#238636"/>
-<rect x="135.333" y="630" width="2.667" height="8" fill="#64748b"/>
+<rect x="135.333" y="630" width="2.667" height="8" fill="#bf8700"/>
 </g>
 <g><title>Functions 11,317–11,319: {&#x27;matched&#x27;: 2, &#x27;attempt&#x27;: 1}</title>
 <rect x="140.000" y="630" width="5.333" height="8" fill="#238636"/>
@@ -13834,9 +13829,8 @@
 <rect x="240.000" y="630" width="2.667" height="8" fill="#238636"/>
 <rect x="242.667" y="630" width="5.333" height="8" fill="#bf8700"/>
 </g>
-<g><title>Functions 11,350–11,352: {&#x27;attempt&#x27;: 1, &#x27;open&#x27;: 2}</title>
-<rect x="250.000" y="630" width="2.667" height="8" fill="#bf8700"/>
-<rect x="252.667" y="630" width="5.333" height="8" fill="#64748b"/>
+<g><title>Functions 11,350–11,352: {&#x27;attempt&#x27;: 3}</title>
+<rect x="250.000" y="630" width="8.000" height="8" fill="#bf8700"/>
 </g>
 <g><title>Functions 11,353–11,355: {&#x27;matched&#x27;: 3}</title>
 <rect x="260.000" y="630" width="8.000" height="8" fill="#238636"/>
@@ -14100,9 +14094,9 @@
 <g><title>Functions 11,590–11,592: {&#x27;matched&#x27;: 3}</title>
 <rect x="250.000" y="640" width="8.000" height="8" fill="#238636"/>
 </g>
-<g><title>Functions 11,593–11,595: {&#x27;attempt&#x27;: 1, &#x27;open&#x27;: 2}</title>
-<rect x="260.000" y="640" width="2.667" height="8" fill="#bf8700"/>
-<rect x="262.667" y="640" width="5.333" height="8" fill="#64748b"/>
+<g><title>Functions 11,593–11,595: {&#x27;attempt&#x27;: 2, &#x27;matched&#x27;: 1}</title>
+<rect x="260.000" y="640" width="2.667" height="8" fill="#238636"/>
+<rect x="262.667" y="640" width="5.333" height="8" fill="#bf8700"/>
 </g>
 <g><title>Functions 11,596–11,598: {&#x27;matched&#x27;: 3}</title>
 <rect x="270.000" y="640" width="8.000" height="8" fill="#238636"/>
@@ -14182,9 +14176,9 @@
 <rect x="480.000" y="640" width="5.333" height="8" fill="#238636"/>
 <rect x="485.333" y="640" width="2.667" height="8" fill="#bf8700"/>
 </g>
-<g><title>Functions 11,662–11,664: {&#x27;attempt&#x27;: 1, &#x27;open&#x27;: 2}</title>
-<rect x="490.000" y="640" width="2.667" height="8" fill="#bf8700"/>
-<rect x="492.667" y="640" width="5.333" height="8" fill="#64748b"/>
+<g><title>Functions 11,662–11,664: {&#x27;attempt&#x27;: 2, &#x27;open&#x27;: 1}</title>
+<rect x="490.000" y="640" width="5.333" height="8" fill="#bf8700"/>
+<rect x="495.333" y="640" width="2.667" height="8" fill="#64748b"/>
 </g>
 <g><title>Functions 11,665–11,667: {&#x27;matched&#x27;: 2, &#x27;attempt&#x27;: 1}</title>
 <rect x="500.000" y="640" width="5.333" height="8" fill="#238636"/>
@@ -14210,9 +14204,9 @@
 <rect x="550.000" y="640" width="5.333" height="8" fill="#bf8700"/>
 <rect x="555.333" y="640" width="2.667" height="8" fill="#64748b"/>
 </g>
-<g><title>Functions 11,683–11,685: {&#x27;open&#x27;: 2, &#x27;attempt&#x27;: 1}</title>
-<rect x="560.000" y="640" width="2.667" height="8" fill="#bf8700"/>
-<rect x="562.667" y="640" width="5.333" height="8" fill="#64748b"/>
+<g><title>Functions 11,683–11,685: {&#x27;attempt&#x27;: 2, &#x27;open&#x27;: 1}</title>
+<rect x="560.000" y="640" width="5.333" height="8" fill="#bf8700"/>
+<rect x="565.333" y="640" width="2.667" height="8" fill="#64748b"/>
 </g>
 <g><title>Functions 11,686–11,688: {&#x27;attempt&#x27;: 1, &#x27;matched&#x27;: 2}</title>
 <rect x="570.000" y="640" width="5.333" height="8" fill="#238636"/>
@@ -14357,20 +14351,18 @@
 <g><title>Functions 11,797–11,799: {&#x27;attempt&#x27;: 3}</title>
 <rect x="140.000" y="650" width="8.000" height="8" fill="#bf8700"/>
 </g>
-<g><title>Functions 11,800–11,802: {&#x27;open&#x27;: 1, &#x27;attempt&#x27;: 2}</title>
-<rect x="150.000" y="650" width="5.333" height="8" fill="#bf8700"/>
-<rect x="155.333" y="650" width="2.667" height="8" fill="#64748b"/>
+<g><title>Functions 11,800–11,802: {&#x27;attempt&#x27;: 3}</title>
+<rect x="150.000" y="650" width="8.000" height="8" fill="#bf8700"/>
 </g>
-<g><title>Functions 11,803–11,805: {&#x27;open&#x27;: 2, &#x27;attempt&#x27;: 1}</title>
-<rect x="160.000" y="650" width="2.667" height="8" fill="#bf8700"/>
-<rect x="162.667" y="650" width="5.333" height="8" fill="#64748b"/>
+<g><title>Functions 11,803–11,805: {&#x27;attempt&#x27;: 3}</title>
+<rect x="160.000" y="650" width="8.000" height="8" fill="#bf8700"/>
 </g>
-<g><title>Functions 11,806–11,808: {&#x27;attempt&#x27;: 1, &#x27;open&#x27;: 2}</title>
-<rect x="170.000" y="650" width="2.667" height="8" fill="#bf8700"/>
-<rect x="172.667" y="650" width="5.333" height="8" fill="#64748b"/>
+<g><title>Functions 11,806–11,808: {&#x27;attempt&#x27;: 3}</title>
+<rect x="170.000" y="650" width="8.000" height="8" fill="#bf8700"/>
 </g>
-<g><title>Functions 11,809–11,811: {&#x27;open&#x27;: 3}</title>
-<rect x="180.000" y="650" width="8.000" height="8" fill="#64748b"/>
+<g><title>Functions 11,809–11,811: {&#x27;attempt&#x27;: 2, &#x27;open&#x27;: 1}</title>
+<rect x="180.000" y="650" width="5.333" height="8" fill="#bf8700"/>
+<rect x="185.333" y="650" width="2.667" height="8" fill="#64748b"/>
 </g>
 <g><title>Functions 11,812–11,814: {&#x27;open&#x27;: 1, &#x27;attempt&#x27;: 1, &#x27;matched&#x27;: 1}</title>
 <rect x="190.000" y="650" width="2.667" height="8" fill="#238636"/>
@@ -14398,8 +14390,9 @@
 <rect x="240.000" y="650" width="2.667" height="8" fill="#238636"/>
 <rect x="242.667" y="650" width="5.333" height="8" fill="#bf8700"/>
 </g>
-<g><title>Functions 11,830–11,832: {&#x27;open&#x27;: 3}</title>
-<rect x="250.000" y="650" width="8.000" height="8" fill="#64748b"/>
+<g><title>Functions 11,830–11,832: {&#x27;open&#x27;: 2, &#x27;attempt&#x27;: 1}</title>
+<rect x="250.000" y="650" width="2.667" height="8" fill="#bf8700"/>
+<rect x="252.667" y="650" width="5.333" height="8" fill="#64748b"/>
 </g>
 <g><title>Functions 11,833–11,835: {&#x27;open&#x27;: 1, &#x27;matched&#x27;: 2}</title>
 <rect x="260.000" y="650" width="5.333" height="8" fill="#238636"/>
@@ -14412,14 +14405,14 @@
 <rect x="280.000" y="650" width="5.333" height="8" fill="#238636"/>
 <rect x="285.333" y="650" width="2.667" height="8" fill="#64748b"/>
 </g>
-<g><title>Functions 11,842–11,844: {&#x27;matched&#x27;: 1, &#x27;open&#x27;: 2}</title>
+<g><title>Functions 11,842–11,844: {&#x27;matched&#x27;: 1, &#x27;open&#x27;: 1, &#x27;attempt&#x27;: 1}</title>
 <rect x="290.000" y="650" width="2.667" height="8" fill="#238636"/>
-<rect x="292.667" y="650" width="5.333" height="8" fill="#64748b"/>
+<rect x="292.667" y="650" width="2.667" height="8" fill="#bf8700"/>
+<rect x="295.333" y="650" width="2.667" height="8" fill="#64748b"/>
 </g>
-<g><title>Functions 11,845–11,847: {&#x27;matched&#x27;: 1, &#x27;open&#x27;: 1, &#x27;attempt&#x27;: 1}</title>
-<rect x="300.000" y="650" width="2.667" height="8" fill="#238636"/>
-<rect x="302.667" y="650" width="2.667" height="8" fill="#bf8700"/>
-<rect x="305.333" y="650" width="2.667" height="8" fill="#64748b"/>
+<g><title>Functions 11,845–11,847: {&#x27;matched&#x27;: 2, &#x27;attempt&#x27;: 1}</title>
+<rect x="300.000" y="650" width="5.333" height="8" fill="#238636"/>
+<rect x="305.333" y="650" width="2.667" height="8" fill="#bf8700"/>
 </g>
 <g><title>Functions 11,848–11,850: {&#x27;attempt&#x27;: 2, &#x27;open&#x27;: 1}</title>
 <rect x="310.000" y="650" width="5.333" height="8" fill="#bf8700"/>
@@ -14684,12 +14677,12 @@
 <rect x="212.667" y="660" width="2.667" height="8" fill="#bf8700"/>
 <rect x="215.333" y="660" width="2.667" height="8" fill="#64748b"/>
 </g>
-<g><title>Functions 12,061–12,063: {&#x27;open&#x27;: 3}</title>
-<rect x="220.000" y="660" width="8.000" height="8" fill="#64748b"/>
+<g><title>Functions 12,061–12,063: {&#x27;open&#x27;: 2, &#x27;attempt&#x27;: 1}</title>
+<rect x="220.000" y="660" width="2.667" height="8" fill="#bf8700"/>
+<rect x="222.667" y="660" width="5.333" height="8" fill="#64748b"/>
 </g>
-<g><title>Functions 12,064–12,066: {&#x27;matched&#x27;: 2, &#x27;open&#x27;: 1}</title>
-<rect x="230.000" y="660" width="5.333" height="8" fill="#238636"/>
-<rect x="235.333" y="660" width="2.667" height="8" fill="#64748b"/>
+<g><title>Functions 12,064–12,066: {&#x27;matched&#x27;: 3}</title>
+<rect x="230.000" y="660" width="8.000" height="8" fill="#238636"/>
 </g>
 <g><title>Functions 12,067–12,069: {&#x27;open&#x27;: 1, &#x27;matched&#x27;: 2}</title>
 <rect x="240.000" y="660" width="5.333" height="8" fill="#238636"/>
@@ -14699,14 +14692,13 @@
 <rect x="250.000" y="660" width="5.333" height="8" fill="#bf8700"/>
 <rect x="255.333" y="660" width="2.667" height="8" fill="#64748b"/>
 </g>
-<g><title>Functions 12,073–12,075: {&#x27;open&#x27;: 1, &#x27;matched&#x27;: 1, &#x27;attempt&#x27;: 1}</title>
+<g><title>Functions 12,073–12,075: {&#x27;attempt&#x27;: 2, &#x27;matched&#x27;: 1}</title>
 <rect x="260.000" y="660" width="2.667" height="8" fill="#238636"/>
-<rect x="262.667" y="660" width="2.667" height="8" fill="#bf8700"/>
-<rect x="265.333" y="660" width="2.667" height="8" fill="#64748b"/>
+<rect x="262.667" y="660" width="5.333" height="8" fill="#bf8700"/>
 </g>
-<g><title>Functions 12,076–12,078: {&#x27;open&#x27;: 2, &#x27;attempt&#x27;: 1}</title>
-<rect x="270.000" y="660" width="2.667" height="8" fill="#bf8700"/>
-<rect x="272.667" y="660" width="5.333" height="8" fill="#64748b"/>
+<g><title>Functions 12,076–12,078: {&#x27;attempt&#x27;: 2, &#x27;open&#x27;: 1}</title>
+<rect x="270.000" y="660" width="5.333" height="8" fill="#bf8700"/>
+<rect x="275.333" y="660" width="2.667" height="8" fill="#64748b"/>
 </g>
 <g><title>Functions 12,079–12,081: {&#x27;attempt&#x27;: 1, &#x27;open&#x27;: 2}</title>
 <rect x="280.000" y="660" width="2.667" height="8" fill="#bf8700"/>
@@ -14773,8 +14765,9 @@
 <rect x="442.667" y="660" width="2.667" height="8" fill="#bf8700"/>
 <rect x="445.333" y="660" width="2.667" height="8" fill="#64748b"/>
 </g>
-<g><title>Functions 12,130–12,132: {&#x27;open&#x27;: 3}</title>
-<rect x="450.000" y="660" width="8.000" height="8" fill="#64748b"/>
+<g><title>Functions 12,130–12,132: {&#x27;open&#x27;: 2, &#x27;attempt&#x27;: 1}</title>
+<rect x="450.000" y="660" width="2.667" height="8" fill="#bf8700"/>
+<rect x="452.667" y="660" width="5.333" height="8" fill="#64748b"/>
 </g>
 <g><title>Functions 12,133–12,135: {&#x27;attempt&#x27;: 3}</title>
 <rect x="460.000" y="660" width="8.000" height="8" fill="#bf8700"/>
@@ -14801,10 +14794,9 @@
 <g><title>Functions 12,151–12,153: {&#x27;matched&#x27;: 3}</title>
 <rect x="520.000" y="660" width="8.000" height="8" fill="#238636"/>
 </g>
-<g><title>Functions 12,154–12,156: {&#x27;matched&#x27;: 1, &#x27;open&#x27;: 1, &#x27;attempt&#x27;: 1}</title>
+<g><title>Functions 12,154–12,156: {&#x27;matched&#x27;: 1, &#x27;attempt&#x27;: 2}</title>
 <rect x="530.000" y="660" width="2.667" height="8" fill="#238636"/>
-<rect x="532.667" y="660" width="2.667" height="8" fill="#bf8700"/>
-<rect x="535.333" y="660" width="2.667" height="8" fill="#64748b"/>
+<rect x="532.667" y="660" width="5.333" height="8" fill="#bf8700"/>
 </g>
 <g><title>Functions 12,157–12,159: {&#x27;matched&#x27;: 3}</title>
 <rect x="540.000" y="660" width="8.000" height="8" fill="#238636"/>
@@ -14873,10 +14865,9 @@
 <g><title>Functions 12,208–12,210: {&#x27;matched&#x27;: 3}</title>
 <rect x="710.000" y="660" width="8.000" height="8" fill="#238636"/>
 </g>
-<g><title>Functions 12,211–12,213: {&#x27;attempt&#x27;: 1, &#x27;matched&#x27;: 1, &#x27;open&#x27;: 1}</title>
+<g><title>Functions 12,211–12,213: {&#x27;attempt&#x27;: 2, &#x27;matched&#x27;: 1}</title>
 <rect x="720.000" y="660" width="2.667" height="8" fill="#238636"/>
-<rect x="722.667" y="660" width="2.667" height="8" fill="#bf8700"/>
-<rect x="725.333" y="660" width="2.667" height="8" fill="#64748b"/>
+<rect x="722.667" y="660" width="5.333" height="8" fill="#bf8700"/>
 </g>
 <g><title>Functions 12,214–12,216: {&#x27;matched&#x27;: 3}</title>
 <rect x="730.000" y="660" width="8.000" height="8" fill="#238636"/>
@@ -15097,14 +15088,12 @@
 <rect x="590.000" y="670" width="2.667" height="8" fill="#238636"/>
 <rect x="592.667" y="670" width="5.333" height="8" fill="#b54747"/>
 </g>
-<g><title>Functions 12,415–12,417: {&#x27;aside&#x27;: 1, &#x27;attempt&#x27;: 1, &#x27;open&#x27;: 1}</title>
-<rect x="600.000" y="670" width="2.667" height="8" fill="#bf8700"/>
-<rect x="602.667" y="670" width="2.667" height="8" fill="#64748b"/>
+<g><title>Functions 12,415–12,417: {&#x27;aside&#x27;: 1, &#x27;attempt&#x27;: 2}</title>
+<rect x="600.000" y="670" width="5.333" height="8" fill="#bf8700"/>
 <rect x="605.333" y="670" width="2.667" height="8" fill="#b54747"/>
 </g>
-<g><title>Functions 12,418–12,420: {&#x27;open&#x27;: 1, &#x27;aside&#x27;: 1, &#x27;attempt&#x27;: 1}</title>
-<rect x="610.000" y="670" width="2.667" height="8" fill="#bf8700"/>
-<rect x="612.667" y="670" width="2.667" height="8" fill="#64748b"/>
+<g><title>Functions 12,418–12,420: {&#x27;attempt&#x27;: 2, &#x27;aside&#x27;: 1}</title>
+<rect x="610.000" y="670" width="5.333" height="8" fill="#bf8700"/>
 <rect x="615.333" y="670" width="2.667" height="8" fill="#b54747"/>
 </g>
 <g><title>Functions 12,421–12,423: {&#x27;aside&#x27;: 1, &#x27;matched&#x27;: 2}</title>
@@ -15214,8 +15203,9 @@
 <rect x="80.000" y="680" width="2.667" height="8" fill="#238636"/>
 <rect x="82.667" y="680" width="5.333" height="8" fill="#64748b"/>
 </g>
-<g><title>Functions 12,502–12,504: {&#x27;open&#x27;: 3}</title>
-<rect x="90.000" y="680" width="8.000" height="8" fill="#64748b"/>
+<g><title>Functions 12,502–12,504: {&#x27;attempt&#x27;: 1, &#x27;open&#x27;: 2}</title>
+<rect x="90.000" y="680" width="2.667" height="8" fill="#bf8700"/>
+<rect x="92.667" y="680" width="5.333" height="8" fill="#64748b"/>
 </g>
 <g><title>Functions 12,505–12,507: {&#x27;open&#x27;: 3}</title>
 <rect x="100.000" y="680" width="8.000" height="8" fill="#64748b"/>
