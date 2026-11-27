@@ -13,7 +13,7 @@ typedef s32 M2C_UNK32;
 #endif
 
 f32 func_003F35C8(f32, f32);                        /* extern */
-f32 func_003F3E80(f32);                             /* extern */
+f32 sqrtf(f32);                                     /* extern */
 
 void func_001B2BA0(void *arg0, void *arg1, void *arg2, s32 arg3) {
     f32 sp0;
@@ -63,7 +63,7 @@ void func_001B2BA0(void *arg0, void *arg1, void *arg2, s32 arg3) {
     } else {
         M2C_ERROR(/* unknown instruction: c1 0xc0004 */);
         if (var_f0 != var_f0) {
-            var_f0 = func_003F3E80(temp_f12);
+            var_f0 = sqrtf(temp_f12);
         }
         temp_f1_3 = 1.0f / var_f0;
         sp0 *= temp_f1_3;

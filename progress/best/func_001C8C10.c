@@ -1,23 +1,29 @@
-extern void func_001C8B70(void *, s32, s32, u64);
+#include "context.h"
 
-void func_001C8C10(void *arg0, s32 arg1, s32 arg2, u64 arg3) {
-    u64 tmp = arg3;
-    u64 *a = (u64 *)arg0;
-    s32 i = arg1;
-    s32 j = i;
-    s32 k = j * 2 + 2;
-    if (k < arg2) {
-        do {
-            s32 dec = 1;
-            if (!(((f32 *)&a[k])[-1] < ((f32 *)&a[k])[0])) dec = 0;
-            j = k - dec;
-            a[j] = a[k];
-            k = (j + 1) * 2;
-        } while (k < arg2);
+typedef struct {
+    f32 key;
+    s32 val;
+} HeapElem;
+
+extern void func_001C8B70(HeapElem *, s32, s32, HeapElem);
+
+void func_001C8C10(HeapElem *first, s32 holeIndex, s32 len, HeapElem value) {
+    s32 topIndex = holeIndex;
+    s32 secondChild = 2 * holeIndex + 2;
+
+    while (secondChild < len) {
+        if (first[secondChild - 1].key < first[secondChild].key) {
+            secondChild--;
+        }
+        first[holeIndex] = first[secondChild];
+        holeIndex = secondChild;
+        secondChild = 2 * (secondChild + 1);
     }
-    if (k == arg2) {
-        a[k] = a[k - 1];
-        j = k - 1;
+
+    if (secondChild == len) {
+        first[holeIndex] = first[secondChild - 1];
+        holeIndex = secondChild - 1;
     }
-    func_001C8B70(arg0, j, arg1, tmp);
+
+    func_001C8B70(first, holeIndex, topIndex, value);
 }

@@ -1,0 +1,1 @@
+extern void func_003E0EF0(u32); s64 func_003E5018(void *arg0) { s64 res; s32 cnt=0; while ((res=*(volatile s64*)0x10002000)<0 && !(*(volatile u32*)0x10002010 & 0x4000)) { if(cnt++ >= 0x1389) { func_003E0EF0(*(u32*)((u8*)arg0+0x858)); cnt=0; } } return res; }

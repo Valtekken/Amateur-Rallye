@@ -1,4 +1,4 @@
-/* machine draft (m2c) for ee-gcc-2.9-991111 -O2 -G0, tried by autopilot */
+/* machine draft (m2c) for ee-gcc-2.95.2 -O2 -G0, tried by autopilot */
 #ifndef M2C_DEFINES
 #define M2C_DEFINES
 typedef s32 M2C_UNK;
@@ -12,7 +12,7 @@ typedef s32 M2C_UNK32;
 #define M2C_OVERFLOW(a) (0)
 #endif
 
-f32 func_003F3E80(f32);                             /* extern */
+f32 sqrtf(f32);                                     /* extern */
 
 void func_0028BBE8(void *arg0, void *arg1) {
     f32 sp0;
@@ -65,7 +65,7 @@ void func_0028BBE8(void *arg0, void *arg1) {
         sp18 = var_f0;
         M2C_ERROR(/* unknown instruction: c1 0xc0004 */);
         if (var_f0 != var_f0) {
-            var_f0 = func_003F3E80((temp_f2_2 * temp_f2_2) + (temp_f1_2 * temp_f1_2) + (var_f0 * var_f0));
+            var_f0 = sqrtf((temp_f2_2 * temp_f2_2) + (temp_f1_2 * temp_f1_2) + (var_f0 * var_f0));
         }
         if (var_f0 != 0.0f) {
             var_f0_2 = sp18 * sp18;
@@ -73,7 +73,7 @@ void func_0028BBE8(void *arg0, void *arg1) {
             if (!(temp_f12 <= 1.1920929e-7f)) {
                 M2C_ERROR(/* unknown instruction: c1 0xc0004 */);
                 if (var_f0_2 != var_f0_2) {
-                    var_f0_2 = func_003F3E80(temp_f12);
+                    var_f0_2 = sqrtf(temp_f12);
                 }
                 temp_f1_3 = 1.0f / var_f0_2;
                 sp10 *= temp_f1_3;

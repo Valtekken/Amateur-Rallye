@@ -50,21 +50,21 @@ void func_0010FB20(void)
     E = func_001E4280();
     func_001D4040(buf, D_00445DC0);
     E2 = func_001E3650(E, (s32) buf);
-    G = func_00191710(func_00193B60(E2));
+    G = func_00191710(func_00193B60());
     acc = E2 * 11;
     acc = acc + 61;
-    acc = acc + G;
-    H = func_00196028(G);
+    acc = G + acc;
+    H = func_00196028();
     I = func_00194D58(H, acc);
     if ((var_17 < I) || (I == 0))
     {
- do { func_00194CD0(func_00196028((s32) (var_17 < I)), acc, var_17); } while (0);
+ do { func_00194CD0(func_00196028(), acc, var_17); } while (0);
     }
   }
   K = func_00193B60();
-  L = func_00191710(0);
-  M = func_00196028(L);
-  N = func_00195CF0(M, M);
+  L = func_00191710(K);
+  M = L;
+  N = func_00195CF0(func_00196028(), M);
   P = func_001969A0(func_00196E10(), 0);
   if (P <= N)
   {

@@ -1,0 +1,34 @@
+typedef struct { f32 x, y, z; } Vec;
+typedef struct { Vec a, b, c, d; void *p30, *p34; s32 f38; } Obj;
+typedef struct { void *next, *prev; } Node;
+extern Vec D_00426508;
+extern void *func_002B1FC0(s32, ...);
+extern void *func_003D2910(s32);
+void *func_002311A0(Obj *o) {
+    volatile char pad[0x20];
+    void *p, *q;
+    *(f32 *)((char *)o + 0x0) = D_00426508.x;
+    *(f32 *)((char *)o + 0x4) = D_00426508.y;
+    *(f32 *)((char *)o + 0x8) = D_00426508.z;
+    *(f32 *)((char *)o + 0xC) = D_00426508.x;
+    *(f32 *)((char *)o + 0x10) = D_00426508.y;
+    *(f32 *)((char *)o + 0x14) = D_00426508.z;
+    *(f32 *)((char *)o + 0x18) = D_00426508.x;
+    *(f32 *)((char *)o + 0x1C) = D_00426508.y;
+    *(f32 *)((char *)o + 0x20) = D_00426508.z;
+    *(f32 *)((char *)o + 0x24) = D_00426508.x;
+    *(f32 *)((char *)o + 0x28) = D_00426508.y;
+    *(f32 *)((char *)o + 0x2C) = D_00426508.z;
+    p = func_002B1FC0(0xC, (char *)o + 0xC, (char *)o + 0x18, (char *)o + 0x24);
+    if (p == NULL) p = func_003D2910(0xC);
+    *(void **)((char *)o + 0x30) = p;
+    ((Node *)p)->next = p;
+    ((Node *)*(void **)((char *)o + 0x30))->prev = *(void **)((char *)o + 0x30);
+    q = func_002B1FC0(0xC);
+    if (q == NULL) q = func_003D2910(0xC);
+    *(void **)((char *)o + 0x34) = q;
+    ((Node *)q)->next = q;
+    ((Node *)*(void **)((char *)o + 0x34))->prev = *(void **)((char *)o + 0x34);
+    *(s32 *)((char *)o + 0x38) = -1;
+    return o;
+}

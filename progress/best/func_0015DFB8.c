@@ -1,0 +1,71 @@
+extern void *D_002AD408(s32);
+extern s32 func_002A1700(void);
+extern void func_002A1188(s32);
+extern f32 **func_00201350(void);
+extern s32 func_002B62E0(void);
+extern void func_002B5F48(s32);
+extern void *func_0021E290(void *);
+extern void func_001D4810(void *, void *);
+extern void func_00262F88(void *, void *);
+extern void func_001D4040(void *, void *);
+extern void func_0021E748(void *, void *);
+extern void *func_0015E928(void *);
+extern void func_0021E620(void *, s32, void *);
+extern void func_001FBE28(void *);
+extern void func_0021E6D0(void *, void *);
+extern void func_001FBDA0(void *, f32, f32);
+extern void *func_00286D50(void *);
+extern void func_00286DE0(void *);
+extern f32 func_0015ACB0(void);
+extern char D_0044E9E0[], D_0044E9F8[];
+typedef struct { s32 v; char pad[0xC]; f32 a, b, c; } Locals;
+#define BASE (((u8 *)*(void **)((u8 *)obj + 0x50)))
+#define ROOT (*(void **)BASE)
+
+void func_0015DFB8(void) {
+  Locals l;
+  s32 var19 = 0, var20 = -1;
+  void *obj, *o, *t, *p;
+  char *name = D_0044E9E0;
+  f32 f;
+  l.v = 0; l.a = 0.0f; l.b = 0.0f; l.c = 0.0f;
+  func_002A1188(func_002A1700());
+  **func_00201350() = 70.0f;
+  func_002B5F48(func_002B62E0());
+  obj = func_0021E290(D_002AD408(0x7C));
+  func_001D4810(&l.v, name);
+  func_00262F88(*(void **)((u8 *)obj + 0x50), &l.v);
+  func_001D4040(&l.v, D_0044E9F8);
+  func_0021E748(obj, &l.v);
+  o = *(void **)((u8 *)obj + 0x50);
+  t = (u8 *)o + 0x50;
+  *(f32 *)((u8 *)o + 0x50) = l.a;
+  *(f32 *)((u8 *)t + 0x4) = l.b;
+  *(f32 *)((u8 *)t + 0x8) = l.c;
+  *(f32 *)((u8 *)t + 0xC) = 1.0f;
+  func_0021E620(obj, 0, func_0015E928(D_002AD408(0x10)));
+  p = D_002AD408(0x50);
+  do {
+    var19--;
+    func_001FBE28(p);
+    func_001FBE28((u8 *)p + 0x28);
+    p = (u8 *)p + 0x50;
+  } while (var19 != var20);
+  func_0021E6D0(obj, D_002AD408(0x50));
+  *(s32 *)((u8 *)ROOT + 0x1C) = 0;
+  func_001FBDA0(ROOT, 0.0f, 1.0f);
+  func_001D4810(&l.v, name);
+  *(s32 *)((u8 *)ROOT + 0x10) = l.v;
+  *(s32 *)ROOT = 0;
+  *(f32 *)((u8 *)ROOT + 0x1C) = 1.0f;
+  *(f32 *)((u8 *)ROOT + 0xC) = 1.0f;
+  *(s32 *)((u8 *)ROOT + 0x8) = 0;
+  *(s32 *)((u8 *)ROOT + 0x4) = 0;
+  p = func_00286D50(D_002AD408(0x28));
+  func_00286DE0(p);
+  f = func_0015ACB0() / 300.0f;
+  *(f32 *)((u8 *)p + 0x24) = 1.0f;
+  *(f32 *)((u8 *)p + 0x20) = -25.0f;
+  *(f32 *)((u8 *)p + 0x10) = f;
+  func_0021E620(obj, 3, p);
+}

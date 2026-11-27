@@ -1,0 +1,2 @@
+typedef struct { int *b,*e; char pad[16]; } Row; typedef struct { int n; Row *rows; } Mat; typedef struct { float *v; } Vec; extern void func_00208888(Row *,int,int *,float *); extern float func_002088B0(Row *);
+void func_00208978(Mat *m,Vec *x,Vec *y){int i,j,k;float v;Row *r;int n;for(i=0;i<m->n;i++){float *p=y->v;p+=i;*p=0;}for(i=0;i<m->n;i++){r=&m->rows[i];n=r->e-r->b;for(j=0;j<n-1;j++){func_00208888(r,j,&k,&v);{float *q=x->v;q+=k;float *p=y->v;p+=i;*p+=v* *q;} {float *q=x->v;q+=i;float *p=y->v;p+=k;*p+=v* *q;}}{float *p=y->v;p+=i;*p+=func_002088B0(r)*x->v[i];}}}

@@ -1,0 +1,3 @@
+typedef struct {u32 x[2];} E; typedef struct {E *b,*e,*c;} V; typedef struct {void *p; char pad[16]; E *b,*e,*c;} A;
+extern u32 D_0040E618[]; extern void func_002772A8(void*,int),func_002B2028(void*),D_002AD390(void*);
+void func_00260508(A *a,int flags){E *e,*b,*p,*cap; V *v,*w; int n,delta; if(a->p)func_002772A8(a->p,3);v=(V*)&a->b; a->p=0;w=v;e=v->e;b=a->b;delta=(u32)e-(u32)b;for(;b<e;b++){} v->e=(E*)((char*)e-delta);e=*(E * volatile *)&w->e;b=a->b;for(;b<e;b++){} cap=w->c;p=w->b;n=cap-p;if(n){if(n*8)func_002B2028(p);else{*(u32*)p=D_0040E618[-1];D_0040E618[-1]=(u32)p;}}if(flags&1)D_002AD390(a);}

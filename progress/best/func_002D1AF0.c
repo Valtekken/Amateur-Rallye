@@ -17,7 +17,7 @@ s32 func_002CDD18(s32);                             /* extern */
 s32 func_002CE238(s32, s32, M2C_UNK);               /* extern */
 M2C_UNK func_002CE408(s32, f32, f32);               /* extern */
 s32 func_002D1460(void *);                          /* extern */
-f32 func_003F3E80(f32);                             /* extern */
+f32 sqrtf(f32);                                     /* extern */
 
 void func_002D1AF0(void *arg0, void *arg1, void *arg2, s32 arg3, f32 fparg0) {
     f32 temp_f0;
@@ -75,7 +75,7 @@ block_9:
             var_f1 = temp_f1 * temp_f1;
             M2C_ERROR(/* unknown instruction: c1 0xc0044 */);
             if (var_f1 != var_f1) {
-                var_f1 = func_003F3E80((temp_f0 * temp_f0) + (temp_f2 * temp_f2) + var_f1);
+                var_f1 = sqrtf((temp_f0 * temp_f0) + (temp_f2 * temp_f2) + var_f1);
             }
             temp_f3 = M2C_FIELD(arg1, f32 *, 0x1C);
             temp_f0_2 = M2C_FIELD(arg1, f32 *, 0x18);

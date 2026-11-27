@@ -1,3 +1,79 @@
-typedef struct{u8 *begin,*end,*cap;} Vec;
-extern void *func_00152D28(s32);extern void *func_002B1FC0(s32);extern void *func_003D2910(s32);extern void func_003F93CC(void*,void*,s32);extern u32 D_0040E618[];
-void *func_0036F068(Vec*a,s32 n,Vec*c){volatile u8 scratch[16];Vec*p=a;for(;n;n--,p++,c++){if(c){s32 count,bytes;u8*mem;count=((s32)p->end-(s32)p->begin)>>1;c->begin=0;c->end=0;c->cap=0;if(count){bytes=count<<1;if(bytes){u8*block=func_002B1FC0(bytes);if(block)mem=block;else mem=func_003D2910(bytes);}else{u8 *freeblock=(u8*)D_0040E618[-1];if(!freeblock)mem=func_00152D28(0);else{u32 next=*(u32*)freeblock;mem=freeblock;D_0040E618[-1]=next;}}}else{mem=0;bytes=0;}c->begin=mem;c->cap=mem+bytes;c->end=mem;{u8*first=p->begin;u8*last=p->end;s32 size=((last-first)>>1)<<1;func_003F93CC(mem,first,size);c->end=mem+(last-first);}}}return c;}
+typedef struct 
+{
+  u8 *begin;
+  u8 *end;
+  u8 *cap;
+} Vec;
+extern void *func_00152D28(s32);
+extern void *func_002B1FC0(s32);
+extern void *func_003D2910(s32);
+extern void func_003F93CC(void *, void *, s32);
+extern u32 D_0040E618[];
+void *func_0036F068(Vec *a, s32 n, Vec *c)
+{
+  volatile u8 scratch[16];
+  s32 new_var;
+  Vec *p = a;
+  new_var = n;
+  for (; new_var; n--, p++, c++)
+  {
+    if (c)
+    {
+      s32 count;
+      s32 bytes;
+      u8 *mem;
+      count = (((s32) p->end) - ((s32) p->begin)) >> 1;
+      c->begin = 0;
+      c->end = 0;
+      c->cap = 0;
+      if (count)
+      {
+        bytes = count << 1;
+        if (bytes)
+        {
+          u8 *block = func_002B1FC0(bytes);
+          if (block)
+          {
+            mem = block;
+          }
+          else
+          {
+            mem = func_003D2910(bytes);
+          }
+        }
+        else
+        {
+          u8 *freeblock = (u8 *) D_0040E618[-1];
+          if (!freeblock)
+          {
+            mem = func_00152D28(0);
+          }
+          else
+          {
+            u32 next = *((u32 *) freeblock);
+            mem = freeblock;
+            D_0040E618[-1] = next;
+          }
+        }
+      }
+      else
+      {
+        mem = 0;
+        bytes = 0;
+      }
+      c->begin = mem;
+      c->cap = mem + bytes;
+      c->end = mem;
+      {
+        u8 *first = p->begin;
+        u8 *last = p->end;
+        s32 size = ((last - first) >> 1) << 1;
+        func_003F93CC(mem, first, size);
+        c->end = mem + (last - first);
+      }
+    }
+  }
+
+  return c;
+}
+

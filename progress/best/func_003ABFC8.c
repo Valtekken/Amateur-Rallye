@@ -1,0 +1,2 @@
+extern void func_003A33E8(void *, int); extern void func_003A3460(void *, int); extern int func_003A3CC8(void *); extern signed char *func_003A3D18(void *, int); extern void func_003A3D90(int, void *);
+int func_003ABFC8(register int a, register int b, register int c) { char obj[8]; volatile int n,i; volatile unsigned int ch; func_003A3460(obj,c); n=func_003A3CC8(obj); i=0; while(i<n) { ch=*func_003A3D18(obj,i); if(ch>=0x41 && ch<0x5b) ch+=0x20; else if(ch==0x2f) ch=0x5c; *func_003A3D18(obj,i)=ch; i++; } func_003A3D90(a,obj); func_003A33E8(obj,2); return a; }

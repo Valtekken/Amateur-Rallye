@@ -12,9 +12,9 @@ typedef s32 M2C_UNK32;
 #define M2C_OVERFLOW(a) (0)
 #endif
 
-f32 func_003F3E80(f32);                             /* extern */
 M2C_UNK func_003F96E8(M2C_UNK);                     /* extern */
 s32 func_003F96F8();                                /* extern */
+f32 sqrtf(f32);                                     /* extern */
 extern s32 D_0042FE78;
 extern M2C_UNK D_0042FE88;
 extern M2C_UNK D_00432E88;
@@ -77,7 +77,7 @@ loop_5:
             sp8 = var_f0;
             M2C_ERROR(/* unknown instruction: c1 0xc0004 */);
             if (var_f0 != var_f0) {
-                var_f0 = func_003F3E80((temp_f21 * temp_f21) + (temp_f20 * temp_f20) + (var_f0 * var_f0));
+                var_f0 = sqrtf((temp_f21 * temp_f21) + (temp_f20 * temp_f20) + (var_f0 * var_f0));
             }
             if (var_f0 <= 1.0f) {
                 var_16_2 = 1;
@@ -108,7 +108,7 @@ loop_13:
             sp8 = var_f0_2;
             M2C_ERROR(/* unknown instruction: c1 0xc0004 */);
             if (var_f0_2 != var_f0_2) {
-                var_f0_2 = func_003F3E80((temp_f21_2 * temp_f21_2) + (temp_f20_2 * temp_f20_2) + (var_f0_2 * var_f0_2));
+                var_f0_2 = sqrtf((temp_f21_2 * temp_f21_2) + (temp_f20_2 * temp_f20_2) + (var_f0_2 * var_f0_2));
             }
             if (var_f0_2 <= 1.0f) {
                 var_16_3 = 1;
@@ -121,7 +121,7 @@ loop_13:
             if (!(temp_f12 <= 1.1920929e-7f)) {
                 M2C_ERROR(/* unknown instruction: c1 0xc0004 */);
                 if (var_f0_3 != var_f0_3) {
-                    var_f0_3 = func_003F3E80(temp_f12);
+                    var_f0_3 = sqrtf(temp_f12);
                 }
                 temp_f1 = 1.0f / var_f0_3;
                 sp0 *= temp_f1;

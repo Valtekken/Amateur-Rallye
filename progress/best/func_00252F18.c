@@ -1,112 +1,182 @@
-typedef struct Pool {
-    u32 f0;
-    u32 f4;
-    u32 f8;
-    u32 fC;
-    u32 f10;
-    u32 f14;
-    u32 f18;
-    u32 f1C;
-    u32 f20;
-    u32 f24;
-    u32 f28;
-    u32 f2C;
-    u32 f30;
-    u32 f34;
-    u32 f38;
-    u32 f3C;
-} Pool;
+typedef struct { void **begin, **end, **cap; } Vec;
+typedef struct { void *unused; Vec free, used, blocks; } Pool;
+typedef struct Node { struct Node *next; void *prev; void *item; } Node;
 
 extern Pool D_00426750;
-extern Pool D_00426754;
-extern u8 D_0040E618[64];
-extern u32 D_002AD5A8;
+extern Vec D_00426754;
+extern void *D_0040E618[];
+extern void *D_002AD5A8(int);
+extern void func_0024FDC8(void *);
+extern void func_001CAED8(Vec *, void *, void **);
+extern void *func_002B1FC0(unsigned);
+extern void *func_003D2910(unsigned);
+extern void func_002B2028(void *);
+extern void *func_00152D28(unsigned);
+extern void *func_003F93CC(void *, const void *, unsigned);
 
-extern void func_0024FDC8(u32 *);
-extern void func_001CAED8(u32 *, u32 *);
-extern u32 *func_002B1FC0(s32);
-extern u32 *func_003D2910(s32);
-extern void func_003F93CC(u32 *, s32, u32 *, s32);
-extern void func_002B2028(u8 *, s32);
-extern void func_00152D28(u32 *);
-
-void func_00252F18(u32 **a0, u32 *a1, u32 *a2, u32 *a3, u32 *a4) {
-    volatile char pad[0x40];
-    u32 *cur = *a0;
-    u32 *head = *cur;
-    u32 *field8;
-    u32 *iter;
-    s32 i;
-    s32 d1, d2, limit;
-    u32 *alloc;
-    s32 size;
-    u32 *f8, *fC;
-    s32 off;
-
-    if (head == cur) return;
-
+void func_00252F18(void *a0, void *a1, char *a2, char *a3, Node **list) {
+    Node *n;
+    Pool *pool;
+    Vec *v2, *v3, *vec_end;
+    char *mem, *start, *q;
+    int i;
+    unsigned count, capacity, n_cap;
+    void **old, **end, **mem2;
+    unsigned bytes;
+    void *x, *y;
+    void *item;
+    
+    n = (*list)->next;
+    if (n == *list) return;
+    
+    pool = &D_00426750;
+    v2 = (Vec *)(a2 + 0x18);
+    v3 = (Vec *)(a3 + 0x18);
+    vec_end = &D_00426754;
+    
     do {
-        field8 = (u32 *)((char *)head + 8);
-
-        if (D_00426750.f4 != D_00426754.f4) {
-            (*(void (*)(s32))(u32)&D_002AD5A8)(0x1010);
-
-            iter = (u32 *)((char *)field8 + 0x10);
-            *head = 0x40;
-
-            for (i = 63; i >= 0; i--) {
-                func_0024FDC8(iter);
-                iter = (u32 *)((char *)iter + 0x40);
+        item = n->item;
+        
+        if (pool->free.begin == vec_end->end) {
+            mem = (char *)D_002AD5A8(0x1010);
+            start = mem + 16;
+            q = start;
+            *(int *)mem = 64;
+            i = 63;
+            do {
+                func_0024FDC8(q);
+                q += 64;
+                i--;
+            } while (i != -1);
+            if (pool->blocks.end != pool->blocks.cap) {
+                if (pool->blocks.end) *pool->blocks.end = start;
+                pool->blocks.end++;
+            } else {
+                func_001CAED8(&pool->blocks, pool->blocks.end, &start);
             }
-
-            if (D_00426750.f20 != D_00426750.f24) {
-                if (D_00426750.f20) {
-                    *(u32 *)D_00426750.f20 = (u32)field8;
+            count = (unsigned)(pool->free.end - pool->free.begin);
+            capacity = (unsigned)(pool->free.cap - pool->free.begin);
+            n_cap = count + 64;
+            if (capacity < n_cap) {
+                old = pool->free.begin;
+                end = pool->free.end;
+                mem2 = 0;
+                bytes = n_cap * 4;
+                if (n_cap) {
+                    if (bytes) {
+                        mem2 = (void **)func_002B1FC0(bytes);
+                        if (!mem2) mem2 = (void **)func_003D2910(bytes);
+                    } else {
+                        mem2 = &D_0040E618[-1];
+                        if (mem2) D_0040E618[-1] = *mem2;
+                        else mem2 = (void **)func_00152D28(0);
+                    }
                 }
-                D_00426750.f20 = (u32)((char *)&D_00426750.f20 + 4);
+                func_003F93CC(mem2, old, (end - old) * 4);
+                if (capacity) {
+                    if (capacity * 4) func_002B2028(old);
+                    else { *old = D_0040E618[-1]; D_0040E618[-1] = old; }
+                }
+                pool->free.cap = (void **)((char *)mem2 + bytes);
+                pool->free.end = mem2 + count;
+                pool->free.begin = mem2;
             }
-
-            func_001CAED8((u32 *)&D_00426750.f1C, a2);
+            for (i = 0; i < 64; i++) {
+                void *tmp = start + i * 64;
+                if (pool->free.end != pool->free.cap) {
+                    if (pool->free.end) *pool->free.end = tmp;
+                    pool->free.end++;
+                } else {
+                    func_001CAED8(&pool->free, pool->free.end, &tmp);
+                }
+            }
+        }
+        x = *--pool->free.end;
+        if (pool->used.end != pool->used.cap) {
+            if (pool->used.end) *pool->used.end = x;
+            pool->used.end++;
         } else {
-            if (D_00426754.f10 != D_00426754.f14) {
-                if (D_00426754.f10) {
-                    *(u32 *)D_00426754.f10 = D_00426754.f4;
+            func_001CAED8(&pool->used, pool->used.end, &x);
+        }
+        
+        if (pool->free.begin == vec_end->end) {
+            mem = (char *)D_002AD5A8(0x1010);
+            start = mem + 16;
+            q = start;
+            *(int *)mem = 64;
+            i = 63;
+            do {
+                func_0024FDC8(q);
+                q += 64;
+                i--;
+            } while (i != -1);
+            if (pool->blocks.end != pool->blocks.cap) {
+                if (pool->blocks.end) *pool->blocks.end = start;
+                pool->blocks.end++;
+            } else {
+                func_001CAED8(&pool->blocks, pool->blocks.end, &start);
+            }
+            count = (unsigned)(pool->free.end - pool->free.begin);
+            capacity = (unsigned)(pool->free.cap - pool->free.begin);
+            n_cap = count + 64;
+            if (capacity < n_cap) {
+                old = pool->free.begin;
+                end = pool->free.end;
+                mem2 = 0;
+                bytes = n_cap * 4;
+                if (n_cap) {
+                    if (bytes) {
+                        mem2 = (void **)func_002B1FC0(bytes);
+                        if (!mem2) mem2 = (void **)func_003D2910(bytes);
+                    } else {
+                        mem2 = &D_0040E618[-1];
+                        if (mem2) D_0040E618[-1] = *mem2;
+                        else mem2 = (void **)func_00152D28(0);
+                    }
                 }
-                D_00426754.f10 = (u32)((char *)&D_00426754.f10 + 4);
+                func_003F93CC(mem2, old, (end - old) * 4);
+                if (capacity) {
+                    if (capacity * 4) func_002B2028(old);
+                    else { *old = D_0040E618[-1]; D_0040E618[-1] = old; }
+                }
+                pool->free.cap = (void **)((char *)mem2 + bytes);
+                pool->free.end = mem2 + count;
+                pool->free.begin = mem2;
             }
-            func_001CAED8((u32 *)&D_00426754.f1C, a3);
-        }
-
-        d1 = ((s32)D_00426750.f8 - (s32)D_00426750.f4) >> 2;
-        d2 = ((s32)D_00426750.fC - (s32)D_00426750.f4) >> 2;
-        limit = d1 + 0x40;
-
-        if (d2 < limit) {
-            alloc = NULL;
-            size = limit << 2;
-            if (size) {
-                alloc = func_002B1FC0(size);
-                if (!alloc) alloc = func_003D2910(size);
+            for (i = 0; i < 64; i++) {
+                void *tmp = start + i * 64;
+                if (pool->free.end != pool->free.cap) {
+                    if (pool->free.end) *pool->free.end = tmp;
+                    pool->free.end++;
+                } else {
+                    func_001CAED8(&pool->free, pool->free.end, &tmp);
+                }
             }
-            func_003F93CC(alloc, d1, (u32 *)D_00426750.f4, d2);
-            if (d2) func_002B2028(D_0040E618, d2 << 2);
-            D_00426750.fC = D_00426750.f4 + d1;
-            D_00426750.f4 = D_00426750.f4 + d2;
-            D_00426750.f0 = (u32)alloc;
         }
-
-        for (i = 0; i < 64; i++) {
-            f8 = (u32 *)D_00426750.f8;
-            fC = (u32 *)D_00426750.fC;
-            off = i * 64;
-            if (f8 != fC) {
-                if (f8) *f8 = off;
-                D_00426750.f8 = D_00426750.f4 + d1;
-            }
-            func_001CAED8((u32 *)&D_00426750.f4, (u32 *)off);
+        y = *--pool->free.end;
+        if (pool->used.end != pool->used.cap) {
+            if (pool->used.end) *pool->used.end = y;
+            pool->used.end++;
+        } else {
+            func_001CAED8(&pool->used, pool->used.end, &y);
         }
-
-        cur = *a0;
-        head = *cur;
-    } while (head != cur);
+        
+        if (v2->end != v2->cap) {
+            if (v2->end) *v2->end = x;
+            v2->end++;
+        } else {
+            func_001CAED8(v2, v2->end, &x);
+        }
+        if (v3->end != v3->cap) {
+            if (v3->end) *v3->end = y;
+            v3->end++;
+        } else {
+            func_001CAED8(v3, v3->end, &y);
+        }
+        
+        *(void **)((char *)item + 0x30) = x;
+        *(void **)((char *)item + 0x34) = y;
+        
+        n = n->next;
+    } while (n != *list);
 }

@@ -1,0 +1,63 @@
+extern void *D_002AD408(u32);
+extern void *func_0016DBF0(void *);
+extern void func_00172B70(void *, s32);
+extern void func_00172D78(void *, s32);
+extern void func_00172FC0(void *, s32);
+extern void func_001733E0(void *);
+extern void func_00173B68(void *);
+extern void *func_00197F48(void *);
+extern void func_001D4040(char *, const char *);
+extern f32 func_001E3610(s32, char *);
+extern s32 func_001E3650(s32, char *);
+extern s32 func_001E4280(void);
+extern s32 func_0021E9C0(s32, void *);
+extern s32 func_0021F4B0(void);
+extern void *func_0023A4E8(void *);
+extern void *func_0023B738(void *);
+extern void *func_0023C6F8(void *);
+extern void *func_00241950(void *);
+extern void *func_00259320(void *);
+extern void *func_0025C808(void *);
+extern void *func_0025DEB0(void *);
+extern void *func_0025E8A0(void *);
+extern s32 D_0040E750;
+extern char D_0044ECE8[], D_0044FC48[];
+
+typedef struct {
+    char pad0[0xC]; f32 fC; s32 f10; char pad14[0x18];
+    s32 f2C, f30, f34, f38, f3C, f40, f44, f48, f4C, f50;
+    s32 f54, f58, f5C, f60, f64, f68, f6C, f70;
+} A;
+
+void func_00172DD8(A *arg0) {
+    char buf[16];
+    s32 id1, id2, id3, n, i;
+    s32 *g = &D_0040E750;
+    A *a = arg0;
+    a->fC = 1.0f;
+    a->f10 = *g;
+    a->f2C = (s32)func_0023A4E8(D_002AD408(0x28));
+    a->f30 = (s32)func_0023B738(D_002AD408(0xC));
+    a->f34 = (s32)func_0016DBF0(D_002AD408(0x60));
+    a->f38 = (s32)func_00259320(D_002AD408(1));
+    a->f3C = (s32)func_0025C808(D_002AD408(0xAC));
+    a->f40 = (s32)func_0023C6F8(D_002AD408(0xBC));
+    a->f44 = (s32)func_00241950(D_002AD408(1));
+    a->f48 = (s32)func_0025DEB0(D_002AD408(0xA4));
+    a->f4C = (s32)func_0025E8A0(D_002AD408(1));
+    a->f50 = (s32)func_00197F48(D_002AD408(0xC));
+    a->f54 = 0; a->f58 = 0; a->f5C = 0; a->f60 = 0;
+    a->f64 = 0; a->f68 = 0; a->f6C = 0; a->f70 = 0;
+    id1 = func_001E4280();
+    func_001D4040(buf, D_0044FC48);
+    a->fC = func_001E3610(id1, buf);
+    id2 = func_001E4280();
+    func_001D4040(buf, D_0044ECE8);
+    n = func_001E3650(id2, buf);
+    id3 = func_0021F4B0();
+    func_00172B70(a, func_0021E9C0(id3, g));
+    for (i = 0; i < n; i++) func_00172FC0(a, i);
+    func_00172D78(a, i);
+    func_001733E0(a);
+    func_00173B68(a);
+}

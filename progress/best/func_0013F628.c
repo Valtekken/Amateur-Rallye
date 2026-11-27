@@ -1,0 +1,23 @@
+typedef struct {char pad[12];int a;} Obj;
+typedef struct {void **begin,**end,**cap;} V;
+extern void *D_002AD408(int),*func_0017E620(void);
+extern int func_0011DA70(void*,int),func_00297500(void);
+extern volatile unsigned char func_001D2458(void*,const char*);
+extern void D_002AD390(void*),func_00297398(int,int),func_001D2488(void*,void*),func_001535C8(V*,void*,void*),func_001D4040(void*,const char*),func_001E4040(int,void*,void*),func_001E3EC0(int,void*,int),func_001E3D10(int,void*,int),func_0013F9C0(Obj*);
+extern char D_0044B7F8[],D_0044B828[],D_00445A10[];
+void func_0013F628(Obj *o){int sp[4],x;V *v;void *obj,*vt;char *(*fn)(void*,int,int);void **p;
+o->a=func_0011DA70(D_002AD408(16),41);func_00297398(func_00297500(),1);
+v=D_002AD408(12);v->begin=0;v->end=0;v->cap=0;
+obj=func_0017E620();vt=*(void**)obj;fn=*(char *(**)(void*,int,int))((char*)vt+44);
+func_001D2458(sp,fn((char*)obj+*(s16*)((char*)vt+40),7,2));
+p=v->end;if(v->end!=v->cap){if(v->end)func_001D2488(v->end,sp);v->end++;}else func_001535C8(v,v->end,sp);
+D_002AD390((void*)sp[0]);
+obj=func_0017E620();vt=*(void**)obj;fn=*(char *(**)(void*,int,int))((char*)vt+44);
+func_001D2458(sp,fn((char*)obj+*(s16*)((char*)vt+40),7,3));
+p=v->end;if(v->end!=v->cap){if(v->end)func_001D2488(v->end,sp);v->end++;}else func_001535C8(v,v->end,sp);
+D_002AD390((void*)sp[0]);
+x=func_001E4280();func_001D4040(sp,D_0044B7F8);func_001E4040(x,sp,v);
+x=func_001E4280();func_001D4040(sp,D_0044B828);func_001E3EC0(x,sp,1);
+func_0013F9C0(o);
+x=func_001E4280();func_001D4040(sp,D_00445A10);func_001E3D10(x,sp,1);
+}

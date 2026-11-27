@@ -6,13 +6,13 @@ extern u32 D_0040E658[];
 extern u32 D_00486D18[];
 extern s32 func_00151930(void *);
 
-typedef struct 
+typedef struct
 {
   u32 str;
   s32 refs;
 } Entry;
 
-typedef struct 
+typedef struct
 {
   s32 *map;
   s32 p1;
@@ -31,7 +31,7 @@ typedef struct
 
 extern Registry D_004262D0;
 
-typedef struct 
+typedef struct
 {
   char pad[8];
   s16 adjust;
@@ -39,13 +39,13 @@ typedef struct
   void (*destroy)(void *, s32);
 } Vtable;
 
-typedef struct 
+typedef struct
 {
   s32 refs;
   Vtable *vt;
 } Ref;
 
-typedef struct 
+typedef struct
 {
   s32 id;
   s32 p1;
@@ -129,22 +129,20 @@ void func_00384628(Obj *self, s32 flags)
 
   self->vt = D_00486D18;
 
-  s32 id = self->id;
-  if (id >= 0)
+  if (self->id >= 0)
   {
     Registry *r = &D_004262D0;
-    s32 offset = id << 2;
-    s32 *p = (s32 *)((char *)r->map + offset);
+    s32 *p = &r->map[self->id];
     Entry *e = r->entries + (*p);
     if ((--e->refs) == 0)
     {
-      s32 oldid = id;
-      s32 idx = r->map[oldid];
+      s32 oldid = self->id;
       s32 last = r->count - 1;
+      s32 idx = r->map[self->id];
       r->count = last;
-      Entry *dst = r->entries + idx;
       if (idx != last)
       {
+        Entry *dst = r->entries + idx;
         s32 moved = r->reverse[last];
         Entry *src = r->entries + last;
         assign(dst, src);
@@ -156,8 +154,8 @@ void func_00384628(Obj *self, s32 flags)
       entryinit(&temp);
       assign(dst2, &temp);
       drop(temp.str);
-      self->id = -1;
       append(&r->begin, &oldid);
+      self->id = -1;
     }
   }
 

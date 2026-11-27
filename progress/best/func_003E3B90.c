@@ -1,0 +1,1 @@
+void func_003E3B90(void *a){int i,j; short *d=*(short **)a; unsigned char *p=*(unsigned char **)((char *)a+20),*q=*(unsigned char **)((char *)a+24); int stride=*(int *)((char *)a+16), rows=*(int *)((char *)a+8); for(j=0;j<2;j++) for(i=0;i<rows;i++){int k; for(k=0;k<8;k++)d[k]=(d[k]+((p[k]+p[k+1]+q[k]+q[k+1]+2)>>2)+1)>>1;p+=stride;q+=stride;d+=stride;}}

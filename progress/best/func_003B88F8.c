@@ -1,51 +1,58 @@
-/* machine draft (m2c) for ee-gcc-2.95.2 -O2 -G0, tried by autopilot */
-#ifndef M2C_DEFINES
-#define M2C_DEFINES
-typedef s32 M2C_UNK;
-typedef s8 M2C_UNK8;
-typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-#define M2C_ERROR(desc) (0)
-#define M2C_CARRY 0
-#define M2C_OVERFLOW(a) (0)
-#endif
+typedef struct NodeSub {
+    void *ptr;
+    s32 count;
+    s32 index;
+} NodeSub;
+
+typedef struct Node {
+    struct Node *next;
+    struct Node *unk04;
+    NodeSub sub;
+} Node;
+
+typedef struct Pool {
+    u8 pad[0x44];
+    Node *end;
+} Pool;
+
+typedef struct Frame {
+    Node *cur;
+    char pad[0xC];
+    Node *end;
+} Frame;
 
 s32 func_003B88F8(void *arg0) {
-    void *sp0;
-    void **sp10;
-    s32 temp_2_2;
-    s32 temp_3;
-    void **temp_2;
-    void **temp_2_3;
-    void *temp_3_2;
-    void *temp_3_3;
-    void *temp_3_4;
+    Frame fr;
+    Node *cur;
+    Node *end;
 
-    temp_2 = M2C_FIELD(arg0, void ***, 0x44);
-    temp_3_2 = *temp_2;
-    sp10 = temp_2;
-    sp0 = temp_3_2;
-    if (temp_3_2 != temp_2) {
-loop_1:
-        temp_3_3 = sp0 + 8;
-        temp_2_2 = M2C_FIELD(temp_3_3, s32 *, 4);
-        if (temp_2_2 > 0) {
-            M2C_FIELD(temp_3_3, s32 *, 4) = (s32) (temp_2_2 - 1);
-            temp_3 = M2C_FIELD(sp0, s32 *, 0x10);
-            M2C_FIELD(sp0, s32 *, 0x10) = (s32) (temp_3 + 1);
-            return M2C_FIELD(sp0, s32 *, 8) + (temp_3 * 4);
-        }
-        temp_3_4 = M2C_FIELD(sp0, void **, 0);
-        temp_2_3 = M2C_FIELD(arg0, void ***, 0x44);
-        sp0 = temp_3_4;
-        sp10 = temp_2_3;
-        if (temp_3_4 == temp_2_3) {
-            goto loop_4;
-        }
-        goto loop_1;
+    end = ((Pool *)arg0)->end;
+    cur = end->next;
+    fr.end = end;
+    fr.cur = cur;
+    if (fr.cur == fr.end) goto infinite;
+
+loop:
+    cur = fr.cur;
+    {
+        Node *n = cur;
+        NodeSub *sub = &n->sub;
+        s32 cnt = sub->count;
+        if (cnt <= 0) goto notfound;
+        cnt--;
+        sub->count = cnt;
+        return (s32)((u8 *)n->sub.ptr + (n->sub.index++ << 2));
     }
-loop_4:
-    goto loop_4;
+
+notfound:
+    cur = cur->next;
+    fr.cur = cur;
+    end = ((Pool *)arg0)->end;
+    fr.end = end;
+    if (fr.cur != fr.end) goto loop;
+
+infinite:
+    for (;;) {
+    }
+    return 0;
 }

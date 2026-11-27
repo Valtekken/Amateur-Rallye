@@ -32,7 +32,7 @@ s32 func_00236518(u32 *arg0, f32 *arg1)
       do
       {
         f32 dist = (((p->x * v0) + (p->y * v1)) + (p->z * v2)) + p->w;
-        s32 side = new_var2;
+        s32 side = 0;
         if (th <= dist)
         {
           side = 1;

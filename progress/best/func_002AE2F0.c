@@ -1,0 +1,2 @@
+typedef struct {u64 words[94];} Frame; extern void *(*D_00426AC4)(void);extern void func_002AD758(void);extern void *func_002AFB50(void*,void*);extern void *func_002ADFC0(void*,int,void*,void*);
+void *func_002AE2F0(void){Frame scratch,copy,*p;void *state=D_00426AC4();void **slot=(void**)&scratch; int n=0;if(!*(int*)((char*)state+8))func_002AD758();p=func_002AFB50((void*)func_002AE2F0,slot);if(!p){func_002AD758();p=(Frame*)slot;}p->words[0]=(u32)&state;copy=*p;func_002ADFC0(state,n-1,&copy,&slot);return state;}

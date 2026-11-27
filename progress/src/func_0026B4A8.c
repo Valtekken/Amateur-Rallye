@@ -1,0 +1,20 @@
+typedef struct { int v[4]; } Ctx;
+extern void func_001E2460(void *),func_001E2470(void *,const char *,void *),func_001E25B0(void *,const char *,void *),func_001E2510(void *,const char *,void *);
+extern const char D_00479EB0[],D_00479EC0[],D_00479ED0[],D_00479EE0[],D_00479EF8[],D_00479F10[],D_00479F20[],D_00479F30[],D_00479F40[],D_00479F50[],D_00479F60[],D_00479F70[],D_00479F80[],D_00479F90[],D_00479FA0[];
+void func_0026B4A8(char *o){ Ctx c; func_001E2460(&c);
+func_001E2470(&c,D_00479EB0,o+8);
+func_001E2470(&c,D_00479EC0,o+12);
+func_001E2470(&c,D_00479ED0,o+16);
+func_001E2470(&c,D_00479EE0,o+20);
+func_001E2470(&c,D_00479EF8,o+24);
+func_001E25B0(&c,D_00479F10,o+28);
+func_001E25B0(&c,D_00479F20,o+32);
+func_001E25B0(&c,D_00479F30,o+36);
+func_001E25B0(&c,D_00479F40,o+40);
+func_001E25B0(&c,D_00479F50,o+44);
+func_001E25B0(&c,D_00479F60,o+48);
+func_001E25B0(&c,D_00479F70,o+52);
+func_001E25B0(&c,D_00479F80,o+56);
+func_001E2510(&c,D_00479F90,o+60);
+func_001E2510(&c,D_00479FA0,o+64);
+}

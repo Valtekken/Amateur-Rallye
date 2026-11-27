@@ -1,0 +1,1 @@
+int func_003FA9B8(const char *s) { const char *p=s; if (!((unsigned int)p&7)) { unsigned long long v=*(const unsigned long long *)p; while (!((v-0x0101010101010101ULL)&~v&0x8080808080808080ULL)) { p+=8; v=*(const unsigned long long *)p; } } while (*p) p++; return p-s; }

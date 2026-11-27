@@ -11,16 +11,16 @@ void func_0016D178(void *arg0, f32 *arg1) {
 
 void func_0016DF68(void *arg0, s32 arg1) {
     s32 sp0 = arg1;
-    void *t = (char *)arg0 + 0x2C;
-    s32 *a = *(s32 **)((char *)t + 4);
-    s32 *b = *(s32 **)((char *)t + 8);
-    if (a == b) {
-        func_001C6B58(t, a, &sp0);
+    typedef struct {
+        s32 *a;
+        s32 *b;
+    } Vec2;
+    Vec2 *t = (Vec2 *)((char *)arg0 + 0x2C);
+    if (t->a != t->b) {
+        if (t->a) *t->a = arg1;
+        t->a++;
     } else {
-        if (a != NULL) {
-            *a = arg1;
-        }
-        *(s32 **)((char *)t + 4) = (s32 *)((char *)a + 4);
+        func_001C6B58(t, t->a, &sp0);
     }
     func_0016E1D8(arg0);
     func_0016F2F0(arg0, sp0);

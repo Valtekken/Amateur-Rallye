@@ -1,0 +1,3 @@
+extern int func_003A5788(void *,void *),func_003A90D0(void *,int,int),func_003AF8B8(void *); extern char func_003AF8F0(int);
+extern void func_003AF848(void *,int,int),func_003AF948(void *,int),func_003A9098(void *,void *),func_003AF9A8(void *,int,void *),func_003AFA28(void *,int,void *,void *),func_003F94D0(void *,int,int);
+int func_003A9178(int a,int b){int x[4],y[4],z[4],r[4],t[4],u[4],v[4]; int ok=0; func_003AF848(x,a,b); func_003AF948(y,a); if(func_003A5788(x,y))ok=1; else {*(char*)z=func_003AF8F0(a); if(func_003A90D0(z,b,func_003AF8B8(x)))ok=1;} if(ok){func_003A9098(t,x);func_003F94D0(v,0,8);func_003AF9A8(u,b,v);func_003AFA28(r,a,t,u);x[0]=r[0];}return func_003AF8B8(x)+4;}

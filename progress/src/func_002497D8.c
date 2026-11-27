@@ -1,0 +1,2 @@
+extern void func_00239848(void *),func_00248920(void *,int,int,int,void *),func_00248ED8(void *,void *),func_002498E0(void *,void *),func_003F93CC(void *,void *,int);
+void func_002497D8(char *a,int b,int c,int d){void **v=(void**)(a+0x18); char *end=v[1],*start=v[0];int i=0,n;func_003F93CC(start,end,0);v[1]=(char*)v[1]-(end-start);func_00248920(a,b,c,d,v);func_00248ED8(a,v);n=((char*)v[1]-(char*)v[0])>>2;while(i<n){char *q=v[0]; void *p; q+=i*4; p=*(void**)q;i++;if(p)func_00239848(p);}func_002498E0(a,a+0x18);}

@@ -16,8 +16,8 @@ f32 func_001D5E70(s32, M2C_UNK, M2C_UNK);           /* extern */
 s32 func_001D5F70();                                /* extern */
 M2C_UNK func_00221048(void *);                      /* extern */
 M2C_UNK func_0026DFC8(void *, u32, s32, M2C_UNK *); /* extern */
-f32 func_003F3E80(f32);                             /* extern */
 M2C_UNK func_003F96E8(M2C_UNK);                     /* extern */
+f32 sqrtf(f32);                                     /* extern */
 extern M2C_UNK D_004922F8;
 extern M2C_UNK D_00492EF8;
 extern f32 D_00493B18;
@@ -93,7 +93,7 @@ loop_4:
         M2C_ERROR(/* unknown instruction: c1 0xc0004 */);
         sp14 = temp_f20;
         if (var_f0 != var_f0) {
-            var_f0 = func_003F3E80((temp_f21 * temp_f21) + (temp_f20 * temp_f20) + (var_f0 * var_f0));
+            var_f0 = sqrtf((temp_f21 * temp_f21) + (temp_f20 * temp_f20) + (var_f0 * var_f0));
         }
         if (var_f0 <= 1.0f) {
             var_16_2 = 1;
@@ -123,7 +123,7 @@ loop_12:
         M2C_ERROR(/* unknown instruction: c1 0xc0004 */);
         sp14 = temp_f20_2;
         if (var_f0_2 != var_f0_2) {
-            var_f0_2 = func_003F3E80((temp_f21_2 * temp_f21_2) + (temp_f20_2 * temp_f20_2) + (var_f0_2 * var_f0_2));
+            var_f0_2 = sqrtf((temp_f21_2 * temp_f21_2) + (temp_f20_2 * temp_f20_2) + (var_f0_2 * var_f0_2));
         }
         if (var_f0_2 <= 1.0f) {
             var_16_3 = 1;
@@ -136,7 +136,7 @@ loop_12:
         if (!(temp_f12 <= 1.1920929e-7f)) {
             M2C_ERROR(/* unknown instruction: c1 0xc0004 */);
             if (var_f0_3 != var_f0_3) {
-                var_f0_3 = func_003F3E80(temp_f12);
+                var_f0_3 = sqrtf(temp_f12);
             }
             temp_f1 = 1.0f / var_f0_3;
             sp10 *= temp_f1;

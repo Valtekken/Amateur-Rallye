@@ -1,40 +1,33 @@
-extern void D_002AD390(s32);
-extern void func_00127A60(void);
+extern void D_002AD390(void *);
+extern void func_00127A60(void *);
 extern void *func_0017E620(void);
-extern void func_001D2458(void *, char *);
+extern volatile unsigned char func_001D2458(void *, const char *);
 extern void func_001E3FE0(s32, void *, void *);
 extern char D_004486D8[];
-typedef struct 
-{
-  s32 unk0;
-  s32 unk4;
-  s32 unk8;
-  s32 unkC;
-} StringObj;
-void func_001286E8(s32 *arg0)
-{
-  StringObj sp0;
-  StringObj sp10;
-  s32 temp;
-  void **obj;
-  StringObj *new_var;
-  s32 *vptr;
-  char *str;
-  func_00127A60();
-  arg0[0x38 / 4] = 0;
-  arg0[0x30 / 4] = 1;
-  arg0[0x28 / 4] = 1;
-  temp = func_001E4280();
-  func_001D2458(&sp0, D_004486D8);
-  new_var = &sp10;
-  obj = func_0017E620();
-  vptr = *obj;
-  str = ((char *(*)(void *, s32, s32)) vptr[0x2C / 4])(((u8 *) obj) + (*((s16 *) (((u8 *) vptr) + 0x28))), 0x2D2, 2);
-  func_001D2458(&sp10, str);
-  func_001E3FE0(temp, &sp0, new_var);
-  D_002AD390(sp10.unk0);
-  D_002AD390(sp0.unk0);
-}
+extern s32 func_001E4280(void);
+void func_001286E8(void *arg0) {
+    s32 sp0[4];
+    s32 sp10[4];
+    s32 temp;
+    void **obj;
+    void *vtable;
+    char *(*fn)(void *, s32, s32);
+    void *sp10p;
+    char *str;
 
-void func_00128648(s32 *arg0);
-void func_001285B0(s32 *arg0);
+    func_00127A60(arg0);
+    ((s32 *)arg0)[0x38 / 4] = 0;
+    ((s32 *)arg0)[0x30 / 4] = 1;
+    ((s32 *)arg0)[0x28 / 4] = 1;
+    temp = func_001E4280();
+    func_001D2458(sp0, D_004486D8);
+    sp10p = sp10;
+    obj = (void **)func_0017E620();
+    vtable = *obj;
+    fn = *(char *(**)(void *, s32, s32))((u8 *)vtable + 0x2C);
+    str = fn((u8 *)obj + *(s16 *)((u8 *)vtable + 0x28), 0x2D2, 2);
+    func_001D2458(sp10p, str);
+    func_001E3FE0(temp, sp0, sp10);
+    D_002AD390((void *)sp10[0]);
+    D_002AD390((void *)sp0[0]);
+}

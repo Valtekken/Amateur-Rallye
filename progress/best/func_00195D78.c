@@ -1,0 +1,46 @@
+extern void func_00195C68(void *, s32, f32);
+
+void func_00195D78(void *arg0) {
+    f32 f20;
+    *(s32 *)&f20 = 0x44160000;
+    func_00195C68(arg0, 0xA, f20);
+    func_00195C68(arg0, 0xB, f20);
+    func_00195C68(arg0, 0xC, f20);
+    func_00195C68(arg0, 0xD, f20);
+    func_00195C68(arg0, 0xE, f20);
+    func_00195C68(arg0, 0xF, f20);
+    func_00195C68(arg0, 0x10, f20);
+    func_00195C68(arg0, 0x11, f20);
+    func_00195C68(arg0, 0x12, f20);
+    func_00195C68(arg0, 0x13, f20);
+    func_00195C68(arg0, 0x14, f20);
+    func_00195C68(arg0, 0x15, f20);
+    func_00195C68(arg0, 0x16, f20);
+    func_00195C68(arg0, 0x17, f20);
+    func_00195C68(arg0, 0x18, f20);
+    func_00195C68(arg0, 0x27, f20);
+    func_00195C68(arg0, 0, f20);
+    func_00195C68(arg0, 1, f20);
+    func_00195C68(arg0, 2, f20);
+    func_00195C68(arg0, 3, f20);
+    func_00195C68(arg0, 4, f20);
+    func_00195C68(arg0, 5, f20);
+    func_00195C68(arg0, 6, f20);
+    func_00195C68(arg0, 7, f20);
+    func_00195C68(arg0, 8, f20);
+    func_00195C68(arg0, 9, f20);
+    func_00195C68(arg0, 0x19, f20);
+    func_00195C68(arg0, 0x1A, f20);
+    func_00195C68(arg0, 0x1B, f20);
+    func_00195C68(arg0, 0x1C, f20);
+    func_00195C68(arg0, 0x1D, f20);
+    func_00195C68(arg0, 0x1E, f20);
+    func_00195C68(arg0, 0x1F, f20);
+    func_00195C68(arg0, 0x20, f20);
+    func_00195C68(arg0, 0x21, f20);
+    func_00195C68(arg0, 0x22, f20);
+    func_00195C68(arg0, 0x23, f20);
+    func_00195C68(arg0, 0x24, f20);
+    func_00195C68(arg0, 0x25, f20);
+    func_00195C68(arg0, 0x26, f20);
+}

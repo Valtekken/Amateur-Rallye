@@ -1,4 +1,4 @@
-/* machine draft (m2c) for ee-gcc-2.95.2 -O2 -G0 -fno-schedule-insns, tried by autopilot */
+/* machine draft (m2c) for ee-gcc-2.95.2 -O2 -G0, tried by autopilot */
 #ifndef M2C_DEFINES
 #define M2C_DEFINES
 typedef s32 M2C_UNK;
@@ -14,7 +14,7 @@ typedef s32 M2C_UNK32;
 
 s32 func_00227850();                                /* extern */
 void *func_00227880(s32, s32);                      /* extern */
-f32 func_003F3E80(f32);                             /* extern */
+f32 sqrtf(f32);                                     /* extern */
 extern f32 D_004264A0;
 
 s32 func_00227958(s32 arg0) {
@@ -50,7 +50,7 @@ loop_4:
             var_f0 = temp_f1 * temp_f1;
             M2C_ERROR(/* unknown instruction: c1 0xc0004 */);
             if (var_f0 != var_f0) {
-                var_f0 = func_003F3E80((temp_f0 * temp_f0) + (temp_f2 * temp_f2) + var_f0);
+                var_f0 = sqrtf((temp_f0 * temp_f0) + (temp_f2 * temp_f2) + var_f0);
             }
             var_2_2 = 1;
             if (!(fabsf(var_f0) < D_004264A0)) {

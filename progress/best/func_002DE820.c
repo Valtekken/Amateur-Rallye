@@ -126,7 +126,7 @@ u32 func_002DE820(struct S_buf *arg0, u32 arg1, u32 arg2, struct S_arg3 *arg3) {
     }
     temp_4 = func_002DE728(arg0->unk0, arg1, var_16, 0);
     temp_19 = func_002DE7D0(arg0->unk4, arg1, temp_4, 0);
-    temp_4 = func_002DE728(arg0->unk4, arg1, temp_19, 0);
+    temp_4 = func_002DE728(arg1, arg0->unk4, temp_19, 0);
     temp_3 = arg0->unk0;
     if (temp_3 < temp_4) {
         var_3 = temp_3 + 0x30;

@@ -1,0 +1,58 @@
+extern void *D_002AD408(s32);
+extern void *func_0011DA70(void *);
+extern s32 func_00194C40(void *, s32);
+extern void func_00194BB0(s32, s32);
+extern void D_002AD390(void *);
+extern void func_00129530(void *);
+extern void func_00129038(void *);
+extern void func_00129068(void *);
+extern void func_003F9698(char *);
+extern void *func_0017E620(void);
+extern volatile unsigned char func_001D2458(void *, const char *);
+extern void func_001E3FE0(s32, void *, void *);
+extern char D_004486D8[];
+extern char D_00448BF8[];
+extern char D_00444878[];
+extern char D_00448C20[];
+
+void func_00128E40(void *arg0) {
+    s32 sp0[4];
+    s32 sp10[4];
+    s32 sp20[4];
+    s32 k;
+    void **obj;
+    void *vtable;
+    char *(*fn)(void *, s32, s32);
+    void *sp10p;
+    void *sp20p;
+    char *str;
+    void *h;
+    s32 r;
+
+    h = func_0011DA70(D_002AD408(0x10));
+    r = func_00194C40(h, 0x1A);
+    ((s32 *)arg0)[0xC / 4] = r;
+    func_00194BB0(r, 0);
+    k = func_001E4280();
+    func_001D2458(sp0, D_004486D8);
+    sp10p = sp10;
+    obj = (void **)func_0017E620();
+    vtable = *obj;
+    fn = *(char *(**)(void *, s32, s32))((u8 *)vtable + 0x2C);
+    str = fn((u8 *)obj + *(s16 *)((u8 *)vtable + 0x28), 0x2D5, 0);
+    func_001D2458(sp10p, str);
+    func_001E3FE0(k, sp0, sp10);
+    D_002AD390((void *)sp10[0]);
+    D_002AD390((void *)sp0[0]);
+    k = func_001E4280();
+    func_001D2458(sp0, D_00448BF8);
+    sp20p = sp20;
+    func_001D2458(sp20p, D_00444878);
+    func_001E3FE0(k, sp0, sp20);
+    D_002AD390((void *)sp20[0]);
+    D_002AD390((void *)sp0[0]);
+    func_00129530(arg0);
+    func_00129038(arg0);
+    func_003F9698(D_00448C20);
+    func_00129068(arg0);
+}

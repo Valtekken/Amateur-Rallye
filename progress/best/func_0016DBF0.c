@@ -1,58 +1,65 @@
-/* machine draft (m2c) for ee-gcc-2.95.2 -O2 -G0, tried by autopilot */
-#ifndef M2C_DEFINES
-#define M2C_DEFINES
-typedef s32 M2C_UNK;
-typedef s8 M2C_UNK8;
-typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-#define M2C_ERROR(desc) (0)
-#define M2C_CARRY 0
-#define M2C_OVERFLOW(a) (0)
-#endif
-
 extern f32 D_00479C98;
 extern f32 D_00479C9C;
 
-void *func_0016DBF0(void *arg0) {
-    void *temp_2;
-    void *temp_3;
-    void *temp_5;
-    void *temp_6;
-    void *temp_7;
-    void *temp_8;
+typedef struct {
+    s32 f00;
+    s32 f04;
+    s32 f08;
+    s32 f0C;
+    s32 f10;
+    s32 f14;
+    s32 f18;
+    s32 f1C;
+    s32 f20;
+    s32 f24;
+    s32 f28;
+    s32 f2C;
+    s32 f30;
+    s32 f34;
+    s32 f38;
+    s32 f3C;
+    s32 f40;
+    s32 f44;
+    s32 f48;
+    s32 f4C;
+    f32 f50;
+    f32 f54;
+    s32 f58;
+    s32 f5C;
+} S_0016DBF0;
 
-    M2C_FIELD(arg0, s32 *, 0) = 0;
-    temp_2 = arg0 + 8;
-    M2C_FIELD(arg0, s32 *, 4) = 0;
-    temp_3 = arg0 + 0x14;
-    M2C_FIELD(arg0, s32 *, 8) = 0;
-    temp_5 = arg0 + 0x20;
-    M2C_FIELD(temp_2, s32 *, 8) = 0;
-    temp_6 = arg0 + 0x2C;
-    M2C_FIELD(temp_2, s32 *, 4) = 0;
-    M2C_FIELD(arg0, s32 *, 0x14) = 0;
-    M2C_FIELD(temp_3, s32 *, 8) = 0;
-    temp_7 = arg0 + 0x38;
-    M2C_FIELD(temp_3, s32 *, 4) = 0;
-    temp_8 = arg0 + 0x44;
-    M2C_FIELD(arg0, s32 *, 0x20) = 0;
-    M2C_FIELD(temp_5, s32 *, 8) = 0;
-    M2C_FIELD(temp_5, s32 *, 4) = 0;
-    M2C_FIELD(arg0, s32 *, 0x2C) = 0;
-    M2C_FIELD(temp_6, s32 *, 8) = 0;
-    M2C_FIELD(temp_6, s32 *, 4) = 0;
-    M2C_FIELD(arg0, s32 *, 0x38) = 0;
-    M2C_FIELD(temp_7, s32 *, 8) = 0;
-    M2C_FIELD(temp_7, s32 *, 4) = 0;
-    M2C_FIELD(arg0, s32 *, 0x44) = 0;
-    M2C_FIELD(temp_8, s32 *, 8) = 0;
-    M2C_FIELD(temp_8, s32 *, 4) = 0;
-    M2C_FIELD(arg0, f32 *, 0x50) = (f32) (D_00479C98 * D_00479C9C);
-    M2C_FIELD(arg0, f32 *, 0x54) = 0.00001f;
-    M2C_FIELD(arg0, s32 *, 0x5C) = -1;
-    M2C_FIELD(arg0, s32 *, 0x58) = -1;
-    M2C_FIELD(arg0, s32 *, 0) = 0;
-    return arg0;
+static inline void zero3(s32 *v) {
+    v[2] = (v[1] = 0);
+}
+
+S_0016DBF0 *func_0016DBF0(S_0016DBF0 *a0) {
+    volatile int stack[24];
+    s32 *p8 = (s32 *)((u8 *)a0 + 8);
+    s32 *p14 = (s32 *)((u8 *)a0 + 0x14);
+    s32 *p20 = (s32 *)((u8 *)a0 + 0x20);
+    s32 *p2C = (s32 *)((u8 *)a0 + 0x2C);
+    s32 *p38 = (s32 *)((u8 *)a0 + 0x38);
+    s32 *p44 = (s32 *)((u8 *)a0 + 0x44);
+    s32 m1 = -1;
+    
+    a0->f00 = 0;
+    a0->f04 = 0;
+    a0->f08 = 0;
+    zero3(p8);
+    a0->f14 = 0;
+    zero3(p14);
+    a0->f20 = 0;
+    zero3(p20);
+    a0->f2C = 0;
+    zero3(p2C);
+    a0->f38 = 0;
+    zero3(p38);
+    a0->f44 = 0;
+    zero3(p44);
+    a0->f50 = D_00479C98 * D_00479C9C;
+    a0->f54 = 0.00001f;
+    a0->f5C = m1;
+    a0->f58 = m1;
+    a0->f00 = 0;
+    return a0;
 }
